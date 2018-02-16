@@ -1,0 +1,25 @@
+# Maintainer: pavbaranov <pavbarano@gmail.com>
+
+pkgname=swapusage
+pkgver=1.1
+pkgrel=1
+pkgdesc="Shows the amount of swapped memory for every process"
+url="https://github.com/hhoffstaette/swapusage"
+arch=('x86_64')
+license=('custom:Apache-2.0')
+depends=('gcc-libs')
+makedepends=('git')
+source=("git+https://github.com/hhoffstaette/swapusage#tag=1.1")
+
+build() {
+	cd $srcdir/$pkgname
+  make
+}
+
+package() {
+  cd "${srcdir}/${pkgname}"
+  install -Dm755 swapusage "${pkgdir}/usr/bin/swapusage"
+  install -Dm655 LICENSE "${pkgdir}/usr/share/licenses/swapusage/LICENSE"
+}
+
+md5sums=('SKIP')
