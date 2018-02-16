@@ -1,0 +1,45 @@
+# Mainainer:   pavbaranov <pavbaranov@gmail.com>
+
+pkgname=nomad-firewall-git
+pkgver=0.1.r58.gdf1ae0e
+pkgrel=1
+pkgdesc="Firewall from Nomad Desktop"
+arch=('i686' 'x86_64')
+url="https://github.com/nomad-desktop/nomad-firewall.git"
+license=('GPL')
+depends=('kdeclarative' 'python')
+makedepends=('extra-cmake-modules' 'git')
+source=("git+https://github.com/nomad-desktop/nomad-firewall.git")
+sha512sums=('SKIP')
+
+pkgver() {
+    cd "$srcdir/nomad-firewall"
+    (
+    set -o pipefail
+    git describe --long --tags 2>/dev/null | sed 's|\([^-]*-g\)|r\1|;s|-|.|g' ||
+        printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    )
+}
+
+prepare() {
+    cd "$srcdir"
+    [[ -d build ]] && rm -rf build
+    mkdir -p build
+}
+
+build() {
+    cd "$srcdir/build"
+
+    cmake "$srcdir/nomad-firewall" \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DLIB_INSTALL_DIR=lib \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DKDE_INSTALL_USE_QT_SYS_PATHS=ON
+
+    make
+}
+
+package() {
+    cd "$srcdir/build"
+    make DESTDIR="$pkgdir" install
+}
