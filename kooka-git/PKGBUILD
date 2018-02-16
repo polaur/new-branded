@@ -1,0 +1,42 @@
+# Maintainer: pavbaranov <pavbaranov@gmail.com>
+ 
+pkgname=kooka-git
+pkgver=r1088.12f2006
+pkgrel=1
+pkgdesc='The scanning application and libkscan library for Plasma 5'
+arch=('x86_64')
+url="https://userbase.kde.org/Kooka"
+license=('GPL3')
+depends=('kio' 'sane' 'libpaper')
+makedepends=('extra-cmake-modules' 'git' 'kdoctools')
+optdepends=('ocrad' 'gocr')
+provides=("${pkgname%-*}")
+conflicts=("${pkgname%-*}")
+replaces=("${pkgname%-*}")
+source=('git+git://anongit.kde.org/kooka.git')
+sha256sums=('SKIP')
+
+pkgver() {
+  cd kooka
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  }
+
+prepare() {
+  mkdir build
+  }
+    
+build() {
+  cd build
+  cmake ../kooka \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DKDE_INSTALL_LIBDIR=lib \
+    -DBUILD_TESTING=OFF
+    
+  make
+  }
+ 
+package() {
+    cd build
+    make DESTDIR="${pkgdir}/" install
+  }
