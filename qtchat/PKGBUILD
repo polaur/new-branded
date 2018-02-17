@@ -1,0 +1,28 @@
+# Maintainer: pavbaranov
+
+pkgname=qtchat
+_pkgname=qtchat
+pkgver=1.0.0
+pkgrel=1
+#_gitver='b73603b45a32e63a649294537a62a9f11176c73d'
+pkgdesc='Serverless LAN chat based on Qt5'
+arch=('i686' 'x86_64')
+url='https://github.com/zuzuf/qtchat'
+license=('GPL3')
+depends=('qt5-base')
+makedepends=('qt5-tools')
+
+source=("qtchat-1.0.0.zip::https://codeload.github.com/zuzuf/qtchat/zip/release_1.0.0")
+sha512sums=('57445a1a3d17453702c16740495190df6f7324b0b14704d73e26388e316bd26014a1de8852e96a6f8b1765be189110ab0785238553137c52a3836c1014c2aff3')
+
+build() {
+  mkdir -p build
+  cd build
+  cmake ../$pkgname-release_$pkgver -DCMAKE_INSTALL_PREFIX=/usr 
+  make
+}
+
+package() {
+  cd build
+  make DESTDIR="$pkgdir" install
+}
