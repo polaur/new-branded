@@ -1,0 +1,16 @@
+# Maintainer : pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=breeze-rainbow-folders
+pkgver=1.1
+pkgrel=1
+pkgdesc="Breeze folder icons that follow the color scheme"
+url="https://kdeonlinux.wordpress.com/2016/08/08/rainbow-folders/"
+license=('GPL2')
+arch=('any')
+source=("https://dl.opendesktop.org/api/files/downloadfile/id/1481497783/s/76358f4040ca1c14b68c583e5a797667/t/1518831256/u//BreezeRainbowFolders.tar.gz")
+md5sums=('aa9f002363d32b50ff36fa5e4530a75c')
+
+package(){
+  mkdir -p $pkgdir/usr/share/icons
+  cp -a $srcdir/BreezeRainbowFolders $pkgdir/usr/share/icons
+}
