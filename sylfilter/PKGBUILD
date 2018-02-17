@@ -1,0 +1,32 @@
+# Maintainer: marcin82 <fixxer1982 at gmail.com>
+
+pkgname=sylfilter
+pkgver=0.8
+pkgrel=1
+pkgdesc='A generic message filter library and command-line tools'
+arch=(x86_64)
+url="http://sylpheed.sraoss.jp/$pkgname"
+license=(BSD)
+depends=(glib2 sqlite sylpheed)
+source=($url/src/$pkgname-$pkgver.tar.gz)
+sha256sums=('aeb8a7a191ae568b0bf21ba695de954b27d6e1e810dde096a196159beceed141')
+
+build() {
+  cd $pkgname-$pkgver
+  ./configure \
+    --prefix=/usr \
+    --with-libsylph=sylpheed \
+    --with-libsylph-dir=/usr \
+    --disable-rpath \
+    --disable-static
+  make
+}
+
+package() {
+  cd $pkgname-$pkgver
+  make DESTDIR="$pkgdir" install
+  install -Dm644 -t "$pkgdir/usr/share/doc/$pkgname" ./{AUTHORS,ChangeLog,NEWS,README}
+  install -Dm644 COPYING "$pkgdir/usr/share/licenses/$pkgname/COPYING"
+}
+
+# vim:set ts=2 sw=2 et:
