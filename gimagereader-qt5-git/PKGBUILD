@@ -1,0 +1,42 @@
+# Maintainer: pavbaranov <pavbaranov@gmail.com> (for qt5, git version)
+# Maintainer: jr <jesrui@posteo.net>
+# Contributor: Tristelune <tristelune@archlinux.info>
+# Contributor: Robert Knauer <robert@privatdemail.net>
+# Contributor: Frederic Bezies <fredbezies@gmail.com>
+# Contributor: tlm
+
+pkgname=gimagereader-qt5-git
+_pkgbase=gImageReader
+pkgver=3.2.3.r261.g34bb9a5
+pkgrel=1
+pkgdesc="A graphical frontend to tesseract-ocr - Qt5 version"
+arch=('i686' 'x86_64')
+url="https://github.com/manisandro/gImageReader"
+license=('GPL3')
+depends=('djvulibre' 'sane' 'podofo' 'tesseract' 'qtspell' 'poppler-qt5' 'quazip')
+makedepends=('desktop-file-utils' 'intltool' 'cmake')
+conflicts=(gimagereader gimagereader-qt5)
+source=("git+https://github.com/manisandro/gImageReader.git")
+sha256sums=('SKIP')
+
+pkgver() {
+	cd gImageReader
+	git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+        }
+
+prepare() {
+	mkdir -p build
+	}
+
+build() {
+  cd build
+
+  cmake -DINTERFACE_TYPE=qt5 -DCMAKE_INSTALL_PREFIX=/usr ../"$_pkgbase"
+
+  make
+  }
+
+package() {
+  cd build
+  make DESTDIR="$pkgdir"/ install
+  }
