@@ -1,0 +1,33 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=kdbg
+pkgver=3.0.0
+pkgrel=1
+pkgdesc="A graphical user interface to gdb"
+arch=('i686' 'x86_64')
+url="https://www.opendesktop.org/s/Linux-Apps/p/1127159/"
+license=('GPL3')
+makedepends=('extra-cmake-modules')
+depends=('kxmlgui' 'hicolor-icon-theme')
+optdepends=('gdb: for functionality')
+source=("https://sourceforge.net/projects/kdbg/files/Source%20Code/$pkgver/$pkgname-$pkgver.tar.gz")
+sha512sums=('6398a7bbb9c744a837dd73645b497ab00eeaca9a326d61b135dc9040c616b4a2bdc0cf1da59c101dc68a159e12bc3b4a994a9d1dbf33f7d152e5c3003abb498a')
+
+prepare() {
+  rm -rf "build"
+  mkdir "build"
+  }
+
+build() {
+  cd build
+  cmake "../$pkgname-$pkgver" \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/usr 
+  make
+  }
+
+package() {
+  cd build
+  make DESTDIR="${pkgdir}" install
+  }
+
