@@ -1,0 +1,27 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=clamav-gui
+_pkgname=ClamAV-GUI
+pkgver=0.4.1
+pkgrel=1
+pkgdesc='Front-end for ClamAV'
+arch=('x86_64')
+url='https://www.opendesktop.org/p/1127892/'
+license=('GPL3')
+depends=('qt5-base' 'hicolor-icon-theme')
+makedepends=()
+optdepends=('clamav: For functionality')
+
+source=("https://dl.opendesktop.org/api/files/downloadfile/id/1466630823/s/27319f2166b19b67fa165985a135f100/t/1519295518/u//170782-ClamAV-GUI-0.4.1.tgz")
+sha512sums=('2f289a1ec91bd56a440ad749bd2e42a3b5d21859d35c2079517ad707fa402ace917cfe5b0c858833bc554015a47efa60cb8e0b69a0efce06350814cd30abc430')
+
+build() {
+  cd $_pkgname
+  qmake PREFIX=/usr clamav-gui.pro
+  make
+}
+
+package() {
+  cd $_pkgname
+  make INSTALL_ROOT="$pkgdir" install
+}
