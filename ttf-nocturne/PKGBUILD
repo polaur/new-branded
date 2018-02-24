@@ -1,0 +1,21 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+pkgname=nocturne-fonts
+
+pkgver=1.0
+pkgrel=1
+pkgdesc=" Font is inspired by the lettering on stone tablets commemorating the victims of World War II, and prewar Jewish shop signage. TTF & OTF"
+arch=(any)
+url="http://kroje.org/en/fonts/nocturne/"
+icense=('custom:SIL-OFL-1.1')
+source=("$pkgname-$pkgver.tar.gz::https://github.com/warszawskie-kroje/nocturne/archive/v$pkgver.tar.gz" 
+"LICENSE")
+sha256sums=('f63b5314ec2a30092e6a0e22c33f35b50c45e3c0500fdce68726f45740beb12f'
+            'a22e755224fbe538e0d2883668938360a1b164a1e38b1b701d73e63e9cbe3a3a')
+                                                                                                                                                                                                                                          
+package() {                                                                                                                                                                                                                                  
+        install -d "${pkgdir}/usr/share/fonts/OTF/"
+        install -d "${pkgdir}/usr/share/fonts/TTF/"
+        install -Dm644 "${srcdir}/nocturne-$pkgver/Nocturne Serif/"*.otf  "${pkgdir}/usr/share/fonts/OTF/"
+        install -Dm644 "${srcdir}/nocturne-$pkgver/Nocturne Serif/"*.ttf "${pkgdir}/usr/share/fonts/TTF/"
+        install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/$pkgname/LICENSE"
+}
