@@ -1,0 +1,34 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=qtrsed-git
+pkgver=r8.37361e1
+pkgrel=1
+pkgdesc="Sed Qt GUI"
+arch=('x86_64')
+url="https://www.opendesktop.org/s/Apps/p/1130808/"
+license=('GPL3')
+depends=('qt5-base')
+makedepends=('git' 'qt5-tools')
+source=("git+https://github.com/jadeatucker/qtrsed")
+sha256sums=('SKIP')
+
+pkgver() {
+	cd ${pkgname%-*}
+	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+	}
+
+build() {
+  cd "${pkgname%-*}"
+
+  mkdir build
+  cd build
+
+  qmake PREFIX=/usr ../
+
+  make
+}
+
+package() {
+  cd "${pkgname%-*}"/build
+  install -Dm755 qtrsed "$pkgdir"/usr/bin/qtrsed
+}
