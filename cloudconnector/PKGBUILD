@@ -1,0 +1,26 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=cloudconnector
+_pkgname=CloudConnector
+pkgver=0.4.2
+pkgrel=1
+pkgdesc="GUI for the Cloud-Services whe use webdav as protocol"
+arch=('x86_64')
+url="https://www.opendesktop.org/s/Apps/p/1128220/"
+license=('GPL3')
+makedepends=('')
+depends=('qt5-base' 'hicolor-icon-theme')
+source=("https://dl.opendesktop.org/api/files/downloadfile/id/1519796235/s/13d89f5e700f9af78e4829422ab406f0/t/1519808421/u//CloudConnector-0.4.2.tgz")
+sha512sums=('ba4662672dd79087b222b26674f756649b71b49365d454abdbd646193c008807e21bc9bb59c0f6d0c18d0b6d9c52bbb1a1430761c3e0ac5d4446f69a6d9905d4')
+
+build() {
+  cd $_pkgname-$pkgver
+  qmake PREFIX=/usr CloudConnector.pro
+  make
+  }
+
+package() {
+  cd $_pkgname-$pkgver
+  make INSTALL_ROOT="${pkgdir}" install
+  }
+
