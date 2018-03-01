@@ -1,7 +1,8 @@
 # Maintainer: pavbaranov <pavbaranov@gmail.com>
+# Maintainer: Piotr Gorski <lucjan.lucjanov@gmail.com>
  
 pkgname=kooka-git
-pkgver=r1088.12f2006
+pkgver=0.61.243.g723404f
 pkgrel=1
 pkgdesc='The scanning application and libkscan library for Plasma 5'
 arch=('x86_64')
@@ -18,11 +19,11 @@ sha256sums=('SKIP')
 
 pkgver() {
   cd kooka
-  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  git describe --long --tags | sed 's/^kooka.//;s/-/./g'
   }
 
 prepare() {
-  mkdir build
+  [ -d build ] || mkdir build
   }
     
 build() {
