@@ -1,8 +1,9 @@
 # Maintainer: pavbaranov <pavbaranov at gmail dot com>
+# Maintainer: Piotr Gorski <lucjan.lucjanov@gmail.com>
 
 pkgname=kopete-git
-pkgver=v17.08.3.308.g22fbfc2f1
-pkgrel=2
+pkgver=17.08.3.309.gdf8093801
+pkgrel=1
 pkgdesc='The KDE Instant Manager (git version based on the KF5)'
 url='https://kde.org/applications/internet/kget/'
 arch=(x86_64)
@@ -19,7 +20,7 @@ sha256sums=('SKIP')
 
 pkgver() {
     cd kopete
-        git describe --always | sed 's|-|.|g'
+    git describe --long --tags | sed 's/^v//;s/-/./g'
     }
 
 prepare() {
