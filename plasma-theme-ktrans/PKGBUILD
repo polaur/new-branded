@@ -1,0 +1,18 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=plasma-theme-ktrans
+pkgver=0.9
+pkgrel=1
+pkgdesc="Transparent theme for Plasma 5"
+arch=('any')
+license=('GPL')
+url="https://store.kde.org/p/1190369/"
+depends=('')
+source=("https://dl.opendesktop.org/api/files/downloadfile/id/1519993977/s/f9a88efba9b51eed5172bf4419699948/t/1520006347/u//ktrans_0_9.tar.gz")
+sha256sums=('b294a1c913844cb1703543632273d743d57573cb096c03c2b673988aeffb86fa')
+
+package() {
+ mkdir -p ${pkgdir}/usr/share/plasma/desktoptheme
+ cp -r KTrans ${pkgdir}/usr/share/plasma/desktoptheme
+ rm -r ${pkgdir}/usr/share/plasma/desktoptheme/KTrans/wallpapers
+} 
