@@ -1,0 +1,42 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=quick-usb-formatter-git
+_pkgname=quick-usb-formatter
+pkgver=r55.95f78d4
+pkgrel=1
+pkgdesc="Tiny application for formatting USB sticks and devices"
+arch=('x86_64')
+url="https://github.com/rrooij/youtube-dl-qt"
+license=('GPL3')
+depends=('kdelibs4support')
+makedepends=('git' 'extra-cmake-modules')
+source=("git+https://code.chakralinux.org/tools/quick-usb-formatter.git#branch=qt5"
+kf5.patch)
+md5sums=('SKIP'
+         '348f83cf02a7001d0dde3491cabb8d32')
+
+pkgver() {
+  cd $_pkgname
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+    mkdir -p build
+
+	cd $_pkgname
+	msg "Add KF5 ALTLinux patch"
+	patch -p1 -i ../kf5.patch
+    }
+    
+build() {
+	cd build
+	cmake ../${_pkgname} \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release
+	make
+}
+
+package() {
+	cd build
+	make DESTDIR="$pkgdir/" install
+}

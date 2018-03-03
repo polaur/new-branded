@@ -1,0 +1,116 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -51,7 +51,7 @@ set(quickusbformatter_SRCS
+ # // Desktop location
+ set(DESKTOP_SOLID_ACTION_DIR ${DATA_INSTALL_DIR}/solid/actions )
+ 
+-qt5_wrap_ui(quickusbformatter_SRCS src/window.ui)
++KI18N_WRAP_UI(quickusbformatter_SRCS src/window.ui)
+ 
+ add_executable(quickusbformatter ${quickusbformatter_SRCS})
+ 
+--- a/src/main.cpp
++++ b/src/main.cpp
+@@ -1,6 +1,6 @@
+ 
+ 
+-#include <QtGui/QApplication>
++#include <QApplication>
+ #include "window.h"
+ #include "devices.h"
+ #include <QtCore>
+--- a/src/main.cpp
++++ b/src/main.cpp
+@@ -64,10 +64,9 @@ int main(int argc, char *argv[])
+     * If exactly three arguments are present, hopefully it was called from the device notifier
+     */
+     DeviceList devList;
+-
+-    if (parser.positionalArguments().count() > 0)
++    if (parser.positionalArguments().count() > 1)
+         {
+-        Device device(parser.positionalArguments().at(0));
++        Device device(parser.positionalArguments().at(1));
+         devList.setDeviceNotifier(device);
+     }
+ 
+--- a/src/usbdevice.cpp
++++ b/src/usbdevice.cpp
+@@ -42,7 +42,10 @@ QString USBDevice::getVendor()
+ 
+ int USBDevice::getCapacity()
+ {
+-  QString giga = QVariant(device.as<StorageVolume>()->size()).toString();
++  QString giga;
++  StorageVolume *vol(device.as<StorageVolume>());
++  if( vol )
++    giga = QVariant(device.as<StorageVolume>()->size()).toString();
+   float g = giga.toFloat();
+   int gig = (int) (g / 1024) / 1024;
+   
+@@ -51,5 +54,9 @@ int USBDevice::getCapacity()
+ 
+ QString USBDevice::getFilesystem()
+ {
+-  return device.as<StorageVolume>()->fsType();
++  QString fs_type;
++  StorageVolume *vol(device.as<StorageVolume>());
++  if( vol )
++    fs_type = device.as<StorageVolume>()->fsType();
++  return fs_type;
+ }
+--- a/src/window.cpp
++++ b/src/window.cpp
+@@ -62,7 +62,7 @@ Window::Window(DeviceList& dl, QWidget *
+ 
+   //Cuando....
+   //connect(pushButton, SIGNAL(authorized(KAuth::Action*)), SLOT(Window::performAction(KAuth::Action*)));
+-  connect(pushButton, SIGNAL(authorized(KAuth::Action*)), this, SLOT(performAction(KAuth::Action*)));
++  connect(pushButton, SIGNAL(authorized(KAuth::Action)), this, SLOT(performAction(KAuth::Action)));
+ 
+ }
+ 
+@@ -88,8 +88,9 @@ QString Window::escapeLabel(const QStrin
+ /**
+  * Llamado cuando se autoriza la ejecucion de la Acción
+  */
+-void Window::performAction(KAuth::Action* action)
++void Window::performAction(KAuth::Action k_action)
+ {
++    KAuth::Action *action = &k_action;
+     
+       Device actual = getCurrentDevice();
+ 
+@@ -204,10 +205,11 @@ void Window::performAction(KAuth::Action
+      map["device"] = dirDev;
+      action->setArguments(map);
+      
+-     this->statusBar()->showMessage("Wait a moment ...");
++     this->statusBar()->showMessage(i18n("Wait a moment ..."));
+      
+      this->busy = true;
+      this->disableGUI();
++     action->setTimeout(1000*60*2.1);
+      ExecuteJob *reply = action->execute();
+      this->busy = false;
+      this->enableGUI();
+@@ -225,7 +227,7 @@ void Window::performAction(KAuth::Action
+         //}
+     }
+     else {
+-        this->statusBar()->showMessage("Success");
++        this->statusBar()->showMessage(i18n("Success"));
+     }
+ 
+ }
+--- a/src/window.h
++++ b/src/window.h
+@@ -61,7 +61,7 @@ public Q_SLOTS:
+     /**
+      *  Se ejecuta cuando se autoriza una action
+      */
+-    void performAction(KAuth::Action* action);
++    void performAction(KAuth::Action);
+     
+ 
+ private:
