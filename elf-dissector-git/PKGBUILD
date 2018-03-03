@@ -1,0 +1,36 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=elf-dissector-git
+pkgver=r645.e70d09e
+pkgrel=1
+pkgdesc='Tools for inspecting, analyzing and optimizing ELF files'
+arch=(i686 x86_64)
+url='https://cgit.kde.org/elf-dissector.git/r'
+license=(GPL)
+depends=(kitemmodels libdwarf)
+makedepends=(extra-cmake-modules git)
+source=("git://anongit.kde.org/elf-dissector.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd ${pkgname%-*}
+  #printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  
+}
+
+prepare() {
+  mkdir -p build
+}
+
+build() { 
+  cd build
+  cmake ../${pkgname%-*} \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/usr 
+  make
+}
+
+package() {
+  cd build
+  make DESTDIR="$pkgdir" install
+}
