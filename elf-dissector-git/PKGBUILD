@@ -4,7 +4,7 @@ pkgname=elf-dissector-git
 pkgver=r645.e70d09e
 pkgrel=1
 pkgdesc='Tools for inspecting, analyzing and optimizing ELF files'
-arch=(i686 x86_64)
+arch=(x86_64)
 url='https://cgit.kde.org/elf-dissector.git/r'
 license=(GPL)
 depends=(kitemmodels libdwarf)
@@ -14,7 +14,7 @@ sha256sums=('SKIP')
 
 pkgver() {
   cd ${pkgname%-*}
-  #printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
   
 }
 
