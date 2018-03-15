@@ -1,0 +1,26 @@
+From d6360a6efe93f9ee4bd6985aea6b055a393fb7d7 Mon Sep 17 00:00:00 2001
+From: Maldela <maldela@halloarsch.de>
+Date: Sun, 25 Feb 2018 15:09:14 +0100
+Subject: [PATCH 2/3] Set Qt suffix for target file names in
+ Mygpo-qtConfig.cmake.in
+
+---
+ Mygpo-qtConfig.cmake.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Mygpo-qtConfig.cmake.in b/Mygpo-qtConfig.cmake.in
+index 17873a7..9165e62 100644
+--- a/Mygpo-qtConfig.cmake.in
++++ b/Mygpo-qtConfig.cmake.in
+@@ -11,7 +11,7 @@ set(MYGPO_QT_VERSION ${MYGPO_QT_VERSION_MAJOR}.${MYGPO_QT_VERSION_MINOR}.${MYGPO
+ set(LIBMYGPO_QT_INCLUDE_DIRS "@INCLUDE_INSTALL_DIR@")
+ 
+ # import the exported targets
+-include(${myDir}/Mygpo-qtTargets.cmake)
++include(${myDir}/Mygpo-qt@MYGPO_QT_VERSION_SUFFIX@Targets.cmake)
+ 
+ # set the expected library variable
+ set(LIBMYGPO_QT_LIBRARIES mygpo-qt )
+-- 
+2.16.2
+

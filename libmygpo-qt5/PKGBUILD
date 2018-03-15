@@ -1,0 +1,46 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+# based on PKGBUILD by:
+# Contributor: Andrea Scarpino <andrea@archlinux.org>
+
+pkgname=libmygpo-qt5
+_pkgname=libmygpo-qt
+pkgver=1.0.9
+pkgrel=2
+pkgdesc="A C++/Qt client library for gpodder.net"
+arch=('x86_64')
+url="http://wiki.gpodder.org/wiki/Libmygpo-qt"
+license=('LGPL2.1')
+depends=('qjson-qt5')
+makedepends=('cmake' 'doxygen')
+conflicts=(libmygpo-qt5-git)
+replace=(libmygpo-qt5-git)
+provides=(libmygpo-qt5-git)
+source=("http://stefan.derkits.at/files/${_pkgname}/${_pkgname}.${pkgver}.tar.gz"
+0001-Set-Qt-suffix-for-target-file-names-in-Mygpo-qtConfi.patch
+0002-set-qt-version-suffix-on-library-name.patch)
+md5sums=('aead5b0c6707f3e2bd2259cb1db2b7cd'
+         '31b62204b95a77e55b7968bfab5b4eb2'
+         '1e973de368f7bfffac258e7634b1cc7e')
+
+prepare() {
+  mkdir build
+
+	cd $_pkgname.$pkgver
+	msg "Add two patches neccessary for amarok-git"
+	patch -p1 -i ../0001-Set-Qt-suffix-for-target-file-names-in-Mygpo-qtConfi.patch
+	patch -p1 -i ../0002-set-qt-version-suffix-on-library-name.patch
+}
+
+build() {
+  cd build
+  cmake ../${_pkgname}.${pkgver} \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DBUILD_WITH_QT4=OFF
+  make
+}
+
+package(){
+  cd build
+  make DESTDIR="${pkgdir}" install
+}

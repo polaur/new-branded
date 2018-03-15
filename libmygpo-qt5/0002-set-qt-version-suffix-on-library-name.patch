@@ -1,0 +1,23 @@
+From f142621dcf2d4876b51121ad4c1a01d76da5625b Mon Sep 17 00:00:00 2001
+From: maldela <malte.veerman@gmail.com>
+Date: Sun, 25 Feb 2018 16:57:15 +0100
+Subject: [PATCH 3/3] set qt version suffix on library name
+
+---
+ Mygpo-qtConfig.cmake.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Mygpo-qtConfig.cmake.in b/Mygpo-qtConfig.cmake.in
+index 9165e62..f5ce913 100644
+--- a/Mygpo-qtConfig.cmake.in
++++ b/Mygpo-qtConfig.cmake.in
+@@ -14,5 +14,5 @@ set(LIBMYGPO_QT_INCLUDE_DIRS "@INCLUDE_INSTALL_DIR@")
+ include(${myDir}/Mygpo-qt@MYGPO_QT_VERSION_SUFFIX@Targets.cmake)
+ 
+ # set the expected library variable
+-set(LIBMYGPO_QT_LIBRARIES mygpo-qt )
++set(LIBMYGPO_QT_LIBRARIES mygpo-qt@MYGPO_QT_VERSION_SUFFIX@ )
+ set(LIBMYGPO_QT_FOUND "True")
+-- 
+2.16.2
+
