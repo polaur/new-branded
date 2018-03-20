@@ -1,0 +1,33 @@
+# Maintainer: Piotr Górski <lucjan.lucjanov@gmail.com>
+
+pkgbase=ttf-webos-fonts-git
+_pkgbase=webos-fonts
+pkgname=(ttf-webos-fonts-miso-git ttf-webos-fonts-museo-git)
+pkgver=20180228.r1.gdb3bee8
+pkgrel=1
+pkgdesc="Fonts for webOS"
+url="https://github.com/webosose/webos-fonts"
+license=('custom:OFL')
+arch=('any')
+depends=('fontconfig')
+source=("git://github.com/webosose/webos-fonts")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd $_pkgbase
+  echo "$(git show --format='%cI' -q master | sed 's/T.*//g;s/-//g').r$(git rev-list --count HEAD).g$(git rev-parse --short HEAD)"
+}
+
+package_ttf-webos-fonts-miso-git() {
+  cd $_pkgbase/Miso
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/ttf-webos-fonts-miso-git/LICENSE"
+  install -d "$pkgdir/usr/share/fonts/TTF"
+  install -m644 *.ttf "$pkgdir/usr/share/fonts/TTF"
+}
+
+package_ttf-webos-fonts-museo-git() {
+  cd $_pkgbase/Museo
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/ttf-webos-fonts-museo-git/LICENSE"
+  install -d "$pkgdir/usr/share/fonts/TTF"
+  install -m644 *.ttf "$pkgdir/usr/share/fonts/TTF"
+} 
