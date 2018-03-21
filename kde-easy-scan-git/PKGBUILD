@@ -1,0 +1,36 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=kde-easy-scan-git
+_pkgname=kde-easy-scan
+pkgver=8
+pkgrel=1
+pkgdesc='A skanlite fork with many extra features'
+arch=('x86_64')
+url='https://github.com/tsitsos/kde-easy-scan'
+license=('GPL')
+depends=('libksane' 'kio')
+optdepends=('gimp: for provide full funcionality'
+'ghostscript: for provide full funcionality')
+makedepends=('git' 'extra-cmake-modules')
+source=("git+https://github.com/tsitsos/kde-easy-scan.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd ${_pkgname}
+  printf "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  cd ${_pkgname}
+
+  mkdir build && cd build
+  cmake -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release ..
+  make 
+}
+
+package() {
+  cd ${_pkgname}/build
+
+  make DESTDIR=${pkgdir} install
+}
