@@ -1,0 +1,43 @@
+# Maintainer: pavbaranov <pavbaranov@gmail.com>
+ 
+pkgname=kpeoplevcard-git
+pkgver=r18.a170ed3
+pkgrel=1
+pkgdesc='Makes it possible to expose vcards to KPeople'
+arch=('x86_64')
+url="https://cgit.kde.org/kpeoplevcard.git"
+license=('GPL3')
+depends=('kpeople' 'kcontacts')
+makedepends=('extra-cmake-modules' 'git')
+
+provides=("${pkgname%-*}")
+conflicts=("${pkgname%-*}")
+replaces=("${pkgname%-*}")
+source=('git+git://anongit.kde.org/kpeoplevcard.git')
+sha256sums=('SKIP')
+
+pkgver() {
+  cd ${pkgname%-*}
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  }
+
+prepare() {
+  mkdir build
+  }
+    
+build() {
+  cd build
+  cmake ../${pkgname%-*} \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_INSTALL_LIBDIR=lib \
+    -DCMAKE_INSTALL_LIBEXECDIR=lib \
+    -DBUILD_TESTING=OFF
+    
+  make
+  }
+ 
+package() {
+    cd build
+    make DESTDIR="${pkgdir}/" install
+  }
