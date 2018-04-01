@@ -1,7 +1,7 @@
 # Maintainer: pavbaranov <pavbaranov at gmail dot com>
 
 pkgname=symmy-git
-pkgver=68
+pkgver=70
 pkgrel=1
 pkgdesc='GPG symmetric encryption frontend'
 arch=('x86_64')
@@ -17,17 +17,19 @@ pkgver() {
   printf "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
+prepare() {
+    mkdir -p build
+    }
+    
 build() {
-  cd ${pkgname%-*}
-
-  mkdir build && cd build
+  cd build
   cmake -DCMAKE_INSTALL_PREFIX=/usr \
-        -DCMAKE_BUILD_TYPE=Release ..
+        -DCMAKE_BUILD_TYPE=Release ../symmy
   make 
 }
 
 package() {
-  cd ${pkgname%-*}/build
+  cd build
 
   make DESTDIR=${pkgdir} install
 }
