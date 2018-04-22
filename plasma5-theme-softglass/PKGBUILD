@@ -1,0 +1,18 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=plasma5-theme-softglass
+pkgver=1.1.1
+pkgrel=1
+pkgdesc="Glass theme for Plasma 5"
+arch=('any')
+license=('GPL')
+url="https://store.kde.org/p/1216627/"
+depends=('')
+source=("https://dl.opendesktop.org/api/files/downloadfile/id/1524357522/s/ad12a7fad64f1d167034d36218f3282d/t/1524387587/u/441232/SoftGlass-Plasma-1.1.1.tar.gz")
+sha256sums=('0e135508185c5eeac8ad865fa2c87e10272eb2f033361076e4ade932a4a33e08')
+
+package() {
+ mkdir -p ${pkgdir}/usr/share/plasma/desktoptheme
+ cp -r Soft_Glass ${pkgdir}/usr/share/plasma/desktoptheme
+ rm -r ${pkgdir}/usr/share/plasma/desktoptheme/Soft_Glass/wallpapers
+} 
