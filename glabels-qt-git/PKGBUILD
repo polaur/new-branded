@@ -1,0 +1,38 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=glabels-qt-git
+_pkgname=glabels-qt
+pkgver=r414.b729ee2
+pkgrel=1
+pkgdesc="gLabels Label Designer - Qt5 development version"
+arch=('x86_64')
+url="http://glabels.org/"
+license=('GPL3')
+depends=('qt5-svg' 'qrencode' 'hicolor-icon-theme' 'zint' 'barcode')
+makedepends=('git' 'cmake' 'zlib' 'barcode' 'zint-qt' 'zint')
+optdepend=('qrencode' 'zint-qt' 'barcode' 'zlib' 'zint')
+source=("git+https://github.com/jimevins/glabels-qt.git")
+sha256sums=('SKIP')
+
+pkgver() {
+	cd ${_pkgname}
+	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+	}
+
+prepare() {
+	mkdir -p build
+	}
+
+build() {
+  cd build
+
+  cmake -DCMAKE_INSTALL_PREFIX=/usr \
+        ../"$_pkgname"
+
+  make
+  }
+
+package() {
+  cd build
+  make DESTDIR="$pkgdir"/ install
+  }
