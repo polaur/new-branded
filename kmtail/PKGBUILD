@@ -1,0 +1,31 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=kmtail
+pkgver=2.0
+pkgrel=1
+pkgdesc="Tools for monitor various log files"
+arch=('x86_64')
+url="https://www.opendesktop.org/s/Apps/p/1233375/"
+license=('GPL3')
+depends=(kxmlgui hicolor-icon-theme)
+makedepends=(extra-cmake-modules)
+source=("ftp://binro.org/kmtail-2.0.tar.bz2")
+sha256sums=('19975c3e8e0cd07926545066eca2c2d00c6e74deea4e41526ac72ecec81026bf')
+
+prepare() {
+	mkdir -p build
+	}
+
+build() {
+  cd build
+
+  cmake -DCMAKE_INSTALL_PREFIX=/usr \
+        ../"$pkgname-$pkgver"
+
+  make
+  }
+
+package() {
+  cd build
+  make DESTDIR="$pkgdir"/ install
+  }
