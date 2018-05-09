@@ -1,0 +1,37 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=kprinter5-git
+_pkgname=kprinter4
+pkgver=12.r40.ga65cdbc
+pkgrel=1
+pkgdesc="Stand-alone PostScript document printer for Plasma 5"
+arch=('x86_64')
+url="https://gitlab.com/michaelweghorn/kprinter4"
+license=('GPL3')
+depends=('kio' 'hicolor-icon-theme' 'libspectre')
+makedepends=('git' 'extra-cmake-modules' 'pkg-config')
+source=("git+https://gitlab.com/michaelweghorn/kprinter4.git#branch=michaelweghorn/qt5Port")
+sha256sums=('SKIP')
+
+pkgver() {
+	cd kprinter4
+	git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+        }
+
+prepare() {
+	mkdir -p build
+	}
+
+build() {
+  cd build
+
+  cmake -DCMAKE_INSTALL_PREFIX=/usr \
+        ../"$_pkgname"
+
+  make
+  }
+
+package() {
+  cd build
+  make DESTDIR="$pkgdir"/ install
+  }
