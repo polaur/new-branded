@@ -1,0 +1,34 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=newbreeze-git
+_pkgname=NewBreeze
+pkgver=v3.rc1.r6.g488cd32
+pkgrel=1
+pkgdesc='File manager based on Qt'
+arch=('x86_64')
+url='https://github.com/marcusbritanicus/NewBreeze'
+license=('GPL')
+depends=(qscintilla-qt5 djvulibre poppler-qt5 libarchive qt5-webengine)
+makedepends=(git cmake)
+source=("git+https://github.com/marcusbritanicus/NewBreeze.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd ${_pkgname}
+  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+ # printf "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  cd ${_pkgname}
+
+  mkdir build && cd build
+  qmake PREFIX=/usr ../NewBreeze.pro
+  make 
+}
+
+package() {
+  cd ${_pkgname}/build
+
+  make INSTALL_ROOT=${pkgdir} install
+}
