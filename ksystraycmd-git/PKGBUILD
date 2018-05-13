@@ -1,0 +1,33 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=ksystraycmd-git
+pkgver=1
+pkgrel=1
+pkgdesc='Utility that allows you to run any application in system tray'
+arch=('x86_64')
+url='https://cgit.kde.org/scratch/hein/ksystraycmd.git'
+license=('GPL')
+depends=('ki18n' 'kcoreaddons' 'kwindowsystem')
+makedepends=('git' 'extra-cmake-modules')
+source=("git+https://anongit.kde.org/scratch/hein/ksystraycmd.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd ${pkgname%-*}
+  printf "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  cd ${pkgname%-*}
+
+  mkdir build && cd build
+  cmake -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release ..
+  make 
+}
+
+package() {
+  cd ${pkgname%-*}/build
+
+  make DESTDIR=${pkgdir} install
+}
