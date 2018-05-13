@@ -1,0 +1,39 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=kmousens-git
+_pkgname=Kmousens
+pkgver=32
+pkgrel=1
+pkgdesc='Change mouse sensitivity in KDE'
+arch=('x86_64')
+url='https://github.com/furkantokac/Kmousens.git'
+license=('GPL')
+depends=('qt5-base')
+makedepends=('git' 'cmake')
+source=("git+https://github.com/furkantokac/Kmousens.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd ${_pkgname}
+  printf "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+    mkdir -p build
+    }
+    
+build() {
+  cd build
+  
+  qmake PREFIX=/usr ../$_pkgname/$_pkgname
+  
+  make 
+}
+
+package() {
+  cd build
+  
+  install -d "$pkgdir/usr/bin/"
+  install -m644 Kmousens "$pkgdir/usr/bin/kmousens"
+  install -Dm644 "../$_pkgname/$_pkgname/data/icon/appicon.png" "$pkgdir/usr/share/icons/kmousens.png"
+}
