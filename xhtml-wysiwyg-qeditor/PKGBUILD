@@ -27,8 +27,6 @@ build() {
         }
 package () {
         cd "$_gitname"
-        mkdir -p $pkgdir/usr/bin
-        cp XHTML_Editor $pkgdir/usr/bin
-        mkdir -p $pkgdir/usr/share/icons
-        cp wp.png $pkgdir/usr/share/icons
+        install -Dm744 XHTML_Editor $pkgdir/usr/bin/xhtmleditor
+        install -Dm644 wp.png $pkgdir/usr/share/icons/xhtmlediror.png    
         }
