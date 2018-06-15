@@ -7,7 +7,6 @@ pkgdesc="A modern transculent flow for Plasma 5"
 arch=('any')
 license=('GPL')
 url="https://store.kde.org/p/1216627/"
-depends=('')
 source=("https://dl.opendesktop.org/api/files/downloadfile/id/1529065635/s/61bfa2f08c7b9709ae9532f29b7444ef/t/1529094757/u//Opal-0.5.tar.gz")
 sha256sums=('22f04d44c5ba52200fa4b46e1d7115875d203e3449056b742e5619722cba2be1')
 
