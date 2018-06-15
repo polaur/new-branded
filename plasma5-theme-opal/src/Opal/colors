@@ -1,0 +1,12 @@
+[Colors:Window]
+ForegroundNormal=242,242,242
+
+[Colors:Button]
+ForegroundNormal=242,242,242
+
+[Colors:View]
+ForegroundNormal=242,242,242
+BackgroundNormal=55,55,55
+
+[Colors:Selection]
+BackgroundNormal=84,84,84
