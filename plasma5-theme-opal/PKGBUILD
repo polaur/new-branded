@@ -1,14 +1,14 @@
 # Maintainer: pavbaranov <pavbaranov at gmail dot com>
 
 pkgname=plasma5-theme-opal
-pkgver=0.5
+pkgver=0.6
 pkgrel=1
 pkgdesc="A modern transculent flow for Plasma 5"
 arch=('any')
 license=('GPL')
 url="https://store.kde.org/p/1216627/"
-source=("https://dl.opendesktop.org/api/files/downloadfile/id/1529065635/s/61bfa2f08c7b9709ae9532f29b7444ef/t/1529094757/u//Opal-0.5.tar.gz")
-sha256sums=('22f04d44c5ba52200fa4b46e1d7115875d203e3449056b742e5619722cba2be1')
+source=("https://dl.opendesktop.org/api/files/downloadfile/id/1529122215/s/e5be6200a3619b2d872458e6c3019b86/t/1529149975/u//Opal-0.6.tar.gz")
+sha256sums=('54805347043ee87b28bc8f01ef84cfa799b4634662caa4d5ced83d19fbdbbfa1')
 
 package() {
  mkdir -p ${pkgdir}/usr/share/plasma/desktoptheme
