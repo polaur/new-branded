@@ -3,6 +3,11 @@
 # Contributor: Sergej Pupykin <arch+pub@sergej.pp.ru>
 # Contributor: Alexey D. <lq07829icatm@rambler.ru>
 
+### BUILD OPTIONS
+# Set these variables to ANYTHING that is not null to enable them
+_dev_plugins=
+### Do not edit below this line unless you know what you're doing
+
 pkgname=psi-plus-webkit-full-git
 pkgver=1.3.272.0.ge9a5415d
 pkgrel=1
@@ -12,7 +17,11 @@ license=('GPL2')
 arch=('x86_64')
 depends=('qt5-base' 'qt5-webengine' 'qt5-webkit' 'qt5-multimedia' 'qt5-x11extras' 'qca-qt5'
 	 'libidn' 'libxss' 'qt5-svg' 'hunspell' 'qtkeychain')
-makedepends=('git' 'patch' 'cmake' 'libotr' 'tidy')
+if [ -n "$_dev_plugins" ]; then
+   makedepends=('git' 'cmake' 'libotr' 'tidy' 'libsignal-protocol-c')
+else
+   makedepends=('git' 'cmake' 'libotr' 'tidy')
+fi
 optdepends=('libotr: for OTR plugin'
             'tidy: for OTR plugin')
 provides=("psi-plus=$pkgver" "psi-plus-git=$pkgver" "psi-plus-qt5-git=$pkgver"
@@ -40,7 +49,11 @@ build() {
   cd psi-plus-snapshots
   mkdir -p build
   cd build
+  if [ -n "$_dev_plugins" ]; then
+  cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DUSE_WEBKIT=ON -DENABLE_PLUGINS=ON -DBUILD_DEV_PLUGINS=ON ..
+  else
   cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DUSE_WEBKIT=ON -DENABLE_PLUGINS=ON ..
+  fi
   make
 }
 
