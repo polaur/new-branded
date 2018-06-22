@@ -17,13 +17,10 @@ license=('GPL2')
 arch=('x86_64')
 depends=('qt5-base' 'qt5-webengine' 'qt5-webkit' 'qt5-multimedia' 'qt5-x11extras' 'qca-qt5'
 	 'libidn' 'libxss' 'qt5-svg' 'hunspell' 'qtkeychain')
-if [ -n "$_dev_plugins" ]; then
-   makedepends=('git' 'cmake' 'libotr' 'tidy' 'libsignal-protocol-c')
-else
-   makedepends=('git' 'cmake' 'libotr' 'tidy')
-fi
+makedepends=('git' 'cmake' 'libotr' 'tidy' 'libsignal-protocol-c')
 optdepends=('libotr: for OTR plugin'
-            'tidy: for OTR plugin')
+            'tidy: for OTR plugin'
+            'libsignal-protocol-c: for omemoplugin')
 provides=("psi-plus=$pkgver" "psi-plus-git=$pkgver" "psi-plus-qt5-git=$pkgver"
           "psi-plus-plugins=$pkgver"  "psi-plus-plugins-git=$pkgver" "psi-plus-webkit-qt5-git=$pkgver"
           "psi-plus-webkit-git=$pkgver")
