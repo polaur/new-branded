@@ -1,0 +1,36 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+ 
+pkgname=gaia-markdown-git
+_pkgname=gaia-markdown
+pkgver=r32.c6e2e22
+pkgrel=1
+pkgdesc='A KDE markdown editor'
+arch=('i686' 'x86_64')
+url="https://github.com/manolovn/gaia-markdown.git"
+license=('GPL')
+depends=('hicolor-icon-theme' 'kio' 'discount' 'qt5-webkit')
+makedepends=('extra-cmake-modules' 'git')
+source=('git+https://github.com/manolovn/gaia-markdown.git')
+sha256sums=('SKIP')
+
+pkgver() {
+	cd ${_pkgname}
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+    mkdir build
+    }
+    
+build() {
+  cd build
+  cmake ../${_pkgname} \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DKDE_INSTALL_LIBDIR=lib 
+  make
+}
+ 
+package() {
+  make -C build DESTDIR="${pkgdir}/" install
+}
