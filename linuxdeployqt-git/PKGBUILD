@@ -1,0 +1,38 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=linuxdeployqt-git
+pkgver=r540.5542062
+pkgrel=1
+pkgdesc="Makes Linux applications self-contained by copying in the libraries and plugins that the application uses - GIT version"
+arch=('x86_64')
+url="https://github.com/probonopd/linuxdeployqt"
+license=('GPL3' 'LGPL3')
+depends=('qt5-base' 'patchelf')
+makedepends=('git' 'cmake')
+provides=('linuxdeployqt')
+conflicts=('linuxdeployqt')
+source=("git+https://github.com/probonopd/linuxdeployqt.git")
+md5sums=('SKIP')
+
+pkgver() {
+    cd ${pkgname%-*}
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    }
+    
+prepare() {
+    cd "${srcdir}"
+    [[ -e build ]] && rm -r build
+    mkdir build
+    }
+
+build() {
+    cd build
+    cmake ../${pkgname%-*}
+    make
+    }
+
+package() {
+    cd build
+    install -d "${pkgdir}/usr/bin"
+    install "tools/linuxdeployqt/linuxdeployqt" "${pkgdir}/usr/bin/linuxdeployqt"
+    }
