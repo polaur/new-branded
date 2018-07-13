@@ -1,0 +1,24 @@
+# Maintainer: nycko123 <nycko123 at gmail dot com>
+# Contributor: pavbaranov <pavbaranov at gmail dot com>
+
+# You had to install all optdepends for functionality of this script
+
+pkgname=pak
+pkgver=1.1
+pkgrel=1
+pkgdesc="Simple pacman and AUR frontend"
+arch=('any')
+url="https://gitlab.com/nycko123/pak"
+license=('GPL')
+depends=(bash git)
+optdepends=('cower: to manage AUR packages'
+	    'asp: to download PKGBUILD's of official packages')
+
+source=("$pkgname-$pkgver.tar.gz::https://gitlab.com/nycko123/pak/raw/master/$pkgname-$pkgver.tar.gz")
+
+sha256sums=('11151a7c9fecaee8d9a69eeb4363970e4d6f7fdca26aa39527c35c4f51e591eb')
+
+package(){
+ install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"
+ install -Dm644 "$srcdir/pak.conf" "$pkgdir/etc/xdg/pak.conf"
+}
