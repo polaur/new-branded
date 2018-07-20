@@ -1,0 +1,44 @@
+# Maintainer: pavbaranov
+
+pkgname=plasma5-applets-arch-update
+_gitname=ultimategmailfeed
+pkgver=r23.5fcfbde
+pkgrel=1
+pkgdesc="Plasma 5 plasmoid showing your gmail feed (GIT version)"
+arch=('x86_64')
+url="https://github.com/intika/ultimategmailfeed"
+license=('GPL')
+depends=(knotifications hicolor-icon-theme qt5-declarative)
+makedepends=(extra-cmake-modules)
+conflicts=(plasma5-applets-ultimategmailfeed-git)
+source=(git+https://github.com/intika/ultimategmailfeed.git)
+md5sums=('SKIP')
+
+pkgver() {
+    cd $_gitname
+#    git describe --always | sed 's|-|.|g'
+#  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+    #git describe --long | sed 's/^v-//;s/\([^-]*-g\)/r\1/;s/-/./g'
+    
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    }
+
+prepare() {
+    cd $srcdir/
+    mkdir -p build
+    }
+    
+build() {
+    cd $srcdir/build
+	cmake ../$_gitname \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DKDE_INSTALL_LIBDIR=lib 
+    
+    make
+    }
+    
+package() {
+    cd $srcdir/build
+    make "DESTDIR=${pkgdir}" install 
+    }
