@@ -8,7 +8,8 @@ pkgdesc='File manager based on Qt'
 arch=('x86_64')
 url='https://gitlab.com/marcusbritanicus/NewBreeze.git'
 license=('GPL')
-depends=(qscintilla-qt5 djvulibre poppler-qt5 libarchive qt5-webengine)
+depends=(qscintilla-qt5 djvulibre poppler-qt5 libarchive qt5-webengine 
+ffmpegthumbnailer)
 makedepends=(git cmake)
 source=("git+https://gitlab.com/marcusbritanicus/NewBreeze.git")
 sha256sums=('SKIP')
