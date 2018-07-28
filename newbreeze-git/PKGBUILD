@@ -2,15 +2,15 @@
 
 pkgname=newbreeze-git
 _pkgname=NewBreeze
-pkgver=v3.rc1.r6.g488cd32
+pkgver=v3.rc2.r30.g82620e7
 pkgrel=1
 pkgdesc='File manager based on Qt'
 arch=('x86_64')
-url='https://github.com/marcusbritanicus/NewBreeze'
+url='https://gitlab.com/marcusbritanicus/NewBreeze.git'
 license=('GPL')
 depends=(qscintilla-qt5 djvulibre poppler-qt5 libarchive qt5-webengine)
 makedepends=(git cmake)
-source=("git+https://github.com/marcusbritanicus/NewBreeze.git")
+source=("git+https://gitlab.com/marcusbritanicus/NewBreeze.git")
 sha256sums=('SKIP')
 
 pkgver() {
