@@ -16,7 +16,7 @@ optdepends=("asp: to download PKGBUILD's of official packages"
  
 source=("$pkgname-$pkgver.tar.gz::https://gitlab.com/nycko123/pak/raw/master/$pkgname-$pkgver.tar.gz")
  
-sha256sums=('d8fd9c1f057d13ecfd9db914f9b35a45e90126f79e938d7ca86abb70f0a7a709')
+sha256sums=('3b6464e51bfa92e0bf277e33decfd0c1104ff0f7fd0fd16056827ad0a5ece338')
  
 package(){
  install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"
