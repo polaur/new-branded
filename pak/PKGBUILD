@@ -5,7 +5,7 @@
  
 pkgname=pak
 pkgver=1.4
-pkgrel=2
+pkgrel=3
 pkgdesc="Simple pacman and AUR frontend"
 arch=('any')
 url="https://gitlab.com/nycko123/pak"
@@ -16,7 +16,7 @@ optdepends=("asp: to download PKGBUILD's of official packages"
  
 source=("$pkgname-$pkgver.tar.gz::https://gitlab.com/nycko123/pak/raw/master/$pkgname-$pkgver.tar.gz")
  
-sha256sums=('7ca9479fda6d60ce88f1f9663c4f915b4377da56ade7524a28c4e130d58f23bc')
+sha256sums=('1f320acf8e9cf26b3c7526604dc5f5fd278664d297a6190df0b420018888f746')
  
 package(){
  install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"
