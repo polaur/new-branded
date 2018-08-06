@@ -1,11 +1,11 @@
-# Maintainer: robertfoster
+# Maintainer: pavbaranov <pavbarnov at gmail dot com>
 
 pkgname=cocoon-kf5-git
 pkgver=r1149.8178df8
 pkgrel=1
 pkgdesc="A GUI for Git"
 arch=('x86_64')
-url="https://projects.kde.org/projects/playground/sdk/cocoon"
+url="https://cgit.kde.org/cocoon"
 license=('LGPL')
 depends=(kdelibs4support hicolor-icon-theme)
 makedepends=('git' 'automoc4' 'extra-cmake-modules')
