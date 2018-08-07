@@ -1,0 +1,34 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+# based on archival uksmstat PKGBUILD by:
+# Maintainer: Leonardo Dagnino <leodag dot sch at gmail dot com>
+
+pkgname=uksmstat-git
+pkgver=r39.06854fd
+pkgrel=1
+pkgdesc="Simple tool to monitor and control UKSM"
+url="https://github.com/pfactum/uksmstat"
+arch=('i686' 'x86_64')
+license=('GPL')
+makedepends=('git')
+depends=('glibc')
+conflicts=(uksmstat)
+source=("git+https://github.com/CSRedRat/uksmstat")
+md5sums=('SKIP')
+
+pkgver() {
+  cd ${pkgname%-*}
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  }
+
+build() {
+  cd ${pkgname%-*}
+  make
+}
+
+package() {
+  cd "${pkgname%-*}"
+  make install DESTDIR="${pkgdir}/"  
+  mv ${pkgdir}/usr/local/* ${pkgdir}/usr
+  rm -r ${pkgdir}/usr/local
+}
+
