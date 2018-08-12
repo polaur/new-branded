@@ -4,7 +4,7 @@
 # You had to install all optdepends for functionality of this script
  
 pkgname=pak
-pkgver=1.4.7
+pkgver=1.5.0
 pkgrel=1
 pkgdesc="Simple pacman and AUR frontend"
 arch=('any')
@@ -16,7 +16,7 @@ optdepends=("asp: to download PKGBUILD's of official packages"
  
 source=("https://gitlab.com/nycko123/pak/raw/master/src/$pkgname-$pkgver.tar.gz")
  
-sha256sums=('e812402903e183946b10cb422a72d35ad23e9d51e562fab7cb573401db9d85b1')
+sha256sums=('715b1c56262e9c5641590884b43f97d6bc205eb20fedf64ddee712764be42c25')
  
 package(){
  install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"
