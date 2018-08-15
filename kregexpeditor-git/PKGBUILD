@@ -1,0 +1,36 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=kregexpeditor-git
+pkgver=632.7eb3a8b
+pkgrel=1
+pkgdesc="GUI for creating and editing regular expressions"
+arch=(x86_64)
+url="https://cgit.kde.org/kregexpeditor.git/"
+license=('GPL')
+depends=('hicolor-icon-theme' 'ktextwidgets')
+makedepends=('git' 'extra-cmake-modules' 'python' 'kdoctools')
+source=('git+git://anongit.kde.org/kregexpeditor.git')
+md5sums=('SKIP')
+
+pkgver() {
+	cd "${pkgname%-*}"
+	echo $(git rev-list --count master).$(git rev-parse --short master)
+}
+
+prepare() {
+	mkdir build
+}
+
+build() {
+	cd build
+	cmake ../${pkgname%-*} \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DKDE_INSTALL_LIBDIR=lib \
+		-DBUILD_TESTING=OFF
+	make
+}
+
+package() {
+	cd build
+	make DESTDIR="$pkgdir" install
+}
