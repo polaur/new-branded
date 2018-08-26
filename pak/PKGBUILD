@@ -4,7 +4,7 @@
 # You had to install all optdepends for functionality of this script
  
 pkgname=pak
-pkgver=1.5.4
+pkgver=1.6
 pkgrel=1
 pkgdesc="Simple pacman and AUR frontend"
 arch=('any')
@@ -12,11 +12,12 @@ url="https://gitlab.com/nycko123/pak"
 license=('GPL')
 depends=('bash' 'git')
 optdepends=("asp: to download PKGBUILD's of official packages"
-            "cower: to manage AUR packages")
+            "cower: to manage AUR packages"
+			"namcap: to validate PKGBUILDs and built packages")
  
 source=("https://gitlab.com/nycko123/pak/raw/master/src/$pkgname-$pkgver.tar.gz")
  
-sha256sums=('7f88d603006998a2d0fe5317f62ff1f4f9cd8b054215563cd32f5ac59ef5ed2d')
+sha256sums=('05bbc19b5f838091cc18ef9223af9e4e155ba6c6a9f4739e85771a5507f51d87')
  
 package(){
  install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"
