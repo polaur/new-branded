@@ -1,0 +1,27 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+# based on PKGBUILD by:
+# Maintainer: Tiago Martins <thebigger018@protonmail.com>
+# Maintainer: ZeroDot1 <zerodot1@bk.ru>
+pkgname=clevit
+pkgver=1.4.0
+pkgrel=1
+pkgdesc="Clevit - The only smart text editor in this galaxy!"
+url='https://github.com/TigaxMT/Clevit'
+license=('GPL3')
+arch=('x86_64')
+depends=('hicolor-icon-theme' 'qt5-base')
+makedepends=('qt5-tools' 'cmake')
+#install=clevit.install
+source=("https://github.com/TigaxMT/Clevit/archive/${pkgver}.tar.gz")
+md5sums=('990d469ed35064158cfa7f5a247b53cc')
+
+build() {
+  cd $srcdir/Clevit-${pkgver}
+  qmake-qt5 PREFIX='/usr' LIBDIR='/usr/lib' Clevit.pro
+  make -j5
+}
+
+package() {
+  cd $srcdir/Clevit-${pkgver}
+  make INSTALL_ROOT=${pkgdir} install
+}
