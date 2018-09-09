@@ -1,10 +1,10 @@
 # Maintainer: nycko123 <nycko123 at gmail dot com>
 # Contributor: pavbaranov <pavbaranov at gmail dot com>
 
-# You had to install all optdepends for functionality of this script
+# You had to install all optdepends for full functionality of this script
  
-pkgname=pak
-pkgver=1.7
+pkgname=pak-git
+pkgver=1.7.r4.g84331eb
 pkgrel=1
 pkgdesc="Simple pacman and AUR frontend"
 arch=('any')
@@ -13,14 +13,23 @@ license=('GPL')
 depends=('bash' 'git')
 optdepends=("asp: to download PKGBUILD's of official packages"
             "cower: to manage AUR packages"
-			"namcap: to validate PKGBUILDs and built packages")
+	    "namcap: to validate built packages")
+backup=('etc/xdg/pak.conf')
+conflicts=(pak)
  
-source=("https://gitlab.com/nycko123/pak/raw/master/src/$pkgname-$pkgver.tar.gz")
+source=("git+https://gitlab.com/nycko123/pak.git")
  
-sha256sums=('b36202634874328616d75d63088706e6d23c1de93ba76141baa6242f476b16a1')
+sha256sums=('SKIP')
+
+pkgver() {
+ cd "${pkgname%-*}"
+ git describe --long | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
  
 package(){
- install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"
- install -Dm644 "$srcdir/pak.conf" "$pkgdir/etc/xdg/pak.conf"
- install -Dm644 "$srcdir/locale/pl.mo" "$pkgdir/usr/share/locale/pl/LC_MESSAGES/pak.mo"
+ install -Dm755 "$srcdir/${pkgname%-*}/${pkgname%-*}" "$pkgdir/usr/bin/${pkgname%-*}"
+ install -Dm644 "$srcdir/${pkgname%-*}/pak.conf" "$pkgdir/etc/xdg/pak.conf"
+ install -Dm644 "$srcdir/${pkgname%-*}/locale/pl.mo" "$pkgdir/usr/share/locale/pl/LC_MESSAGES/pak.mo"
+ install -Dm644 "$srcdir/${pkgname%-*}/man/pak.8.gz" "$pkgdir/usr/share/man/man8/pak.8.gz"
+ install -Dm644 "$srcdir/${pkgname%-*}/man/pak.conf.5.gz" "$pkgdir/usr/share/man/man5/pak.conf.5.gz"
 }
