@@ -1,0 +1,50 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+# for kpatience 18.04.x with some patches
+# Maintainer: Felix Yan <felixonmars@archlinux.org>
+# Maintainer: Antonio Rojas <arojas@archlinux.org>
+# Contributor: Andrea Scarpino <andrea@archlinux.org>
+
+pkgname=kpatience
+_pkgname=kpat
+pkgver=18.04.3
+pkgrel=1.1
+pkgdesc="Offers a selection of solitaire card games"
+url="https://kde.org/applications/games/kpatience/"
+arch=(x86_64)
+license=(GPL LGPL FDL)
+groups=(kde-applications kdegames)
+depends=(libkdegames freecell-solver hicolor-icon-theme)
+makedepends=(extra-cmake-modules kdoctools)
+source=("https://download.kde.org/stable/applications/$pkgver/src/kpat-$pkgver.tar.xz"{,.sig}
+kdebug-307625.patch::"https://cgit.kde.org/kpat.git/patch/?id=eb5fa8dab3559bf008829154c4c17239af607da6"
+qbuffer_for_qt5.11.patch::"https://cgit.kde.org/kpat.git/patch/?id=7a69e3f4b15a902c4008a428d5fbf0335526f49b")
+sha256sums=('5a4558e6b345ca411fca31eacfac4e317a10c59864ebff1d98268909c401bd29'
+            'SKIP'
+            '32949590fcde59365423fe034ab867cabf101cd92214728e656821372d9ed46e'
+            '1239f637600baea7027d95d3f009be0f335cfe65bee9cc8f3b2fe478cf8aca2e')
+validpgpkeys=(CA262C6C83DE4D2FB28A332A3A6A4DB839EAA6D7  # Albert Astals Cid <aacid@kde.org>
+              F23275E4BF10AFC1DF6914A6DBD2CE893E2D1C87) # Christoph Feck <cfeck@kde.org>
+
+prepare() {
+  mkdir -p build
+
+  cd kpat-$pkgver
+  msg "Add kdebug 307625 and 378914 patch" # Fixed in 18.08.2
+  patch -p1 -i ../kdebug-307625.patch
+  msg "Add QBuffer for Qt 5.11 patch"
+  patch -p1 -i ../qbuffer_for_qt5.11.patch
+}
+
+build() {
+  cd build
+  cmake ../kpat-$pkgver \
+    -DBUILD_TESTING=OFF \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_INSTALL_LIBDIR=lib
+  make
+}
+
+package() {
+  cd build
+  make DESTDIR="$pkgdir" install
+}
