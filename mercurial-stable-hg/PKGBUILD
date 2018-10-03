@@ -8,7 +8,7 @@ pkgdesc="Distributed source control management tool"
 arch=('i686' 'x86_64')
 url="https://www.mercurial-scm.org/"
 license=('GPL2')
-depends=('glibc' 'python2')
+depends=('python2')
 optdepends=('tk: for the hgk GUI')
 makedepends=('mercurial' 'python2-docutils')
 provides=('mercurial')
@@ -18,7 +18,6 @@ source=("hg+https://www.mercurial-scm.org/repo/hg#branch=stable"
         "mercurial.profile")
 sha256sums=('SKIP'
             '87427151713e689cd87dc50d50c048e0e58285815e4eb61962b50583532cbde5')
-
 
 pkgver() {
   cd "hg"
@@ -32,18 +31,11 @@ prepare() {
   sed -i 's/PYTHON=python/PYTHON=python2/' "doc/Makefile"
 }
 
-
 build() {
   cd "hg"
 
   make all
   make -C "contrib/chg"
-}
-
-check() {
-  cd "hg"
-
-  #make tests
 }
 
 package() {
