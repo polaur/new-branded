@@ -1,0 +1,28 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=android-file-transfer-linux
+pkgver=3.5
+pkgrel=1
+pkgdesc='Android file transfer for linux'
+arch=('x86_64')
+url='https://www.opendesktop.org/s/Apps/p/1210700/'
+license=('LGPL')
+depends=(qt5-base hicolor-icon-theme fuse2 file)
+makedepends=(cmake)
+source=("https://github.com/whoozle/android-file-transfer-linux/archive/v3.5.tar.gz")
+sha256sums=('ea7897f08da96ecc29160cd3db83a26b591fa2d64db25b9f80d6cace628dece9')
+
+build() {
+  cd $pkgname-$pkgver
+
+  mkdir build && cd build
+  cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+  make 
+  
+}
+
+package() {
+  cd $pkgname-$pkgver/build
+
+  make DESTDIR=${pkgdir} install
+}
