@@ -1,0 +1,35 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=dukto-qt5-git
+pkgrel=1
+pkgver=v6.r9.g402f858
+pkgdesc="A simple and fast file transfer tool for LAN; Qt5 port"
+arch=('x86_64')
+url="https://github.com/arthurzam/dukto-qt5"
+license=('GPL2')
+depends=('qt5-quick1') # You had to build qt5-quick1 from AUR
+makedepends=('git')
+source=("git+https://github.com/arthurzam/dukto-qt5.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd ${pkgname%-*}
+    git describe --long --tags | sed -r 's/([^-]*-g)/r\1/;s/-/./g'
+}
+
+prepare() {
+	mkdir -p build
+	}
+
+build() {
+  cd build
+	cmake ../${pkgname%-*} \
+	-DCMAKE_INSTALL_PREFIX=/usr \
+	-DUSE_QT5=ON
+  make
+}
+
+package() {
+	cd build
+	make DESTDIR="${pkgdir}" install
+}
