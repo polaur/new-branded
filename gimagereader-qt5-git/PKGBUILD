@@ -8,15 +8,17 @@
 
 pkgname=gimagereader-qt5-git
 _pkgname=gImageReader
-pkgver=3.2.99.r10.gc4679b3
+pkgver=3.3.0.r35.gd513c63
 pkgrel=1
 pkgdesc="A graphical frontend to tesseract-ocr - Qt5 version"
 arch=('x86_64')
 url="https://github.com/manisandro/gImageReader"
 license=('GPL3')
-depends=('djvulibre' 'sane' 'podofo' 'tesseract' 'qtspell' 'poppler-qt5' 'quazip')
+depends=('djvulibre' 'sane' 'podofo' 'tesseract' 'qtspell' 'poppler-qt5' 
+'quazip' 'desktop-file-utils')
 makedepends=('desktop-file-utils' 'intltool' 'cmake')
 conflicts=(gimagereader gimagereader-qt5)
+option=(debug !strip)
 source=("git+https://github.com/manisandro/gImageReader.git")
 sha256sums=('SKIP')
 
@@ -32,9 +34,11 @@ prepare() {
 build() {
   cd build
 
-  cmake -DINTERFACE_TYPE=qt5 \
+  cmake ../"$_pkgname" \
+        -DINTERFACE_TYPE=qt5 \
         -DCMAKE_INSTALL_PREFIX=/usr \
-        ../"$_pkgname"
+        -DCMAKE_PREFIX_PATH=/usr \
+        -DCMAKE_MODULE_PATH=/usr/lib/cmake/QuaZip 
 
   make
   }
