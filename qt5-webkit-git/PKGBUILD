@@ -1,0 +1,57 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+# based on qt5-webkit's PKGBUILD made by:
+# Maintainer: Felix Yan <felixonmars@archlinux.org>
+# Maintainer: Antonio Rojas <arojas@archlinux.org>
+# Contributor: Andrea Scarpino <andrea@archlinux.org>
+
+pkgname=qt5-webkit-git
+pkgver=r174546.4ce8ebc4094
+pkgrel=1
+arch=(x86_64)
+url='http://qt-project.org/'
+license=(GPL3 LGPL3 FDL custom)
+pkgdesc='Classes for a WebKit2 based implementation and a new QML API'
+depends=(qt5-location qt5-sensors qt5-webchannel libwebp libxslt libxcomposite gst-plugins-base hyphen)
+makedepends=(cmake ruby gperf python2 qt5-doc qt5-tools)
+optdepends=('gst-plugins-good: Webm codec support')
+conflicts=(qt5-webkit-ng qt5-webkit qt5-webkit-git)
+provides=(qt5-webkit)
+replaces=(qt5-webkit-ng)
+groups=(qt qt5)
+source=("git+https://github.com/annulen/webkit.git#branch=qtwebkit-5.212")
+sha256sums=('SKIP')
+
+pkgver() {
+cd webkit
+#git describe --long | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+  mkdir -p build
+}
+
+build() {
+  cd build
+
+  cmake ../webkit \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DPORT=Qt \
+    -DENABLE_TOOLS=OFF
+  make -j3
+}
+
+package() {
+  cd build
+  make DESTDIR="$pkgdir" install
+
+  install -d "$pkgdir"/usr/share/licenses
+  ln -s /usr/share/licenses/qt5-base "$pkgdir"/usr/share/licenses/${pkgname}
+
+# Fix pkgconfig files
+  sed -e 's|qt/Qt5WebKit|qt/QtWebKit|' -i "$pkgdir"/usr/lib/pkgconfig/Qt5WebKit.pc
+  sed -e 's|qt/Qt5WebKitWidgets|qt/QtWebKitWidgets|' -i "$pkgdir"/usr/lib/pkgconfig/Qt5WebKitWidgets.pc
+  sed -e '/Name/a Description: Qt WebKit module' -i "$pkgdir"/usr/lib/pkgconfig/Qt5WebKit.pc
+  sed -e '/Name/a Description: Qt WebKitWidgets module' -i "$pkgdir"/usr/lib/pkgconfig/Qt5WebKitWidgets.pc
+}
