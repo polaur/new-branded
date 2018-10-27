@@ -1,0 +1,33 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=mnotes-git
+pkgver=r52.b8acaa9
+pkgrel=1
+arch=(x86_64)
+pkgdesc="Alternative for knotes"
+url="https://github.com/AlfredoCubitos/mnotes"
+license=(GPL)
+depends=(qt5-declarative)
+makedepends=(git)
+source=("git+https://github.com/AlfredoCubitos/mnotes.git")
+md5sums=('SKIP')
+
+pkgver() {
+  cd ${pkgname%-*}
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+  mkdir -p build
+}
+
+build() {
+  cd build
+  qmake ../${pkgname%-*} PREFIX=/usr
+  make
+}
+
+package(){
+  cd build
+  make INSTALL_ROOT="$pkgdir" install
+}
