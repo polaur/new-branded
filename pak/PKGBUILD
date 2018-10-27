@@ -4,25 +4,27 @@
 # You had to install all optdepends for full functionality of this script
  
 pkgname=pak
-pkgver=1.7
+pkgver=1.8
 pkgrel=1
 pkgdesc="Simple pacman and AUR frontend"
 arch=('any')
 url="https://gitlab.com/nycko123/pak"
 license=('GPL')
-depends=('bash' 'git')
+depends=('bash' 'git' 'jq')
 optdepends=("asp: to download PKGBUILD's of official packages"
             "cower: to manage AUR packages"
 	    "namcap: to validate built packages")
 backup=('etc/xdg/pak.conf')
 conflicts=(pak-git)
  
-source=("https://gitlab.com/nycko123/pak/raw/master/src/pak-1.7.tar.gz")
+source=("https://gitlab.com/nycko123/pak/raw/master/src/${pkgname}-${pkgver}.tar.gz")
  
-sha256sums=('b36202634874328616d75d63088706e6d23c1de93ba76141baa6242f476b16a1')
+sha256sums=('ba33b17b4023fa36217a5c00b1aa972a2c6ff376925e0f77c1dd9146d7a44d1c')
  
 package(){
  install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"
  install -Dm644 "$srcdir/pak.conf" "$pkgdir/etc/xdg/pak.conf"
  install -Dm644 "$srcdir/locale/pl.mo" "$pkgdir/usr/share/locale/pl/LC_MESSAGES/pak.mo"
+ install -Dm644 "$srcdir/man/pak.8.gz" "$pkgdir/usr/share/man/man8/pak.8.gz"
+ install -Dm644 "$srcdir/man/pak.conf.5.gz" "$pkgdir/usr/share/man/man5/pak.conf.5.gz"
 }
