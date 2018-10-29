@@ -1,0 +1,37 @@
+
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+pkgname=thedocument-git
+pkgver=r10.e719dbd
+pkgrel=1
+pkgdesc="Cross Platform Word Processor"
+arch=("x86_64")
+url="https://github.com/vicr123/theshell"
+license=('GPL3')
+depends=(qt5-base)
+optdepends=()
+makedepends=('git' 'qt5-tools')
+source=('git+https://github.com/vicr123/thedocument')
+md5sums=('SKIP')
+
+pkgver() {
+  cd ${pkgname%-*}
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+	cd ${pkgname%-*}
+	qmake theDocument.pro
+	make
+}
+
+package() {
+
+	install -Dm755 "$srcdir/${pkgname%-*}/${pkgname%-*}" "$pkgdir/usr/bin/${pkgname%-*}"
+	install -Dm644 "$srcdir/${pkgname%-*}/icon.svg" "${pkgdir}/usr/share/icons/${pkgname%-*}.svg"
+
+ #   cd ${pkgname%-*}
+#	mkdir -p "$pkgdir/usr/bin"
+#	cp thedocument "$pkgdir/usr/bin"
+#	mkdir -p "$pkgdir/usr/share/icons"
+#	cp icon.svg "$pkgdir/usr/share/icons/thedocument.svg"
+}
