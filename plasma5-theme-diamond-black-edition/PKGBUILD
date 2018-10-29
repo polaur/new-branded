@@ -1,0 +1,24 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=plasma5-theme-diamond-black-edition
+pkgver=1.0
+pkgrel=1
+pkgdesc="Black version of Diamond a transparent theme for Plasma 5"
+arch=('any')
+license=('GPL3')
+url="https://store.kde.org/p/1260917/" 
+conflicts=('plasma-theme-diamond')
+replace=('plasma-theme-diamond')
+source=("https://dl.opendesktop.org/api/files/download/id/1536758522/s/76b31a46f4bee8197cf7533e070d3e5e/t/1540857067/u//Diamond-black.tar.xz")
+md5sums=('89d629484f6aa2f5eaaffde0517daeb4')
+
+package() {
+
+  mv "Diamond-black " Diamond-black
+
+  mkdir -p $pkgdir/usr/share/apps/desktoptheme
+  cd $srcdir
+  cp -r Diamond-black $pkgdir/usr/share/apps/desktoptheme
+  chmod -R 755 $pkgdir/usr/share/apps/desktoptheme/Diamond-black
+
+}
