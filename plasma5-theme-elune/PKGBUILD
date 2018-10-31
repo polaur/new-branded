@@ -1,0 +1,20 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=plasma5-theme-elune
+pkgver=1.2
+pkgrel=1
+pkgdesc="Another Window based theme for Plasma from deviantart.com"
+arch=('any')
+license=('GPL') 
+url="https://www.deviantart.com/half-left/art/Elune-For-Plasma-5-558192192" 
+source=("https://orig00.deviantart.net/6d8c/f/2015/326/5/f/elune_for_plasma_5_by_half_left-d98bzuo.zip")
+md5sums=('3f1bc0ea435a601dc07451baf58eb646')
+
+package() {
+
+  mkdir -p $pkgdir/usr/share/apps/desktoptheme
+  cd $srcdir
+  cp -r Elune $pkgdir/usr/share/apps/desktoptheme
+  chmod -R 755 $pkgdir/usr/share/apps/desktoptheme/Elune
+
+}
