@@ -1,0 +1,20 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=plasma5-theme-google+
+pkgver=1
+pkgrel=1
+pkgdesc="Plasma 5 theme base on the look of Google+ with Google colours in various elements"
+arch=('any')
+license=('GPL') 
+url="https://www.deviantart.com/half-left/art/Google-For-Plasma-5-558857810" 
+source=("https://orig00.deviantart.net/93ff/f/2015/250/7/b/google__for_plasma_5_by_half_left-d98q9g2.zip")
+md5sums=('5f3d9bea332c55bb4078e21441650385')
+
+package() {
+
+  mkdir -p $pkgdir/usr/share/apps/desktoptheme
+  cd $srcdir
+  cp -r Google+5 $pkgdir/usr/share/apps/desktoptheme
+  chmod -R 755 $pkgdir/usr/share/apps/desktoptheme/Google+5
+
+}
