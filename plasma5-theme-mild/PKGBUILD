@@ -1,0 +1,20 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=plasma5-theme-mild
+pkgver=1.2
+pkgrel=1
+pkgdesc="Plasma 5 theme based on the Windows version theme from deviantart.com"
+arch=('any')
+license=('GPL') 
+url="https://www.deviantart.com/half-left/art/Mild-For-Plasma-5-573976504" 
+source=("https://orig00.deviantart.net/5430/f/2016/218/7/9/mild_for_plasma_5_by_half_left-d9hqb3s.zip")
+md5sums=('3fca6b10dc81344b9d910c052b4043fb')
+
+package() {
+
+  mkdir -p $pkgdir/usr/share/apps/desktoptheme
+  cd $srcdir
+  cp -r Mild $pkgdir/usr/share/apps/desktoptheme
+  chmod -R 755 $pkgdir/usr/share/apps/desktoptheme/Mild
+
+}
