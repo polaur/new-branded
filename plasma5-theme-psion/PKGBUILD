@@ -1,0 +1,21 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=plasma5-theme-psion
+pkgver=1.5
+pkgrel=1
+pkgdesc="Transparent theme for Plasma 5"
+arch=('any')
+license=('GPL3')
+url="https://store.kde.org/p/1235513/" 
+url="https://bitbucket.org/phobi4n/psion"
+source=("https://dl.opendesktop.org/api/files/download/id/1526550240/s/970c5da074ac813405c4571f7d9e2c98/t/1541017493/u//Psion-1.5.tar.gz")
+md5sums=('fc34382560a97f885c0569368b35dfb8')
+
+package() {
+
+  mkdir -p $pkgdir/usr/share/apps/desktoptheme
+  cd $srcdir
+  cp -r Psion $pkgdir/usr/share/apps/desktoptheme
+  chmod -R 755 $pkgdir/usr/share/apps/desktoptheme/Psion
+
+}
