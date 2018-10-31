@@ -1,0 +1,20 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=plasma5-theme-mild
+pkgver=1.1
+pkgrel=1
+pkgdesc="A nice smooth Plasma 5 theme"
+arch=('any')
+license=('GPL') 
+url="https://www.deviantart.com/half-left/art/Smoother-For-Plasma-5-557988370" 
+source=("https://orig00.deviantart.net/e01b/f/2015/261/f/b/smoother_for_plasma_5_by_half_left-d987mky.zip")
+md5sums=('4507ee406b46d88282189a4b1830f3c2')
+
+package() {
+
+  mkdir -p $pkgdir/usr/share/apps/desktoptheme
+  cd $srcdir
+  cp -r Smoother5 $pkgdir/usr/share/apps/desktoptheme
+  chmod -R 755 $pkgdir/usr/share/apps/desktoptheme/Smoother5
+
+}
