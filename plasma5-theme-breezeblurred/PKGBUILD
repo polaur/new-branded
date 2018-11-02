@@ -1,16 +1,16 @@
 # Maintainer: pavbaranov <pavbaranov at gmail dot com>
 
 pkgname=plasma5-theme-breezeblurred
-pkgver=1.1
+pkgver=1.2
 pkgrel=1
 pkgdesc="Breeze window decoration with blur enabled"
-arch=('any')
+arch=('x86_64')
 license=('GPL')
 url="https://store.kde.org/p/1221562/"
-depends=(kdecoration kwindowsystem kconfigwidgets)
+depends=(kdecoration kwindowsystem kconfigwidgets fftw)
 makedepends=(extra-cmake-modules)
-source=("https://dl.opendesktop.org/api/files/downloadfile/id/1520863206/s/393b4b6f956b2c048dc39869e17ff5d1/t/1520885568/u/492721/BreezeBlurred-master_2018_march_12.zip")
-sha256sums=('7937e5e73dd2358d4d4df1cb552bdad2978512510360af2231d770833848f230')
+source=("https://dl.opendesktop.org/api/files/download/id/1541093558/s/8a94483b47c6282bce27bdb8b78ace03/t/1541154089/u//BreezeBlurred-master_2018_november_1.zip")
+sha256sums=('4b4fbff05f423177801e3dec31f4c27f7300758d0365f2f3012c1e510b90e866')
 
 prepare() {
     mkdir -p build
@@ -22,6 +22,7 @@ build() {
         -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_BUILD_TYPE=Release \
         -DBUILD_TESTING=OFF \
+	-DKDE_INSTALL_LIBDIR=lib \
         -DKDE_INSTALL_USE_QT_SYS_PATHS=ON
     }
     
