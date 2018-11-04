@@ -1,7 +1,7 @@
 # Maintainer: pavbaranov <pavbaranov at gmail dot com>
 
 pkgname=plasma5-theme-helium
-pkgver=8.6.3
+pkgver=8.7.1
 pkgrel=1
 pkgdesc="A translucent theme for Plasma 5"
 arch=('any')
@@ -9,8 +9,8 @@ license=('CC BY-SA 4.0') # See: https://creativecommons.org/licenses/by-sa/4.0/
 url="https://store.kde.org/p/998869/" 
 conflicts=('plasma-theme-gremix' 'plasma-theme-helium')
 replace=('plasma-theme-helium')
-source=("https://dl.opendesktop.org/api/files/download/id/1540216476/s/e8e9441c30b3fe5edd3a2c8c953ccc1c/t/1540854719/u//Helium.tar.gz")
-md5sums=('8c32acdf27f16697db608940e4c66948')
+source=("https://dl.opendesktop.org/api/files/download/id/1541285991/s/fe7d77f7e6dbaca34a11e75328a051fe/t/1541362428/u//Helium.tar.gz")
+md5sums=('cbdaca0de9549ffe865e2e6e57c87dc6')
 
 package() {
 
