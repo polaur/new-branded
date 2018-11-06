@@ -15,11 +15,9 @@ sha256sums=('SKIP')
 
 pkgver() {
  cd "${pkgname%-*}"
-#    cd configure-wifi
-    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+ printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
  }
  
 package(){
  install -Dm755 "$srcdir/${pkgname%-*}/${pkgname%-*}" "$pkgdir/usr/bin/configure-wifi"
-# install -Dm644 "$srcdir/${pkgname%-*}/locale/pl.mo" "$pkgdir/usr/share/locale/pl/LC_MESSAGES/pak.mo"
-}
+ }
