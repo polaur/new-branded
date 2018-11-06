@@ -1,0 +1,25 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=configure-wifi-git
+pkgver=r22.bd14bd8
+pkgrel=1
+pkgdesc="Dialog-based script to select a wifi network uses systemd-networkd and wpa_supplicant"
+arch=('any')
+url="https://github.com/the-kyle/configure-wifi"
+license=('GPL')
+depends=('bash' 'git')
+optdepends=("wpa_supplicant")
+source=("git+https://github.com/the-kyle/configure-wifi.git")
+ 
+sha256sums=('SKIP')
+
+pkgver() {
+ cd "${pkgname%-*}"
+#    cd configure-wifi
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+ }
+ 
+package(){
+ install -Dm755 "$srcdir/${pkgname%-*}/${pkgname%-*}" "$pkgdir/usr/bin/configure-wifi"
+# install -Dm644 "$srcdir/${pkgname%-*}/locale/pl.mo" "$pkgdir/usr/share/locale/pl/LC_MESSAGES/pak.mo"
+}
