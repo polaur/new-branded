@@ -1,0 +1,16 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=plasma5-theme-serious
+pkgver=0.0.3
+pkgrel=1
+pkgdesc="A modern transculent flow for Plasma 5"
+arch=('any')
+license=('GPL')
+url="https://store.kde.org/p/998716/"
+source=("https://dl.opendesktop.org/api/files/download/id/1460732353/s/f3e8be55f89581c2f81ecb7f3f7f2ab351a29e0b9088f070a05bbc033a2e3241c65ec5e6bd98168f3e0d688ef5d4e0718ff043f9c77e7d768ab1fc125732b7d2/t/1541928773/u//112767-serious-0.0.3.tar.gz")
+sha256sums=('3a9c663c65687ccd033b135def510d82ca7855c7235a77f6b30ec50b931540d1')
+
+package() {
+ mkdir -p ${pkgdir}/usr/share/plasma/desktoptheme
+ cp -r Serious ${pkgdir}/usr/share/plasma/desktoptheme
+} 
