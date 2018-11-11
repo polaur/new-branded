@@ -1,0 +1,16 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=plasma5-theme-dowlas
+pkgver=0.5
+pkgrel=1
+pkgdesc="Rounded whithe theme for Plasma 5"
+arch=('any')
+license=('GPL3')
+url="https://store.kde.org/p/1272470/"
+source=("https://dl.opendesktop.org/api/files/download/id/1541775449/s/e322635e4ea4770c6774fa4b91cda6c79247d1836f92a77b5839266d0953730fe06f58a8a2551217c8998090cafa3d700e2b4b9e0cae1a429d74747cabad8832/t/1541927850/u//Dowlas-0.5.tar.gz")
+sha256sums=('619cce5e7796dadcdbe6c7e3e5233666a8ac02f2d228168062638c2314e261de')
+
+package() {
+ mkdir -p ${pkgdir}/usr/share/plasma/desktoptheme
+ cp -r Dowlas ${pkgdir}/usr/share/plasma/desktoptheme
+} 
