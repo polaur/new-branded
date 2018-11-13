@@ -1,0 +1,28 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=manpager
+pkgver=1.1.1
+pkgrel=1
+pkgdesc='Simple application that lets you search for and view system manual pages'
+url='https://github.com/tychosoft/manpager'
+arch=(x86_64)
+license=(GPL3)
+depends=(qt5-base)
+makedepends=(qt5-base)
+source=("https://codeload.github.com/tychosoft/manpager/tar.gz/v1.1.1")
+sha256sums=('571b66b8772938e18f620ae87b8f03ad26b649ec4991d2b7a6ba28e0e11744e8')
+
+#prepare() {
+#  mkdir -p build
+#}
+
+build() {
+  cd $pkgname-$pkgver
+  qmake PREFIX=/usr Manpager.pro
+  make 
+}
+
+package() {
+  cd $pkgname-$pkgver
+  make INSTALL_ROOT="$pkgdir" install
+}
