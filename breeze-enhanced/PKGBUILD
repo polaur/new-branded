@@ -1,0 +1,36 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+# for versioned breeze-enhanced-git - work of:
+# Maintainer: Jan Neumann <neum dot ja at gmail dot com>
+
+pkgname=breeze-enhanced
+pkgver=5.14.3
+pkgrel=1
+pkgdesc='A fork of KDE Breeze decoration with additional options'
+arch=('x86_64')
+url='https://github.com/tsujan/BreezeEnhanced'
+license=('GPL3')
+depends=(fftw kdecoration)
+makedepends=(git extra-cmake-modules kconfigwidgets kwindowsystem)
+optdepends=(kwindowsystem kconfigwidgets kvantum)
+source=("git+${url}.git")
+sha256sums=('SKIP')
+
+prepare() {
+    mkdir -p build
+    }
+    
+build() {
+    cd build
+    cmake ../BreezeEnhanced \
+            -DCMAKE_INSTALL_PREFIX=/usr \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DKDE_INSTALL_LIBDIR=lib \
+            -DBUILD_TESTING=OFF \
+            -DKDE_INSTALL_USE_QT_SYS_PATHS=ON
+    make
+}
+
+package() {
+    cd build
+    make DESTDIR="$pkgdir" install        
+}
