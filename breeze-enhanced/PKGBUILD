@@ -12,6 +12,7 @@ license=('GPL3')
 depends=(fftw kdecoration)
 makedepends=(git extra-cmake-modules kconfigwidgets kwindowsystem)
 optdepends=(kwindowsystem kconfigwidgets kvantum)
+conflicts=(breeze-enhanced-git)
 source=("git+${url}.git")
 sha256sums=('SKIP')
 
