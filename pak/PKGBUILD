@@ -5,7 +5,7 @@
  
 pkgname=pak
 pkgver=1.9
-pkgrel=1
+pkgrel=2
 pkgdesc="Simple pacman and AUR frontend"
 arch=('any')
 url="https://gitlab.com/nycko123/pak"
@@ -20,7 +20,7 @@ conflicts=(pak-git)
  
 source=("https://gitlab.com/nycko123/pak/raw/master/src/${pkgname}-${pkgver}.tar.gz")
  
-sha256sums=('d196ccfc484f6f8cd47ae27c256dab5436dd5eaddbc5280338a02ebfde157a99')
+sha256sums=('bca6b452491659857e1d8ff4c281f8ebae83f483f1dada79d7a10d2205060ac9')
  
 package(){
  install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"
