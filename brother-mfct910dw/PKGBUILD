@@ -1,0 +1,36 @@
+# Maintainer: <pavbaranov at gmail dot com>
+# Based on the DCP-J552DW PKGBUILD by Marius Rejdak and on the
+# DCP-J562DW build by Daniel Dietrich
+pkgname=brother-mfct910dw
+pkgver=1.0.0.0
+pkgrel=1
+pkgdesc="Driver for the Brother DCP-T910DW wifi/usb multifunctional printer"
+arch=('x86_64')
+url="http://support.brother.com/g/s/id/linux/en/index.html"
+license=('custom:brother')
+depends=('a2ps' 'cups' 'psutils' 'lib32-glibc')
+optdepends=('sane: scanning support'
+            'brscan4: making mfct910dw available to sane'
+            'brscan-skey: scankey support if connected via usb')
+install='brother-mfct910dw.install'
+source=(
+"fix_lp.patch" 
+"brother-eula.txt"
+#"https://download.brother.com/welcome/dlf103626/mfct910dwpdrv-1.0.0-0.i386.deb"
+"https://download.brother.com/welcome/dlf103627/mfct910dwpdrv-1.0.0-0.i386.rpm")
+md5sums=('ebc6a8619380a694b559a7c8aafd92ca'
+         '80407224bc8f4b5656de6271144f9e19'
+         'b192137133f6b2273871eed634681f66')
+
+build() {
+    cd "$srcdir"
+    patch -Np0 < fix_lp.patch
+}
+
+package() {
+    install -d "$pkgdir"/usr/bin
+    install -d "$pkgdir"/var/spool/lpd
+    install -Dm755 "$srcdir"/usr/bin/brprintconf_mfct910dw "$pkgdir"/usr/bin/
+    cp -R "$srcdir"/opt "$pkgdir"/opt
+    install -D -m644 $startdir/brother-eula.txt $pkgdir/usr/share/licenses/$pkgname/LICENSE
+}

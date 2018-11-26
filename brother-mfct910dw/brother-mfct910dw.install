@@ -1,0 +1,27 @@
+post_install() {
+	# lpr
+	/opt/brother/Printers/mfct910dw/inf/setupPrintcapij mfct910dw -i
+	
+	# cupswrapper
+	/opt/brother/Printers/mfct910dw/cupswrapper/cupswrappermfct910dw
+	
+	systemctl restart org.cups.cupsd
+}
+
+post_upgrade() {
+	/bin/true
+}
+
+pre_remove() {
+	# lpr
+	/opt/brother/Printers/mfct910dw/inf/setupPrintcapij mfct910dw -e
+	
+	# cupswrapper
+	/opt/brother/Printers/mfct910dw/cupswrapper/cupswrappermfct910dw -e
+}
+
+op=$1
+shift
+
+$op "$@"
+
