@@ -1,0 +1,25 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+# Contributor: Abouzakaria <zkariakov@gmail.com>
+
+pkgname=goldfinch
+pkgver=0.1
+pkgrel=1
+pkgdesc='Qt5 application to play and organize audio files'
+arch=('x86_64')
+url='https://www.opendesktop.org/s/Apps/p/1277378/'
+license=('GPL3')
+depends=(qt5-gstreamer qt5-multimedia desktop-file-utils)
+optdepends=(ffmpeg gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav taglib)
+source=("https://github.com/zakariakov/goldfinch/archive/$pkgver.tar.gz")
+sha512sums=('133421c9fb698323136058e3c95817620ec63bd8f15b8bc13ee83c36beb8dfb2e9a279858477eab3ae7c007f9a7e23bcbefb83f76708bdf5fbc2893283d9d73e')
+
+build() {
+  cd $pkgname-$pkgver
+  qmake PREFIX=/usr
+  make
+}
+
+package() {
+  cd $pkgname-$pkgver
+  make INSTALL_ROOT="$pkgdir" install
+}
