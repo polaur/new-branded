@@ -1,0 +1,136 @@
+# Maintainer : pavbaranov <pavbaranov at gmail dot com>
+
+pkgbase=marble-maps
+pkgname=(marble-maps-googlesat marble-maps-googlemaps marble-maps-googleterrain  marble-maps-thunderforest-cycle marble-maps-thunderforest-landscape marble-maps-thunderforest-outdoors marble-maps-thunderforest-transport marble-maps-virtualearth marble-maps-virtualearthos marble-maps-hikebikemap marble-maps-osmil marble-maps-mtb marble-maps-routes marble-maps-osmfr)
+pkgver=1
+pkgrel=1
+pkgdesc="Marble's integration with different additional maps including restricted maps"
+url="https://gitlab.com/marble-restricted-maps"
+url="https://github.com/freayd/marble-maps"
+url="https://github.com/cmarqu/hikebikemap-marble"
+url="https://github.com/zstadler/marble"
+url="https://github.com/adrien-github/osmfr"
+url="https://github.com/adrien-github/googlesat"
+license=('unknown')
+arch=('any')
+makedepends=(git)
+conflicts=('marble-restricted-maps-git')
+source=(
+#"git+https://gitlab.com/marble-restricted-maps/googlemaps.git"
+"git+https://gitlab.com/marble-restricted-maps/virtualearth.git"
+"git+https://gitlab.com/marble-restricted-maps/virtualearthos.git"
+"git+https://github.com/freayd/marble-maps.git"
+"git+https://github.com/cmarqu/hikebikemap-marble.git"
+"git+https://github.com/zstadler/marble.git"
+"git+https://github.com/adrien-github/osmfr.git"
+)
+md5sums=('SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP')
+
+package_marble-maps-googlemaps(){
+    pkgdesc="Google Maps integration into Marble"
+    conflicts=('marble-restricted-maps-git')
+    mkdir -p $pkgdir/usr/share/marble/data/maps/earth
+    mv "$srcdir/marble-maps/earth/google-maps" "$pkgdir/usr/share/marble/data/maps/earth/"
+    rm -rf "$pkgdir/usr/share/marble/data/maps/earth/google-maps/.git"
+    }
+
+package_marble-maps-googlesat(){
+    pkgdesc="Google Satelite integration into Marble"
+    conflicts=('marble-restricted-maps-git')
+    mkdir -p $pkgdir/usr/share/marble/data/maps/earth
+    mv "$srcdir/marble-maps/earth/google-maps-satellite" "$pkgdir/usr/share/marble/data/maps/earth/"
+    rm -rf "$pkgdir/usr/share/marble/data/maps/earth/google-maps-satellite/.git"
+    }
+    
+package_marble-maps-googleterrain(){
+    pkgdesc="Google Terrain integration into Marble"
+    conflicts=('marble-restricted-maps-git')
+    mkdir -p $pkgdir/usr/share/marble/data/maps/earth
+    mv "$srcdir/marble-maps/earth/google-maps-terrain" "$pkgdir/usr/share/marble/data/maps/earth/"
+    rm -rf "$pkgdir/usr/share/marble/data/maps/earth/google-maps-terrain/.git"
+    }
+
+package_marble-maps-thunderforest-cycle(){
+    pkgdesc="Thunderforest Cycle integration into Marble"
+    mkdir -p $pkgdir/usr/share/marble/data/maps/earth
+    mv "$srcdir/marble-maps/earth/thunderforest-cycle" "$pkgdir/usr/share/marble/data/maps/earth/"
+    rm -rf "$pkgdir/usr/share/marble/data/maps/earth/thunderforest-cycle/.git"
+    }
+    
+package_marble-maps-thunderforest-landscape(){
+    pkgdesc="Thunderforest Lanscape integration into Marble"
+    mkdir -p $pkgdir/usr/share/marble/data/maps/earth
+    mv "$srcdir/marble-maps/earth/thunderforest-landscape" "$pkgdir/usr/share/marble/data/maps/earth/"
+    rm -rf "$pkgdir/usr/share/marble/data/maps/earth/thunderforest-landscape/.git"
+    }
+    
+package_marble-maps-thunderforest-outdoors(){
+    pkgdesc="Thunderforest Outdoors integration into Marble"
+    mkdir -p $pkgdir/usr/share/marble/data/maps/earth
+    mv "$srcdir/marble-maps/earth/thunderforest-outdoors" "$pkgdir/usr/share/marble/data/maps/earth/"
+    rm -rf "$pkgdir/usr/share/marble/data/maps/earth/thunderforest-outdoors/.git"
+    }
+    
+package_marble-maps-thunderforest-transport(){
+    pkgdesc="Thunderforest Transport integration into Marble"
+    mkdir -p $pkgdir/usr/share/marble/data/maps/earth
+    mv "$srcdir/marble-maps/earth/thunderforest-transport" "$pkgdir/usr/share/marble/data/maps/earth/"
+    rm -rf "$pkgdir/usr/share/marble/data/maps/earth/thunderforest-transport/.git"
+    }
+    
+package_marble-maps-virtualearth(){
+    pkgdesc="Virtualearth Map integration into Marble"
+    conflicts=('marble-restricted-maps-git')
+    mkdir -p $pkgdir/usr/share/marble/data/maps/earth
+    mv "$srcdir/virtualearth" "$pkgdir/usr/share/marble/data/maps/earth/"
+    rm -rf "$pkgdir/usr/share/marble/data/maps/earth/virtualearth/.git"
+    }
+    
+package_marble-maps-virtualearthos(){
+    pkgdesc="VirtualearthOS Map integration into Marble"
+    conflicts=('marble-restricted-maps-git')
+    mkdir -p $pkgdir/usr/share/marble/data/maps/earth
+    mv "$srcdir/virtualearthos" "$pkgdir/usr/share/marble/data/maps/earth/"
+    rm -rf "$pkgdir/usr/share/marble/data/maps/earth/virtualearthos/.git"
+    }
+    
+package_marble-maps-hikebikemap(){
+    pkgdesc="Hike&Bike Map integration into Marble"
+    mkdir -p $pkgdir/usr/share/marble/data/maps/earth
+    mv "$srcdir/hikebikemap-marble" "$pkgdir/usr/share/marble/data/maps/earth/"
+    rm -rf "$pkgdir/usr/share/marble/data/maps/earth/hikebikemap-marble/.git"
+    }
+    
+package_marble-maps-osmil(){
+    pkgdesc="OpenStreet Map (IL) integration into Marble"
+    mkdir -p $pkgdir/usr/share/marble/data/maps/earth
+    mv "$srcdir/marble/earth/osm.org.il" "$pkgdir/usr/share/marble/data/maps/earth/"
+    rm -rf "$pkgdir/usr/share/marble/data/maps/earth/osm.org.il/.git"
+    }
+    
+package_marble-maps-mtb(){
+    pkgdesc="OpenStreet MTB Map (IL) integration into Marble"
+    mkdir -p $pkgdir/usr/share/marble/data/maps/earth
+    mv "$srcdir/marble/earth/mtb" "$pkgdir/usr/share/marble/data/maps/earth/"
+    rm -rf "$pkgdir/usr/share/marble/data/maps/earth/mtb/.git"
+    }
+
+package_marble-maps-routes(){
+    pkgdesc="OpenStreet Routes Map (IL) integration into Marble"
+    mkdir -p $pkgdir/usr/share/marble/data/maps/earth
+    mv "$srcdir/marble/earth/routes" "$pkgdir/usr/share/marble/data/maps/earth/"
+    rm -rf "$pkgdir/usr/share/marble/data/maps/earth/routes/.git"
+    }
+    
+package_marble-maps-osmfr(){
+    pkgdesc="OpenStreet Map (FR) integration into Marble"
+    mkdir -p $pkgdir/usr/share/marble/data/maps/earth
+    mv "$srcdir/osmfr" "$pkgdir/usr/share/marble/data/maps/earth/"
+    rm -rf "$pkgdir/usr/share/marble/data/maps/earth/osmfr/.git"
+    }
+
