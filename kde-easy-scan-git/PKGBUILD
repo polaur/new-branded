@@ -2,13 +2,13 @@
 
 pkgname=kde-easy-scan-git
 _pkgname=kde-easy-scan
-pkgver=8
-pkgrel=1
+pkgver=11
+pkgrel=2
 pkgdesc='A skanlite fork with many extra features'
 arch=('x86_64')
 url='https://github.com/tsitsos/kde-easy-scan'
 license=('GPL')
-depends=('libksane' 'kio')
+depends=('libksane' 'kdelibs4support')
 optdepends=('gimp: for provide full funcionality'
 'ghostscript: for provide full funcionality')
 makedepends=('git' 'extra-cmake-modules')
