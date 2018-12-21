@@ -12,7 +12,7 @@ depends=('qt5-base' 'hicolor-icon-theme')
 makedepends=()
 optdepends=('clamav: For functionality')
 
-source=("https://dl.opendesktop.org/api/files/downloadfile/id/1466630823/s/27319f2166b19b67fa165985a135f100/t/1519295518/u//170782-ClamAV-GUI-0.4.1.tgz")
+source=("170782-ClamAV-GUI-0.4.1.tgz")
 sha512sums=('2f289a1ec91bd56a440ad749bd2e42a3b5d21859d35c2079517ad707fa402ace917cfe5b0c858833bc554015a47efa60cb8e0b69a0efce06350814cd30abc430')
 
 build() {
