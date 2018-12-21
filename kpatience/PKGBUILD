@@ -13,15 +13,15 @@ url="https://kde.org/applications/games/kpatience/"
 arch=(x86_64)
 license=(GPL LGPL FDL)
 groups=(kde-applications kdegames)
-depends=(libkdegames freecell-solver hicolor-icon-theme)
+depends=(libkdegames hicolor-icon-theme) # freecell-solver hicolor-icon-theme
 makedepends=(extra-cmake-modules kdoctools)
 source=("https://download.kde.org/stable/applications/$pkgver/src/kpat-$pkgver.tar.xz"{,.sig}
 kdebug-307625.patch::"https://cgit.kde.org/kpat.git/patch/?id=eb5fa8dab3559bf008829154c4c17239af607da6"
 qbuffer_for_qt5.11.patch::"https://cgit.kde.org/kpat.git/patch/?id=7a69e3f4b15a902c4008a428d5fbf0335526f49b")
 sha256sums=('5a4558e6b345ca411fca31eacfac4e317a10c59864ebff1d98268909c401bd29'
             'SKIP'
-            '32949590fcde59365423fe034ab867cabf101cd92214728e656821372d9ed46e'
-            '1239f637600baea7027d95d3f009be0f335cfe65bee9cc8f3b2fe478cf8aca2e')
+            'f21d243cf91c4a4f85d7a231b36abc4eef34519fbb8c340c782ee0c2f81e38d7'
+            '7f65e7769d27638dfca96929bc33ec3628edcf24a06f50a5483ea61b0b4534a6')
 validpgpkeys=(CA262C6C83DE4D2FB28A332A3A6A4DB839EAA6D7  # Albert Astals Cid <aacid@kde.org>
               F23275E4BF10AFC1DF6914A6DBD2CE893E2D1C87) # Christoph Feck <cfeck@kde.org>
 
