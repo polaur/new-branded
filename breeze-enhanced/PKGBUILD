@@ -3,7 +3,7 @@
 # Maintainer: Jan Neumann <neum dot ja at gmail dot com>
 
 pkgname=breeze-enhanced
-pkgver=5.14.3
+pkgver=5.14.4
 pkgrel=1
 pkgdesc='A fork of KDE Breeze decoration with additional options'
 arch=('x86_64')
