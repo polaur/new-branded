@@ -1,0 +1,76 @@
+From eb5fa8dab3559bf008829154c4c17239af607da6 Mon Sep 17 00:00:00 2001
+From: Karl Ove Hufthammer <karl@huftis.org>
+Date: Sat, 15 Sep 2018 15:54:45 +0200
+Subject: Reduce wasted space for Klondike and Grandfather
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Summary:
+Klondike and (especially) Grandfather reserves a lot of
+space at the bottom of the screen for long card piles.
+This results in very small cards, which makes the game
+uncomfortable to play, especially on smaller screens.
+
+This commmit reduces the space reserved at the bottom
+of the screen, which automatically enlarges the cards.
+Long piles don’t pose a problem, as KPat automatically
+compresses the cards to fit the screen.
+
+Even with the reduced space, the colours and numbers are
+still clearly visible, also in a ‘worst case’ scenario with very
+long piles. (In these two game types, only the colour
+(i.e. red vs. black) matter, not the suit, so it is not a
+problem if the suits of the cards aren’t visible.)
+
+BUG: 307625
+BUG: 378914
+
+FIXED-IN: 18.08.2
+
+Test Plan:
+Play Grandfather and Klondike before and after this patch.
+Note that the cards are much bigger after the patch
+and that the numbers and colours are still clearly visible.
+
+Reviewers: #kde_games, fabiank, mlaurent
+
+Reviewed By: fabiank
+
+Subscribers: kde-games-devel
+
+Differential Revision: https://phabricator.kde.org/D15534
+---
+ grandf.cpp   | 2 +-
+ klondike.cpp | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/grandf.cpp b/grandf.cpp
+index a22fe29..400f744 100644
+--- a/grandf.cpp
++++ b/grandf.cpp
+@@ -74,7 +74,7 @@ void Grandf::initialize()
+         store[i]->setPileRole(PatPile::Tableau);
+         store[i]->setLayoutPos(distx*i, 1.2);
+         store[i]->setAutoTurnTop(true);
+-        store[i]->setBottomPadding( 4 );
++        store[i]->setBottomPadding( 2.5 );
+         store[i]->setHeightPolicy( KCardPile::GrowDown );
+         store[i]->setKeyboardSelectHint( KCardPile::FreeFocus );
+         store[i]->setKeyboardDropHint( KCardPile::AutoFocusTop );
+diff --git a/klondike.cpp b/klondike.cpp
+index 0e138b3..fdce6a3 100644
+--- a/klondike.cpp
++++ b/klondike.cpp
+@@ -121,7 +121,7 @@ void Klondike::initialize()
+         play[i]->setPileRole(PatPile::Tableau);
+         play[i]->setLayoutPos((1.0 + hspacing) * i, 1.0 + vspacing);
+         play[i]->setAutoTurnTop(true);
+-        play[i]->setBottomPadding( play[i]->spread().y() * 7 );
++        play[i]->setBottomPadding( play[i]->spread().y() * 5 );
+         play[i]->setHeightPolicy( KCardPile::GrowDown );
+         play[i]->setKeyboardSelectHint( KCardPile::AutoFocusDeepestFaceUp );
+         play[i]->setKeyboardDropHint( KCardPile::AutoFocusTop );
+-- 
+cgit v1.1
+
