@@ -5,7 +5,7 @@
  
 pkgname=pak-git
 pkgver=1.9.2.r2.g35fc32a
-pkgrel=1
+pkgrel=2
 pkgdesc="Simple pacman and AUR frontend"
 arch=('any')
 url="https://gitlab.com/nycko123/pak"
