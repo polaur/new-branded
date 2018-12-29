@@ -4,13 +4,13 @@
 # You had to install all optdepends for full functionality of this script
  
 pkgname=pak
-pkgver=1.9.1
+pkgver=1.9.2
 pkgrel=1
 pkgdesc="Simple pacman and AUR frontend"
 arch=('any')
 url="https://gitlab.com/nycko123/pak"
 license=('GPL')
-depends=('bash' 'git' 'jq')
+depends=('bash' 'git' 'jq' 'pacman-contrib')
 optdepends=("asp: to download PKGBUILD's of official packages"
             "cower: to manage AUR packages"
 	    "namcap: to validate built packages"
@@ -20,7 +20,7 @@ conflicts=(pak-git)
  
 source=("https://gitlab.com/nycko123/pak/raw/master/src/${pkgname}-${pkgver}.tar.gz")
  
-sha256sums=('aef2f3711c072dc55ca25a061c378434aa860ff8d33f650c3df7b2556d16bfba')
+sha256sums=('f2806c39cfbdd121fba48939fe856cf0e3ec2d8080f6a86bbc12b01d66b930e0')
  
 package(){
  install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"

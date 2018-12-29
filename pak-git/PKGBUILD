@@ -4,13 +4,13 @@
 # You had to install all optdepends for full functionality of this script
  
 pkgname=pak-git
-pkgver=1.9.r1.gbd867f6
+pkgver=1.9.2.r2.g35fc32a
 pkgrel=1
 pkgdesc="Simple pacman and AUR frontend"
 arch=('any')
 url="https://gitlab.com/nycko123/pak"
 license=('GPL')
-depends=('bash' 'git' 'jq')
+depends=('bash' 'git' 'jq' 'pacman-contrib')
 optdepends=("asp: to download PKGBUILD's of official packages"
             "cower: to manage AUR packages"
             "namcap: to validate built packages"
