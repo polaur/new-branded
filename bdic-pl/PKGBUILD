@@ -3,7 +3,7 @@
 pkgname=bdic-pl
 pkgver=20171208
 pkgrel=1
-pkgdesc='Polish dictionary for Falkon'
+pkgdesc='Polish dictionary for Falkon, Chromium and other'
 arch=('any')
 url='http://www.sjp.pl/slownik/ort/'
 license=('GPL')
