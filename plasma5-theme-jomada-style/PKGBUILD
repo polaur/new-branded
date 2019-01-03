@@ -12,8 +12,8 @@ md5sums=('6ec97a905ef17af51365e46f8771408f')
 
 package() {
 
-  mkdir -p $pkgdir/usr/share/apps/desktoptheme
+  mkdir -p $pkgdir/usr/share/plasma/desktoptheme
   cd $srcdir
-  cp -r Jomada-Style $pkgdir/usr/share/apps/desktoptheme
-  chmod -R 755 $pkgdir/usr/share/apps/desktoptheme/Jomada-Style
+  cp -r Jomada-Style $pkgdir/usr/share/plasma/desktoptheme
+  chmod -R 644 $pkgdir/usr/share/plasma/desktoptheme/Jomada-Style
 }

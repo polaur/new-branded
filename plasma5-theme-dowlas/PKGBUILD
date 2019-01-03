@@ -13,4 +13,5 @@ sha256sums=('619cce5e7796dadcdbe6c7e3e5233666a8ac02f2d228168062638c2314e261de')
 package() {
  mkdir -p ${pkgdir}/usr/share/plasma/desktoptheme
  cp -r Dowlas ${pkgdir}/usr/share/plasma/desktoptheme
+ chmod -R 644 ${pkgdir}/usr/share/plasma/desktoptheme/Dowlas
 } 

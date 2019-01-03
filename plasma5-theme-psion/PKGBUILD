@@ -13,9 +13,9 @@ md5sums=('fc34382560a97f885c0569368b35dfb8')
 
 package() {
 
-  mkdir -p $pkgdir/usr/share/apps/desktoptheme
+  mkdir -p $pkgdir/usr/share/plasma/desktoptheme
   cd $srcdir
-  cp -r Psion $pkgdir/usr/share/apps/desktoptheme
-  chmod -R 755 $pkgdir/usr/share/apps/desktoptheme/Psion
+  cp -r Psion $pkgdir/usr/share/plasma/desktoptheme
+  chmod -R 644 $pkgdir/usr/share/plasma/desktoptheme/Psion
 
 }

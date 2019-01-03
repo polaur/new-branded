@@ -16,9 +16,9 @@ package() {
 
   mv "Diamond-black " Diamond-black
 
-  mkdir -p $pkgdir/usr/share/apps/desktoptheme
+  mkdir -p $pkgdir/usr/share/plasma/desktoptheme
   cd $srcdir
-  cp -r Diamond-black $pkgdir/usr/share/apps/desktoptheme
-  chmod -R 755 $pkgdir/usr/share/apps/desktoptheme/Diamond-black
+  cp -r Diamond-black $pkgdir/usr/share/plasma/desktoptheme
+  chmod -R 644 $pkgdir/usr/share/plasma/desktoptheme/Diamond-black
 
 }

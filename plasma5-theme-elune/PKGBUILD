@@ -12,9 +12,9 @@ md5sums=('3f1bc0ea435a601dc07451baf58eb646')
 
 package() {
 
-  mkdir -p $pkgdir/usr/share/apps/desktoptheme
+  mkdir -p $pkgdir/usr/share/plasma/desktoptheme
   cd $srcdir
-  cp -r Elune $pkgdir/usr/share/apps/desktoptheme
-  chmod -R 755 $pkgdir/usr/share/apps/desktoptheme/Elune
+  cp -r Elune $pkgdir/usr/share/plasma/desktoptheme
+  chmod -R 644 $pkgdir/usr/share/plasma/desktoptheme/Elune
 
 }

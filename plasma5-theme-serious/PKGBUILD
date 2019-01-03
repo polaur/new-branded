@@ -13,4 +13,5 @@ sha256sums=('3a9c663c65687ccd033b135def510d82ca7855c7235a77f6b30ec50b931540d1')
 package() {
  mkdir -p ${pkgdir}/usr/share/plasma/desktoptheme
  cp -r Serious ${pkgdir}/usr/share/plasma/desktoptheme
+ chmod -R 644 $pkdgir/usr/share/plasma/desktoptheme/Serious
 } 

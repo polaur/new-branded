@@ -14,9 +14,9 @@ md5sums=('cbdaca0de9549ffe865e2e6e57c87dc6')
 
 package() {
 
-  mkdir -p $pkgdir/usr/share/apps/desktoptheme
+  mkdir -p $pkgdir/usr/share/plasma/desktoptheme
   cd $srcdir
-  cp -r Helium $pkgdir/usr/share/apps/desktoptheme
-  chmod -R 755 $pkgdir/usr/share/apps/desktoptheme/Helium
+  cp -r Helium $pkgdir/usr/share/plasma/desktoptheme
+  chmod -R 644 $pkgdir/usr/share/plasma/desktoptheme/Helium
 
 }

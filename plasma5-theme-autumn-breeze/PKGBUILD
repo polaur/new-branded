@@ -13,11 +13,11 @@ md5sums=('8a1cc36778db53f6d997da3b376177e2')
 
 package() {
 
-  mkdir -p $pkgdir/usr/share/apps/desktoptheme
+  mkdir -p $pkgdir/usr/share/plasma/desktoptheme
   cd $srcdir
   rm -r autumn-breeze/backup
   rm autumn-breeze/colors
   rm autumn-breeze/"Ataumn Breeze.colors"
-  cp -r autumn-breeze $pkgdir/usr/share/apps/desktoptheme
-  chmod -R 644 $pkgdir/usr/share/apps/desktoptheme/autumn-breeze
+  cp -r autumn-breeze $pkgdir/usr/share/plasma/desktoptheme
+  chmod -R 644 $pkgdir/usr/share/plasma/desktoptheme/autumn-breeze
 }

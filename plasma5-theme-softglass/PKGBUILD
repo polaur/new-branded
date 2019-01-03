@@ -15,4 +15,5 @@ package() {
  mkdir -p ${pkgdir}/usr/share/plasma/desktoptheme
  cp -r Soft_Glass ${pkgdir}/usr/share/plasma/desktoptheme
  rm -r ${pkgdir}/usr/share/plasma/desktoptheme/Soft_Glass/wallpapers
+ chmod -R 644 $pkgdir/usr/share/plasma/desktoptheme/Soft_Glass
 } 

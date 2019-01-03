@@ -13,4 +13,5 @@ sha256sums=('54805347043ee87b28bc8f01ef84cfa799b4634662caa4d5ced83d19fbdbbfa1')
 package() {
  mkdir -p ${pkgdir}/usr/share/plasma/desktoptheme
  cp -r Opal ${pkgdir}/usr/share/plasma/desktoptheme
+ chmod -R 644 $pkgdir/usr/share/plasma/desktoptheme/Opal
 } 
