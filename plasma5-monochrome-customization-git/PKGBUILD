@@ -1,7 +1,7 @@
 # Maintainer : pavbaranov <pavbaranov at gmail dot com>
 
-pkgbase=plasma5-customization-git
-pkgname=(plasma5-theme-monochrome sddm-theme-monochrome plasma5-colors-monochrome plasma5-konsole-color-scheme)
+pkgbase=plasma5-monochrome-customization-git
+pkgname=(plasma5-theme-monochrome sddm-theme-monochrome plasma5-colors-monochrome plasma5-konsole-monochrome-colorscheme)
 pkgver=r47.0ed6d6e
 pkgrel=1
 pkgdesc="Monochrome customization set for Plasma 5"
@@ -41,7 +41,7 @@ package_plasma5-colors-monochrome(){
     chmod -R 755 "$pkgdir/usr/share/color-schemes"
     }
 
-package_plasma5-konsole-color-scheme(){
+package_plasma5-konsole-monochrome-colorscheme(){
     pkgdesc="Monochrome color scheme for Konsole"
     mkdir -p "$pkgdir/usr/share/konsole"
     mv "$srcdir/monochrome-kde/konsole/Monochrome.colorscheme" "$pkgdir/usr/share/konsole/monochrome.colorscheme"
