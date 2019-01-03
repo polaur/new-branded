@@ -1,0 +1,50 @@
+# Maintainer : pavbaranov <pavbaranov at gmail dot com>
+
+pkgbase=plasma5-customization-git
+pkgname=(plasma5-theme-monochrome sddm-theme-monochrome plasma5-colors-monochrome plasma5-konsole-color-scheme)
+pkgver=r47.0ed6d6e
+pkgrel=1
+pkgdesc="Monochrome customization set for Plasma 5"
+url="https://gitlab.com/pwyde/monochrome-kde"
+license=('GPL3')
+arch=('any')
+makedepends=(git)
+source=(
+"git+https://gitlab.com/pwyde/monochrome-kde.git"
+)
+md5sums=('SKIP')
+
+pkgver() {
+    cd monochrome-kde
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    }
+
+
+package_plasma5-theme-monochrome(){
+    pkgdesc="Monochrome theme for Plasma 5"
+    mkdir -p $pkgdir/usr/share/plasma/desktoptheme
+    mv $srcdir/monochrome-kde/plasma/desktoptheme/Monochrome "$pkgdir/usr/share/plasma/desktoptheme"
+    chmod -R 755 $pkgdir/usr/share/plasma/desktoptheme/Monochrome
+    }
+
+package_sddm-theme-monochrome(){
+    pkgdesc="Monochrome theme for SDDM"
+    mkdir -p $pkgdir/usr/share/sddm/themes/monochrome
+    mv "$srcdir/monochrome-kde/sddm/themes/monochrome" "$pkgdir/usr/share/sddm/themes/monochrome"
+    chmod -R 755 "$pkgdir/usr/share/sddm/themes/monochrome"
+    }
+    
+package_plasma5-colors-monochrome(){
+    pkgdesc="Monochrome colors theme for Plasma 5"
+    mkdir -p $pkgdir/usr/share/color-schemes
+    mv "$srcdir/monochrome-kde/color-schemes/Monochrome.colors" "$pkgdir/usr/share/color-schemes/Monochrome.colors"
+    chmod -R 755 "$pkgdir/usr/share/color-schemes"
+    }
+
+package_plasma5-konsole-color-scheme(){
+    pkgdesc="Monochrome color scheme for Konsole"
+    mkdir -p "$pkgdir/usr/share/konsole"
+    mv "$srcdir/monochrome-kde/konsole/Monochrome.colorscheme" "$pkgdir/usr/share/konsole/monochrome.colorscheme"
+    chmod -R 755 "$pkgdir/usr/share/konsole"
+    }
+    
