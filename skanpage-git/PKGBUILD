@@ -2,7 +2,7 @@
 
 pkgname=skanpage-git
 pkgver=8
-pkgrel=1
+pkgrel=2
 pkgdesc='Multipage document scanner application'
 arch=('x86_64')
 url='https://github.com/scratch/sars/skanpage.git'
@@ -10,8 +10,10 @@ license=('GPL')
 depends=('libksane' 'qt5-declarative' 'kxmlgui')
 #optdepends=('')
 makedepends=('git' 'extra-cmake-modules')
-source=("git+https://anongit.kde.org/scratch/sars/skanpage.git")
-sha256sums=('SKIP')
+source=("git+https://anongit.kde.org/scratch/sars/skanpage.git"
+"skanpage.desktop")
+sha256sums=('SKIP'
+            '888a9571a0ce049bdf14181796997cc18941276f898fef2d1393c9fa43bd240e')
 
 pkgver() {
   cd ${pkgname%-*}
@@ -31,4 +33,6 @@ package() {
   cd ${pkgname%-*}/src/build
 
   make DESTDIR=${pkgdir} install
+  mkdir -p "$pkgdir/usr/share/applications/"
+  cp $srcdir/skanpage.desktop $pkgdir/usr/share/applications/
 }
