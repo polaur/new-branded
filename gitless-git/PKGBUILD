@@ -2,8 +2,8 @@
 
 pkgname=gitless-git
 _pkgname=gitless
-pkgver=0.8.6.21.g4eb3a97
-pkgrel=2
+pkgver=0.8.6.r40.gd7a6325
+pkgrel=1
 pkgdesc="A scientifically proven easier-to-use git interface"
 arch=("any")
 url="http://gitless.com/"
@@ -17,7 +17,7 @@ sha256sums=('SKIP')
 
 pkgver() {
   cd ${srcdir}/${_pkgname}
-  git describe --long --tags | sed 's/^v//;s/-/./g'
+  git describe --long --tags | sed 's/v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build() {
