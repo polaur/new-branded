@@ -5,9 +5,9 @@ pkgver=r24.6f2782d
 pkgrel=1
 pkgdesc="Simple application viewer based on markdown formatted recipes"
 arch=('x86_64')
-url="https://cgit.kde.org/scratch/sune/kookbook.git/"
+url="https://pusling.com/blog/?p=499"
 license=('GPL3')
-depends=(discount hicolor-icon-theme qt5-base)
+depends=(discount hicolor-icon-theme qt5-declarative)
 makedepends=(git extra-cmake-modules)
 source=("git+https://anongit.kde.org/scratch/sune/kookbook.git")
 sha256sums=('SKIP')
