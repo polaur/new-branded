@@ -1,0 +1,31 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=kookbook
+pkgver=0.2.1
+pkgrel=1
+pkgdesc="Simple application viewer based on markdown formatted recipes"
+arch=('x86_64')
+url="https://pusling.com/blog/?p=499"
+license=('GPL3')
+depends=(discount hicolor-icon-theme qt5-declarative)
+makedepends=(extra-cmake-modules)
+source=("https://download.kde.org/unstable/$pkgname/$pkgname-$pkgver.tar.xz")
+sha256sums=('86fb42ab2b5c19d0bee03a877271633aaa40fff55e6cc4be012f8c3204d78e49')
+
+prepare() {
+	mkdir -p build
+	}
+
+build() {
+  cd build
+
+  cmake -DCMAKE_INSTALL_PREFIX=/usr \
+        ../$pkgname-$pkgver
+
+  make
+  }
+
+package() {
+  cd build
+  make DESTDIR="$pkgdir"/ install
+  }
