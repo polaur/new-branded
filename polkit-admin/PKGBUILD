@@ -1,0 +1,32 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=polkit-admin-git
+pkgver=14.b05af71
+pkgrel=1
+pkgdesc='UI Tool for set your own Polkit Permission based on Polkit-Explorer'
+arch=('any')
+url="https://github.com/SirJson/Polkit-Admin"
+license=('ISC')
+depends=('python2-pyqt5' 'python2-lxml')
+conflicts=(polkit-explorer polkit-explorer-qt5-git)
+source=("git+https://github.com/SirJson/Polkit-Admin.git")
+sha256sums=('SKIP')
+
+pkgver() {
+	cd "Polkit-Admin"
+	printf '%s.%s' "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+	cd "${srcdir}/Polkit-Admin"
+	local pydir='usr/lib/python2.7/site-packages/polkitex'
+
+	install -d -m755 "${pkgdir}"/{usr/bin,$pydir}
+	install -m644 Ui_*.py "${pkgdir}/${pydir}/"
+
+	install -m755 'polkitex.py' "${pkgdir}/${pydir}/"
+	ln -s "/${pydir}/polkitex.py" "${pkgdir}/usr/bin/polkitex"
+  
+	install -Dm644 'LICENSE' "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+	install -Dm644 "polkitex.desktop" "${pkgdir}/usr/share/applications/${pkgname}.desktop"
+}
