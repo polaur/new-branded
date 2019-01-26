@@ -1,0 +1,48 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgbase=simply-circles-icons-git
+pkgname=(simply-circles-icons-black-git simply-circles-icons-blue-git simply-circles-icons-orange-git simply-circles-icons-red-git simply-circles-icons-white-git)
+pkgver=r112.d2340f2
+pkgrel=1
+pkgdesc="Monochromatic and simple circles icons with five colours variants (git version)"
+url="https://store.kde.org/p/1277095/"
+arch=('any')
+license=('GPL3')
+makedepends=('git')
+source=("${pkgbase%-*}::git+https://github.com/ju1464/Simply_Circles_Icon_Theme.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd ${pkgbase%-*}
+ printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package_simply-circles-icons-black-git() {
+    install -d "$pkgdir/usr/share/icons/"
+    cp -R "$srcdir/${pkgbase%-*}/Simply black circles" "$pkgdir/usr/share/icons"
+    #mv "$pkgdir/usr/share/icons/${pkgbase%-*}" "$pkgdir/usr/share/icons/Simply black circles"
+}
+
+package_simply-circles-icons-blue-git() {
+    install -d "$pkgdir/usr/share/icons/"
+    cp -R "$srcdir/${pkgbase%-*}/Simply blue circles" "$pkgdir/usr/share/icons"
+    #mv "$pkgdir/usr/share/icons/${pkgbase%-*}" "$pkgdir/usr/share/icons/Simply blue circles"
+}
+
+package_simply-circles-icons-orange-git() {
+    install -d "$pkgdir/usr/share/icons/"
+    cp -R "$srcdir/${pkgbase%-*}/Simply orange circles" "$pkgdir/usr/share/icons"
+    #mv "$pkgdir/usr/share/icons/${pkgbase%-*}" "$pkgdir/usr/share/icons/Simply orange circles"
+}
+
+package_simply-circles-icons-red-git() {
+    install -d "$pkgdir/usr/share/icons/"
+    cp -R "$srcdir/${pkgbase%-*}/Simply red circles" "$pkgdir/usr/share/icons"
+    #mv "$pkgdir/usr/share/icons/${pkgbase%-*}" "$pkgdir/usr/share/icons/Simply red circles"
+}
+
+package_simply-circles-icons-white-git() {
+    install -d "$pkgdir/usr/share/icons/"
+    cp -R "$srcdir/${pkgbase%-*}/Simply white circles" "$pkgdir/usr/share/icons"
+    #mv "$pkgdir/usr/share/icons/${pkgbase%-*}" "$pkgdir/usr/share/icons/Simply white circles"
+}
