@@ -1,0 +1,25 @@
+# Maintainer:  pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=breeze-chameleon-icon-theme
+pkgver=r25.9025b1b
+pkgrel=1
+pkgdesc="Breeze (and some Papirus) icons that changes color depends on the color scheme (GIT version)"
+url="https://store.kde.org/p/1281798/"
+license=('GPL3')
+arch=('any')
+#depends=()
+source=(git+https://github.com/L4ki/Breeze-Chameleon.git)
+md5sums=('SKIP')
+
+pkgver() {
+    cd Breeze-Chameleon
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    }
+
+package() {
+    cd $srcdir/Breeze-Chameleon
+    rm -rf .git
+    rm "Breeze Chameleon.tar.gz"
+    install -d "$pkgdir/usr/share/icons/"
+    cp -R "$srcdir/Breeze-Chameleon/" "$pkgdir/usr/share/icons"
+    }
