@@ -1,0 +1,33 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+# Contributor: nycko123 <nycko123 at gmail dot com>
+
+pkgname=qt-fsarchiver-terminal
+pkgver=0.8.5_2
+pkgrel=1
+pkgdesc='GUI for fsarchiver'
+arch=('x86_64')
+url='http://sourceforge.net/projects/qt-fsarchiver/'
+license=('GPL')
+depends=('qt5-base')
+makedepends=()
+optdepends=('fsarchiver: for functionality'
+'lzo')
+source=("https://datapacket.dl.sourceforge.net/project/qt-fsarchiver/source/qt-fsarchiver-terminal/qt-fsarchiver-terminal-0.8.5-2.tar.gz")
+
+sha256sums=('745a12b5fbbf196a7493d7b831604b7e5f0886d54ab4a51809115809a447eeb2')
+
+    
+build() {
+    cd $pkgname
+    qmake PREFIX=/usr
+    make 
+}
+
+package() {
+	cd $pkgname
+	make INSTALL_ROOT="${pkgdir}" install
+	
+# workaround for fixed destination path in qmake project
+mv $pkgdir/usr/sbin $pkgdir/usr/bin
+}
+
