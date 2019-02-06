@@ -1,0 +1,40 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+# Contributor: nycko123 <nycko123 at gmail dot com>
+
+pkgname=qt-fsarchiver
+pkgver=0.8.5_5
+pkgrel=1
+pkgdesc='GUI for fsarchiver'
+arch=('x86_64')
+url='http://sourceforge.net/projects/qt-fsarchiver/'
+license=('GPL')
+depends=('qt5-base')
+makedepends=()
+optdepends=('fsarchiver: for functionality'
+'kdesu: sudo for Plasma'
+'qt-fsarchiver-terminal: for full functionality' # this is POLAUR package)
+source=("https://datapacket.dl.sourceforge.net/project/qt-fsarchiver/source/qt-fsarchiver/qt-fsarchiver-0.8.5-5.tar.gz")
+
+sha256sums=('6e313b2cddc236c09e8b4d16875ab404d6da2664fd55090c2d9d10fd94aab29b')
+
+    
+build() {
+	cd $pkgname
+	qmake PREFIX=/usr
+	make 
+}
+
+package() {
+	cd $pkgname
+	make INSTALL_ROOT="${pkgdir}" install
+	
+# workaround for fixed destination path in qmake project
+mv $pkgdir/usr/sbin $pkgdir/usr/bin
+mkdir $pkgdir/usr/share/icons
+mv $pkgdir/usr/share/app-install/icons $pkgdir/usr/share
+rmdir $pkgdir/usr/share/app-install
+
+sed -i 's/sbin/bin/g' $pkgdir/usr/share/applications/qt-fsarchiver.desktop
+sed -i 's/\/app-install//g' $pkgdir/usr/share/applications/qt-fsarchiver.desktop
+}
+
