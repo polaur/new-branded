@@ -1,0 +1,18 @@
+# Maintainer:  pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=grey-aurora-icon-theme
+pkgver=3.30
+pkgrel=1
+pkgdesc="Pastel Grey Aurora folders themes"
+url="https://store.kde.org/p/1286363/"
+license=('GPL3')
+arch=('any')
+source=("Grey-Aurora.tar.xz")
+md5sums=('860e7ae8dd999c5dbbc6fd4a9fcb68f2')
+
+package() {
+        find "$srcdir/"
+
+        install -d "$pkgdir/usr/share/icons/"
+	    cp -R "$srcdir/Grey-Aurora/" "$pkgdir/usr/share/icons"
+        }
