@@ -1,18 +1,18 @@
 # Maintainer:  pavbaranov <pavbaranov at gmail dot com>
 
-pkgname=blue-aurora-icon-theme
+pkgname=green-aurora-icon-theme
 pkgver=3.30
 pkgrel=1
-pkgdesc="Pastel Blue Aurora folders themes"
+pkgdesc="Pastel Green Aurora folders themes"
 url="https://store.kde.org/p/1286363/"
 license=('GPL3')
 arch=('any')
-source=("Blue-Aurora.tar.xz")
-md5sums=('fb66a77e1a09c3cada6832fb31ea4929')
+source=("Green-Aurora.tar.xz")
+md5sums=('87f335178ca612d99d13ffeb45ba9494')
 
 package() {
         find "$srcdir/"
 
         install -d "$pkgdir/usr/share/icons/"
-	    cp -R "$srcdir/Blue-Aurora/" "$pkgdir/usr/share/icons"
+	    cp -R "$srcdir/Green-Aurora/" "$pkgdir/usr/share/icons"
         }
