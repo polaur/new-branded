@@ -1,0 +1,18 @@
+# Maintainer:  pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=grey-maia-icon-theme
+pkgver=3.30
+pkgrel=1
+pkgdesc="Pastel grey folders themes"
+url="https://store.kde.org/p/1218961/"
+license=('GPL3')
+arch=('any')
+source=("Grey-Maia.tar.xz")
+md5sums=('3b6d07a53efb537414277674318bb485')
+
+package() {
+        find "$srcdir/"
+
+        install -d "$pkgdir/usr/share/icons/"
+	    cp -R "$srcdir/Grey-Maia/" "$pkgdir/usr/share/icons"
+        }
