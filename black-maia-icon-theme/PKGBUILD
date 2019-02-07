@@ -1,0 +1,18 @@
+# Maintainer:  pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=black-maia-icon-theme
+pkgver=3.30
+pkgrel=1
+pkgdesc="Black Maia folders themes"
+url="https://store.kde.org/p/1218961/"
+license=('GPL3')
+arch=('any')
+source=("Black-Maia.tar.xz")
+md5sums=('91d67eae37545f09e26b6d91734025c4')
+
+package() {
+        find "$srcdir/"
+
+        install -d "$pkgdir/usr/share/icons/"
+	    cp -R "$srcdir/Black-Maia/" "$pkgdir/usr/share/icons"
+        }
