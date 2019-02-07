@@ -1,0 +1,18 @@
+# Maintainer:  pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=orange-maia-icon-theme
+pkgver=3.30
+pkgrel=1
+pkgdesc="Orange Maia folders themes"
+url="https://store.kde.org/p/1218961/"
+license=('GPL3')
+arch=('any')
+source=("Orange-Maia.tar.xz")
+md5sums=('03f86581643d67d0831d6212c610d006')
+
+package() {
+        find "$srcdir/"
+
+        install -d "$pkgdir/usr/share/icons/"
+	    cp -R "$srcdir/Orange-Maia/" "$pkgdir/usr/share/icons"
+        }
