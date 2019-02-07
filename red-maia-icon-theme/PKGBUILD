@@ -1,0 +1,18 @@
+# Maintainer:  pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=red-maia-icon-theme
+pkgver=3.30
+pkgrel=1
+pkgdesc="Red Maia folders themes"
+url="https://store.kde.org/p/1218961/"
+license=('GPL3')
+arch=('any')
+source=("Red-Maia.tar.xz")
+md5sums=('2c3612c63f3259c1fd58960b4645324f')
+
+package() {
+        find "$srcdir/"
+
+        install -d "$pkgdir/usr/share/icons/"
+	    cp -R "$srcdir/Red-Maia/" "$pkgdir/usr/share/icons"
+        }
