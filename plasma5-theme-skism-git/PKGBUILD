@@ -1,0 +1,23 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=plasma5-theme-skism-git
+pkgver=r2.8c86e3a
+pkgrel=1
+pkgdesc="A dark desktop theme for KDE Plasma 5"
+arch=('any')
+license=('unknown')
+url="https://github.com/kmt1980/skism-plasmashell"
+makedepends=(git)
+source=("git+https://github.com/kmt1980/skism-plasmashell.git")
+sha256sums=('SKIP')
+
+pkgver() {
+    cd skism-plasmashell
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    }
+
+package() {
+    rm -r ${srcdir}/skism-plasmashell/.git
+    mkdir -p ${pkgdir}/usr/share/plasma/desktoptheme
+    cp -r skism-plasmashell ${pkgdir}/usr/share/plasma/desktoptheme
+    } 
