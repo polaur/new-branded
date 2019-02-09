@@ -5,14 +5,14 @@
  
 pkgname=pak-git
 pkgver=1.9.2.r2.g35fc32a
-pkgrel=2
+pkgrel=3
 pkgdesc="Simple pacman and AUR frontend"
 arch=('any')
 url="https://gitlab.com/nycko123/pak"
 license=('GPL')
 depends=('bash' 'git' 'jq' 'pacman-contrib')
 optdepends=("asp: to download PKGBUILD's of official packages"
-            "cower: to manage AUR packages"
+            "auracle-git: to manage AUR packages"
             "namcap: to validate built packages"
 			"reflector: to keep mirrorlist up to date")
 backup=('etc/xdg/pak.conf')
