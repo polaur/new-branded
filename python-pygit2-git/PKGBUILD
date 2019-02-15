@@ -24,7 +24,7 @@ pkgver() {
 
 package_python-pygit2-git() {
   depends+=('python-cffi' 'python-six')
-  replaces=('python-libgit2' 'python-pygit2')
+  provides=('python-libgit2' 'python-pygit2')
   conflicts=('python-libgit2' 'python-pygit2')
 
   cd "pygit2"
@@ -33,7 +33,7 @@ package_python-pygit2-git() {
 
 package_python2-pygit2-git() {
   depends+=('python2-cffi' 'python2-six')
-  replaces=('python2-libgit2' 'python2-pygit2')
+  provides=('python2-libgit2' 'python2-pygit2')
   conflicts=('python2-libgit2' 'python2-pygit2')
 
   cd "pygit2"
