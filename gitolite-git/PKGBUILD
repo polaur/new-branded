@@ -1,0 +1,45 @@
+# Maintainer: Piotr Gorski <lucjan.lucjanov@gmail.com>
+# Contributor:  Bartłomiej Piotrowski <bpiotrowski@archlinux.org>
+# Contributor:  Christian Hesse <mail@eworm.de>
+# Contributor: Jon Eyolfson <jon@eyolfson.com>
+
+pkgname=gitolite-git
+_pkgname=gitolite
+pkgver=3.6.11.r1.g37dfce9
+pkgrel=1
+pkgdesc='An access control layer on top of git'
+url='https://github.com/sitaramc/gitolite'
+arch=('any')
+license=('GPL2')
+depends=('git' 'perl' 'openssh')
+conflicts=('gitolite')
+provides=('gitolite')
+source=("git://github.com/sitaramc/gitolite"
+        'gitolite-sysusers.conf'
+        'gitolite-tmpfiles.conf')
+sha256sums=('SKIP'
+            '5e4f3aaa406c25fcd88fffaee74ea4878cecf1dd8c777456e4416caf35292dbf'
+            '5682190c639618cd4744d3ae193425df1044dde4fb36acf03fc4d20423eeb10c')
+
+pkgver() {
+  cd $_pkgname
+  git describe --long --tags | sed 's/v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+build() {
+  cd $_pkgname/src
+  echo "$pkgver" > VERSION
+}
+
+package() {
+  # create directories
+  install -d "$pkgdir"/usr/{bin,lib/gitolite}
+
+  # install files and create symlink
+  cp -a $_pkgname/src/* "$pkgdir"/usr/lib/gitolite
+  ln -s /usr/lib/gitolite/gitolite "$pkgdir"/usr/bin/
+
+  # sysusers and tmpfiles files
+  install -D -m 0644 "${srcdir}"/gitolite-sysusers.conf "${pkgdir}"/usr/lib/sysusers.d/gitolite.conf
+  install -D -m 0644 "${srcdir}"/gitolite-tmpfiles.conf "${pkgdir}"/usr/lib/tmpfiles.d/gitolite.conf
+}
