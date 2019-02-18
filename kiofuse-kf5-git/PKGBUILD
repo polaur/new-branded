@@ -1,0 +1,36 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=kiofuse-kf5-git
+pkgver=r47.722e3cb
+pkgrel=1
+pkgdesc="KioFuse allows you to mount remote directories into the root hierarchy of your local file system, thereby exposing KDE's advanced access capabilities (SSH, SAMBA/Windows, FTP, TAR/GZip/BZip2, WebDav, etc) to POSIX-compliant applications. KF5/GIT version."
+arch=('x86_64')
+url="http://techbase.kde.org/Projects/KioFuse"
+license=('LGPL')
+depends=(kio fuse)
+makedepends=(git extra-cmake-modules)
+conflicts=(kiofuse-svn)
+replaces=(kiofuse-svn)
+source=(git+https://github.com/bosim/kiofuse.git)
+md5sums=('SKIP')
+
+pkgver() {
+    cd ${pkgname%%-*}
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    }
+    
+prepare() {
+    mkdir -p build
+    }
+    
+build() {
+    cd build
+    cmake ../${pkgname%%-*} \
+        -DCMAKE_INSTALL_PREFIX=/usr
+    make
+    }
+
+package() {
+    cd build
+    make install DESTDIR=$pkgdir
+    }
