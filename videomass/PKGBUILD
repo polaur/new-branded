@@ -1,0 +1,24 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=videomass
+pkgver=1.4.5
+pkgrel=1
+pkgdesc='GUI for FFmpeg'
+arch=('any')
+url="https://github.com/jeanslack/Videomass"
+license=('GPL3')
+depends=('xdg-utils' 'python-wxpython')
+makedepends=('python-setuptools')
+optdepends=('ffmpeg')
+source=("https://github.com/jeanslack/Videomass/archive/v1.4.5.tar.gz")
+#install='burgaur.install'
+sha256sums=('6483f153b69e82759f95d3d77b5949d80f1fcee89d92737bba16b1a6282177fa')
+
+package() {
+  cd "${srcdir}/Videomass-${pkgver}"
+  python setup.py install --root="${pkgdir}/"
+#  install -Dm644 burgaur.1.gz "${pkgdir}/usr/share/man/man1/burgaur.1.gz"
+#  install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+#  install -Dm644 bash_completion "${pkgdir}/usr/share/bash-completion/completions/burgaur"
+}
+
