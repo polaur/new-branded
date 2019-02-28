@@ -1,7 +1,7 @@
 # Maintainer:  pavbaranov <pavbaranov at gmail dot com>
 
 pkgname=breeze-chameleon-icon-theme
-pkgver=r449.5a8e5a0
+pkgver=r459.9862eaa
 pkgrel=1
 pkgdesc="Breeze (and some Papirus) icons that changes color depends on the color scheme (GIT version)"
 url="https://store.kde.org/p/1281798/"
@@ -21,4 +21,6 @@ package() {
     rm "Breeze-Chameleon.tar.gz"
     install -d "$pkgdir/usr/share/icons/"
     cp -R "$srcdir/Breeze-Chameleon/" "$pkgdir/usr/share/icons"
+    # install -d "$pkgdir/usr/share/icons/"
+    mv "$pkgdir/usr/share/icons/Breeze-Chameleon/Breeze-Chameleon-Dark Icons" $pkgdir/usr/share/icons/Breeze-Chameleon-Dark
     }
