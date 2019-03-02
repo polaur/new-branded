@@ -1,0 +1,28 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=wvdial-gui
+pkgver=1.2.0
+pkgrel=1
+pkgdesc='A simple Qt5 front end to wvdial tool'
+arch=('x86_64')
+url="https://github.com/mhogomchungu/wvdial-gui"
+license=('GPL2')
+depends=(qt5-base desktop-file-utils hicolor-icon-theme)
+makedepends=(cmake)
+source=("https://github.com/mhogomchungu/wvdial-gui/archive/$pkgver.tar.gz")
+sha256sums=('94be528503a72be410b739d23f8638f4067ef87979a0a1fb652a60c983321880')
+
+prepare() {
+    mkdir build
+    }
+    
+build() {
+    cd build
+    cmake ../$pkgname-$pkgver \
+        -DCMAKE_INSTALL_PREFIX=/usr
+        }
+        
+package() {
+	cd build
+	make DESTDIR=$pkgdir install
+	}
