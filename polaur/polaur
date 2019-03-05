@@ -1,0 +1,236 @@
+#!/bin/bash
+
+polaur_url="https://github.com/polaur"
+feed_URL="https://forum.archlinux.org.pl/extern.php?action=feed&tid=615&type=atom"
+feed_number=8
+download_path="${HOME}/.cache/polaur"
+
+# colors
+RESET="\e[0m"
+RED="\e[1;31m"
+GREEN="\e[1;32m"
+YELLOW="\e[1;33m"
+BLUE="\e[1;34m"
+MAGENTA="\e[1;35m"
+CYAN="\e[1;36m"
+BOLD="\e[1;39m"
+
+error() {
+	echo -e "-------------------------------"
+	echo -e "${RED}$(gettext 'Niepoprawny wybór:')${RESET} $@"
+	echo -e "$(gettext 'Wracam do menu głównego.')"
+	echo -e "-------------------------------\n"
+	read -rsn 1 -p "$(gettext 'Naciśnij dowolny przycisk, aby kontynuować...')"
+	clear
+}
+
+error2() {
+	echo -e "${RED}$(gettext 'Niepoprawny wybór:')${RESET} $@. $(gettext 'Pomijam')"
+}
+
+show_title() {
+	# downloading POLAUR main github site
+	curl -s "${polaur_url}" | sed 's/Asset 1//g' > /tmp/polaur
+
+	# title and description
+	#title=$( cat /tmp/polaur | grep -E '<title>' | sed -e 's/<[^>]*>//g' | awk '{$1=$1}1' ) 
+	#desc=$( cat /tmp/polaur | grep -E 'class="org.description"' | sed -e 's/<[^>]*>//g' | awk '{$1=$1}1' )
+	title=$( grep -E '<title>' /tmp/polaur | sed -e 's/<[^>]*>//g' | awk '{$1=$1}1' ) 
+	desc=$( grep -E 'class="org.description"' /tmp/polaur | sed -e 's/<[^>]*>//g' | awk '{$1=$1}1' )
+
+	clear
+	echo -e "---------------------------------------------------------------------"
+	echo -e "${title} - ${desc}"
+	echo -e "---------------------------------------------------------------------\n" 
+}
+
+show_feed() {
+	curl -s "${feed_URL}" | grep -E "content" | sed -e 's/<br \/>/\\n/g' -e 's/<[^>]*>//g' -e 's/]]>//g' -e 's/\&quot;//g' -e 's/\&#039;//g' -e 's/EDIT//g' | sed -r 's/[0-9]{2}.[0-9]{4}/& |/g' | awk '{$1=$1}1' > /tmp/polaur-feed
+
+	echo -e "${BOLD}$(gettext 'Najnowsze wiadomości')${RESET}\n"
+	n=1; while IFS= read -r line || [[ "$line" ]]; do
+		if [[ "$n" -le "${feed_number}" ]]; then
+			local czas=$( echo "$line" | awk -F'|' '{print $1}' )
+			local tresc=$( echo "$line" | awk -F'|' '{print $2}' )
+			echo -e "${BOLD}${czas}${RESET}${tresc}\n"
+		fi
+		(( n++ ))
+	done < /tmp/polaur-feed
+}
+
+list_packages() {
+	# list description and packages names to file
+	curl -s "${polaur_url}/$@" | awk NF | grep -E 'itemprop="about"|class="js-navigation-open"' -A 1 | sed -e 's/<[^>]*>//g' -e 's/README.md//g' -e 's/Files//g' -e 's/.gitignore//g' -e 's/--//g' | awk '{$1=$1}1' | awk NF > /tmp/polaur-packages
+	
+	# put descriptions to $repoDesc, and packages names to array pkgNames
+	pkgNames=()
+	n=1; while IFS= read -r line || [[ "$line" ]]; do
+		if [[ "$n" -eq 1 ]]; then
+			repoDesc="${line}"
+		else
+			pkgNames+=( "${line}" )
+		fi
+		(( n++ ))
+	done < /tmp/polaur-packages
+	
+	# print header
+	echo -e "-------------------------------"
+	echo -e "$( gettext 'Wybrano: ' ) ${GREEN}$@${RESET}"
+	echo -e "$( gettext 'Opis: ' ) ${repoDesc}\n"
+	# print packages list
+	columns=$(tput cols)
+
+	if [[ "${columns}" -le 120 ]]; then 
+		devider=2
+	elif [[ "${columns}" -ge 170 ]]; then
+		devider=4
+	else
+		devider=3
+	fi
+
+	n=0; for i in "${pkgNames[@]}"; do
+		if [[ $(( $(($n+1)) % $devider )) -eq 0 ]]; then
+		#echo -e "${YELLOW}$(( $n+1 ))${RESET}. ${pkgNames[$n]}"
+			printf "$(( $n+1 )). ${pkgNames[$n]}\n"
+		else
+			printf "$(( $n+1 )). ${pkgNames[$n]};"
+		fi
+		(( n++ ))
+	done | column -t -s';'
+}
+
+download() {
+	# if svn is installed
+	#if [[ -e "/usr/bin/svn" ]]; then
+	#	echo -e "$(gettext 'Pobieranie') ${pkgNames[$(( $@-1 ))]}"
+	#	mkdir -p "${download_path}/${repoNames[$(( $k-1 ))]}"
+	#	cd "${download_path}/${repoNames[$(( $k-1 ))]}"
+	#	svn --quiet --force export "${polaur_url}/${repoNames[$(( $k-1 ))]}/trunk/${pkgNames[$(( $@-1 ))]}"
+	#else
+	# if svn is NOT installed
+		mkdir -p "${HOME}/.cache/polaur/.gt"
+
+		if [[ -d "${HOME}/.cache/polaur/.gt/${repoNames[$(( $k-1 ))]}" ]]; then
+			cd "${HOME}/.cache/polaur/.gt/${repoNames[$(( $k-1 ))]}"
+			git pull --quiet "https://github.com/polaur/${repoNames[$(( $k-1 ))]}.git"
+		else
+			echo -e "$(gettext 'Pierwsze klonowanie repozytorium, może potrwać chwilę...')"
+			cd "${HOME}/.cache/polaur/.gt"
+			git clone --quiet "https://github.com/polaur/${repoNames[$(( $k-1 ))]}.git" "${repoNames[$(( $k-1 ))]}"
+		fi
+		echo -e "$(gettext 'Pobieranie') ${pkgNames[$(( $@-1 ))]}..."
+
+		mkdir -p "${download_path}/${repoNames[$(( $k-1 ))]}"
+		cp -rf "${HOME}/.cache/polaur/.gt/${repoNames[$(( $k-1 ))]}/${pkgNames[$(( $@-1 ))]}" "${download_path}/${repoNames[$(( $k-1 ))]}"
+	#fi
+}
+
+show_repositories() {
+	# downloading POLAUR main github site
+	curl -s "${polaur_url}" | sed 's/Asset 1//g' > /tmp/polaur
+
+	# put available repos to file
+	#cat /tmp/polaur | grep -E 'itemprop="name codeRepository"' | awk -F'"' '{print $8}' | cut -b 9- > /tmp/polaur-repos
+	awk '/codeRepository/{f=NR} f && NR==f+1' /tmp/polaur | awk '{$1=$1}1' > /tmp/polaur-repos
+
+	# put repos names to array repoNames
+	repoNames=()
+	while IFS= read -r line || [[ "$line" ]]; do
+		repoNames+=( "${line}" )
+	done < /tmp/polaur-repos
+
+	# print menu
+	d=0
+	while [ "$d" -eq 0 ]; do
+		clear
+		show_title
+		echo -e "$(gettext 'Wybierz repozytorium, by zobaczyć zawarte w nim pakiety:')\n"
+
+		# print list of repos
+		m=0; for i in ${repoNames[@]}; do
+			echo -e "${YELLOW}$(( $m+1 ))${RESET}. ${repoNames[$m]}   "
+			(( m++ ))
+		done
+		echo -e "${YELLOW}q${RESET}. $(gettext 'Zakończ')"
+		read -rsn 1 k
+		
+		case "$k" in
+			"q")
+				exit ;;
+			"$k")
+				if [[ "$k" -gt 0 && "$k" -le "${#repoNames[@]}" ]]; then
+					# print list of available packages
+					clear
+					list_packages ${repoNames[$(( $k-1 ))]}
+					
+					echo -e "\n$(gettext 'Naciśnij dowolny przycisk, by powrócić do głównego menu lub')"
+					echo -e "${YELLOW}d${RESET}. $(gettext 'Pobierz wybrane') ${YELLOW}\ta${RESET}. $(gettext 'Pobierz wszystko')\t${YELLOW}q${RESET}. $(gettext 'Zakończ')"
+					read -rsn 1 kk
+					
+					echo
+					case "$kk" in
+						"q")
+							exit ;;
+						"d")
+							read -a num -p "$(gettext 'Podaj numery pakietów (rozdzielone spacjami):') "
+							read -r -p "$(gettext 'Podaj pełną ścieżkę katalogu docelowego (/ścieżka), ENTER=domyślnie') (${download_path}): " path
+							echo
+							[[ "${path}" ]] && download_path="${path}"
+							[[ ! -d "${download_path}" ]] && mkdir -p ${download_path}
+							
+							#[[ ! -e "/usr/bin/svn" ]] && echo -e "\n$(gettext '"svn" nie jest zainstalowane w systemie - pobieram używając "git clone')\n"
+							for choice in "${num[@]}"; do
+								if [[ $choice -gt 0 && $choice -le ${#pkgNames[@]} ]]; then
+									download "${choice}"
+									list="${list} ${pkgNames[$(( $choice-1 ))]}"
+									d=1
+								else
+									error2 "$choice"
+									d=1
+								fi
+							done
+							echo -e "\n${GREEN}${list}${RESET} $(gettext 'pobrano do') ${download_path}/${repoNames[$(( $k -1 ))]}" ;;
+						"a")
+							#[[ ! -e "/usr/bin/svn" ]] && echo -e "\n$(gettext '"svn" nie jest zainstalowane w systemie - pobieram używając "git clone')\n"
+							n=1; while [ $n -le ${#pkgNames[@]} ]; do
+								
+								list="$(gettext 'Całość')"
+								download "$n"
+								(( n++ ))
+							done
+							echo -e "\n${GREEN}${list}${RESET} $(gettext 'pobrano do') ${download_path}/${repoNames[$(( $k -1 ))]}"
+							d=1 ;;
+						*)
+							d=0 ;;
+					esac
+				else
+					error "$k"
+				fi ;;
+			*)
+				error "$k" ;;
+		esac
+	done
+}
+
+# MAIN PROGRAM
+show_title
+action=${1:-"-h"}
+case "$action" in
+	-h|--help)
+		echo -e "$(gettext 'Lista komend:')"
+		echo -e "polaur -h/--help\t$(gettext 'ta pomoc')"
+		echo -e "polaur -I/--info\t$(gettext 'wiadomości rss')"
+		echo -e "polaur -L/--list\t$(gettext 'dostępne repozytoria ')"
+		echo -e "\t\t\t- $(gettext 'z możliwością zobaczenia jakie pakiety zawierają')"
+		echo -e "\t\t\t- $(gettext 'z możliwością pobrania plików dot. wybranych pakietów')"
+		#echo -e "\n$(gettext 'Pobieranie odbywa się za pomocą "svn". Jeśli nie jest zainstalowany w systemie, używana jest alternatywna metoda (git clone).')"
+		echo -e "\n$(gettext 'Pobieranie odbywa się za pomocą "git clone".')"
+		echo -e "$(gettext 'Przeglądając repozytoria, nie ma potrzeby używania Entera')" ;;
+	-L|--list)
+		show_repositories ;;
+	-I|--info)
+		show_feed ;;
+	*)
+		exit
+esac
+\rm -rf /tmp/polaur*

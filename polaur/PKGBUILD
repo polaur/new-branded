@@ -1,7 +1,7 @@
 # Maintainer: pavbaranov <pavbaranov at gmail dot com>
  
 pkgname=polaur
-pkgver=1.1
+pkgver=2
 pkgrel=1
 pkgdesc="nycko123 script for browsing and download POLAUR projects"
 arch=('any')
@@ -10,7 +10,7 @@ license=('GPL')
 depends=('bash' 'curl')
 makedepends=('git')
 source=("https://raw.githubusercontent.com/pavbaranov/scripts/master/polaur")
-sha256sums=('48059a30e167339a66b43183b78a51bac4700dda3708c656da02c9ea89d77b99')
+sha256sums=('d56f170cac02889843784528770ca733c5c614151f07cf47031a214953c58839')
  
 package(){
  install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"
