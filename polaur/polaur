@@ -5,6 +5,8 @@ feed_URL="https://forum.archlinux.org.pl/extern.php?action=feed&tid=615&type=ato
 feed_number=8
 download_path="${HOME}/.cache/polaur"
 
+makepkg_flags="-sirc"
+
 # colors
 RESET="\e[0m"
 RED="\e[1;31m"
@@ -125,6 +127,12 @@ download() {
 	#fi
 }
 
+build() {
+	cd "${download_path}/${repoNames[$(( $k-1 ))]}/${pkgNames[$(( $@-1 ))]}"
+	#echo "${download_path}/${repoNames[$(( $k-1 ))]}/${pkgNames[$(( $@-1 ))]}"
+	makepkg "${makepkg_flags}"
+}
+
 show_repositories() {
 	# downloading POLAUR main github site
 	curl -s "${polaur_url}" | sed 's/Asset 1//g' > /tmp/polaur
@@ -164,7 +172,7 @@ show_repositories() {
 					list_packages ${repoNames[$(( $k-1 ))]}
 					
 					echo -e "\n$(gettext 'Naciśnij dowolny przycisk, by powrócić do głównego menu lub')"
-					echo -e "${YELLOW}d${RESET}. $(gettext 'Pobierz wybrane') ${YELLOW}\ta${RESET}. $(gettext 'Pobierz wszystko')\t${YELLOW}q${RESET}. $(gettext 'Zakończ')"
+					echo -e "${YELLOW}d${RESET}. $(gettext 'Pobierz wybrane') \t${YELLOW}a${RESET}. $(gettext 'Pobierz wszystko') \t${YELLOW}b${RESET}. $(gettext "Zbuduj wybrane") \n${YELLOW}q${RESET}. $(gettext 'Zakończ')"
 					read -rsn 1 kk
 					
 					echo
@@ -190,6 +198,27 @@ show_repositories() {
 								fi
 							done
 							echo -e "\n${GREEN}${list}${RESET} $(gettext 'pobrano do') ${download_path}/${repoNames[$(( $k -1 ))]}" ;;
+						"b")
+							read -a num -p "$(gettext 'Podaj numery pakietów (rozdzielone spacjami):') "
+							#read -r -p "$(gettext 'Podaj pełną ścieżkę katalogu docelowego (/ścieżka), ENTER=domyślnie') (${download_path}): " path
+							echo
+							[[ "${path}" ]] && download_path="${path}"
+							[[ ! -d "${download_path}" ]] && mkdir -p ${download_path}
+
+							for choice in "${num[@]}"; do
+								if [[ $choice -gt 0 && $choice -le ${#pkgNames[@]} ]]; then
+									download "${choice}"
+									build "${choice}"
+									list="${list} ${pkgNames[$(( $choice-1 ))]}"
+									d=1
+									echo
+								else
+									error2 "$choice"
+									d=1
+									echo
+								fi
+							done ;;
+							#echo -e "\n${GREEN}${list}${RESET} $(gettext 'pobrano do') ${download_path}/${repoNames[$(( $k -1 ))]}" ;;
 						"a")
 							#[[ ! -e "/usr/bin/svn" ]] && echo -e "\n$(gettext '"svn" nie jest zainstalowane w systemie - pobieram używając "git clone')\n"
 							n=1; while [ $n -le ${#pkgNames[@]} ]; do
