@@ -4,7 +4,7 @@
 # You had to install all optdepends for full functionality of this script
  
 pkgname=pak-git
-pkgver=2.1.r4.gd577551
+pkgver=2.1.r6.g49dd065
 pkgrel=1
 pkgdesc="Simple pacman and AUR frontend"
 arch=('any')
@@ -38,4 +38,6 @@ package(){
  install -Dm644 "$srcdir/${pkgname%-*}/man/pak.conf.5.gz" "$pkgdir/usr/share/man/man5/pak.conf.5.gz"
  # bash autocompletions
  install -Dm644 "$srcdir/${pkgname%-*}/completion/pak.bash" "$pkgdir/usr/share/bash-completion/completions/pak"
+ # zsh autocompletions
+ install -Dm644 "$srcdir/${pkgname%-*}/completion/pak.zsh" "$pkgdir/usr/share/zsh/site-functions/_pak"
 }
