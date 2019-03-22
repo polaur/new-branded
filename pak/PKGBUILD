@@ -4,7 +4,7 @@
 # You had to install all optdepends for full functionality of this script
  
 pkgname=pak
-pkgver=2.2
+pkgver=2.2.1
 pkgrel=1
 pkgdesc="Simple pacman and AUR frontend"
 arch=('any')
@@ -20,7 +20,7 @@ conflicts=(pak-git)
  
 source=("https://gitlab.com/nycko123/pak/raw/master/src/${pkgname}-${pkgver}.tar.gz")
  
-sha256sums=('dead626d373ddb45a768cf13c2551801c25c83fa15f47b837524b4deb4898ad9')
+sha256sums=('03b127734b4970c8ff7e601b9e774e54cd38497e4d8bf3c98137ed73cbc55d39')
  
 package(){
  install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"
@@ -31,6 +31,7 @@ package(){
  # man-pages
  install -Dm644 "$srcdir/man/pak.8.gz" "$pkgdir/usr/share/man/man8/pak.8.gz"
  install -Dm644 "$srcdir/man/pak.conf.5.gz" "$pkgdir/usr/share/man/man5/pak.conf.5.gz"
+ install -Dm644 "$srcdir/man/pl/pak.conf.5.gz" "$pkgdir/usr/share/man/pl/man5/pak.conf.5.gz"
  # bash autocompletions
  install -Dm644 "$srcdir/completion/pak.bash" "$pkgdir/usr/share/bash-completion/completions/pak"
  # zsh autocompletions
