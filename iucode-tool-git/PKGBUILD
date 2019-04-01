@@ -1,0 +1,38 @@
+# Maintainer: Piotr Gorski <lucjan.lucjanov@gmail.com>
+# Contributor: Christian Hesse <mail@eworm.de>
+# Contributor: Andreas Bosch <admin@progandy.de>
+
+pkgname=iucode-tool-git
+_pkgname=iucode-tool
+pkgver=2.3.1.r2.gc5db0e0
+pkgrel=1
+pkgdesc='Tool to manipulate Intel® IA-32/X86-64 microcode bundles'
+arch=('x86_64')
+url='https://gitlab.com/iucode-tool/iucode-tool/wikis/home'
+license=('GPL')
+conflicts=('iucode-tool')
+provides=('iucode-tool')
+source=("git+https://gitlab.com/iucode-tool/iucode-tool")
+sha256sums=('SKIP')
+
+pkgver() {
+        cd "$srcdir/${_pkgname}"
+
+        git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+            
+build() {
+	cd "$srcdir/${_pkgname}"
+
+	./autogen.sh
+	./configure \
+		--prefix=/usr \
+		--sbindir=/usr/bin
+	make
+}
+
+package() {
+	cd "$srcdir/${_pkgname}"
+
+	make DESTDIR="$pkgdir/" install
+}

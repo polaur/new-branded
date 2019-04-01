@@ -4,7 +4,7 @@
 # You had to install all optdepends for full functionality of this script
  
 pkgname=pak
-pkgver=2.1
+pkgver=2.3
 pkgrel=1
 pkgdesc="Simple pacman and AUR frontend"
 arch=('any')
@@ -20,12 +20,20 @@ conflicts=(pak-git)
  
 source=("https://gitlab.com/nycko123/pak/raw/master/src/${pkgname}-${pkgver}.tar.gz")
  
-sha256sums=('040ce6a96dac89f5076c8978e08e15350d8d27a5ed75235f32f6fbfaf3806b44')
+sha256sums=('d5ca12bb2e0d893184d06cc7e1f8d77e17773aa481519e64fcc36e33be4c5b1d')
  
 package(){
  install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"
+ # configuration 
  install -Dm644 "$srcdir/pak.conf" "$pkgdir/etc/xdg/pak.conf"
+ # translations
  install -Dm644 "$srcdir/locale/pl.mo" "$pkgdir/usr/share/locale/pl/LC_MESSAGES/pak.mo"
+ # man-pages
  install -Dm644 "$srcdir/man/pak.8.gz" "$pkgdir/usr/share/man/man8/pak.8.gz"
  install -Dm644 "$srcdir/man/pak.conf.5.gz" "$pkgdir/usr/share/man/man5/pak.conf.5.gz"
+ install -Dm644 "$srcdir/man/pl/pak.conf.5.gz" "$pkgdir/usr/share/man/pl/man5/pak.conf.5.gz"
+ # bash autocompletions
+ install -Dm644 "$srcdir/completion/pak.bash" "$pkgdir/usr/share/bash-completion/completions/pak"
+ # zsh autocompletions
+ install -Dm644 "$srcdir/completion/pak.zsh" "$pkgdir/usr/share/zsh/site-functions/_pak"
 }
