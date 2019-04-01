@@ -1,0 +1,23 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=plasma5-theme-charlie-git
+pkgver=r2.89a809c
+pkgrel=1
+pkgdesc="Dark and elegant, moderately transparent and Blur Theme for Plasma"
+arch=('any')
+license=('GPL3')
+url="https://store.kde.org/p/1297765/"
+#depends=(bash)
+makedepends=(git)
+source=("git+https://github.com/L4ki/Charlie.git")
+sha256sums=('SKIP')
+
+pkgver() {
+    cd Charlie
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    }
+
+package() {
+    mkdir -p ${pkgdir}/usr/share/plasma/desktoptheme
+    cp -r Charlie ${pkgdir}/usr/share/plasma/desktoptheme
+    } 
