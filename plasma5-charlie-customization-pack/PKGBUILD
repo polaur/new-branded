@@ -1,0 +1,28 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgbase=plasma5-charlie-customization-pack
+pkgname=(plasma5-theme-charlie plasma5-colors-charlie)
+pkgver=1.0
+pkgrel=1
+pkgdesc="Dark and elegant, moderately transparent and Blur Theme for Plasma 5"
+arch=('any')
+license=('GPL3')
+url="https://www.opendesktop.org/p/1297730/"
+source=("git+https://github.com/L4ki/Charlie.git#commit=89a809c"
+"Charlie.colors")
+sha256sums=('SKIP'
+            '86e42bfd0b654cdfa01daec91dd592f32d2d311ba5d00e36ddc80bd8dc7454e9')
+
+package_plasma5-theme-charlie() {
+    pkgdesc="Charlie theme for Plasma 5"
+    mkdir -p $pkgdir/usr/share/plasma/desktoptheme
+    cp -r "Charlie" $pkgdir/usr/share/plasma/desktoptheme/charlie
+    chmod -R 755 $pkgdir/usr/share/plasma/desktoptheme/charlie
+    rm -r $pkgdir/usr/share/plasma/desktoptheme/charlie/.git
+    }
+    
+package_plasma5-colors-charlie() {
+    pkgdesc="Charlie color theme for Plasma"
+    mkdir -p $pkgdir/usr/share/color-schemes
+    cp "Charlie.colors" $pkgdir/usr/share/color-schemes/charlie.colors
+    }
