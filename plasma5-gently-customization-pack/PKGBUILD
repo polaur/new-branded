@@ -1,0 +1,27 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgbase=plasma5-gently-customization-pack
+pkgname=(plasma5-theme-gently plasma5-colors-gently)
+pkgver=1.0
+pkgrel=1
+pkgdesc="Very transparent and blurred Theme for Plasma 5"
+arch=('any')
+license=('GPL3')
+url="https://www.opendesktop.org/p/1293162/"
+source=("https://git.opendesktop.org/l4k1/gently/-/archive/master/gently-master.tar.gz"
+"Gently.colors")
+sha256sums=('9e7566effc3d78103aaecb276ad7d0033efa421907931b74a242d9d94c0acc4a'
+            '5f1c8187167fdc8007ff98b4ea9130897dffe5b0f422db7515b06afaf3d20885')
+
+package_plasma5-theme-gently() {
+    pkgdesc="Gently theme for Plasma 5"
+    mkdir -p $pkgdir/usr/share/plasma/desktoptheme
+    cp -r "gently-master" $pkgdir/usr/share/plasma/desktoptheme/gently
+    chmod -R 755 $pkgdir/usr/share/plasma/desktoptheme/gently
+    }
+    
+package_plasma5-colors-gently() {
+    pkgdesc="Gently color theme for Plasma"
+    mkdir -p $pkgdir/usr/share/color-schemes
+    cp "Gently.colors" $pkgdir/usr/share/color-schemes/gently.colors
+    }
