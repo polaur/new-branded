@@ -1,0 +1,20 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=plasma5-transdarc-theme
+pkgver=1.0
+pkgrel=1
+pkgdesc="A blurry transparent theme for Plasma 5"
+arch=('any')
+license=('GPL3')
+url="https://store.kde.org/p/1279705/"
+source=("git+https://gitlab.com/sira313/transdarc.git#commit=f8aca3c5")
+sha256sums=('SKIP')
+
+
+package() {
+    mkdir -p $pkgdir/usr/share/plasma/desktoptheme
+    cp -r "transdarc" $pkgdir/usr/share/plasma/desktoptheme/transdarc
+    chmod -R 755 $pkgdir/usr/share/plasma/desktoptheme/transdarc
+    rm -rf $pkgdir/usr/share/plasma/desktoptheme/transdarc/.git
+    }
+    
