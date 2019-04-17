@@ -1,0 +1,18 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=otf-great-victorian
+pkgver=1.0
+pkgrel=1
+pkgdesc="Sans serif fonts!"
+arch=('any')
+url="https://www.dafont.com/great-victorian.font"
+license=('free')
+depends=('unzip' 'fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+install=otf-great-victorian.install
+source=(${pkgname}.zip::http://img.dafont.com/dl/?f=great_victorian)
+sha256sums=('9c5862f318fe3ff0e9c4952cabe0f785710da53c70bb59a26aca7eb7971cb6a4')
+
+package() {
+  install -dm755 "${pkgdir}"/usr/share/fonts/OTF
+  install -m644 *.otf "${pkgdir}"/usr/share/fonts/OTF/
+}
