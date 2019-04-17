@@ -1,0 +1,19 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=ttf-khatija-calligraphy
+pkgver=1.0
+pkgrel=1
+pkgdesc="Calligraphy font. Personalu use only!"
+arch=('any')
+url="https://www.myfonts.com/fonts/38-lineart/khatija-calligraphy/"
+license=('custom')
+depends=('unzip' 'fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+install=ttf-khatija-calligraphy.install
+source=(${pkgname}.zip::http://img.dafont.com/dl/?f=khatija_calligraphy)
+sha256sums=('39cad4ad0345fce17f91d0a597a76d53b3cfb72c36d6b473106fd14972335638')
+
+package() {
+  install -dm755 "${pkgdir}"/usr/share/fonts/TTF
+  install -m644 *.ttf "${pkgdir}"/usr/share/fonts/TTF/
+}
+
