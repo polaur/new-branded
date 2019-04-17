@@ -1,0 +1,18 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=otf-gravity
+pkgver=1.0
+pkgrel=1
+pkgdesc="Sans serif fonts!"
+arch=('any')
+url="https://www.dafont.com/gravity.font"
+license=('free')
+depends=('unzip' 'fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+install=otf-gravity.install
+source=(${pkgname}.zip::http://img.dafont.com/dl/?f=gravity)
+sha256sums=('b03392bc589052fa467d5263c5e66c04cd5b3a5474a30fc65836881099862bed')
+
+package() {
+  install -dm755 "${pkgdir}"/usr/share/fonts/OTF
+  install -m644 *.otf "${pkgdir}"/usr/share/fonts/OTF/
+}
