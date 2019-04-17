@@ -1,0 +1,18 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=ttf-miama
+pkgver=1.0
+pkgrel=1
+pkgdesc="Calligraphy fonts!"
+arch=('any')
+url="https://www.dafont.com/miama.font"
+license=('OFL')
+depends=('unzip' 'fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+install=ttf-miama.install
+source=(${pkgname}.zip::http://img.dafont.com/dl/?f=miama)
+sha256sums=('dfeb54cf95a7d28e6a861b6299edae32f41e50358896ada884d7b7f11d66125d')
+
+package() {
+  install -dm755 "${pkgdir}"/usr/share/fonts/TTF
+  install -m644 *.ttf "${pkgdir}"/usr/share/fonts/TTF/
+}
