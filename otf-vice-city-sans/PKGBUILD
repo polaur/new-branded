@@ -1,0 +1,18 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=otf-vice-city-sans
+pkgver=1.0
+pkgrel=1
+pkgdesc="Sans serif fonts!"
+arch=('any')
+url="https://www.dafont.com/vice-city-sans.font"
+license=('free')
+depends=('unzip' 'fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+install=otf-vice-city-sans.install
+source=(${pkgname}.zip::http://img.dafont.com/dl/?f=vice_city_sans)
+sha256sums=('b2846cd7a195baf37bfdbfa9582bd47ee437a647ea705e7625612529127b5e66')
+
+package() {
+  install -dm755 "${pkgdir}"/usr/share/fonts/OTF
+  install -m644 *.otf "${pkgdir}"/usr/share/fonts/OTF/
+}
