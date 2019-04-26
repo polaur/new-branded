@@ -5,7 +5,7 @@
  
 pkgname=pak-git
 pkgver=2.1.r6.g49dd065
-pkgrel=1
+pkgrel=2
 pkgdesc="Simple pacman and AUR frontend"
 arch=('any')
 url="https://gitlab.com/nycko123/pak"
@@ -36,6 +36,7 @@ package(){
  # man-pages
  install -Dm644 "$srcdir/${pkgname%-*}/man/pak.8.gz" "$pkgdir/usr/share/man/man8/pak.8.gz"
  install -Dm644 "$srcdir/${pkgname%-*}/man/pak.conf.5.gz" "$pkgdir/usr/share/man/man5/pak.conf.5.gz"
+ install -Dm644 "$srcdir/${pkgname%-*}/man/pl/pak.conf.5.gz" "$pkgdir/usr/share/man/pl/man5/pak.conf.5.gz"
  # bash autocompletions
  install -Dm644 "$srcdir/${pkgname%-*}/completion/pak.bash" "$pkgdir/usr/share/bash-completion/completions/pak"
  # zsh autocompletions
