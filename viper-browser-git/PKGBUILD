@@ -1,0 +1,36 @@
+#Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=viper-browser-git
+pkgver=r720.cc48cf8
+pkgrel=1
+pkgdesc='A lightweight Qt5 web browser using QtWebEngine'
+arch=('x86_64')
+url='https://github.com/LeFroid/Viper-Browser'
+license=('GPL3')
+depends=( qt5-webengine kwallet desktop-file-utils)
+makedepends=(cmake git)
+source=('git+https://github.com/LeFroid/Viper-Browser')
+sha256sums=('SKIP')
+
+pkgver() {
+	cd Viper-Browser/
+	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+	}
+
+prepare() {
+    mkdir -p Viper-Browser/build
+    }
+    
+build() {
+	cd Viper-Browser/build/
+
+	cmake -DCMAKE_INSTALL_PREFIX="/usr" \
+          ../
+	make
+}
+
+package() {
+	cd Viper-Browser/build/
+	make DESTDIR=${pkgdir} install
+}
+
