@@ -1,0 +1,32 @@
+# Maintainer: Emmanuel Gil Peyrot <linkmauve@linkmauve.fr>
+
+pkgname=kaidan
+pkgver=0.3.2
+pkgrel=1
+pkgdesc="Simple and user-friendly Jabber/XMPP client for every device"
+arch=('x86_64')
+url="https://www.kaidan.im"
+license=('GPL3')
+depends=('gloox' 'hicolor-icon-theme' 'qt5-declarative')
+makedepends=('extra-cmake-modules')
+source=("https://github.com/KaidanIM/Kaidan/archive/v0.3.2.tar.gz")
+sha256sums=('e1c7eba82fc76f1660403c6f2ffe6fcd8f3fda13ed9f40f75d9b7bcd881e0f57')
+
+
+prepare() {
+    mkdir -p build
+    }
+
+build() {
+    cd build
+    cmake ../Kaidan-$pkgver \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DI18N=ON
+    make
+    }
+
+package() {
+    cd build
+        make DESTDIR="$pkgdir" install
+    }
