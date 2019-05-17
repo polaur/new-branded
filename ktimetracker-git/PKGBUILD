@@ -1,0 +1,38 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=ktimetracker-git
+pkgver=r3381.fd55225
+pkgrel=1
+pkgdesc="Todo management and time tracker"
+arch=(x86_64)
+url="https://cgit.kde.org/ktimetracker.git"
+license=(LGPL)
+depends=(kcalcore kidletime kio hicolor-icon-theme)
+makedepends=(extra-cmake-modules git)
+source=('git+https://anongit.kde.org/ktimetracker.git')
+md5sums=('SKIP')
+
+pkgver() {
+  cd ${pkgname%-*}
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+  mkdir -p build
+}
+
+build() {
+  cd build
+  cmake ../${pkgname%-*} \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DLIB_INSTALL_DIR=lib \
+    -DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
+    -DBUILD_TESTING=OFF
+  make
+}
+
+package() {
+  cd build
+  make DESTDIR="$pkgdir" install
+}
