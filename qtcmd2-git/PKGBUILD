@@ -2,15 +2,15 @@
 
 pkgname=qtcmd2-git
 #_pkgname=qtcmd2
-pkgver=r879.46eebd0
-pkgrel=1
+pkgver=r967.3ac7c4c
+pkgrel=2
 pkgdesc="File manager"
 arch=('x86_64')
 url="http://qtcmd.nes.pl"
 license=('GPL')
 depends=('qtermwidget' 'phonon-qt5')
 makedepends=('cmake' 'qt5-tools' 'git')
-source=("git+git://git.qtcmd.org/qtcmd2.git")
+source=("git+https://bitbucket.org/qtcmd/qtcmd2.git")
 md5sums=('SKIP')
 
 pkgver() {
