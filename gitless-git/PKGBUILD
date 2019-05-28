@@ -2,8 +2,8 @@
 
 pkgname=gitless-git
 _pkgname=gitless
-pkgver=0.8.7.r3.gf3a44c8
-pkgrel=5
+pkgver=0.8.8.r1.g08a64a3
+pkgrel=1
 pkgdesc="A scientifically proven easier-to-use git interface"
 arch=("any")
 url="http://gitless.com/"
@@ -12,16 +12,8 @@ depends=('python' 'git' 'python-sh' 'python-clint' 'python-pygit2>=0.28.1' 'pyth
 makedepends=('git')
 conflits=('gitless')
 provides=('gitless')
-source=("git://github.com/sdg-mit/gitless/"
-        "0001-Bump-to-pygit2-0.28.1.patch")
-sha256sums=('SKIP'
-            '73e2fbadf39cca72182817df84d50ff5f8fbbecb500e160d3848271562017420')
-
-
-prepare() {
-  cd ${srcdir}/${_pkgname}
-  patch -Np1 -i ../0001-Bump-to-pygit2-0.28.1.patch
- } 
+source=("git://github.com/sdg-mit/gitless/")
+sha256sums=('SKIP')
 
 pkgver() {
   cd ${srcdir}/${_pkgname}
