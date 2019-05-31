@@ -2,13 +2,13 @@
 
 pkgname=gitless-git
 _pkgname=gitless
-pkgver=0.8.6.r40.gd7a6325
+pkgver=0.8.8.r1.g08a64a3
 pkgrel=1
 pkgdesc="A scientifically proven easier-to-use git interface"
 arch=("any")
 url="http://gitless.com/"
 license=("GPL")
-depends=('python' 'git' 'python-sh' 'python-clint' 'python-pygit2' 'python-setuptools')
+depends=('python' 'git' 'python-sh' 'python-clint' 'python-pygit2>=0.28.1' 'python-setuptools')
 makedepends=('git')
 conflits=('gitless')
 provides=('gitless')
