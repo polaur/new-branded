@@ -5,7 +5,7 @@ feed_URL="https://forum.archlinux.org.pl/extern.php?action=feed&tid=615&type=ato
 feed_number=8
 download_path="${HOME}/.cache/polaur"
 
-makepkg_flags="-sirc"
+makepkg_flags="-fsirc"
 
 # colors
 RESET="\e[0m"
@@ -114,6 +114,8 @@ download() {
 
 		if [[ -d "${HOME}/.cache/polaur/.gt/${repoNames[$(( $k-1 ))]}" ]]; then
 			cd "${HOME}/.cache/polaur/.gt/${repoNames[$(( $k-1 ))]}"
+			git fetch --all --quiet
+			git reset --hard --quiet
 			git pull --quiet "https://github.com/polaur/${repoNames[$(( $k-1 ))]}.git"
 		else
 			echo -e "$(gettext 'Pierwsze klonowanie repozytorium, może potrwać chwilę...')"
@@ -130,7 +132,16 @@ download() {
 build() {
 	cd "${download_path}/${repoNames[$(( $k-1 ))]}/${pkgNames[$(( $@-1 ))]}"
 	#echo "${download_path}/${repoNames[$(( $k-1 ))]}/${pkgNames[$(( $@-1 ))]}"
-	makepkg "${makepkg_flags}"
+
+	# workaround for 4k-ffmpeg package
+	if [[ "${pkgNames[$(( $@-1 ))]}" == "4kslideshowmaker-ffmpeg" ]] || [[ "${pkgNames[$(( $@-1 ))]}" == "4kvideodownloader-ffmpeg" ]] || [[ "${pkgNames[$(( $@-1 ))]}" == "4kvideotomp3-ffmpeg" ]] || [[ "${pkgNames[$(( $@-1 ))]}" == "4kyoutubetomp3-ffmpeg" ]] ; then
+		makepkg -fsrc
+		echo -e "${GREEN}==>${RESET} ${BOLD}Instalowanie grupy pakietów ${pkgNames[$(( $@-1 ))]} za pomocą pacman -U...${RESET}"
+		sudo pacman -U *.pkg*
+		\rm  *.pkg* &> /dev/null
+	else
+		makepkg "${makepkg_flags}"
+	fi
 }
 
 show_repositories() {
