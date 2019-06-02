@@ -150,7 +150,7 @@ show_repositories() {
 
 	# put available repos to file
 	#cat /tmp/polaur | grep -E 'itemprop="name codeRepository"' | awk -F'"' '{print $8}' | cut -b 9- > /tmp/polaur-repos
-	awk '/codeRepository/{f=NR} f && NR==f+1' /tmp/polaur | awk '{$1=$1}1' > /tmp/polaur-repos
+	awk '/codeRepository/{f=NR} f && NR==f+2' /tmp/polaur | awk '{$1=$1}1' > /tmp/polaur-repos
 
 	# put repos names to array repoNames
 	repoNames=()
