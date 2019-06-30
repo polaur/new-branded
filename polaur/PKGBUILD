@@ -11,7 +11,7 @@ depends=('bash' 'curl')
 makedepends=('git')
 #source=("https://raw.githubusercontent.com/pavbaranov/scripts/master/polaur")
 source=("polaur")
-sha256sums=('c6e0c91af7eebb49b38811dd480078c6ad97dd3279fa7843abf0e032de7dede0')
+sha256sums=('276a07b6c9a873d88881626037481145e467d9b5cc0b3226b5d15d286ca255c8')
  
 package(){
  install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"

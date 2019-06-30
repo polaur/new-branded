@@ -47,7 +47,7 @@ show_title() {
 }
 
 show_feed() {
-	curl -s "${feed_URL}" | grep -E "content" | sed -e 's/<br \/>/\\n/g' -e 's/<[^>]*>//g' -e 's/]]>//g' -e 's/\&quot;//g' -e 's/\&#039;//g' -e 's/EDIT//g' | sed -r 's/[0-9]{2}.[0-9]{4}/& |/g' | awk '{$1=$1}1' > /tmp/polaur-feed
+	curl -s "${feed_URL}" | sed 's/<\/p>/\\n/g' | grep -E "content" | sed -e 's/<br \/>/\\n/g' -e 's/<[^>]*>//g' -e 's/]]>//g' -e 's/\&quot;/"/g' -e 's/\&#039;//g' -e 's/EDIT://g' -e  's/\&amp;/\&/g' | sed -r 's/[0-9]{2}.[0-9]{4}/& |/g' | awk '{$1=$1}1' > /tmp/polaur-feed
 
 	echo -e "${BOLD}$(gettext 'Najnowsze wiadomości')${RESET}\n"
 	n=1; while IFS= read -r line || [[ "$line" ]]; do
