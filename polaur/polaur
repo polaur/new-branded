@@ -47,7 +47,8 @@ show_title() {
 }
 
 show_feed() {
-	curl -s "${feed_URL}" | sed 's/<\/p>/\\n/g' | grep -E "content" | sed -e 's/<br \/>/\\n/g' -e 's/<[^>]*>//g' -e 's/]]>//g' -e 's/\&quot;/"/g' -e 's/\&#039;//g' -e 's/EDIT://g' -e  's/\&amp;/\&/g' | sed -r 's/[0-9]{2}.[0-9]{4}/& |/g' | awk '{$1=$1}1' > /tmp/polaur-feed
+#	curl -s "${feed_URL}" | sed 's/<\/p>/\\n/g' | grep -E "content" | sed -e 's/<br \/>/\\n/g' -e 's/<[^>]*>//g' -e 's/]]>//g' -e 's/\&quot;/"/g' -e 's/\&#039;//g' -e 's/EDIT://g' -e  's/\&amp;/\&/g' | sed -r 's/[0-9]{2}.[0-9]{4}/& |/g' | awk '{$1=$1}1' > /tmp/polaur-feed
+	curl -s "${feed_URL}" | sed 's/<\/p>/\\n/g' | grep -E "content" | sed -e 's/<br \/>/\\n/g' -e 's/<[^>]*>//g' -e 's/]]>//g' -e 's/\&quot;/"/g' -e 's/\&#039;//g' -e 's/EDIT://g' -e  's/\&amp;/\&/g' | awk '{$1=$1}1' > /tmp/polaur-feed
 
 	echo -e "${BOLD}$(gettext 'Najnowsze wiadomości')${RESET}\n"
 	n=1; while IFS= read -r line || [[ "$line" ]]; do
@@ -263,6 +264,7 @@ case "$action" in
 		echo -e "polaur -L/--list\t$(gettext 'dostępne repozytoria ')"
 		echo -e "\t\t\t- $(gettext 'z możliwością zobaczenia jakie pakiety zawierają')"
 		echo -e "\t\t\t- $(gettext 'z możliwością pobrania plików dot. wybranych pakietów')"
+		echo -e "\t\t\t- $(gettext 'z możliwością zbudowania i zainstalowania wybranych pakietów')"
 		#echo -e "\n$(gettext 'Pobieranie odbywa się za pomocą "svn". Jeśli nie jest zainstalowany w systemie, używana jest alternatywna metoda (git clone).')"
 		echo -e "\n$(gettext 'Pobieranie odbywa się za pomocą "git clone".')"
 		echo -e "$(gettext 'Przeglądając repozytoria, nie ma potrzeby używania Entera')" ;;
