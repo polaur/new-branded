@@ -1,0 +1,36 @@
+#Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=plasma5-appimage-extensions-git
+pkgver=r1.84499cd
+pkgrel=1
+pkgdesc='Set of Plasma extensions to enhance UX while using AppImage files'
+arch=('x86_64')
+url='https://github.com/azubieta/plasma5-appimage-extensions'
+license=('unknown')
+depends=(kio)
+makedepends=(extra-cmake-modules git)
+source=('git+https://github.com/azubieta/plasma5-appimage-extensions.git')
+sha256sums=('SKIP')
+
+pkgver() {
+	cd ${pkgname%-*}
+	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+	}
+
+prepare() {
+    mkdir -p build
+    }
+    
+build() {
+	cd build
+
+	cmake -DCMAKE_INSTALL_PREFIX="/usr" \
+          ../${pkgname%-*}
+	make
+}
+
+package() {
+	cd build
+	make DESTDIR=${pkgdir} install
+}
+
