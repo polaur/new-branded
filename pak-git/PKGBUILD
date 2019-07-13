@@ -14,7 +14,8 @@ depends=('bash' 'git' 'jq' 'pacman-contrib')
 optdepends=("asp: to download PKGBUILD's of official packages"
             "auracle-git: to manage AUR packages"
             "namcap: to validate built packages"
-			"reflector: to keep mirrorlist up to date")
+			"reflector: to keep mirrorlist up to date"
+			"fzf: to display all data about installed packages")
 backup=('etc/xdg/pak.conf')
 conflicts=(pak)
  
