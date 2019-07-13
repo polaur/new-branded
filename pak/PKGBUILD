@@ -4,7 +4,7 @@
 # You had to install all optdepends for full functionality of this script
  
 pkgname=pak
-pkgver=2.3.3
+pkgver=2.4
 pkgrel=1
 pkgdesc="Simple pacman and AUR frontend"
 arch=('any')
@@ -14,13 +14,14 @@ depends=('bash' 'git' 'jq' 'pacman-contrib')
 optdepends=("asp: to download PKGBUILD's of official packages"
             "auracle-git: to manage AUR packages"
 	    "namcap: to validate built packages"
-		"reflector: to keep mirrorlist up to date")
+		"reflector: to keep mirrorlist up to date"
+		"fzf: to display all data about installed packages")
 backup=(etc/xdg/pak.conf)
 conflicts=(pak-git)
  
 source=("https://gitlab.com/nycko123/pak/raw/master/src/${pkgname}-${pkgver}.tar.gz")
  
-sha256sums=('a6cb9d82b55e8fb535de456fe9ce805629b125e2616f278d818578426b92f3d3')
+sha256sums=('21b774dd6a3fafa045155960087a27916c4c45ccbde5e713e9233629df71179a')
  
 package(){
  install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"
