@@ -2,8 +2,8 @@
 
 pkgname=gitless-git
 _pkgname=gitless
-pkgver=0.8.8.r1.g08a64a3
-pkgrel=1
+pkgver=0.8.8.r2.g29fb463
+pkgrel=2
 pkgdesc="A scientifically proven easier-to-use git interface"
 arch=("any")
 url="http://gitless.com/"
@@ -12,12 +12,19 @@ depends=('python' 'git' 'python-sh' 'python-clint' 'python-pygit2>=0.28.1' 'pyth
 makedepends=('git')
 conflits=('gitless')
 provides=('gitless')
-source=("git://github.com/sdg-mit/gitless/")
-sha256sums=('SKIP')
+source=("git://github.com/sdg-mit/gitless"
+        '0001-Bump-libgit2.patch')
+sha256sums=('SKIP'
+            '904a4c2bcbdce26632699e7bcc229c8540b7671c4d179161f84a9d49a186ed43')
 
 pkgver() {
   cd ${srcdir}/${_pkgname}
   git describe --long --tags | sed 's/v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+prepare() {
+  cd ${srcdir}/${_pkgname}
+  patch -p1 -i ../0001-Bump-libgit2.patch
 }
 
 build() {
