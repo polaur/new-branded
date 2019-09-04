@@ -1,0 +1,34 @@
+# Maintainer: Piotr Górski <lucjan.lucjanov@gmail.com>
+# Contributor: graysky <graysky AT archlinux DOT us>
+
+pkgname='clean-chroot-manager-git'
+_pkgname='clean-chroot-manager'
+pkgver=2.96.0.gb21472d
+pkgrel=1
+pkgdesc='Wrapper scripts for managing clean chroots (64-bit and 32-bit).'
+arch=('any')
+url='https://github.com/graysky2/clean-chroot-manager'
+license=('MIT')
+depends=('devtools>=20190821-1' 'rsync' 'libarchive>=3.3.3')
+makedepends=('git')
+conflicts=('clean_chroot_manager')
+replaces=('clean_chroot_manager')
+source=("git://github.com/graysky2/clean-chroot-manager")
+sha256sums=('SKIP')
+install=ccm.install
+
+pkgver() {
+  cd "$_pkgname"
+  git describe --long --tags | sed 's/^v//;s/-/./g'
+}
+
+build() {
+  cd "$_pkgname"
+  make
+}
+
+package() {
+  cd "$_pkgname"
+  make DESTDIR="$pkgdir" install
+  install -Dm644 MIT "$pkgdir/usr/share/licenses/$_pkgname/LICENSE"
+}
