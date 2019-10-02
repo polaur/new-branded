@@ -2,7 +2,7 @@
 
 pkgname=gitless-git
 _pkgname=gitless
-pkgver=0.8.8.r3.g1a04963
+pkgver=0.8.8.r16.g145d944
 pkgrel=1
 pkgdesc="A scientifically proven easier-to-use git interface"
 arch=("any")
@@ -12,7 +12,7 @@ depends=('python' 'git' 'python-sh' 'python-clint' 'python-pygit2>=0.28.1' 'pyth
 makedepends=('git')
 conflits=('gitless')
 provides=('gitless')
-source=("git://github.com/sirlucjan/gitless#branch=dev")
+source=("git://github.com/sirlucjan/gitless")
 sha256sums=('SKIP')
 
 pkgver() {
