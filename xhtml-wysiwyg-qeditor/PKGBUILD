@@ -3,7 +3,7 @@
 pkgname=xhtml-wysiwyg-qeditor-git
 _gitname=xhtml_edit_qedit_base
 pkgver=r15.07b20dc
-pkgrel=1
+pkgrel=2
 pkgdesc="XHTML WYSIWYG editor" 
 url="https://www.opendesktop.org/s/Linux-Apps/p/1131236/"
 depends=(qt5-base)
@@ -27,6 +27,6 @@ build() {
         }
 package () {
         cd "$_gitname"
-        install -Dm744 XHTML_Editor $pkgdir/usr/bin/xhtmleditor
+        install -Dm755 XHTML_Editor $pkgdir/usr/bin/xhtmleditor
         install -Dm644 wp.png $pkgdir/usr/share/icons/xhtmlediror.png    
         }
