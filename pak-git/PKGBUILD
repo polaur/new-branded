@@ -2,21 +2,21 @@
 # Contributor: pavbaranov <pavbaranov at gmail dot com>
 
 # You had to install all optdepends for full functionality of this script
- 
+
 pkgname=pak-git
-pkgver=3.1.r1.g66ad62d
-pkgrel=1
+pkgver=3.1.2.r1.gd6ca5c3
+pkgrel=2
 pkgdesc="Simple pacman and AUR frontend, POLAUR helper"
 arch=('any')
 url="https://gitlab.com/nycko123/pak"
 license=('GPL')
-depends=('bash' 'git' 'jq' 'pacman-contrib')
-optdepends=("asp: to download PKGBUILD's of official packages"
-            "auracle-git: to manage AUR packages"
-            "namcap: to validate built packages"
+depends=('bash' 'git' 'curl' 'jq' 'pacman-contrib' 'man-db')
+optdepends=("asp: to download PKGBUILDs of official packages"
+			"auracle-git: to manage AUR packages"
+			"namcap: to validate built packages"
 			"reflector: to keep mirrorlist up to date"
+			"subversion: to check upstream for updated -svn packages"
 			"fzf: to display all data about installed packages")
-backup=('etc/xdg/pak.conf')
 conflicts=(pak)
  
 source=("git+https://gitlab.com/nycko123/pak.git")
