@@ -1,0 +1,43 @@
+# Maintainer: Piotr Gorski <lucjan.lucjanov@gmail.com>
+# Contributor: Jan de Groot <jgc@archlinux.org>
+# Contributor:: Andreas Radke <andyrtr@archlinux.org>
+
+pkgname='mesa-demos-git'
+pkgver=8.4.0.9.g99f95b38
+pkgrel=1
+arch=('x86_64')
+pkgdesc="Mesa demos and tools"
+url="http://mesa3d.sourceforge.net"
+license=('custom')
+depends=('libgl' 'glew' 'freeglut')
+makedepends=('mesa' 'freetype2' 'git')
+conflicts=('mesa-demos')
+provides=('mesa-demos')
+source=(git://anongit.freedesktop.org/mesa/demos
+        'LICENSE')
+sha256sums=('SKIP'
+            '7fdc119cf53c8ca65396ea73f6d10af641ba41ea1dd2bd44a824726e01c8b3f2')
+pkgver() {
+  cd demos
+  git describe | sed 's/^mesa-demos-//;s/-/./g'
+}
+            
+build() {
+  cd demos
+  ./autogen.sh
+  ./configure --prefix=/usr \
+    --disable-gles1 \
+    --with-system-data-files=/usr/share/mesa-demos
+  make
+}
+
+package() {
+  cd demos
+  make DESTDIR="${pkgdir}" install
+  
+  # add missing egl files
+  install -m 0755 src/egl/opengl/{eglgears_x11,eglinfo,eglkms,egltri_x11,peglgears,xeglgears,xeglthreads} "${pkgdir}/usr/bin/"
+  
+  install -m755 -d "${pkgdir}/usr/share/licenses/mesa-demos"
+  install -m755 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/mesa-demos/"
+}
