@@ -5,7 +5,7 @@ _pkgname=kdiff3
 pkgver=20181104.r625.gfc7be62
 pkgrel=1
 pkgdesc="A KDE file comparator/merge tool"
-arch=('i686' 'x86_64')
+arch=('x86_64')
 url="https://quickgit.kde.org/?p=scratch%2Fthomasfischer%2Fkdiff3.git"
 license=('GPL')
 depends=('kparts')
