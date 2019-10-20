@@ -5,7 +5,7 @@
 
 pkgname=pak-git
 pkgver=3.1.2.r1.gd6ca5c3
-pkgrel=2
+pkgrel=3
 pkgdesc="Simple pacman and AUR frontend, POLAUR helper"
 arch=('any')
 url="https://gitlab.com/nycko123/pak"
@@ -17,6 +17,7 @@ optdepends=("asp: to download PKGBUILDs of official packages"
 			"reflector: to keep mirrorlist up to date"
 			"subversion: to check upstream for updated -svn packages"
 			"fzf: to display all data about installed packages")
+backup=(etc/xdg/pak.conf)
 conflicts=(pak)
  
 source=("git+https://gitlab.com/nycko123/pak.git")
