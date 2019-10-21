@@ -1,0 +1,146 @@
+3.2 (November 20, 2019)
+	pak -SA: additional error is put on screen when package (or pkgbase) is not found in AUR
+	New dependencies due to changes in Arch Linux base in PKGBUILD
+	Added changelog to PKGBUILD (pacman's -Qc support)
+
+3.1.2 (September 26, 2019)
+	pak -P: usage clarification in help and man pages
+
+3.1.1 (September 22, 2019)
+	Credits: link to reflector's sources
+
+3.1 (September 10, 2019)
+	Fixed printing html chars in polaur-news
+	Fixed some user Y/n selections
+
+3.0 (September 9, 2019)
+	Added support for POLAUR repositories
+	POLAUR: added search results to 'pak -SS'
+	POLAUR: 'pak -P/-Py/-Ps/-Pr'
+
+2.5 (August 31, 2019)
+	Added pacdiff for checking pacsave/pacnew files -> pak check
+	AUR packages: respecting IgnorePkg from /etc/pacman.conf
+
+2.4.1 (August 8, 2019)
+	Added vim folding markers to the code
+	Added 'show_user_conf_warning' to pak.conf
+
+2.4 (July 13, 2019)
+	New 'pak --list/list': piping pacman -Qq through fzf for inspection of installed packages
+	New 'pak -C/check': checkupdates, auracle sync, pacman -Qttdq
+	Moved AUR warnings and VCS list from 'pak update' to 'pak check'
+	Added checking packages versions using vercmp in 'pak update' and 'pak vcs'
+	Fixed resolving dependencies if package name contains weird symbols
+	Added a test during 'auracle sync', if no foreign package has been found
+	Added update-aur function, by pulling out relevant code from update()
+
+2.3.3 (May 2, 2019)
+	Fixed a bug, when epoch wasn't taken into account during 'pacman -U' step
+	Added missing 'downgrade' transactions to 'pak -L*'
+
+2.3.2 (April 25, 2019)
+	Fixed completing of filesystem paths in bash-completion and zsh-completions	- issued by pavbaranov at #archlinux.org.pl
+
+2.3.1 (April 7, 2019)
+	Fixed -GA (when pkgname doesn't match pkgbase) + added info about it in -GA -SA - issued by pavbaranov at #archlinux.org.pl
+
+2.3 (March 30, 2019)
+	New 'pak -Ls'
+	New 'pak vcs'
+
+2.2.1 (March 22, 2019)
+	Fixed package name and version spacing in 'update' function
+	Fixed grepping pkgver and pkgrel - issued by slawul at #archlinux.org.pl
+	Fixed the build function to properly respect makepkg.conf settings - issued by slawul at #archlinux.org.pl
+
+2.2 (March 16, 2019)
+	Added bash-completion support
+	Added zsh-completions support
+
+2.1 (March 14, 2019)
+	Fixed 'pak -m' when passing own parameters to the reflector - issued by pavbaranov at #archlinux.org.pl
+	Dropping privileges after few sudos (sudo -k)
+
+2.0 (February 9, 2019)
+	auracle-git replaced cower
+
+1.9.3 (December 31, 2018)
+	New 'pak -L/-Li/-Lr/-Lu' - grepping pacman.log
+
+1.9.2 (December 29, 2018)
+	New 'pak -C/clean'
+	Added 'checkupdates' and 'updpkgsums' into the code (pacman-contrib)
+
+1.9.1 (December 28, 2018)
+	New 'pak --vcs/vcs'
+	New 'pak -GB'
+	Full -Syu before installing/updating AUR packages - issued by pavbaranov at #archlinux.org.pl
+
+1.9 (November 18, 2018)
+	New support for reflector 'pak -m'
+	AUR warnings are printed before the list of upgradable packages (similar to pacman's output)
+	Improved 'pak -G'
+	Fixed an issue with asp downloading from wrong sources
+
+1.8 (October 27, 2018)
+	Added man pages pak(8), pak.conf(5)
+	Fixed an issue with built packages not being moved to $PKGDEST
+	Improved resolving of AUR dependencies
+	Improved printing of installed VCS packages
+
+1.7 (September 6, 2018)
+	New 'pak -SS/-SI'
+	Improved checking of errors
+
+1.6 (August 26, 2018)
+	Added namcap validation of PKGBUILD and built packages - issued by pavbaranov at #archlinux.org.pl
+
+1.5.4 (August 18, 2018)
+	Added 'makepkg' error code checking
+
+1.5.3 (August 15, 2018)
+	Added possibility to choose your download folder when running 'pak -G/-GA' - issued by pavbaranov at #archlinux.org.pl
+	Fixed printing of AUR comments
+	Added possibility to choose between checking VCS packages upstream or printing them on screen
+
+1.5.2 (August 13, 2018)
+	The list of installed VCS packages rebuilt (new types of packages added)
+
+1.5.1 (August 13, 2018)
+	Modified the warning if dependencies were not found in official repositories
+
+1.5 (August 12, 2018)
+	Added printing of AUR comments 'pak -SiA'
+	Added proper credits to developers 'pak' is based on
+
+1.4.7 (August 10, 2018)
+	Improved resolving of AUR dependencies
+
+1.4.6 (August 10, 2018)
+	Added simple warning about AUR dependencies - issued by pavbaranov at #archlinux.org.pl
+	Cleaner code and visuals
+
+1.4.3 (August 05, 2018)
+	Changed versioning of package to proper one - issued by pavbaranov at #archlinux.org.pl
+	Fixed a bug with EDITOR env - issued by pavbaranov at #archlinux.org.pl
+	Added info about installed VCS packages in update function
+	Fixed missing translation
+
+1.4 (July 31, 2018)
+	Added polish translation
+	Added support of .mo translations
+	Added configuration option to supress AUR warnings
+	Pacman's flags requiring sudo are separated from the rest
+
+1.3 (July 30,2018)
+	Added more pacman's abilities
+
+1.2 (July 29, 2018)
+	Added possibility to choose the repository asp is downloading PKGBUILD from
+
+1.1 (July 13, 2018)
+	Added support for user configuration file
+
+1.0 (June 3, 2018)
+	GitLab initial commit (migration from GitHub)

@@ -4,8 +4,8 @@
 # You had to install all optdepends for full functionality of this script
 
 pkgname=pak
-pkgver=3.1.2
-pkgrel=2
+pkgver=3.2
+pkgrel=1
 pkgdesc="Simple pacman and AUR frontend, POLAUR helper"
 arch=('any')
 url="https://gitlab.com/nycko123/pak"
@@ -18,11 +18,12 @@ optdepends=("asp: to download PKGBUILD's of official packages"
 			"subversion: to check upstream for updated -svn packages"
 			"fzf: to display all data about installed packages")
 backup=(etc/xdg/pak.conf)
+changelog="CHANGELOG"
 conflicts=(pak-git)
  
 source=("https://gitlab.com/nycko123/pak/raw/master/src/${pkgname}-${pkgver}.tar.gz")
  
-sha256sums=('9a4343346dbd0434ed6c682675073898fcf35369d808baac06f78a871a904c1b')
+sha256sums=('f4a2475d9e0352928557fa1d597e1b2c1cf2592b5970f59cf8bd84c20d06a414')
  
 package(){
  install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"
