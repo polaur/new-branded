@@ -3,7 +3,7 @@
 
 pkgname='clean-chroot-manager-git'
 _pkgname='clean-chroot-manager'
-pkgver=2.101.0.g9b6b19e
+pkgver=2.102.0.gc80a45e
 pkgrel=1
 pkgdesc='Wrapper scripts for managing clean chroots (64-bit and 32-bit).'
 arch=('any')
