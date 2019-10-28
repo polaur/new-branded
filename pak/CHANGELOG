@@ -1,3 +1,13 @@
+3.2.1 (November 28, 2019)
+	NEW -Ld flag, that separates downgraded packages from installed
+	Improved pacman.log parsing due to changes in the time format
+	Reduced the size of cloned git repositories (AUR + POLAUR) -- issued by pavbaranov at #archlinux.org.pl
+	AUR: Improved cleaning the caches from source files
+	Fixed -Ps when the cache directory has been changed to non-default
+	Improved -Ps: if package is already installed, the local version is being displayed
+	Updated polish translation
+	Updated man pages
+
 3.2 (November 20, 2019)
 	pak -SA: additional error is put on screen when package (or pkgbase) is not found in AUR
 	New dependencies due to changes in Arch Linux base in PKGBUILD
