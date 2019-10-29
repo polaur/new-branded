@@ -1,3 +1,9 @@
+3.3 (November 29, 2019)
+	NEW: added support for desktop notifications
+	- systemctl --user enable --now pak-checkupdates.timer
+	- systemctl --user enable --now pak-auracle.timer
+	Reverted POLAUR git clone/pull to full depth
+
 3.2.1 (November 28, 2019)
 	NEW -Ld flag, that separates downgraded packages from installed
 	Improved pacman.log parsing due to changes in the time format
