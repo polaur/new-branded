@@ -1,14 +1,15 @@
-3.3.1 (November 30, 2019)
+3.3.1 (October 30, 2019)
 	Modified systemd services to remove /tmp files after notification has been sent
-	Modified timers: pak-checkupdates runs every 120min, pak-auracle runs every 24h
+	Modified timers: pak-checkupdates runs every 120min, pak-auracle runs every 24h - issued by pavbaranov at #archlinux.org.pl
 	Removed all libalpm hooks
-3.3 (November 29, 2019)
+
+3.3 (October 29, 2019)
 	NEW: added support for desktop notifications
 	- systemctl --user enable --now pak-checkupdates.timer
 	- systemctl --user enable --now pak-auracle.timer
 	Reverted POLAUR git clone/pull to full depth
 
-3.2.1 (November 28, 2019)
+3.2.1 (October 28, 2019)
 	NEW -Ld flag, that separates downgraded packages from installed
 	Improved pacman.log parsing due to changes in the time format
 	Reduced the size of cloned git repositories (AUR + POLAUR) -- issued by pavbaranov at #archlinux.org.pl
@@ -18,7 +19,7 @@
 	Updated polish translation
 	Updated man pages
 
-3.2 (November 20, 2019)
+3.2 (October 20, 2019)
 	pak -SA: additional error is put on screen when package (or pkgbase) is not found in AUR
 	New dependencies due to changes in Arch Linux base in PKGBUILD
 	Added changelog to PKGBUILD (pacman's -Qc support)
