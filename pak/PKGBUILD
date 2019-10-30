@@ -24,7 +24,7 @@ conflicts=(pak-git)
  
 source=("https://gitlab.com/nycko123/pak/raw/master/src/${pkgname}-${pkgver}.tar.gz")
  
-sha256sums=('31829795fad5df6f71d76484761d9e473cc2c722430384eb6fb407ce61e4db1f')
+sha256sums=('259d88b2d7e45f438a2bd3ea8d5a0de63d4a871407bded186592ae53f67bea9e')
  
 package(){
  install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"
