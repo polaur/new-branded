@@ -4,7 +4,7 @@
 # You had to install all optdepends for full functionality of this script
 
 pkgname=pak
-pkgver=3.3
+pkgver=3.3.1
 pkgrel=1
 pkgdesc="Simple pacman and AUR frontend, POLAUR helper"
 arch=('any')
@@ -43,9 +43,9 @@ package(){
  # checkupdates systemd --user service + timer + pacman's hook
  install -Dm644 "$srcdir/systemd-services/pak-checkupdates.service" "$pkgdir/usr/lib/systemd/user/pak-checkupdates.service"
  install -Dm644 "$srcdir/systemd-services/pak-checkupdates.timer" "$pkgdir/usr/lib/systemd/user/pak-checkupdates.timer"
- install -Dm644 "$srcdir/systemd-services/pak-checkupdates.hook" "$pkgdir/usr/share/libalpm/hooks/pak-checkupdates.hook"
+ #install -Dm644 "$srcdir/systemd-services/pak-checkupdates.hook" "$pkgdir/usr/share/libalpm/hooks/pak-checkupdates.hook"
  # auracle-git systemd --user service + timer + pacman's hook
  install -Dm644 "$srcdir/systemd-services/pak-auracle.service" "$pkgdir/usr/lib/systemd/user/pak-auracle.service"
  install -Dm644 "$srcdir/systemd-services/pak-auracle.timer" "$pkgdir/usr/lib/systemd/user/pak-auracle.timer"
- install -Dm644 "$srcdir/systemd-services/pak-auracle.hook" "$pkgdir/usr/share/libalpm/hooks/pak-auracle.hook"
+ #install -Dm644 "$srcdir/systemd-services/pak-auracle.hook" "$pkgdir/usr/share/libalpm/hooks/pak-auracle.hook"
 }

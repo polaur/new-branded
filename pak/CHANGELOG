@@ -1,3 +1,7 @@
+3.3.1 (November 30, 2019)
+	Modified systemd services to remove /tmp files after notification has been sent
+	Modified timers: pak-checkupdates runs every 120min, pak-auracle runs every 24h
+	Removed all libalpm hooks
 3.3 (November 29, 2019)
 	NEW: added support for desktop notifications
 	- systemctl --user enable --now pak-checkupdates.timer
