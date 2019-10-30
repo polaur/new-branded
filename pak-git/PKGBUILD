@@ -12,12 +12,12 @@ url="https://gitlab.com/nycko123/pak"
 license=('GPL')
 depends=('bash' 'git' 'curl' 'jq' 'pacman-contrib' 'man-db')
 optdepends=("asp: to download PKGBUILDs of official packages"
-			"auracle-git: to manage AUR packages"
-			"namcap: to validate built packages"
-			"reflector: to keep mirrorlist up to date"
-			"subversion: to check upstream for updated -svn packages"
-			"fzf: to display all data about installed packages"
-			"libnotify: to display desktop notifications")
+            "auracle-git: to manage AUR packages"
+            "namcap: to validate built packages"
+            "reflector: to keep mirrorlist up to date"
+            "subversion: to check upstream for updated -svn packages"
+            "fzf: to display all data about installed packages"
+            "libnotify: to display desktop notifications")
 backup=(etc/xdg/pak.conf)
 conflicts=(pak)
  
