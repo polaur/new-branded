@@ -1,3 +1,6 @@
+3.3.2 (October 31, 2019)
+	Fixed an issue when /var/log/pacman.log is treated by grep as a binary file (issued by pavbaranov)
+
 3.3.1 (October 30, 2019)
 	Modified systemd services to remove /tmp files after notification has been sent
 	Modified timers: pak-checkupdates runs every 120min, pak-auracle runs every 24h - issued by pavbaranov at #archlinux.org.pl
