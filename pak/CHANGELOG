@@ -1,3 +1,7 @@
+3.4 (November 03, 2019)
+	Full polish translation of man pages
+	Changed default cache dir paths in pak.conf
+
 3.3.2 (October 31, 2019)
 	Fixed an issue when /var/log/pacman.log is treated by grep as a binary file (issued by pavbaranov)
 
