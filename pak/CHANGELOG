@@ -1,3 +1,11 @@
+3.5 (November 07, 2019)
+	Improved keeping .cache folders in clean state after install/upgrade operations
+	More verbose 'pak -Sc' and 'pak clean-aur'
+	Printing differences between new and old PKGBUILDs, before asking to edit it
+	Added "show_diff=0/1" to pak.conf
+	Added tests to validate user pak.conf file
+	Changed 'auracle sync' to the new 'auracle outdated'
+
 3.4 (November 03, 2019)
 	Full polish translation of man pages
 	Changed default cache dir paths in pak.conf
