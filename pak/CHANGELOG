@@ -1,3 +1,7 @@
+3.5.1 (November 09, 2019)
+	Fixed typos in polish translation
+	Added IgnorePkg description to man pages
+
 3.5 (November 07, 2019)
 	Improved keeping .cache folders in clean state after install/upgrade operations
 	More verbose 'pak -Sc' and 'pak clean-aur'
