@@ -1,3 +1,7 @@
+3.5.2 (November 11, 2019)
+	Improved 'pak -Sc', specifficaly clean-aur part
+	Visually rewritten 'pak clean-aur'
+
 3.5.1 (November 09, 2019)
 	Fixed typos in polish translation
 	Added IgnorePkg description to man pages
