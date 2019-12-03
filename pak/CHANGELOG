@@ -1,3 +1,9 @@
+3.5.3 (December 03, 2019)
+	pak -Sc: added "$download_path" to the list of dirs to clean up
+	Notifications reduced to 50 lines
+	fix: substitute '+' with '%2B' in AUR packages names - issued by pavbaranov
+	fix: workaround with auracle search and '+' signs in packages names
+
 3.5.2 (November 11, 2019)
 	Improved 'pak -Sc', specifficaly clean-aur part
 	Visually rewritten 'pak clean-aur'
