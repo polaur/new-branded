@@ -1,0 +1,30 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=hidpi-fixer-git
+_gitname=HiDPI-Fixer
+pkgver=r52.3972a3c
+pkgrel=1
+pkgdesc="Qt app that automates fractional scaling configuration on X11 desktops"
+arch=('x86_64')
+url="https://github.com/alex-spataru/HiDPI-Fixer"
+license=('GPL3')
+depends=(qt5-x11extras)
+makedepends=(qt5-tools)
+source=(git+https://github.com/alex-spataru/HiDPI-Fixer.git)
+md5sums=('SKIP')
+
+pkgver() {
+    cd ${_gitname}
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    }
+
+build() {
+    cd ${_gitname}
+    qmake PREFIX=/usr
+    make
+    }
+
+package() {
+    cd ${_gitname}
+    make install INSTALL_ROOT=$pkgdir
+    }
