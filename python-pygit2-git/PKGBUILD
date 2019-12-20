@@ -3,16 +3,15 @@
 # Contributor: Jaroslav Lichtblau <svetlemodry@archlinux.org>
 # Contributor: Daniel Micay <danielmicay@gmail.com>
 
-pkgbase=python-pygit2-git
-pkgname=('python-pygit2-git' 'python2-pygit2-git')
-pkgver=0.28.2.r0.ge187843
+pkgname=python-pygit2-git
+pkgver=1.0.0.r1.g19874e2
 pkgrel=1
 pkgdesc='Python bindings for libgit2'
 arch=('x86_64')
 url="https://github.com/libgit2/pygit2"
 license=('GPL2')
 depends=('libgit2>=1:0.28.0')
-makedepends=('python-cffi' 'python2-cffi' 'python-setuptools' 'python2-setuptools' 'git' 'python-six' 'python2-six')
+makedepends=('python-cffi' 'python-setuptools' 'git' 'python-six')
 source=("git://github.com/libgit2/pygit2")
 sha256sums=('SKIP')
 
@@ -22,20 +21,11 @@ pkgver() {
   git describe --long --tags | sed 's/v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
-package_python-pygit2-git() {
+package() {
   depends+=('python-cffi' 'python-six')
   provides=('python-libgit2' "python-pygit2=$pkgver")
   conflicts=('python-libgit2' 'python-pygit2')
 
   cd "pygit2"
   LANG=en_US.UTF8 python setup.py install --root="$pkgdir" --optimize=1
-}
-
-package_python2-pygit2-git() {
-  depends+=('python2-cffi' 'python2-six')
-  provides=('python2-libgit2' "python2-pygit2=$pkgver")
-  conflicts=('python2-libgit2' 'python2-pygit2')
-
-  cd "pygit2"
-  python2 setup.py install --root="$pkgdir" --optimize=1
 }
