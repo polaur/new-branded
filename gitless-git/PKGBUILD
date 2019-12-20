@@ -2,8 +2,8 @@
 
 pkgname=gitless-git
 _pkgname=gitless
-pkgver=0.8.8.r28.gda0c18c
-pkgrel=1
+pkgver=0.8.8.r44.gce7f069
+pkgrel=2
 pkgdesc="A scientifically proven easier-to-use git interface"
 arch=("any")
 url="http://gitless.com/"
@@ -13,20 +13,28 @@ makedepends=('git')
 conflits=('gitless')
 provides=('gitless')
 # source=("git://github.com/sirlucjan/gitless")
-source=("git://github.com/sdg-mit/gitless")
-sha256sums=('SKIP')
+source=("git://github.com/sdg-mit/gitless"
+        '0001-Bump-to-pygit-1.0.0.patch')
+sha256sums=('SKIP'
+            '49d9ec402fd3e20511f5039c680ac9c8b48765ab39d0f083fc5c812303fb526d')
 
 pkgver() {
-  cd ${srcdir}/${_pkgname}
+  cd $_pkgname
   git describe --long --tags | sed 's/v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
+prepare() {
+  cd $_pkgname
+  # Bump pygit2
+  patch -p1 -i ../0001-Bump-to-pygit-1.0.0.patch
+}
+
 build() {
-  cd ${srcdir}/${_pkgname}
+  cd $_pkgname
   python setup.py build
 }
 
 package() {
-  cd ${srcdir}/${_pkgname}
+  cd $_pkgname
   python setup.py install --root=${pkgdir} --optimize=1 --skip-build
 }
