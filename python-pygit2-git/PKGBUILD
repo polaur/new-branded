@@ -5,7 +5,7 @@
 
 pkgname=python-pygit2-git
 pkgver=1.0.0.r1.g19874e2
-pkgrel=2
+pkgrel=3
 pkgdesc='Python bindings for libgit2'
 arch=('x86_64')
 url="https://github.com/libgit2/pygit2"
@@ -22,7 +22,7 @@ pkgver() {
 }
 
 package() {
-  depends+=('python-cffi' 'python-six')
+  depends+=('python-cffi')
   provides=('python-libgit2' "python-pygit2=$pkgver")
   conflicts=('python-libgit2' 'python-pygit2')
 
