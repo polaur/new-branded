@@ -5,13 +5,13 @@
 
 pkgname=python-pygit2-git
 pkgver=1.0.0.r1.g19874e2
-pkgrel=1
+pkgrel=2
 pkgdesc='Python bindings for libgit2'
 arch=('x86_64')
 url="https://github.com/libgit2/pygit2"
 license=('GPL2')
 depends=('libgit2>=1:0.28.0')
-makedepends=('python-cffi' 'python-setuptools' 'git' 'python-six')
+makedepends=('python-cffi' 'python-setuptools' 'git')
 source=("git://github.com/libgit2/pygit2")
 sha256sums=('SKIP')
 
