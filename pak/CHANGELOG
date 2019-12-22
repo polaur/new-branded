@@ -199,3 +199,6 @@
 	NEW list-by-repos/--list-by-repos flags
 	Updated man pages
 	Visual fixes
+
+3.6.1 (December 22, 2019)
+	Improved grepping in list-by-repos/--list-by-repos flags
