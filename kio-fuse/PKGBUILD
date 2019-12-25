@@ -1,0 +1,32 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=kio-fuse
+pkgver=4.90.0
+pkgrel=1
+pkgdesc="KioFuse allows you to mount remote directories into the root hierarchy of your local file system, thereby exposing KDE's advanced access capabilities (SSH, SAMBA/Windows, FTP, TAR/GZip/BZip2, WebDav, etc) to POSIX-compliant applications."
+arch=('x86_64')
+url="http://techbase.kde.org/Projects/KioFuse"
+license=('LGPL')
+depends=(kio fuse3)
+makedepends=(extra-cmake-modules)
+conflicts=(kiofuse-svn kiofuse-kf5-git)
+replaces=(kiofuse-svn)
+source=("https://download.kde.org/unstable/$pkgname/$pkgver/$pkgname-${pkgver}.tar.xz"{,.sig})
+md5sums=('5f97c88d711cdaced80db7c0b96e6d6c'
+         'SKIP')
+    
+prepare() {
+    mkdir -p build
+    }
+    
+build() {
+    cd build
+    cmake ../$pkgname-$pkgver \
+        -DCMAKE_INSTALL_PREFIX=/usr
+    make
+}
+
+package() {
+    cd build
+    make install DESTDIR=$pkgdir
+    }
