@@ -36,7 +36,8 @@ prepare() {
   git submodule init
   git config submodule.iris.url "$srcdir/iris"
   git config submodule.src/libpsi.url "$srcdir/libpsi"
-  git submodule update
+  # git submodule update
+  git submodule update --remote
 }
 
 build() {
