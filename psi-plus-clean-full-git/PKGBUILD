@@ -9,7 +9,7 @@ _dev_plugins=
 ### Do not edit below this line unless you know what you're doing
 
 pkgname=psi-plus-clean-full-git
-pkgver=1.3.388.r1068.gff32f79
+pkgver=1.4.983.r1143.ga6c79a5
 pkgrel=1
 pkgdesc="Psi+ is a powerful XMPP client (Qt, C++) designed for the XMPP power users (built with Qt 5.x) with plugins. Without webkit/webengine"
 url="https://psi-plus.com"
@@ -52,7 +52,8 @@ prepare() {
   git submodule init
   git config submodule.iris.url "$srcdir/iris"
   git config submodule.src/libpsi.url "$srcdir/libpsi"
-  git submodule update
+  # git submodule update
+  git submodule update --remote
 
   # patches from Psi+ project
   for patch in "$srcdir"/psi-plus/patches/*.diff; do
@@ -76,9 +77,9 @@ build() {
   mkdir -p build
   cd build
   if [ -n "$_dev_plugins" ]; then
-  cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DENABLE_WEBKIT=OFF -DENABLE_PLUGINS=ON -DBUILD_DEV_PLUGINS=ON ..
+  cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DCHAT_TYPE=BASIC -DENABLE_PLUGINS=ON -DBUILD_DEV_PLUGINS=ON ..
   else
-  cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DENABLE_WEBKIT=OFF -DENABLE_PLUGINS=ON ..
+  cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DCHAT_TYPE=BASIC -DENABLE_PLUGINS=ON ..
   fi
   make
 }
