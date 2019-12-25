@@ -2,7 +2,7 @@
 # Contributor: Hyacinthe Cartiaux <hyacinthe.cartiaux@free.fr>
 
 pkgname=psi-clean-git
-pkgver=1.3.376.g0be62982
+pkgver=1.4.916.gec85e137
 pkgrel=1
 pkgdesc="A XMPP client without webkit/webengine support. GIT version."
 arch=('x86_64')
@@ -45,7 +45,7 @@ build() {
   
   mkdir -p build
   cd build
-  cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DENABLE_WEBKIT=OFF ..
+  cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DCHAT_TYPE=BASIC ..
   make
 
 }
