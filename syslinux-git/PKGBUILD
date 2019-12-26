@@ -6,7 +6,7 @@
 pkgname=syslinux-git
 _pkgname=syslinux
 pkgver=6.04.pre3.r3.g05ac953c
-pkgrel=2
+pkgrel=3
 pkgdesc='Collection of boot loaders that boot from FAT, ext2/3/4 and btrfs filesystems, from CDs and via PXE'
 url='https://www.syslinux.org/'
 arch=(x86_64)
@@ -39,6 +39,7 @@ source=(git://repo.or.cz/syslinux.git
         0004-gnu-efi-from-arch.patch
         0016-strip-gnu-property.patch
         0018-prevent-pow-optimization.patch
+        0025-reproducible-build.patch
 )
 
 sha1sums=('SKIP'
@@ -49,7 +50,8 @@ sha1sums=('SKIP'
           '81d05572b15dc5c55b63489fecdc79a6a332959c'
           '4c3706e7a5620e450a6abb9238c08d7b39bb6945'
           'f4a6768c7e5b8d02428ae550e37a7ca445ad1bb8'
-          'c94622eaa14ad9512e4f43b13302ba35d1787cbc')
+          'c94622eaa14ad9512e4f43b13302ba35d1787cbc'
+          '5b3878a1fff74bbb09ddbc66cc8afa38f34ed05c')
 
 _targets='bios efi32'
 case "$CARCH" in
@@ -73,6 +75,8 @@ prepare() {
   # TODO: use 'gnu-efi-libs' package instead of embedded sources
   # patch -p1 < ../0004-gnu-efi-from-arch.patch
   # patch -p1 < ../0005-gnu-efi-version-compatibility.patch
+  
+  patch -p1 < ../0025-reproducible-build.patch
   
   # do not swallow efi compilation output to make debugging easier
   sed 's|> /dev/null 2>&1||' -i efi/check-gnu-efi.sh
