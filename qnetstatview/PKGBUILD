@@ -1,0 +1,34 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=qnetstatview
+pkgver=1.5.5
+pkgrel=1
+pkgdesc='Program that shows detailed listing of all TCP and UDP endpoints on system'
+arch=('x86_64')
+url='https://www.linux-apps.com/p/1132054/'
+license=('GPL3')
+depends=('qt5-base')
+source=("https://bitbucket.org/admsasha/${pkgname}/downloads/${pkgname}-${pkgver}.tar.gz")
+sha256sums=('3780b8fbaa9651adde121372df4aa76f787114cc2c247c751ba08d1562517498')
+
+    
+build() {
+	cd $pkgname-$pkgver
+	qmake PREFIX=/usr
+	make 
+}
+
+package() {
+	cd $pkgname-$pkgver
+	make INSTALL_ROOT="${pkgdir}" install
+	
+# workaround for fixed destination path in qmake project
+#mv $pkgdir/usr/sbin $pkgdir/usr/bin
+#mkdir $pkgdir/usr/share/icons
+#mv $pkgdir/usr/share/app-install/icons $pkgdir/usr/share
+#rmdir $pkgdir/usr/share/app-install
+
+#sed -i 's/sbin/bin/g' $pkgdir/usr/share/applications/qt-fsarchiver.desktop
+#sed -i 's/\/app-install//g' $pkgdir/usr/share/applications/qt-fsarchiver.desktop
+}
+
