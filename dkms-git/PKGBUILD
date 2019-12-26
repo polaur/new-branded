@@ -4,7 +4,7 @@
 
 pkgname=dkms-git
 _pkgname=dkms
-pkgver=2.3.112.g54e0e02
+pkgver=2.8.1.r6.g90758cc
 pkgrel=1
 pkgdesc='Dynamic Kernel Modules System'
 arch=('any')
@@ -18,6 +18,8 @@ optdepends=('linux-headers: build modules against the Arch kernel'
             'linux-hardened-headers: build modules against the HARDENED kernel')
 backup=('etc/dkms/framework.conf')
 install=$_pkgname.install
+conflicts=('dkms')
+provides=('dkms')
 source=('git://github.com/dell/dkms'
         'hook.install'
         'hook.remove'
@@ -29,7 +31,7 @@ md5sums=('SKIP'
 
 pkgver() {
   cd dkms
-  git describe | sed 's/^v//;s/-/./g'
+  git describe --tags --long | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
                   
 prepare() {
