@@ -1,0 +1,55 @@
+# Maintainer: Piotr Gorski <lucjan.lucjanov@gmail.com>
+# Contributor: Christian Hesse <mail@eworm.de>
+# Contributor: Jason A. Donenfeld <Jason@zx2c4.com>
+
+pkgname=wireguard-tools-git
+_pkgname=wireguard-tools
+pkgver=1.0.20191226.r5.g318253d
+pkgrel=1
+pkgdesc='next generation secure network tunnel - tools for configuration'
+arch=('x86_64')
+url='http://www.wireguard.com/'
+license=('GPL')
+depends=('libmnl' 'bash')
+makedepends=('git')
+optdepends=('openresolv: for DNS functionality'
+            'wireguard-dkms-git: wireguard module, built by dkms'
+            'wireguard-arch: wireguard module for linux'
+            'wireguard-lts: wireguard module for linux-lts')
+provides=('wireguard-tools')
+conflicts=('wireguard-tools')            
+source=("git://git.zx2c4.com/wireguard-tools")
+sha256sums=('SKIP')
+
+pkgver() {
+        cd $_pkgname
+
+        git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+    
+}
+            
+prepare() {
+	cd $_pkgname
+
+	find contrib/ -name '.gitignore' -delete
+}
+
+build() {
+	cd $_pkgname
+
+	make -C src/
+}
+
+package() {
+	cd $_pkgname
+
+	make -C src/ \
+		DESTDIR="${pkgdir}/" \
+		WITH_BASHCOMPLETION=yes \
+                WITH_WGQUICK=yes \
+                WITH_SYSTEMDUNITS=yes \
+                install
+
+	install -d -m0755 "${pkgdir}"/usr/share/${pkgname}/
+	cp -r contrib/ "${pkgdir}"/usr/share/${pkgname}/examples/
+}
