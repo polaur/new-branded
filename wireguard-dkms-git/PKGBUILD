@@ -1,0 +1,33 @@
+# Maintainer: Piotr Gorski <lucjan.lucjanov@gmail.com>
+# Contributor: Christian Hesse <mail@eworm.de>
+# Contributor: Jason A. Donenfeld <Jason@zx2c4.com>
+
+pkgname=wireguard-dkms-git
+pkgver=0.0.20191226.r0.ge4354e6
+pkgrel=1
+pkgdesc='next generation secure network tunnel - module sources'
+arch=('x86_64')
+url='http://www.wireguard.com/'
+license=('GPL')
+depends=('dkms')
+makedepends=('git')
+provides=('WIREGUARD-MODULE' 'wireguard-dkms')
+conflicts=('wireguard-dkms')
+source=("git://git.zx2c4.com/wireguard-linux-compat")
+sha256sums=('SKIP')
+
+pkgver() {
+        cd wireguard-linux-compat
+
+        git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+    
+}
+            
+package() {
+	cd wireguard-linux-compat
+
+	make -C src/ \
+		DESTDIR="${pkgdir}/" \
+		DKMSDIR="/usr/src/wireguard/" \
+		dkms-install
+}
