@@ -202,3 +202,9 @@
 
 3.6.1 (December 22, 2019)
 	Improved grepping in list-by-repos/--list-by-repos flags
+
+3.6.2 (December 31, 2019)
+	Improved AUR comments: apms replaced by proper chars
+	AUR: print proper changelist during installation
+	Fixed resolving dependencies with '+' in names
+	Improved credits in man pages to reflect the numer (and weight) of contributions
