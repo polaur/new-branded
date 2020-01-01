@@ -1,0 +1,41 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=feff
+pkgver=1.10.1
+pkgrel=1
+pkgdesc='Audio/Video converter GUI for FFmpeg'
+arch=('x86_64')
+url='https://bitbucket.org/admsasha/${pkgname}'
+license=('GPL3')
+depends=('qt5-base')
+optdepends=('ffmpeg')
+makedepends=('qt5-tools')
+source=("https://bitbucket.org/admsasha/${pkgname}/downloads/${pkgname}-${pkgver}.tar.gz"
+#"qnetstatview_pl.ts"
+)
+sha256sums=('a19d858ad2a9c5a66ee597cf20aa8bb666730a64a6d5fa72266e980221c59008')
+
+#prepare(){
+#    cp qnetstatview_pl.ts $pkgname-$pkgver/langs
+#    }
+
+build() {
+	cd $pkgname-$pkgver
+	qmake PREFIX=/usr
+	make 
+}
+
+package() {
+	cd $pkgname-$pkgver
+	make INSTALL_ROOT="${pkgdir}" install
+	
+# workaround for fixed destination path in qmake project
+#mv $pkgdir/usr/sbin $pkgdir/usr/bin
+#mkdir $pkgdir/usr/share/icons
+#mv $pkgdir/usr/share/app-install/icons $pkgdir/usr/share
+#rmdir $pkgdir/usr/share/app-install
+
+#sed -i 's/sbin/bin/g' $pkgdir/usr/share/applications/qt-fsarchiver.desktop
+#sed -i 's/\/app-install//g' $pkgdir/usr/share/applications/qt-fsarchiver.desktop
+}
+
