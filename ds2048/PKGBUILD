@@ -1,0 +1,40 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=ds2048
+pkgver=1.0.1
+pkgrel=1
+pkgdesc='2048 game'
+arch=('x86_64')
+url='https://bitbucket.org/admsasha/${pkgname}'
+license=('GPL3')
+depends=('qt5-base' 'hicolor-icon-theme')
+makedepends=('qt5-tools')
+source=("https://bitbucket.org/admsasha/${pkgname}/downloads/${pkgname}-${pkgver}.tar.gz"
+#"qnetstatview_pl.ts"
+)
+sha256sums=('8bf597b484a66dad891b69b41f594936627c7c203d2509738e45e3a70b05e7fa')
+
+#prepare(){
+#    cp qnetstatview_pl.ts $pkgname-$pkgver/langs
+#    }
+
+build() {
+	cd $pkgname-$pkgver
+	qmake PREFIX=/usr
+	make 
+}
+
+package() {
+	cd $pkgname-$pkgver
+	make INSTALL_ROOT="${pkgdir}" install
+	
+# workaround for fixed destination path in qmake project
+#mv $pkgdir/usr/sbin $pkgdir/usr/bin
+#mkdir $pkgdir/usr/share/icons
+#mv $pkgdir/usr/share/app-install/icons $pkgdir/usr/share
+#rmdir $pkgdir/usr/share/app-install
+
+#sed -i 's/sbin/bin/g' $pkgdir/usr/share/applications/qt-fsarchiver.desktop
+#sed -i 's/\/app-install//g' $pkgdir/usr/share/applications/qt-fsarchiver.desktop
+}
+
