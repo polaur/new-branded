@@ -1,0 +1,40 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=currencyconverter
+pkgver=1.0.0
+pkgrel=1
+pkgdesc='Simple currency converter'
+arch=('x86_64')
+url='https://bitbucket.org/admsasha/${pkgname}'
+license=('GPL3')
+depends=('qt5-base' 'hicolor-icon-theme')
+makedepends=('qt5-tools')
+source=("https://bitbucket.org/admsasha/${pkgname}/downloads/${pkgname}-${pkgver}.tar.gz"
+#"qnetstatview_pl.ts"
+)
+sha256sums=('636006b1e5f69b52037a54d2f83c1fe7cc87164546a1806cfca3c539b5e0c8a5')
+
+#prepare(){
+#    cp qnetstatview_pl.ts $pkgname-$pkgver/langs
+#    }
+
+build() {
+	cd $pkgname-$pkgver
+	qmake PREFIX=/usr
+	make 
+}
+
+package() {
+	cd $pkgname-$pkgver
+	make INSTALL_ROOT="${pkgdir}" install
+	
+# workaround for fixed destination path in qmake project
+#mv $pkgdir/usr/sbin $pkgdir/usr/bin
+#mkdir $pkgdir/usr/share/icons
+#mv $pkgdir/usr/share/app-install/icons $pkgdir/usr/share
+#rmdir $pkgdir/usr/share/app-install
+
+#sed -i 's/sbin/bin/g' $pkgdir/usr/share/applications/qt-fsarchiver.desktop
+#sed -i 's/\/app-install//g' $pkgdir/usr/share/applications/qt-fsarchiver.desktop
+}
+
