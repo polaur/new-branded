@@ -20,7 +20,13 @@ sha256sums=('SKIP'
 
 pkgver() {
   cd $_pkgname
+  
+  # git describe
   git describe --long --tags | sed 's/v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+  
+  # other
+  # _ver="$(cat $_pkgname/cli/gl.py | grep -m1 __version__ | grep -o "[[:digit:]]*" | paste -sd'.')"
+  # echo "${_ver}.r$(git rev-list --count HEAD).g$(git rev-parse --short HEAD)"
 }
 
 prepare() {
