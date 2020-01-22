@@ -24,7 +24,7 @@ pkgver() {
 build() {
   
   cd "pygit2"
-  python setup.py build
+  LANG=en_US.UTF8 python setup.py build
 }
 
 package() {
