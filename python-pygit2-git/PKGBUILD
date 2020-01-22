@@ -5,7 +5,7 @@
 
 pkgname=python-pygit2-git
 pkgver=1.0.2.r0.ga4594a2
-pkgrel=1
+pkgrel=2
 pkgdesc='Python bindings for libgit2'
 arch=('x86_64')
 url="https://github.com/libgit2/pygit2"
@@ -21,11 +21,17 @@ pkgver() {
   git describe --long --tags | sed 's/v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
+build() {
+  
+  cd "pygit2"
+  python setup.py build
+}
+
 package() {
   depends+=('python-cffi')
   provides=('python-libgit2' "python-pygit2=$pkgver")
   conflicts=('python-libgit2' 'python-pygit2')
 
   cd "pygit2"
-  LANG=en_US.UTF8 python setup.py install --root="$pkgdir" --optimize=1
+  LANG=en_US.UTF8 python setup.py install --root="$pkgdir" --optimize=1 --skip-build
 }
