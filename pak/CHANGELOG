@@ -208,3 +208,8 @@
 	AUR: print proper changelist during installation
 	Fixed resolving dependencies with '+' in names
 	Improved credits in man pages to reflect the numer (and weight) of contributions
+
+3.7 (January 23, 2020)
+	Y/n confirmations don't progress with single Enter anymore
+	More strict parsing on makepkg_flags
+	pak.conf: added support for 0 values in reflector options
