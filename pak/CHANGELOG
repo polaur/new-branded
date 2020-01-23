@@ -213,3 +213,6 @@
 	Y/n confirmations don't progress with single Enter anymore
 	More strict parsing on makepkg_flags
 	pak.conf: added support for 0 values in reflector options
+
+3.7 (January 23, 2020)
+	Initial support for updating packages from POLAUR
