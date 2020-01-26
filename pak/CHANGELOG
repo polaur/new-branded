@@ -218,5 +218,11 @@
 	Initial support for updating packages from POLAUR
 
 3.9 (January 26, 2020)
-	NEW: --downgrade
+	NEW: --downgrade (issued by pavbaranov)
 	Y/n: reversed most to previous version
+	Improved POLAUR support
+
+3.9.1 (January 26, 2020)
+	Fixed missing Y/n changes
+	Rewritten --downgrade
+	NEW: -d

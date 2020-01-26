@@ -4,7 +4,7 @@
 # You had to install all optdepends for full functionality of this script
 
 pkgname=pak
-pkgver=3.9
+pkgver=3.9.1
 pkgrel=1
 pkgdesc="Simple pacman and AUR frontend, POLAUR helper"
 arch=('any')
@@ -25,7 +25,7 @@ conflicts=(pak-git)
  
 source=("https://gitlab.com/nycko123/pak/raw/master/src/${pkgname}-${pkgver}.tar.gz")
  
-sha256sums=('6ffabe5f1d078eaff83edc3d343a76565d06f3255e3e23a5c595073db55c134c')
+sha256sums=('29fe77f9b4c77b5607b862205f505fdb81d441f7c3dd21e16b8efa902fe6e5fe')
  
 package(){
  install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"
