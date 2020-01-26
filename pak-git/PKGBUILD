@@ -5,18 +5,20 @@
 
 pkgname=pak-git
 pkgver=3
-pkgrel=1
+pkgrel=2
 pkgdesc="Simple pacman and AUR frontend, POLAUR helper"
 arch=('any')
 url="https://gitlab.com/nycko123/pak"
 license=('GPL')
 depends=('bash' 'git' 'curl' 'jq' 'pacman-contrib' 'man-db')
 optdepends=("asp: to download PKGBUILDs of official packages"
-			"auracle-git: to manage AUR packages"
+			"auracle-git: (AUR) to manage AUR packages"
 			"namcap: to validate built packages"
 			"reflector: to keep mirrorlist up to date"
 			"subversion: to check upstream for updated -svn packages"
-			"fzf: to display all data about installed packages")
+			"fzf: to display all data about installed packages"
+			"downgrade: (AUR) to downgrade packages"
+			"libnotify: to display desktop notifications")
 backup=(etc/xdg/pak.conf)
 conflicts=(pak)
  
