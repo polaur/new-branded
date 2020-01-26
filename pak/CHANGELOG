@@ -223,6 +223,6 @@
 	Improved POLAUR support
 
 3.9.1 (January 26, 2020)
-	Fixed missing Y/n changes
-	Rewritten --downgrade
+	Fixed missing Y/n changes (issued by pavbaranov)
+	Rewritten --downgrade (issued by pavbaranov)
 	NEW: -d
