@@ -4,7 +4,7 @@
 # You had to install all optdepends for full functionality of this script
 
 pkgname=pak
-pkgver=3.8
+pkgver=3.9
 pkgrel=1
 pkgdesc="Simple pacman and AUR frontend, POLAUR helper"
 arch=('any')
@@ -12,11 +12,12 @@ url="https://gitlab.com/nycko123/pak"
 license=('GPL')
 depends=('bash' 'git' 'curl' 'jq' 'pacman-contrib' 'man-db')
 optdepends=("asp: to download PKGBUILD's of official packages"
-            "auracle-git: to manage AUR packages"
+            "auracle-git: (AUR) to manage AUR packages"
             "namcap: to validate built packages"
             "reflector: to keep mirrorlist up to date"
             "subversion: to check upstream for updated -svn packages"
             "fzf: to display all data about installed packages"
+            "downgrade: (AUR) to downgrade packages"
             "libnotify: to display desktop notifications")
 backup=(etc/xdg/pak.conf)
 changelog="CHANGELOG"
@@ -24,7 +25,7 @@ conflicts=(pak-git)
  
 source=("https://gitlab.com/nycko123/pak/raw/master/src/${pkgname}-${pkgver}.tar.gz")
  
-sha256sums=('5d7ca5bdb59ae3ce82aa08267c42b92183e28b73af4bcf64c4b2aac5979647af')
+sha256sums=('6ffabe5f1d078eaff83edc3d343a76565d06f3255e3e23a5c595073db55c134c')
  
 package(){
  install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"

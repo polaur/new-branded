@@ -214,5 +214,9 @@
 	More strict parsing on makepkg_flags
 	pak.conf: added support for 0 values in reflector options
 
-3.7 (January 23, 2020)
+3.8 (January 23, 2020)
 	Initial support for updating packages from POLAUR
+
+3.9 (January 26, 2020)
+	NEW: --downgrade
+	Y/n: reversed most to previous version
