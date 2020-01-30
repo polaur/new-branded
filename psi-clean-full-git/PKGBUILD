@@ -9,7 +9,7 @@ _dev_plugins=
 ### Do not edit below this line unless you know what you're doing
 
 pkgname=psi-clean-full-git
-pkgver=1.4.916.gec85e137
+pkgver=1.4.934.g977558fa
 pkgrel=1
 pkgdesc="Psi is a powerful XMPP client (Qt, C++) designed for the XMPP power users (built with Qt 5.x) with plugins. Without webkit/webengine"
 url="https://psi-plus.com"
@@ -40,7 +40,7 @@ pkgver() {
             
 prepare() {
   cd psi
-  
+
   # makepkg doesn't support --recursive
   # so setup git modules manually
   git submodule init
@@ -58,9 +58,9 @@ build() {
   mkdir -p build
   cd build
   if [ -n "$_dev_plugins" ]; then
-  cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DCHAT_TYPE=BASIC -DENABLE_PLUGINS=ON -DBUILD_DEV_PLUGINS=ON ..
+  cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DPSI_PLUS=OFF -DCHAT_TYPE=BASIC -DENABLE_PLUGINS=ON -DBUILD_DEV_PLUGINS=ON ..
   else
-  cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DCHAT_TYPE=BASIC -DENABLE_PLUGINS=ON ..
+  cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DPSI_PLUS=OFF -DCHAT_TYPE=BASIC -DENABLE_PLUGINS=ON ..
   fi
   make
 }
