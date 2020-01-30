@@ -32,7 +32,6 @@ sha256sums=('SKIP'
             'SKIP'
             'SKIP')
 
-
 pkgver() {
   cd psi
   git describe --long --tags | sed 's/^v//;s/-/./g'
