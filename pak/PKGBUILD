@@ -4,7 +4,7 @@
 # You had to install all optdepends for full functionality of this script
 
 pkgname=pak
-pkgver=3.9.1
+pkgver=3.99
 pkgrel=1
 pkgdesc="Simple pacman and AUR frontend, POLAUR helper"
 arch=('any')
@@ -22,11 +22,11 @@ optdepends=("asp: to download PKGBUILD's of official packages"
 backup=(etc/xdg/pak.conf)
 changelog="CHANGELOG"
 conflicts=(pak-git)
- 
+
 source=("https://gitlab.com/nycko123/pak/raw/master/src/${pkgname}-${pkgver}.tar.gz")
- 
-sha256sums=('29fe77f9b4c77b5607b862205f505fdb81d441f7c3dd21e16b8efa902fe6e5fe')
- 
+
+sha256sums=('b8094f83bcef3e2cb9df9b8a22dfeb6d35b9da95c5e170d3b24ae3f786cee10a')
+
 package(){
  install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"
  # configuration 
