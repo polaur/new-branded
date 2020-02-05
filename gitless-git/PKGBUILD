@@ -3,7 +3,7 @@
 pkgname=gitless-git
 _pkgname=gitless
 pkgver=0.8.8.r44.gce7f069
-pkgrel=3
+pkgrel=5
 pkgdesc="A scientifically proven easier-to-use git interface"
 arch=("any")
 url="http://gitless.com/"
@@ -13,7 +13,7 @@ makedepends=('git')
 conflits=('gitless')
 provides=('gitless')
 # source=("git://github.com/sirlucjan/gitless")
-source=("git://github.com/sdg-mit/gitless"
+source=("git://github.com/gitless-vcs/gitless"
         '0001-Bump-to-pygit-1.0.0.patch')
 sha256sums=('SKIP'
             '3935c12f4b2b60717976bd9ebb79647ca4715275bca9a89f3073e3bdacb04cb3')
