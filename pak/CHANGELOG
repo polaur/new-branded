@@ -229,3 +229,10 @@
 
 3.99 (February 03, 2020)
 	NEW: -GP | download-polaur (requested by pavbaranov #archlinux.org.pl)
+
+4.0 (February 14, 2020)
+	Added: automatic update of POLAUR in -Syu and -P (requested by pavbaranov #archlinux.org.pl)
+	Added: show_polaur_info to pak.conf
+	NEW: -rd / rev-deps
+	Fixed: -SsA
+	Removed: POLAUR/wip repository (requested by pavbaranov)
