@@ -1,0 +1,30 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=spebro-git
+pkgver=r21.cb350a6
+pkgrel=1
+pkgdesc="An aria2 GUI client"
+arch=('x86_64')
+url="https://github.com/rekols/spebro"
+license=('GPL')
+depends=('qt5-svg')
+optdepends=('aria2: without there is no sense to install spebro')
+makedepends=('git' 'qt5-tools')
+source=("git+https://github.com/rekols/spebro.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "${pkgname%-*}"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+    cd "${pkgname%-*}" 
+    qmake PREFIX=/usr
+  make
+}
+
+package() {
+    cd "${pkgname%-*}"
+  install -Dm755 spebro "$pkgdir/usr/bin/spebro"
+}
