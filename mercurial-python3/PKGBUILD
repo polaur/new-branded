@@ -6,13 +6,14 @@
 pkgname=mercurial-python3
 _pkgname=mercurial
 pkgver=5.3
-pkgrel=1
+pkgrel=2
 pkgdesc='A scalable distributed SCM tool'
 arch=(x86_64)
 url="https://www.mercurial-scm.org/"
 license=(GPL)
 depends=(python)
 optdepends=('tk: for the hgk GUI')
+checkdepends=('breezy' 'cvs' 'git' 'git-lfs' 'python2-docutils' 'subversion' 'unzip')
 conflicts=('mercurial')
 provides=('mercurial')
 backup=(etc/mercurial/hgrc)
@@ -31,6 +32,12 @@ prepare() {
 build() {
   cd $_pkgname-$pkgver/contrib/chg
   make
+}
+
+check() {
+  cd $_pkgname-$pkgver/tests
+  # TODO
+  python2 run-tests.py -j16 || :
 }
 
 package() {
