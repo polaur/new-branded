@@ -1,0 +1,49 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+# Contributor: nycko123
+
+pkgname=draco-desktop
+pkgver=0.9.0
+pkgrel=1
+pkgdesc="A Lightweight QT5 Desktop - Lumina DE fork based on OpenBox"
+arch=('x86_64')
+url="https://www.dracolinux.org/"
+license=('GPL2' 'LGPL' 'BSD')
+depends=(libxss qt5-x11extras)
+optdepends=('xorg-xbacklight: required for changing screen brightness'
+            'alsa-utils: required for adjusting audio volume'
+            'acpi: required for monitoring battery life'
+            'numlockx: required for changign state of numlock at login'
+            'pavucontrol: required for detatched audio mixer'
+            'network-manager-applet: Manage network connections from panel'
+            'openbox: window manager for Draco DE; you had to install it because in other way Draco DE is unusable'
+            'qt5ct: for Qt5 configuration utility'
+            'qterminal: terminal emulator'
+            'any-icon-theme: i.e. breeze-icon - icon theme'
+            'xscreensaver: screen saver'
+            'libxrandr')
+makedepends=('qt5-base' 'qt5-svg' 'qt5-tools' 'libxrandr')
+source=("https://github.com/rodlie/draco/archive/${pkgver}.tar.gz")
+sha512sums=('3b96ae8e3f3daa1d6de000656d248245bdf9a30c957aba7185afb2843937f67359e3d1c4d5b7be2d74584af0a9cef5923bb9bfc8225add02caa1b003cd65cc64')
+
+prepare() {
+    mkdir -p build
+    }
+    
+build() {
+    cd build
+    cmake ../${pkgname%-*}-${pkgver} \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_INSTALL_LIBDIR=lib \
+        -DCMAKE_INSTALL_MANDIR=/usr/share/man \
+        -DCMAKE_INSTALL_DOCDIR=/usr/share/doc \
+        -DLIB_INSTALL_DIR=/usr/lib \
+	-DCMAKE_INSTALL_LIBEXECDIR=bin \
+        -DCMAKE_BUILD_TYPE=Release
+    make
+}
+
+package() {
+    cd build
+    make DESTDIR="${pkgdir}" install
+    #install -Dm 644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}
