@@ -4,6 +4,7 @@
 # You had to install all optdepends for full functionality of this script
 
 pkgname=pak-git
+epoch=1
 pkgver=3
 pkgrel=2
 pkgdesc="Simple pacman and AUR frontend, POLAUR helper"
