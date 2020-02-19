@@ -236,3 +236,7 @@
 	NEW: -rd / rev-deps
 	Fixed: -SsA
 	Removed: POLAUR/wip repository (requested by pavbaranov)
+
+4.1 (February 19, 2020)
+	- Fixed: epoch finding in POLAUR packages
+	- Fixed: vcs packages in POLAUR
