@@ -5,8 +5,8 @@
 
 pkgname=pak-git
 epoch=1
-pkgver=3
-pkgrel=2
+pkgver=4.0.r3.g102e7e3
+pkgrel=1
 pkgdesc="Simple pacman and AUR frontend, POLAUR helper"
 arch=('any')
 url="https://gitlab.com/nycko123/pak"
