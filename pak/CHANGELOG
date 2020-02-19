@@ -238,5 +238,8 @@
 	Removed: POLAUR/wip repository (requested by pavbaranov)
 
 4.1 (February 19, 2020)
-	- Fixed: epoch finding in POLAUR packages
-	- Fixed: vcs packages in POLAUR
+	Fixed: epoch finding in POLAUR packages
+	Fixed: vcs packages in POLAUR
+
+4.1.1 (February 19, 2020)
+	Fixed: -Ps - packages versions printing including epoch
