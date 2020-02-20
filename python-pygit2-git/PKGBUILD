@@ -5,15 +5,15 @@
 
 pkgname=python-pygit2-git
 pkgver=1.0.3.r30.ge002614
-pkgrel=1
+pkgrel=2
 pkgdesc='Python bindings for libgit2'
 arch=('x86_64')
 url="https://github.com/libgit2/pygit2"
 license=('GPL2')
-depends=("libgit2>=1:0.99.0")
-provides=("python-pygit2=$pkgver")
-conflicts=('python-pygit2')
+depends=("libgit2>=1:0.99.0" 'python-cffi')
 makedepends=('python-cffi' 'python-setuptools' 'git')
+provides=('python-libgit2' "python-pygit2=$pkgver")
+conflicts=('python-libgit2' 'python-pygit2')
 source=("git://github.com/libgit2/pygit2")
 sha256sums=('SKIP')
 
@@ -30,9 +30,6 @@ build() {
 }
 
 package() {
-  depends+=('python-cffi')
-  provides=('python-libgit2' "python-pygit2=$pkgver")
-  conflicts=('python-libgit2' 'python-pygit2')
 
   cd "pygit2"
   LANG=en_US.UTF8 python setup.py install --root="$pkgdir" --optimize=1 --skip-build
