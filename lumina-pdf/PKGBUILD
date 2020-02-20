@@ -1,0 +1,25 @@
+# Maintainer: E5ten
+
+pkgname=lumina-pdf
+pkgver=1.6.0
+pkgrel=1
+pkgdesc="PDF viewer utility mainly for the lumina desktop environment"
+arch=('x86_64')
+url='https://github.com/lumina-desktop/lumina-pdf'
+license=('BSD')
+depends=(poppler-qt5)
+makedepends=(qt5-base qt5-svg qt5-tools)
+source=("https://github.com/lumina-desktop/$pkgname/archive/v$pkgver.tar.gz")
+sha512sums=('fcf04594558e1d49df4d30db4f576ec0f0dcd8e607816f2ea8a3a0e2599e231df9e27264d66dc854badac31de4b8fb48b5ed2eb93d5c21c9559dd5551f728dab')
+
+build() {
+    cd "$pkgname-$pkgver/src-qt5/"
+    qmake QMAKE_CFLAGS_ISYSTEM= PREFIX="/usr" LIBPREFIX=/usr/lib QT5LIBDIR=/usr/lib/qt CONFIG+=WITH_I18N L_MANDIR=/usr/share/man L_ETCDIR="/etc"
+    make
+}
+
+package() {
+    cd "$pkgname-$pkgver/src-qt5/"
+    make INSTALL_ROOT="${pkgdir}" install
+    install -Dm 644 ../LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}
