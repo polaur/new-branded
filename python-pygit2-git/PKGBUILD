@@ -5,12 +5,12 @@
 
 pkgname=python-pygit2-git
 pkgver=1.0.3.r30.ge002614
-pkgrel=2
+pkgrel=3
 pkgdesc='Python bindings for libgit2'
 arch=('x86_64')
 url="https://github.com/libgit2/pygit2"
 license=('GPL2')
-depends=("libgit2>=1:0.99.0" 'python-cffi')
+depends=("libgit2>=1:0.99.0" 'python-cffi' 'python-cached-property')
 makedepends=('python-cffi' 'python-setuptools' 'git')
 provides=('python-libgit2' "python-pygit2=$pkgver")
 conflicts=('python-libgit2' 'python-pygit2')
