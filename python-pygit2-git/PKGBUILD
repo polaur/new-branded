@@ -4,15 +4,17 @@
 # Contributor: Daniel Micay <danielmicay@gmail.com>
 
 pkgname=python-pygit2-git
-pkgver=1.0.2.r0.ga4594a2
-pkgrel=2
+pkgver=1.0.3.r30.ge002614
+pkgrel=1
 pkgdesc='Python bindings for libgit2'
 arch=('x86_64')
 url="https://github.com/libgit2/pygit2"
 license=('GPL2')
-depends=('libgit2>=1:0.28.0')
+depends=("libgit2>=1:0.99.0")
+provides=("python-pygit2=$pkgver")
+conflicts=('python-pygit2')
 makedepends=('python-cffi' 'python-setuptools' 'git')
-source=("git://github.com/libgit2/pygit2#branch=1.0.x")
+source=("git://github.com/libgit2/pygit2")
 sha256sums=('SKIP')
 
 pkgver() {
