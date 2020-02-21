@@ -1,0 +1,30 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=plasma-theme-switcher
+pkgver=0.1
+pkgrel=1
+pkgdesc='Command-line switcher for Plasma color schemes and widget styles'
+arch=(x86_64)
+url="https://github.com/maldoinc/plasma-theme-switcher"
+license=(GPL2)
+depends=(kconfig)
+makedepends=(extra-cmake-modules)
+source=("https://github.com/maldoinc/${pkgname}/archive/v$pkgver.tar.gz")
+sha256sums=('aae763847bad524e9256a17993aa0582908dc55524a4b62d15a30ac5140770c7')
+options=(!zipman)
+
+prepare() {
+  mkdir -p build
+}
+
+build() {
+  cd build
+  cmake ../$pkgname-$pkgver \
+    -DBUILD_TESTING=OFF 
+  make
+}
+
+package() {
+  cd build
+  install -Dm755 plasma-theme $pkgdir/usr/bin/$pkgname
+}
