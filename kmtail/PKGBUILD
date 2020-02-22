@@ -10,7 +10,7 @@ license=('GPL3')
 depends=(kxmlgui hicolor-icon-theme)
 makedepends=(extra-cmake-modules)
 source=("ftp://binro.org/kmtail-2.0.tar.bz2")
-sha256sums=('19975c3e8e0cd07926545066eca2c2d00c6e74deea4e41526ac72ecec81026bf')
+sha256sums=('f162b8337825b60edebeca5278a5a060887baff9e444ad37f617967d1511bae9')
 
 prepare() {
 	mkdir -p build
