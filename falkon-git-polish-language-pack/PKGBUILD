@@ -1,0 +1,18 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=falkon-git-polish-language-pack
+pkgver=1
+pkgrel=1
+pkgdesc="Polish language to falkon-git"
+arch=('any')
+url="https://forum.archlinux.org"
+license=('GPL')
+conflicts=(falkon)
+ 
+source=("$pkgname.tar.gz")
+ 
+sha256sums=('4f23487fe2f4cacb7abac104b56d7c9dd7313cbd302239f8ec5868e74bfa3e3b')
+ 
+package(){
+ mv "$srcdir/usr" "$pkgdir/"
+}
