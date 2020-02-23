@@ -1,0 +1,34 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=plasma-nx-clock-applet
+pkgver=r46.a20f41b
+pkgrel=1
+pkgdesc="NX Desktop clock applet for Plasma"
+arch=('any')
+url="http://www.nx-desktop.org/"
+license=('GPL3')
+depends=(plasma-workspace)
+makedepends=(git qt5-tools extra-cmake-modules qt5-svg)
+
+source=("git+https://github.com/nx-desktop/nx-clock-applet.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd nx-clock-applet
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  mkdir build
+  cd build
+  cmake ../nx-clock-applet \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DKDE_INSTALL_LIBDIR=lib \
+    -DCMAKE_BUILD_TYPE=Release
+  make
+}
+
+package() {
+  cd build
+  make DESTDIR="$pkgdir/" install
+}
