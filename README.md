@@ -10,6 +10,13 @@ git clone https://github.com/polaur/new-branded.git
 
 ```
 
+or
+
+```
+git clone https://gitlab.com/polaur/new-branded.git
+
+```
+
 # Install:
 
 
