@@ -1,0 +1,32 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=o20
+pkgver=20.2.3
+pkgrel=1
+pkgdesc="Simple word processor and notes aka the Office365 alternative for Linux PC"
+arch=('x86_64')
+url="https://gitlab.com/abstractsoftware/o20"
+license=('GPL')
+depends=(qt5-svg ktextwidgets hicolor-icon-theme syntax-highlighting karchive qt5-quickcontrols2)
+makedepends=(qt5-tools extra-cmake-modules kwidgetsaddons sonnet)
+
+source=("https://gitlab.com/abstractsoftware/o20/o20coreapps/-/archive/$pkgver/o20coreapps-$pkgver.tar.gz")
+sha256sums=('e8938eb276d1ddc828646ed13b7ac1c6ad05aa111b29a6694adce307c9784543')
+
+prepare() {
+    mkdir -p build
+    }
+    
+build() {
+    cd build
+        cmake ../o20coreapps-$pkgver \
+            -DCMAKE_INSTALL_PREFIX=/usr \
+            -DKDE_INSTALL_LIBDIR=lib \
+            -DCMAKE_BUILD_TYPE=Release
+    make
+    }
+
+package() {
+    cd build
+        make DESTDIR="$pkgdir/" install
+    }
