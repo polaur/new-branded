@@ -1,8 +1,9 @@
 # Maintainer: pavbaranov <pavbaranov at gmail dot com>
+# Contributor: Damian N. <nycko123 at gmail>
 
 pkgname=o20
 pkgver=20.2.3
-pkgrel=1
+pkgrel=2
 pkgdesc="Simple word processor and notes aka the Office365 alternative for Linux PC"
 arch=('x86_64')
 url="https://gitlab.com/abstractsoftware/o20"
@@ -10,10 +11,16 @@ license=('GPL2')
 depends=(qt5-svg ktextwidgets hicolor-icon-theme syntax-highlighting karchive qt5-quickcontrols2)
 makedepends=(qt5-tools extra-cmake-modules kwidgetsaddons sonnet)
 
-source=("https://gitlab.com/abstractsoftware/o20/o20coreapps/-/archive/$pkgver/o20coreapps-$pkgver.tar.gz")
-sha256sums=('e8938eb276d1ddc828646ed13b7ac1c6ad05aa111b29a6694adce307c9784543')
+source=("https://gitlab.com/abstractsoftware/o20/o20coreapps/-/archive/$pkgver/o20coreapps-$pkgver.tar.gz"
+		"o20_pl.ts")
+sha256sums=('e8938eb276d1ddc828646ed13b7ac1c6ad05aa111b29a6694adce307c9784543'
+            '56d05a7b3f41d22d9de8796117c4bb42f238d6ff7ec4664be9b3f061f6993db8')
 
 prepare() {
+	cp ../o20_pl.ts "${srcdir}/o20coreapps-${pkgver}/dev/languages/"
+	echo 'lupdate $FLIST -ts o20_pl.ts -target-language pl' >> "${srcdir}/o20coreapps-${pkgver}/dev/languages/genlang.sh"
+	sed -i 's/languages\/o20_ja.ts/languages\/o20_ja.ts languages\/o20_pl.ts/g' "${srcdir}/o20coreapps-${pkgver}/dev/CMakeLists.txt"
+	sed -i 's/<\/qresource>/<file>dev\/o20_pl.qm<\/file>\n<\/qresource>/g' "${srcdir}/o20coreapps-${pkgver}/dev/translations.qrc"
     mkdir -p build
     }
     
