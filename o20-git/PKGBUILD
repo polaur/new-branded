@@ -1,0 +1,44 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+# Contributor: Damian N. <nycko123 at gmail>
+
+pkgname=o20-git
+pkgver=20.2.4.r0.gb129b74
+pkgrel=1
+pkgdesc="Simple word processor and notes aka the Office365 alternative for Linux PC (GIT version)"
+arch=('x86_64')
+url="https://gitlab.com/abstractsoftware/o20"
+license=('GPL2')
+depends=(qt5-svg ktextwidgets hicolor-icon-theme syntax-highlighting karchive qt5-quickcontrols2)
+makedepends=(qt5-tools extra-cmake-modules kwidgetsaddons sonnet git)
+
+source=("git+https://gitlab.com/abstractsoftware/o20/o20coreapps.git"
+		"o20_pl.ts")
+sha256sums=('SKIP'
+            '56d05a7b3f41d22d9de8796117c4bb42f238d6ff7ec4664be9b3f061f6993db8')
+
+pkgver() {
+    cd o20coreapps
+      git describe --long | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+    }
+    
+prepare() {
+	cp ../o20_pl.ts "${srcdir}/o20coreapps/dev/languages/"
+	echo 'lupdate $FLIST -ts o20_pl.ts -target-language pl' >> "${srcdir}/o20coreapps/dev/languages/genlang.sh"
+	sed -i 's/languages\/o20_ja.ts/languages\/o20_ja.ts languages\/o20_pl.ts/g' "${srcdir}/o20coreapps/dev/CMakeLists.txt"
+	sed -i 's/<\/qresource>/<file>dev\/o20_pl.qm<\/file>\n<\/qresource>/g' "${srcdir}/o20coreapps/dev/translations.qrc"
+    mkdir -p build
+    }
+    
+build() {
+    cd build
+        cmake ../o20coreapps \
+            -DCMAKE_INSTALL_PREFIX=/usr \
+            -DKDE_INSTALL_LIBDIR=lib \
+            -DCMAKE_BUILD_TYPE=Release
+    make
+    }
+
+package() {
+    cd build
+        make DESTDIR="$pkgdir/" install
+    }
