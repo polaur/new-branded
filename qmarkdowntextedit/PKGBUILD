@@ -1,0 +1,40 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=qmarkdowntextedit
+pkgver=2019.4.0
+pkgrel=1
+pkgdesc="A Qt library and simple application for editing Markdown"
+arch=(x86_64)
+url='https://github.com/pbek/qmarkdowntextedit'
+license=(MIT)
+depends=(qt5-base)
+makedepends=(qt5-tools)
+source=("https://github.com/pbek/qmarkdowntextedit/archive/2019.4.0.tar.gz"
+qmarkdowntextedit_pl.qm)
+sha256sums=('4c2d9c5c122c4bdacd383c5e18f66c9cfd526939d8b8d9cc822d519b6ff9c5d9'
+            '408181eb3b4854c6d0340eec8e9159ed7ebf0aee6d3216ca3a7ead1a64e5d6e8')
+
+prepare() {
+    mkdir -p build
+    
+    cp qmarkdowntextedit_pl.qm $pkgname-$pkgver/trans/
+    }
+    
+build() {
+    cd build
+    cmake ../$pkgname-$pkgver \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DBUILD_TESTING=OFF
+    make
+    }
+
+package() {
+#    cd build
+#    make DESTDIR="$pkgdir" install
+    install -Dm755 "$srcdir/build/$pkgname" "$pkgdir/usr/bin/$pkgname"
+    install -Dm644 "$srcdir/$pkgname-$pkgver/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+    install -Dm644 "$srcdir/$pkgname-$pkgver/trans/qmarkdowntextedit_pl.qm" "$pkgdir/usr/share/$pkgname/qmarkdowntextedit_pl.qm"
+    }
+
+
+
