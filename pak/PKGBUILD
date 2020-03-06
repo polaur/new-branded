@@ -5,7 +5,7 @@
 
 pkgname=pak
 epoch=1
-pkgver=4.1.3
+pkgver=4.1.4
 pkgrel=1
 pkgdesc="Simple pacman and AUR frontend, POLAUR helper"
 arch=('any')
@@ -26,7 +26,7 @@ conflicts=(pak-git)
 
 source=("https://gitlab.com/nycko123/pak/raw/master/src/${pkgname}-${pkgver}.tar.gz")
 
-sha256sums=('14ae06b10896e386f9358a98b8092fa42551f849d9f929e48520705a73bf7603')
+sha256sums=('9d7e043390de4e7fe0cc7bbe2750c6d7fd8a460b82f2f0b6a9a8def344502618')
 
 package(){
  install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"
