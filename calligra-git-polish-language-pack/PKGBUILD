@@ -1,0 +1,18 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=calligra-git-polish-language-pack
+pkgver=1
+pkgrel=1
+pkgdesc="Polish language to calligra-git"
+arch=('any')
+url="https://forum.archlinux.org"
+license=('GPL')
+conflicts=(calligra)
+ 
+source=("$pkgname.tar.gz")
+ 
+sha256sums=('5b1f6ed25ed2efa880efba14001de289ed15cce97720123490a219beea95a6e4')
+ 
+package(){
+ mv "$srcdir/usr" "$pkgdir/"
+}
