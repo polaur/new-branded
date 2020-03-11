@@ -1,0 +1,36 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=ttf-storia-sans
+pkgver=2.0
+pkgrel=1
+depends=('fontconfig')
+pkgdesc="Modified Titillium font"
+url="https://fontlibrary.org/en/font/storia-sans"
+arch=('any')
+license=('custom:OFL')
+source=("https://fontlibrary.org/assets/downloads/storia-sans/5282e92c2b69a3847c7aa88e1db9b2ad/storia-sans.zip"
+        45-storia-sans.conf
+        90-tt-storia-sans.conf
+	OFL-FAQ.txt)
+sha1sums=('60f18194144e2784ea93bc53d7d2907103df3d45'
+          'f2acff5d70e2a732a49b39897b11d5b5a778761a'
+          'a4408672f1c650a3de2da3ff9e8b1bc67a73c39e'
+          'bfb74c4af1128dd0d986026956dae87a7b6fc5e9')
+
+package() {
+
+  install -D -m644 OFL-FAQ.txt "${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+
+  install -d -m755 "${pkgdir}"/usr/share/fonts/"${pkgname}"
+  install -m644 *.ttf "${pkgdir}"/usr/share/fonts/"${pkgname}"
+
+  install -D -m644 45-storia-sans.conf \
+    "${pkgdir}"/etc/fonts/conf.avail/45-storia-sans.conf
+  install -D -m644 90-tt-storia-sans.conf \
+    "${pkgdir}"/etc/fonts/conf.avail/90-tt-storia-sans.conf
+
+  install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+  cd "${pkgdir}"/etc/fonts/conf.d
+  ln -s ../conf.avail/45-storia-sans.conf .
+  ln -s ../conf.avail/90-tt-storia-sans.conf .
+}
