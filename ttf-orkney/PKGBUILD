@@ -1,0 +1,35 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=ttf-orkney
+pkgver=1.0
+pkgrel=1
+depends=('fontconfig')
+pkgdesc="Geometric typeface designed with clarity and leibility in mind, font"
+url="https://fontlibrary.org/en/font/orkney"
+arch=('any')
+license=('custom:OFL')
+#groups=('infinality-bundle-fonts-extra')
+source=("https://fontlibrary.org/assets/downloads/orkney/99f93483b92aaa9f10d3780aba2997e7/orkney.zip"
+        45-orkney.conf
+        90-tt-orkney.conf)
+sha1sums=('bd838d65f64daa951b8713a7de7139f8de8a64bc'
+          'cffdaac094dbb228b43dcd21fb8813b4b71bc883'
+          'a4408672f1c650a3de2da3ff9e8b1bc67a73c39e')
+
+package() {
+
+  install -D -m644 OFL-FAQ.txt "${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+
+  install -d -m755 "${pkgdir}"/usr/share/fonts/"${pkgname}"
+  install -m644 *.ttf "${pkgdir}"/usr/share/fonts/"${pkgname}"
+
+  install -D -m644 45-orkney.conf \
+    "${pkgdir}"/etc/fonts/conf.avail/45-orkney.conf
+  install -D -m644 90-tt-orkney.conf \
+    "${pkgdir}"/etc/fonts/conf.avail/90-tt-orkney.conf
+
+  install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+  cd "${pkgdir}"/etc/fonts/conf.d
+  ln -s ../conf.avail/45-orkney.conf .
+  ln -s ../conf.avail/90-tt-orkney.conf .
+}
