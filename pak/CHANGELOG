@@ -252,3 +252,7 @@
 
 4.1.4 (March 06, 2020)
 	Fixed: -GA downloading from AUR (issued by lami07 #polaur)
+
+4.2 (March 17, 2020)
+	NEW: pak -Pl/polaur-list
+	Fixed: pak -m with new reflector (issued by robson1 #archlinux.org.pl)
