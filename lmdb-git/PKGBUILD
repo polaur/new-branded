@@ -1,0 +1,53 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+# made based on the original work by:
+# Maintainer: Felix Yan <felixonmars@archlinux.org>
+# Contributor: Matt Monaco <cx monaco matt>
+
+pkgname=lmdb-git
+_origname=openldap
+pkgver=LMDB_0.9.25.r1901.g4f7ea78c9
+pkgrel=1
+pkgdesc="Symas Lightning Memory-Mapped Database"
+arch=('x86_64')
+url="https://symas.com/mdb"
+license=('custom:OpenLDAP')
+depends=('glibc')
+options=('!emptydirs')
+conflicts=('lmdb')
+provides=('lmdb')
+source=("git+https://git.openldap.org/openldap/openldap.git" lmdb.pc)
+sha512sums=('SKIP'
+            '0349d4b08a1f93fe338d8f8e3e5a83e24211a46f999fe529bc1ac49c8c4975559d95a548c203d9427e3f82d62e934ba3cd1be6f734f9b9405b2a26477be4ed33')
+
+pkgver() {
+    cd $_origname
+     ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    )
+    }
+    
+prepare() {
+    sed -e "s|@PKGVER@|$pkgver|" -i lmdb.pc
+    }
+
+build() {
+  cd "$_origname"/libraries/liblmdb
+  make prefix=/usr
+}
+
+check() {
+  cd "$_origname"/libraries/liblmdb
+  make test
+}
+
+package() {
+  cd "$_origname"/libraries/liblmdb
+  install -dm755 "$pkgdir"/usr/{bin,lib,include,man/man1,share}
+  make DESTDIR="$pkgdir" prefix=/usr install
+
+  mv "$pkgdir"/usr/man "$pkgdir"/usr/share/man
+
+  install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
+  install -Dm644 "$srcdir"/lmdb.pc "$pkgdir"/usr/lib/pkgconfig/lmdb.pc
+}
