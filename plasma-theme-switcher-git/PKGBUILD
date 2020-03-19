@@ -1,0 +1,39 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=plasma-theme-switcher-git
+pkgver=r27.ccc595f
+pkgrel=1
+pkgdesc='Command-line switcher for Plasma color schemes and widget styles'
+arch=(x86_64)
+url="https://github.com/maldoinc/plasma-theme-switcher"
+license=(GPL2)
+depends=(kconfig)
+makedepends=(extra-cmake-modules)
+conflicts=(plasma-theme-switcher)
+source=("git+https://github.com/maldoinc/plasma-theme-switcher.git")
+sha256sums=('SKIP')
+options=(!zipman)
+
+pkgver() {
+    cd ${pkgname%-*}
+    ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    )
+}
+
+prepare() {
+  mkdir -p build
+}
+
+build() {
+  cd build
+  cmake ../${pkgname%-*} \
+    -DBUILD_TESTING=OFF 
+  make
+}
+
+package() {
+  cd build
+  install -Dm755 plasma-theme $pkgdir/usr/bin/${pkgname%-*}
+}
