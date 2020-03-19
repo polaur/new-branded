@@ -35,5 +35,5 @@ build() {
 
 package() {
   cd build
-  install -Dm755 plasma-theme $pkgdir/usr/bin/$pkgname
+  install -Dm755 plasma-theme $pkgdir/usr/bin/${pkgname%-*}
 }
