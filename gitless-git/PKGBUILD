@@ -3,18 +3,20 @@
 pkgname=gitless-git
 _pkgname=gitless
 pkgver=0.8.8.r53.g9eccf3c
-pkgrel=1
+pkgrel=2
 pkgdesc="A scientifically proven easier-to-use git interface"
 arch=("any")
 url="http://gitless.com/"
 license=("GPL")
-depends=('python' 'git' 'python-sh' 'python-clint' 'python-pygit2>=1.1.0' 'python-setuptools')
+depends=('python' 'git' 'python-sh' 'python-clint' 'python-pygit2>=1.1.1' 'python-setuptools')
 makedepends=('git')
 conflits=('gitless')
 provides=('gitless')
 # source=("git://github.com/sirlucjan/gitless")
-source=("git://github.com/gitless-vcs/gitless")
-sha256sums=('SKIP')
+source=("git://github.com/gitless-vcs/gitless"
+        '0001-Update-requirements.patch')
+sha256sums=('SKIP'
+            '50b4599b7edb62415c30da7fe8203b198d96fa5818534e80f6dcc049cbf94c0d')
 
 pkgver() {
   cd $_pkgname
@@ -29,6 +31,8 @@ pkgver() {
 
 prepare() {
   cd $_pkgname
+  # Update requirements
+  patch -p1 -i ../0001-Update-requirements.patch
 }
 
 build() {
