@@ -2,8 +2,8 @@
 
 pkgname=gitless-git
 _pkgname=gitless
-pkgver=0.8.8.r51.geccad4a
-pkgrel=3
+pkgver=0.8.8.r53.g9eccf3c
+pkgrel=1
 pkgdesc="A scientifically proven easier-to-use git interface"
 arch=("any")
 url="http://gitless.com/"
@@ -13,12 +13,8 @@ makedepends=('git')
 conflits=('gitless')
 provides=('gitless')
 # source=("git://github.com/sirlucjan/gitless")
-source=("git://github.com/gitless-vcs/gitless"
-        '0001-Bump-to-pygit-1.0.0.patch'
-        '0002-Bump-to-pygit-1.1.0.patch')
-sha256sums=('SKIP'
-            '3935c12f4b2b60717976bd9ebb79647ca4715275bca9a89f3073e3bdacb04cb3'
-            '86ba1f72b9b5ea78ef631c7d2c243ebf9881b87a4721a865c8e06a452ab08914')
+source=("git://github.com/gitless-vcs/gitless")
+sha256sums=('SKIP')
 
 pkgver() {
   cd $_pkgname
@@ -33,9 +29,6 @@ pkgver() {
 
 prepare() {
   cd $_pkgname
-  # Bump pygit2
-  patch -p1 -i ../0001-Bump-to-pygit-1.0.0.patch
-  patch -p1 -i ../0002-Bump-to-pygit-1.1.0.patch
 }
 
 build() {
