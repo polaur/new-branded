@@ -5,9 +5,9 @@
 
 pkgname=pak
 epoch=1
-pkgver=4.2
+pkgver=4.3
 pkgrel=1
-pkgdesc="Simple pacman and AUR frontend, POLAUR helper"
+pkgdesc="Simple pacman wrapper, AUR and POLAUR helper"
 arch=('any')
 url="https://gitlab.com/nycko123/pak"
 license=('GPL')
@@ -26,7 +26,7 @@ conflicts=(pak-git)
 
 source=("https://gitlab.com/nycko123/pak/raw/master/src/${pkgname}-${pkgver}.tar.gz")
 
-sha256sums=('9fa6dbc1222365aebea90bc00c286a4863d6341f137b6516ba4dc91e1fe40c03')
+sha256sums=('0edc768d4f69f852ebeb4fe241318aaabe9ae3ca6d4bc95ea33c90fa74b23a6b')
 
 package(){
  install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"

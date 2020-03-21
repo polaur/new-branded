@@ -255,4 +255,17 @@
 
 4.2 (March 17, 2020)
 	NEW: pak -Pl/polaur-list
+	Changed: 'pak -Syyu' doesn't force refreshing mirrors anymore
 	Fixed: pak -m with new reflector (issued by robson1 #archlinux.org.pl)
+
+4.3 (March 20, 2020)
+	NEW: 'pak -Syu' updates core system packages as well if new versions were found in POLAUR (disabled by default)
+	NEW: pak.conf option - upd_repo_pkgs_from_polaur=0/1
+	Changed: 'pak -C' to reflect above ^
+	Added: checking for working internet connection
+	Reverted: 'pak -Syyu' works as before (requested by LinGruby #polaur)
+	Changed: 'pak -Pl' prints available repositories
+	Changed: 'pak -Pl repository' prints available packages
+	Changed: 'pak --vsc package' checks only for given package
+	Changed: warning for unsupported vcs packages (requested by pavbaranov #polaur)
+	Updated: manpages
