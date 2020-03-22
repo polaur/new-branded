@@ -13,8 +13,8 @@ depends=(kcmutils khtml knotifyconfig kdelibs4support kidentitymanagement kconta
 makedepends=(extra-cmake-modules git kdoctools boost kdesignerplugin 
 libkleo)
 optdepends=()
-conflicts=($pkgname%-* kdenetwork-kopete)
-replaces=($pkgname%-* kdenetwork-kopete)
+conflicts=(kopete kdenetwork-kopete)
+replaces=(kopete kdenetwork-kopete)
 source=(git://anongit.kde.org/kopete.git)
 sha256sums=('SKIP')
 

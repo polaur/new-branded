@@ -1,0 +1,36 @@
+pkgbase = kopete-git
+	pkgdesc = The KDE Instant Manager (git version based on the KF5)
+	pkgver = 17.08.3.309.gdf8093801
+	pkgrel = 1
+	url = https://kde.org/applications/internet/kget/
+	arch = x86_64
+	license = GPL
+	license = LGPL
+	license = FDL
+	makedepends = extra-cmake-modules
+	makedepends = git
+	makedepends = kdoctools
+	makedepends = boost
+	makedepends = kdesignerplugin
+	makedepends = libkleo
+	depends = kcmutils
+	depends = khtml
+	depends = knotifyconfig
+	depends = kdelibs4support
+	depends = kidentitymanagement
+	depends = kcontacts
+	depends = kdnssd
+	depends = qca-qt5
+	depends = libgadu
+	depends = jasper
+	depends = libotr
+	depends = v4l-utils
+	conflicts = kopete
+	conflicts = kdenetwork-kopete
+	replaces = kopete
+	replaces = kdenetwork-kopete
+	source = git://anongit.kde.org/kopete.git
+	sha256sums = SKIP
+
+pkgname = kopete-git
+
