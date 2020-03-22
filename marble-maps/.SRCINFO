@@ -1,0 +1,69 @@
+pkgbase = marble-maps
+	pkgdesc = Marble's integration with different additional maps including restricted maps
+	pkgver = 1
+	pkgrel = 1
+	url = https://github.com/adrien-github/googlesat
+	arch = any
+	license = unknown
+	makedepends = git
+	conflicts = marble-restricted-maps-git
+	source = git+https://gitlab.com/marble-restricted-maps/virtualearth.git
+	source = git+https://gitlab.com/marble-restricted-maps/virtualearthos.git
+	source = git+https://github.com/freayd/marble-maps.git
+	source = git+https://github.com/cmarqu/hikebikemap-marble.git
+	source = git+https://github.com/zstadler/marble.git
+	source = git+https://github.com/adrien-github/osmfr.git
+	md5sums = SKIP
+	md5sums = SKIP
+	md5sums = SKIP
+	md5sums = SKIP
+	md5sums = SKIP
+	md5sums = SKIP
+
+pkgname = marble-maps-googlesat
+	pkgdesc = Google Satelite integration into Marble
+	conflicts = marble-restricted-maps-git
+
+pkgname = marble-maps-googlemaps
+	pkgdesc = Google Maps integration into Marble
+	conflicts = marble-restricted-maps-git
+
+pkgname = marble-maps-googleterrain
+	pkgdesc = Google Terrain integration into Marble
+	conflicts = marble-restricted-maps-git
+
+pkgname = marble-maps-thunderforest-cycle
+	pkgdesc = Thunderforest Cycle integration into Marble
+
+pkgname = marble-maps-thunderforest-landscape
+	pkgdesc = Thunderforest Lanscape integration into Marble
+
+pkgname = marble-maps-thunderforest-outdoors
+	pkgdesc = Thunderforest Outdoors integration into Marble
+
+pkgname = marble-maps-thunderforest-transport
+	pkgdesc = Thunderforest Transport integration into Marble
+
+pkgname = marble-maps-virtualearth
+	pkgdesc = Virtualearth Map integration into Marble
+	conflicts = marble-restricted-maps-git
+
+pkgname = marble-maps-virtualearthos
+	pkgdesc = VirtualearthOS Map integration into Marble
+	conflicts = marble-restricted-maps-git
+
+pkgname = marble-maps-hikebikemap
+	pkgdesc = Hike&Bike Map integration into Marble
+
+pkgname = marble-maps-osmil
+	pkgdesc = OpenStreet Map (IL) integration into Marble
+
+pkgname = marble-maps-mtb
+	pkgdesc = OpenStreet MTB Map (IL) integration into Marble
+
+pkgname = marble-maps-routes
+	pkgdesc = OpenStreet Routes Map (IL) integration into Marble
+
+pkgname = marble-maps-osmfr
+	pkgdesc = OpenStreet Map (FR) integration into Marble
+

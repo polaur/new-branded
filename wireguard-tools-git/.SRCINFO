@@ -1,0 +1,21 @@
+pkgbase = wireguard-tools-git
+	pkgdesc = next generation secure network tunnel - tools for configuration
+	pkgver = 1.0.20191226.r5.g318253d
+	pkgrel = 1
+	url = http://www.wireguard.com/
+	arch = x86_64
+	license = GPL
+	makedepends = git
+	depends = libmnl
+	depends = bash
+	optdepends = openresolv: for DNS functionality
+	optdepends = wireguard-dkms-git: wireguard module, built by dkms
+	optdepends = wireguard-arch: wireguard module for linux
+	optdepends = wireguard-lts: wireguard module for linux-lts
+	provides = wireguard-tools
+	conflicts = wireguard-tools
+	source = git://git.zx2c4.com/wireguard-tools
+	sha256sums = SKIP
+
+pkgname = wireguard-tools-git
+

@@ -1,0 +1,12 @@
+pkgbase = blue-aurora-icon-theme
+	pkgdesc = Pastel Blue Aurora folders themes
+	pkgver = 3.30
+	pkgrel = 1
+	url = https://store.kde.org/p/1286363/
+	arch = any
+	license = GPL3
+	source = Blue-Aurora.tar.xz
+	md5sums = fb66a77e1a09c3cada6832fb31ea4929
+
+pkgname = blue-aurora-icon-theme
+

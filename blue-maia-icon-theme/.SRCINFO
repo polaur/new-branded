@@ -1,0 +1,12 @@
+pkgbase = blue-maia-icon-theme
+	pkgdesc = Green Maia folders themes
+	pkgver = 3.30
+	pkgrel = 1
+	url = https://store.kde.org/p/1218961/
+	arch = any
+	license = GPL3
+	source = Blue-Maia.tar.xz
+	md5sums = 87ffabb0f3e85f4342adb71749347cdd
+
+pkgname = blue-maia-icon-theme
+

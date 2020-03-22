@@ -1,0 +1,17 @@
+pkgbase = quick-usb-formatter-git
+	pkgdesc = Tiny application for formatting USB sticks and devices
+	pkgver = r55.95f78d4
+	pkgrel = 1
+	url = https://github.com/rrooij/youtube-dl-qt
+	arch = x86_64
+	license = GPL3
+	makedepends = git
+	makedepends = extra-cmake-modules
+	depends = kdelibs4support
+	source = git+https://code.chakralinux.org/tools/quick-usb-formatter.git#branch=qt5
+	source = kf5.patch
+	md5sums = SKIP
+	md5sums = 348f83cf02a7001d0dde3491cabb8d32
+
+pkgname = quick-usb-formatter-git
+

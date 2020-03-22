@@ -1,0 +1,15 @@
+pkgbase = plasma5-appimage-extensions-git
+	pkgdesc = Set of Plasma extensions to enhance UX while using AppImage files
+	pkgver = r1.84499cd
+	pkgrel = 1
+	url = https://github.com/azubieta/plasma5-appimage-extensions
+	arch = x86_64
+	license = unknown
+	makedepends = extra-cmake-modules
+	makedepends = git
+	depends = kio
+	source = git+https://github.com/azubieta/plasma5-appimage-extensions.git
+	sha256sums = SKIP
+
+pkgname = plasma5-appimage-extensions-git
+

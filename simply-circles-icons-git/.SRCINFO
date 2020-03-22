@@ -1,0 +1,21 @@
+pkgbase = simply-circles-icons-git
+	pkgdesc = Monochromatic and simple circles icons with five colours variants (git version)
+	pkgver = r112.d2340f2
+	pkgrel = 1
+	url = https://store.kde.org/p/1277095/
+	arch = any
+	license = GPL3
+	makedepends = git
+	source = simply-circles-icons::git+https://github.com/ju1464/Simply_Circles_Icon_Theme.git
+	sha256sums = SKIP
+
+pkgname = simply-circles-icons-black-git
+
+pkgname = simply-circles-icons-blue-git
+
+pkgname = simply-circles-icons-orange-git
+
+pkgname = simply-circles-icons-red-git
+
+pkgname = simply-circles-icons-white-git
+

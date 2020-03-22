@@ -1,0 +1,13 @@
+pkgbase = plasma5-theme-diamond-black-edition
+	pkgdesc = Black version of Diamond a transparent theme for Plasma 5
+	pkgver = 1.0
+	pkgrel = 1
+	url = https://store.kde.org/p/1260917/
+	arch = any
+	license = GPL3
+	conflicts = plasma-theme-diamond
+	source = https://dl.opendesktop.org/api/files/download/id/1536758522/s/76b31a46f4bee8197cf7533e070d3e5e/t/1540857067/u//Diamond-black.tar.xz
+	md5sums = 89d629484f6aa2f5eaaffde0517daeb4
+
+pkgname = plasma5-theme-diamond-black-edition
+

@@ -1,0 +1,17 @@
+pkgbase = viper-browser-git
+	pkgdesc = A lightweight Qt5 web browser using QtWebEngine
+	pkgver = r720.cc48cf8
+	pkgrel = 1
+	url = https://github.com/LeFroid/Viper-Browser
+	arch = x86_64
+	license = GPL3
+	makedepends = cmake
+	makedepends = git
+	depends = qt5-webengine
+	depends = kwallet
+	depends = desktop-file-utils
+	source = git+https://github.com/LeFroid/Viper-Browser
+	sha256sums = SKIP
+
+pkgname = viper-browser-git
+

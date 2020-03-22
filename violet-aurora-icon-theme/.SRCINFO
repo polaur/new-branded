@@ -1,0 +1,12 @@
+pkgbase = violet-aurora-icon-theme
+	pkgdesc = Pastel Violet Aurora folders themes
+	pkgver = 3.30
+	pkgrel = 1
+	url = https://store.kde.org/p/1286363/
+	arch = any
+	license = GPL3
+	source = Violet-Aurora.tar.xz
+	md5sums = 9780f01888820e73884be8dd215691f7
+
+pkgname = violet-aurora-icon-theme
+

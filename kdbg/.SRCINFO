@@ -1,0 +1,16 @@
+pkgbase = kdbg
+	pkgdesc = A graphical user interface to gdb
+	pkgver = 3.0.0
+	pkgrel = 1
+	url = https://www.opendesktop.org/s/Linux-Apps/p/1127159/
+	arch = x86_64
+	license = GPL3
+	makedepends = extra-cmake-modules
+	depends = kxmlgui
+	depends = hicolor-icon-theme
+	optdepends = gdb: for functionality
+	source = https://sourceforge.net/projects/kdbg/files/Source%20Code/3.0.0/kdbg-3.0.0.tar.gz
+	sha512sums = 6398a7bbb9c744a837dd73645b497ab00eeaca9a326d61b135dc9040c616b4a2bdc0cf1da59c101dc68a159e12bc3b4a994a9d1dbf33f7d152e5c3003abb498a
+
+pkgname = kdbg
+

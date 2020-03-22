@@ -1,0 +1,12 @@
+pkgbase = plasma5-theme-mild
+	pkgdesc = Plasma 5 theme based on the Windows version theme from deviantart.com
+	pkgver = 1.2
+	pkgrel = 1
+	url = https://www.deviantart.com/half-left/art/Mild-For-Plasma-5-573976504
+	arch = any
+	license = GPL
+	source = https://orig00.deviantart.net/5430/f/2016/218/7/9/mild_for_plasma_5_by_half_left-d9hqb3s.zip
+	md5sums = 3fca6b10dc81344b9d910c052b4043fb
+
+pkgname = plasma5-theme-mild
+

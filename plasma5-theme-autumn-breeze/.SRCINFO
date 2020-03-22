@@ -1,0 +1,12 @@
+pkgbase = plasma5-theme-autumn-breeze
+	pkgdesc = Transparent theme for Plasma 5
+	pkgver = 0.3
+	pkgrel = 1
+	url = https://store.kde.org/p/1272854/
+	arch = any
+	license = 
+	source = https://dl.opendesktop.org/api/files/download/id/1541441731/s/fb746489be5318dd7994eb3dc6d6a334/t/1541445693/u//autumn-breeze.tar.gz
+	md5sums = 8a1cc36778db53f6d997da3b376177e2
+
+pkgname = plasma5-theme-autumn-breeze
+

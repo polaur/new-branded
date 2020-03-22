@@ -1,0 +1,55 @@
+pkgbase = syslinux-git
+	pkgdesc = Collection of boot loaders that boot from FAT, ext2/3/4 and btrfs filesystems, from CDs and via PXE
+	pkgver = 6.04.pre3.r3.g05ac953c
+	pkgrel = 3
+	url = https://www.syslinux.org/
+	install = syslinux.install
+	arch = x86_64
+	license = GPL2
+	makedepends = git
+	makedepends = python
+	makedepends = nasm
+	makedepends = upx
+	makedepends = asciidoc
+	optdepends = perl-passwd-md5: For md5pass
+	optdepends = perl-digest-sha1: For sha1pass
+	optdepends = mtools: For mkdiskimage and syslinux support
+	optdepends = gptfdisk: For GPT support
+	optdepends = util-linux: For isohybrid
+	optdepends = efibootmgr: For EFI support
+	optdepends = dosfstools: For EFI support
+	provides = syslinux=6.04.pre3.r3.g05ac953c
+	provides = syslinux-bios=6.04.pre3.r3.g05ac953c
+	provides = syslinux-efi=6.04.pre3.r3.g05ac953c
+	provides = syslinux-firmware-git=6.04.pre3.r3.g05ac953c
+	conflicts = syslinux
+	conflicts = syslinux-bios
+	conflicts = syslinux-efi
+	conflicts = syslinux-firmware-git
+	options = !makeflags
+	options = !buildflags
+	backup = boot/syslinux/syslinux.cfg
+	source = git://repo.or.cz/syslinux.git
+	source = syslinux.cfg
+	source = syslinux-install_update
+	source = 0002-gfxboot-menu-label.patch
+	source = 0005-gnu-efi-version-compatibility.patch
+	source = 0017-single-load-segment.patch
+	source = 0004-gnu-efi-from-arch.patch
+	source = 0016-strip-gnu-property.patch
+	source = 0018-prevent-pow-optimization.patch
+	source = 0025-reproducible-build.patch
+	sha1sums = SKIP
+	sha1sums = 1145f454bd297d373ad123425f93620c3e92f585
+	sha1sums = df5160a138ca8c6502d67fe1a64fec78b50e82c2
+	sha1sums = 69239fda4a3d5a247f0e48c5c683e0124c7d9201
+	sha1sums = 1e0cd52252622f206d22e84f2a4d358508c902f4
+	sha1sums = 81d05572b15dc5c55b63489fecdc79a6a332959c
+	sha1sums = 4c3706e7a5620e450a6abb9238c08d7b39bb6945
+	sha1sums = f4a6768c7e5b8d02428ae550e37a7ca445ad1bb8
+	sha1sums = c94622eaa14ad9512e4f43b13302ba35d1787cbc
+	sha1sums = 5b3878a1fff74bbb09ddbc66cc8afa38f34ed05c
+	makedepends_x86_64 = lib32-glibc
+
+pkgname = syslinux-git
+

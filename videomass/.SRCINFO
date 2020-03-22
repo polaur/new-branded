@@ -1,0 +1,16 @@
+pkgbase = videomass
+	pkgdesc = GUI for FFmpeg
+	pkgver = 1.4.5
+	pkgrel = 1
+	url = https://github.com/jeanslack/Videomass
+	arch = any
+	license = GPL3
+	makedepends = python-setuptools
+	depends = xdg-utils
+	depends = python-wxpython
+	optdepends = ffmpeg
+	source = https://github.com/jeanslack/Videomass/archive/v1.4.5.tar.gz
+	sha256sums = 6483f153b69e82759f95d3d77b5949d80f1fcee89d92737bba16b1a6282177fa
+
+pkgname = videomass
+

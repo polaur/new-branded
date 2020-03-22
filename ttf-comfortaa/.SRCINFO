@@ -1,0 +1,18 @@
+pkgbase = ttf-comfortaa
+	pkgdesc = Sans serif fonts!
+	pkgver = 1.0
+	pkgrel = 1
+	url = https://www.dafont.com/comfortaa.font
+	install = ttf-comfortaa.install
+	arch = any
+	license = OFL
+	depends = unzip
+	depends = fontconfig
+	depends = xorg-fonts-encodings
+	depends = xorg-mkfontscale
+	depends = xorg-mkfontdir
+	source = ttf-comfortaa.zip::http://img.dafont.com/dl/?f=comfortaa
+	sha256sums = a9ecddd1eb9731d5996d4064cdc8aa189480ed1b38946a673abcc4375d3f1715
+
+pkgname = ttf-comfortaa
+

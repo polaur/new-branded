@@ -1,0 +1,12 @@
+pkgbase = plasma5-theme-evanescent-git
+	pkgdesc = Elegant Plasma Theme
+	pkgver = r11.96472b7
+	pkgrel = 1
+	url = https://github.com/bolimage/Elegant
+	arch = any
+	license = LGPL3
+	source = git+https://github.com/bolimage/Elegant.git
+	md5sums = SKIP
+
+pkgname = plasma5-theme-evanescent-git
+

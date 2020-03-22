@@ -1,0 +1,15 @@
+pkgbase = disass
+	pkgdesc = GNU Debugger front-end
+	pkgver = 0.02
+	pkgrel = 1
+	url = https://github.com/Satharus/Disass
+	arch = x86_64
+	license = GPL3
+	depends = qt5-base
+	depends = qt5-svg
+	optdepends = gdb
+	source = https://github.com/Satharus/Disass/archive/v0.02.tar.gz
+	sha256sums = 915e017d55eb2ffa3125961427003eef8087eee8fa05f5ae9f803aa8ea3eecce
+
+pkgname = disass
+

@@ -1,0 +1,25 @@
+pkgbase = o20-git
+	pkgdesc = Simple word processor and notes aka the Office365 alternative for Linux PC (GIT version)
+	pkgver = 20.2.4.r0.gb129b74
+	pkgrel = 1
+	url = https://gitlab.com/abstractsoftware/o20
+	arch = x86_64
+	license = GPL2
+	makedepends = qt5-tools
+	makedepends = extra-cmake-modules
+	makedepends = kwidgetsaddons
+	makedepends = sonnet
+	makedepends = git
+	depends = qt5-svg
+	depends = ktextwidgets
+	depends = hicolor-icon-theme
+	depends = syntax-highlighting
+	depends = karchive
+	depends = qt5-quickcontrols2
+	source = git+https://gitlab.com/abstractsoftware/o20/o20coreapps.git
+	source = o20_pl.ts
+	sha256sums = SKIP
+	sha256sums = 56d05a7b3f41d22d9de8796117c4bb42f238d6ff7ec4664be9b3f061f6993db8
+
+pkgname = o20-git
+

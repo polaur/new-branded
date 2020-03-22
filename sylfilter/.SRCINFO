@@ -1,0 +1,15 @@
+pkgbase = sylfilter
+	pkgdesc = A generic message filter library and command-line tools
+	pkgver = 0.8
+	pkgrel = 1
+	url = http://sylpheed.sraoss.jp/sylfilter
+	arch = x86_64
+	license = BSD
+	depends = glib2
+	depends = sqlite
+	depends = sylpheed
+	source = http://sylpheed.sraoss.jp/sylfilter/src/sylfilter-0.8.tar.gz
+	sha256sums = aeb8a7a191ae568b0bf21ba695de954b27d6e1e810dde096a196159beceed141
+
+pkgname = sylfilter
+

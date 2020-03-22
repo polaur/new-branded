@@ -1,0 +1,13 @@
+pkgbase = falkon-git-polish-language-pack
+	pkgdesc = Polish language to falkon-git
+	pkgver = 1
+	pkgrel = 1
+	url = https://forum.archlinux.org
+	arch = any
+	license = GPL
+	conflicts = falkon
+	source = falkon-git-polish-language-pack.tar.gz
+	sha256sums = 4f23487fe2f4cacb7abac104b56d7c9dd7313cbd302239f8ec5868e74bfa3e3b
+
+pkgname = falkon-git-polish-language-pack
+

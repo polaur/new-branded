@@ -1,0 +1,17 @@
+pkgbase = kded_rotation-git
+	pkgdesc = KDED module for handling automatic screen rotation
+	pkgver = r5.be2bec7
+	pkgrel = 1
+	url = https://github.com/dos1/kded_rotation
+	arch = x86_64
+	license = GPL
+	makedepends = extra-cmake-modules
+	makedepends = git
+	depends = kcoreaddons
+	depends = qt5-sensors
+	depends = kdbusaddons
+	source = git+https://github.com/dos1/kded_rotation.git
+	sha256sums = SKIP
+
+pkgname = kded_rotation-git
+

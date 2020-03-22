@@ -1,0 +1,18 @@
+pkgbase = ttf-simple-print
+	pkgdesc = Sans serif fonts!
+	pkgver = 1.0
+	pkgrel = 1
+	url = https://www.dafont.com/simple-print.font
+	install = ttf-simple-print.install
+	arch = any
+	license = free
+	depends = unzip
+	depends = fontconfig
+	depends = xorg-fonts-encodings
+	depends = xorg-mkfontscale
+	depends = xorg-mkfontdir
+	source = ttf-simple-print.zip::http://img.dafont.com/dl/?f=simple_print
+	sha256sums = 0ee64e9b3af509a575ea76e33abbdf9ea82556a5eecb8e0b186ad2f5645f9197
+
+pkgname = ttf-simple-print
+

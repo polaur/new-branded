@@ -1,0 +1,16 @@
+pkgbase = lumina-pdf
+	pkgdesc = PDF viewer utility mainly for the lumina desktop environment
+	pkgver = 1.6.0
+	pkgrel = 1
+	url = https://github.com/lumina-desktop/lumina-pdf
+	arch = x86_64
+	license = BSD
+	makedepends = qt5-base
+	makedepends = qt5-svg
+	makedepends = qt5-tools
+	depends = poppler-qt5
+	source = https://github.com/lumina-desktop/lumina-pdf/archive/v1.6.0.tar.gz
+	sha512sums = fcf04594558e1d49df4d30db4f576ec0f0dcd8e607816f2ea8a3a0e2599e231df9e27264d66dc854badac31de4b8fb48b5ed2eb93d5c21c9559dd5551f728dab
+
+pkgname = lumina-pdf
+

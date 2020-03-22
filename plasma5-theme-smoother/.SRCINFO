@@ -1,0 +1,12 @@
+pkgbase = plasma5-theme-mild
+	pkgdesc = A nice smooth Plasma 5 theme
+	pkgver = 1.1
+	pkgrel = 1
+	url = https://www.deviantart.com/half-left/art/Smoother-For-Plasma-5-557988370
+	arch = any
+	license = GPL
+	source = https://orig00.deviantart.net/e01b/f/2015/261/f/b/smoother_for_plasma_5_by_half_left-d987mky.zip
+	md5sums = 4507ee406b46d88282189a4b1830f3c2
+
+pkgname = plasma5-theme-mild
+

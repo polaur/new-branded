@@ -1,0 +1,15 @@
+pkgbase = ttf-webos-fonts-git
+	pkgdesc = Fonts for webOS
+	pkgver = 20180228.r1.gdb3bee8
+	pkgrel = 1
+	url = https://github.com/webosose/webos-fonts
+	arch = any
+	license = custom:OFL
+	depends = fontconfig
+	source = git://github.com/webosose/webos-fonts
+	sha256sums = SKIP
+
+pkgname = ttf-webos-fonts-miso-git
+
+pkgname = ttf-webos-fonts-museo-git
+

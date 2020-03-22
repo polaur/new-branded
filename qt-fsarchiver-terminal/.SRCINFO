@@ -1,0 +1,15 @@
+pkgbase = qt-fsarchiver-terminal
+	pkgdesc = GUI for fsarchiver
+	pkgver = 0.8.5_2
+	pkgrel = 1
+	url = http://sourceforge.net/projects/qt-fsarchiver/
+	arch = x86_64
+	license = GPL
+	depends = qt5-base
+	optdepends = fsarchiver: for functionality
+	optdepends = lzo
+	source = https://datapacket.dl.sourceforge.net/project/qt-fsarchiver/source/qt-fsarchiver-terminal/qt-fsarchiver-terminal-0.8.5-2.tar.gz
+	sha256sums = 745a12b5fbbf196a7493d7b831604b7e5f0886d54ab4a51809115809a447eeb2
+
+pkgname = qt-fsarchiver-terminal
+

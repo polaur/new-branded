@@ -1,0 +1,16 @@
+pkgbase = spebro-git
+	pkgdesc = An aria2 GUI client
+	pkgver = r21.cb350a6
+	pkgrel = 1
+	url = https://github.com/rekols/spebro
+	arch = x86_64
+	license = GPL
+	makedepends = git
+	makedepends = qt5-tools
+	depends = qt5-svg
+	optdepends = aria2: without there is no sense to install spebro
+	source = git+https://github.com/rekols/spebro.git
+	sha256sums = SKIP
+
+pkgname = spebro-git
+

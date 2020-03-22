@@ -1,0 +1,12 @@
+pkgbase = green-aurora-icon-theme
+	pkgdesc = Pastel Green Aurora folders themes
+	pkgver = 3.30
+	pkgrel = 1
+	url = https://store.kde.org/p/1286363/
+	arch = any
+	license = GPL3
+	source = Green-Aurora.tar.xz
+	md5sums = 87f335178ca612d99d13ffeb45ba9494
+
+pkgname = green-aurora-icon-theme
+

@@ -1,0 +1,18 @@
+pkgbase = kregexpeditor-git
+	pkgdesc = GUI for creating and editing regular expressions
+	pkgver = 632.7eb3a8b
+	pkgrel = 1
+	url = https://cgit.kde.org/kregexpeditor.git/
+	arch = x86_64
+	license = GPL
+	makedepends = git
+	makedepends = extra-cmake-modules
+	makedepends = python
+	makedepends = kdoctools
+	depends = hicolor-icon-theme
+	depends = ktextwidgets
+	source = git+git://anongit.kde.org/kregexpeditor.git
+	md5sums = SKIP
+
+pkgname = kregexpeditor-git
+

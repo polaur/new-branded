@@ -1,0 +1,18 @@
+pkgbase = ttf-miama
+	pkgdesc = Calligraphy fonts!
+	pkgver = 1.0
+	pkgrel = 1
+	url = https://www.dafont.com/miama.font
+	install = ttf-miama.install
+	arch = any
+	license = OFL
+	depends = unzip
+	depends = fontconfig
+	depends = xorg-fonts-encodings
+	depends = xorg-mkfontscale
+	depends = xorg-mkfontdir
+	source = ttf-miama.zip::http://img.dafont.com/dl/?f=miama
+	sha256sums = dfeb54cf95a7d28e6a861b6299edae32f41e50358896ada884d7b7f11d66125d
+
+pkgname = ttf-miama
+

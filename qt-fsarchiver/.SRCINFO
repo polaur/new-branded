@@ -1,0 +1,12 @@
+pkgbase = qt-fsarchiver
+	pkgdesc = GUI for fsarchiver
+	pkgver = 0.8.5_5
+	pkgrel = 1
+	url = http://sourceforge.net/projects/qt-fsarchiver/
+	arch = x86_64
+	license = GPL
+	depends = qt5-base
+	sha256sums = 6e313b2cddc236c09e8b4d16875ab404d6da2664fd55090c2d9d10fd94aab29b
+
+pkgname = qt-fsarchiver
+

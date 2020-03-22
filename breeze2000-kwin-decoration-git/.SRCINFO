@@ -1,0 +1,18 @@
+pkgbase = breeze2000-kwin-decoration-git
+	pkgdesc = Breeze2000 is a fork of KDE Breeze decoration that aims to look like Windows 2000 with the gradients while preserving the main look of Breeze (git version)
+	pkgver = r18.63e91c1
+	pkgrel = 1
+	url = https://github.com/alex47/Breeze2000
+	arch = x86_64
+	license = GPL
+	makedepends = git
+	makedepends = cmake
+	makedepends = extra-cmake-modules
+	depends = kdecoration
+	depends = kwindowsystem
+	depends = kconfigwidgets
+	source = git+https://github.com/alex47/Breeze2000.git
+	sha256sums = SKIP
+
+pkgname = breeze2000-kwin-decoration-git
+

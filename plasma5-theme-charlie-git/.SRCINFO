@@ -1,0 +1,13 @@
+pkgbase = plasma5-theme-charlie-git
+	pkgdesc = Dark and elegant, moderately transparent and Blur Theme for Plasma
+	pkgver = r2.89a809c
+	pkgrel = 1
+	url = https://store.kde.org/p/1297765/
+	arch = any
+	license = GPL3
+	makedepends = git
+	source = git+https://github.com/L4ki/Charlie.git
+	sha256sums = SKIP
+
+pkgname = plasma5-theme-charlie-git
+

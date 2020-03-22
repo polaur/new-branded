@@ -1,0 +1,12 @@
+pkgbase = breeze-chameleon-icon-theme
+	pkgdesc = Breeze (and some Papirus) icons that changes color depends on the color scheme (GIT version)
+	pkgver = r459.9862eaa
+	pkgrel = 1
+	url = https://store.kde.org/p/1281798/
+	arch = any
+	license = GPL3
+	source = git+https://github.com/L4ki/Breeze-Chameleon.git
+	md5sums = SKIP
+
+pkgname = breeze-chameleon-icon-theme
+

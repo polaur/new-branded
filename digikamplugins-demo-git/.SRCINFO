@@ -1,0 +1,15 @@
+pkgbase = digikamplugins-demo-git
+	pkgdesc = digiKam Plugins demo
+	pkgver = r58.5bdce9a
+	pkgrel = 1
+	url = https://github.com/cgilles/digikamplugins-demo
+	arch = x86_64
+	license = GPL3
+	makedepends = cmake
+	makedepends = git
+	depends = digikam
+	source = git+https://github.com/cgilles/digikamplugins-demo.git
+	sha256sums = SKIP
+
+pkgname = digikamplugins-demo-git
+

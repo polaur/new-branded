@@ -1,0 +1,13 @@
+pkgbase = plasma5-applets-inlineclock
+	pkgdesc = More advanced clock for horizontal Plasma panel
+	pkgver = 0.1
+	pkgrel = 1
+	url = https://www.opendesktop.org/p/1245902/
+	arch = any
+	license = GPL3
+	conflicts = plasma5-applets-ultimategmailfeed-git
+	source = https://dl.opendesktop.org/api/files/downloadfile/id/1530981452/s/c4f18183ccfc86915a38c956b134274f/t/1532169288/u//org.kde.plasma.inlineClock.tar.gz
+	md5sums = ef6b1c1ca3d1380acff836c63086e2c5
+
+pkgname = plasma5-applets-inlineclock
+

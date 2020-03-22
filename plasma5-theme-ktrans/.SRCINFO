@@ -1,0 +1,12 @@
+pkgbase = plasma5-theme-ktrans
+	pkgdesc = Transparent theme for Plasma 5
+	pkgver = 0.98
+	pkgrel = 1
+	url = https://www.opendesktop.org/p/1235372/
+	arch = any
+	license = GPL3
+	source = KTrans-0.98.tar.gz
+	sha256sums = 18f7ca549e67cb15a69e0164f6d53bf54cd7ae8612b2a86ab4f292495abf8245
+
+pkgname = plasma5-theme-ktrans
+

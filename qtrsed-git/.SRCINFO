@@ -1,0 +1,15 @@
+pkgbase = qtrsed-git
+	pkgdesc = Sed Qt GUI
+	pkgver = r8.37361e1
+	pkgrel = 1
+	url = https://www.opendesktop.org/s/Apps/p/1130808/
+	arch = x86_64
+	license = GPL3
+	makedepends = git
+	makedepends = qt5-tools
+	depends = qt5-base
+	source = git+https://github.com/jadeatucker/qtrsed
+	sha256sums = SKIP
+
+pkgname = qtrsed-git
+

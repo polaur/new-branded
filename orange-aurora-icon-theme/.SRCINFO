@@ -1,0 +1,12 @@
+pkgbase = orange-aurora-icon-theme
+	pkgdesc = Pastel Orange Aurora folders themes
+	pkgver = 3.30
+	pkgrel = 1
+	url = https://store.kde.org/p/1286363/
+	arch = any
+	license = GPL3
+	source = Orange-Aurora.tar.xz
+	md5sums = d49ab4cc055acb72138a833f4085cac4
+
+pkgname = orange-aurora-icon-theme
+

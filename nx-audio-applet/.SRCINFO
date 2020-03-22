@@ -1,0 +1,17 @@
+pkgbase = plasma-nx-audio-applet
+	pkgdesc = NX Desktop audio applet for Plasma
+	pkgver = r20.c06a670
+	pkgrel = 1
+	url = http://www.nx-desktop.org/
+	arch = any
+	license = GPL3
+	makedepends = git
+	makedepends = qt5-tools
+	makedepends = extra-cmake-modules
+	makedepends = qt5-svg
+	depends = plasma-workspace
+	source = git+https://github.com/nx-desktop/nx-audio-applet.git
+	sha256sums = SKIP
+
+pkgname = plasma-nx-audio-applet
+

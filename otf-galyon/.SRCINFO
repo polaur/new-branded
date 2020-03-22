@@ -1,0 +1,18 @@
+pkgbase = otf-galyon
+	pkgdesc = Sans serif fonts!
+	pkgver = 1.0
+	pkgrel = 1
+	url = https://www.dafont.com/galyon.font
+	install = otf-galyon.install
+	arch = any
+	license = free
+	depends = unzip
+	depends = fontconfig
+	depends = xorg-fonts-encodings
+	depends = xorg-mkfontscale
+	depends = xorg-mkfontdir
+	source = otf-galyon.zip::http://img.dafont.com/dl/?f=galyon
+	sha256sums = 7cba4931805ee2c28d39010643e20610c54d839d174c2e30a3efa2574b1d66a5
+
+pkgname = otf-galyon
+

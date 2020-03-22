@@ -1,0 +1,17 @@
+pkgbase = plasma-nx-systemtray-applet
+	pkgdesc = NX Desktop systemtray applet for Plasma
+	pkgver = r15.fd33154
+	pkgrel = 1
+	url = http://www.nx-desktop.org/
+	arch = x86_64
+	license = GPL3
+	makedepends = git
+	makedepends = qt5-tools
+	makedepends = extra-cmake-modules
+	makedepends = qt5-svg
+	depends = plasma-framework
+	source = git+https://github.com/nx-desktop/nx-systemtray-applet.git
+	sha256sums = SKIP
+
+pkgname = plasma-nx-systemtray-applet
+

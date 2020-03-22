@@ -1,0 +1,12 @@
+pkgbase = grey-aurora-icon-theme
+	pkgdesc = Pastel Grey Aurora folders themes
+	pkgver = 3.30
+	pkgrel = 1
+	url = https://store.kde.org/p/1286363/
+	arch = any
+	license = GPL3
+	source = Grey-Aurora.tar.xz
+	md5sums = 860e7ae8dd999c5dbbc6fd4a9fcb68f2
+
+pkgname = grey-aurora-icon-theme
+

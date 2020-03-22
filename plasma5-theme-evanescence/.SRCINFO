@@ -1,0 +1,12 @@
+pkgbase = plasma5-theme-evanescent-git
+	pkgdesc = Evanescent Plasma Theme
+	pkgver = r9.9203f02
+	pkgrel = 1
+	url = https://github.com/bolimage/Evanescent
+	arch = any
+	license = GPL3
+	source = git+https://github.com/bolimage/Evanescent.git
+	md5sums = SKIP
+
+pkgname = plasma5-theme-evanescent-git
+

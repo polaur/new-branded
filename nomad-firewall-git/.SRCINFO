@@ -1,0 +1,16 @@
+pkgbase = nomad-firewall-git
+	pkgdesc = Firewall from Nomad Desktop
+	pkgver = 0.1.r58.gdf1ae0e
+	pkgrel = 1
+	url = https://github.com/nomad-desktop/nomad-firewall.git
+	arch = x86_64
+	license = GPL
+	makedepends = extra-cmake-modules
+	makedepends = git
+	depends = kdeclarative
+	depends = python
+	source = git+https://github.com/nomad-desktop/nomad-firewall.git
+	sha512sums = SKIP
+
+pkgname = nomad-firewall-git
+

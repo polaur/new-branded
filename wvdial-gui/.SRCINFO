@@ -1,0 +1,16 @@
+pkgbase = wvdial-gui
+	pkgdesc = A simple Qt5 front end to wvdial tool
+	pkgver = 1.2.0
+	pkgrel = 1
+	url = https://github.com/mhogomchungu/wvdial-gui
+	arch = x86_64
+	license = GPL2
+	makedepends = cmake
+	depends = qt5-base
+	depends = desktop-file-utils
+	depends = hicolor-icon-theme
+	source = https://github.com/mhogomchungu/wvdial-gui/archive/1.2.0.tar.gz
+	sha256sums = 94be528503a72be410b739d23f8638f4067ef87979a0a1fb652a60c983321880
+
+pkgname = wvdial-gui
+

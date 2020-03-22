@@ -1,0 +1,18 @@
+pkgbase = otf-great-victorian
+	pkgdesc = Sans serif fonts!
+	pkgver = 1.0
+	pkgrel = 1
+	url = https://www.dafont.com/great-victorian.font
+	install = otf-great-victorian.install
+	arch = any
+	license = free
+	depends = unzip
+	depends = fontconfig
+	depends = xorg-fonts-encodings
+	depends = xorg-mkfontscale
+	depends = xorg-mkfontdir
+	source = otf-great-victorian.zip::http://img.dafont.com/dl/?f=great_victorian
+	sha256sums = 9c5862f318fe3ff0e9c4952cabe0f785710da53c70bb59a26aca7eb7971cb6a4
+
+pkgname = otf-great-victorian
+

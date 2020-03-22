@@ -1,0 +1,17 @@
+pkgbase = plasma-nx-clock-applet
+	pkgdesc = NX Desktop clock applet for Plasma
+	pkgver = r46.a20f41b
+	pkgrel = 1
+	url = http://www.nx-desktop.org/
+	arch = any
+	license = GPL3
+	makedepends = git
+	makedepends = qt5-tools
+	makedepends = extra-cmake-modules
+	makedepends = qt5-svg
+	depends = plasma-workspace
+	source = git+https://github.com/nx-desktop/nx-clock-applet.git
+	sha256sums = SKIP
+
+pkgname = plasma-nx-clock-applet
+

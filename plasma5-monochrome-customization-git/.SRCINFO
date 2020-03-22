@@ -1,0 +1,23 @@
+pkgbase = plasma5-monochrome-customization-git
+	pkgdesc = Monochrome customization set for Plasma 5
+	pkgver = r47.0ed6d6e
+	pkgrel = 1
+	url = https://gitlab.com/pwyde/monochrome-kde
+	arch = any
+	license = GPL3
+	makedepends = git
+	source = git+https://gitlab.com/pwyde/monochrome-kde.git
+	md5sums = SKIP
+
+pkgname = plasma5-theme-monochrome
+	pkgdesc = Monochrome theme for Plasma 5
+
+pkgname = sddm-theme-monochrome
+	pkgdesc = Monochrome theme for SDDM
+
+pkgname = plasma5-colors-monochrome
+	pkgdesc = Monochrome colors theme for Plasma 5
+
+pkgname = plasma5-konsole-monochrome-colorscheme
+	pkgdesc = Monochrome color scheme for Konsole
+

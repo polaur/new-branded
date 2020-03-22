@@ -1,0 +1,17 @@
+pkgbase = plasma5-applets-arch-update
+	pkgdesc = Plasma 5 plasmoid showing your gmail feed
+	pkgver = 1.6
+	pkgrel = 1
+	url = https://github.com/intika/ultimategmailfeed
+	arch = x86_64
+	license = GPL
+	makedepends = extra-cmake-modules
+	depends = knotifications
+	depends = hicolor-icon-theme
+	depends = qt5-declarative
+	conflicts = plasma5-applets-ultimategmailfeed-git
+	source = https://github.com/intika/ultimategmailfeed/archive/v1.6.tar.gz
+	md5sums = 6dbbfa0ac7535b14726895a38bc85271
+
+pkgname = plasma5-applets-arch-update
+

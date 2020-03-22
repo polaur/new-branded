@@ -1,0 +1,12 @@
+pkgbase = plasma5-theme-psion
+	pkgdesc = Transparent theme for Plasma 5
+	pkgver = 1.5
+	pkgrel = 1
+	url = https://bitbucket.org/phobi4n/psion
+	arch = any
+	license = GPL3
+	source = https://dl.opendesktop.org/api/files/download/id/1526550240/s/970c5da074ac813405c4571f7d9e2c98/t/1541017493/u//Psion-1.5.tar.gz
+	md5sums = fc34382560a97f885c0569368b35dfb8
+
+pkgname = plasma5-theme-psion
+

@@ -1,0 +1,12 @@
+pkgbase = breeze-rainbow-folders
+	pkgdesc = Breeze folder icons that follow the color scheme
+	pkgver = 1.1
+	pkgrel = 1
+	url = https://kdeonlinux.wordpress.com/2016/08/08/rainbow-folders/
+	arch = any
+	license = GPL2
+	source = BreezeRainbowFolders.tar.gz
+	md5sums = aa9f002363d32b50ff36fa5e4530a75c
+
+pkgname = breeze-rainbow-folders
+

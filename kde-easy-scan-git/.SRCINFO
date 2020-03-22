@@ -1,0 +1,26 @@
+pkgbase = kde-easy-scan-git
+	pkgdesc = A skanlite fork with many extra features
+	pkgver = 11
+	pkgrel = 3
+	url = https://github.com/tsitsos/kde-easy-scan
+	arch = x86_64
+	license = GPL
+	makedepends = git
+	makedepends = extra-cmake-modules
+	makedepends = kdoctools
+	depends = libksane
+	depends = kdelibs4support
+	depends = kdesignerplugin
+	depends = libksane
+	depends = kio
+	depends = kxmlgui
+	depends = ki18n
+	depends = kcoreaddons
+	depends = libpng
+	optdepends = gimp: for provide full funcionality
+	optdepends = ghostscript: for provide full funcionality
+	source = git+https://github.com/tsitsos/kde-easy-scan.git
+	sha256sums = SKIP
+
+pkgname = kde-easy-scan-git
+

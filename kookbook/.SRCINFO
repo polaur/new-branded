@@ -1,0 +1,16 @@
+pkgbase = kookbook
+	pkgdesc = Simple application viewer based on markdown formatted recipes
+	pkgver = 0.2.1
+	pkgrel = 1
+	url = https://pusling.com/blog/?p=499
+	arch = x86_64
+	license = GPL3
+	makedepends = extra-cmake-modules
+	depends = discount
+	depends = hicolor-icon-theme
+	depends = qt5-declarative
+	source = https://download.kde.org/unstable/kookbook/kookbook-0.2.1.tar.xz
+	sha256sums = 86fb42ab2b5c19d0bee03a877271633aaa40fff55e6cc4be012f8c3204d78e49
+
+pkgname = kookbook
+

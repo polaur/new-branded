@@ -1,0 +1,14 @@
+pkgbase = qnetstatview
+	pkgdesc = Program that shows detailed listing of all TCP and UDP endpoints on system
+	pkgver = 1.5.6
+	pkgrel = 1
+	url = https://www.linux-apps.com/p/1132054/
+	arch = x86_64
+	license = GPL3
+	makedepends = qt5-tools
+	depends = qt5-base
+	source = https://bitbucket.org/admsasha/qnetstatview/downloads/qnetstatview-1.5.6.tar.gz
+	sha256sums = cf465c6282140dcb5fbc29e76d8b9e9cba5763b2c549068caeaf482d14d212ad
+
+pkgname = qnetstatview
+

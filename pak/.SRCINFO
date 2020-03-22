@@ -1,0 +1,30 @@
+pkgbase = pak
+	pkgdesc = Simple pacman wrapper, AUR and POLAUR helper
+	pkgver = 4.3
+	pkgrel = 1
+	epoch = 1
+	url = https://gitlab.com/nycko123/pak
+	changelog = CHANGELOG
+	arch = any
+	license = GPL
+	depends = bash
+	depends = git
+	depends = curl
+	depends = jq
+	depends = pacman-contrib
+	depends = man-db
+	optdepends = asp: to download PKGBUILD's of official packages
+	optdepends = auracle-git: (AUR) to manage AUR packages
+	optdepends = namcap: to validate built packages
+	optdepends = reflector: to keep mirrorlist up to date
+	optdepends = subversion: to check upstream for updated -svn packages
+	optdepends = fzf: to display all data about installed packages
+	optdepends = downgrade: (AUR) to downgrade packages
+	optdepends = libnotify: to display desktop notifications
+	conflicts = pak-git
+	backup = etc/xdg/pak.conf
+	source = https://gitlab.com/nycko123/pak/raw/master/src/pak-4.3.tar.gz
+	sha256sums = 0edc768d4f69f852ebeb4fe241318aaabe9ae3ca6d4bc95ea33c90fa74b23a6b
+
+pkgname = pak
+

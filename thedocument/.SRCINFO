@@ -1,0 +1,15 @@
+pkgbase = thedocument-git
+	pkgdesc = Cross Platform Word Processor
+	pkgver = r10.e719dbd
+	pkgrel = 1
+	url = https://github.com/vicr123/theshell
+	arch = x86_64
+	license = GPL3
+	makedepends = git
+	makedepends = qt5-tools
+	depends = qt5-base
+	source = git+https://github.com/vicr123/thedocument
+	md5sums = SKIP
+
+pkgname = thedocument-git
+

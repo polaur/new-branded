@@ -1,0 +1,13 @@
+pkgbase = plasma5-theme-diamond
+	pkgdesc = Transparent theme for Plasma 5
+	pkgver = 3.0.1
+	pkgrel = 1
+	url = https://store.kde.org/p/1259546/
+	arch = any
+	license = GPL3
+	conflicts = plasma-theme-diamond
+	source = https://dl.opendesktop.org/api/files/download/id/1541510064/s/ddefec293ebc92a1645da378d21ba5eb/t/1541541441/u//Diamond.tar.gz
+	md5sums = f2e14edbda8e120e4537e89a6e379b7e
+
+pkgname = plasma5-theme-diamond
+

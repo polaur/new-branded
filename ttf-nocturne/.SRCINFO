@@ -1,14 +1,13 @@
-pkgbase = ttf-zaklad
-	pkgdesc = Display font designed for use on signage and posters, it’s massive and sturdy construction was inspired the blocky geometrical letters from the Warsaw’s craftsmen shops.
+pkgbase = nocturne-fonts
+	pkgdesc = Font is inspired by the lettering on stone tablets commemorating the victims of World War II, and prewar Jewish shop signage. TTF & OTF
 	pkgver = 1.0
 	pkgrel = 1
-	url = http://kroje.org/en/fonts/zaklad/
+	url = http://kroje.org/en/fonts/nocturne/
 	arch = any
-	license = custom:OFL-1.1
-	source = ttf-zaklad-1.0.tar.gz::https://github.com/warszawskie-kroje/zaklad/archive/v1.0.tar.gz
+	source = nocturne-fonts-1.0.tar.gz::https://github.com/warszawskie-kroje/nocturne/archive/v1.0.tar.gz
 	source = LICENSE
-	sha256sums = 8063fd23d96a485d40e032206b3e16e6e7f1e5cd70e4faa01a8221ceaa612113
+	sha256sums = f63b5314ec2a30092e6a0e22c33f35b50c45e3c0500fdce68726f45740beb12f
 	sha256sums = a22e755224fbe538e0d2883668938360a1b164a1e38b1b701d73e63e9cbe3a3a
 
-pkgname = ttf-zaklad
+pkgname = nocturne-fonts
 

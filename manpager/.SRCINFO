@@ -1,0 +1,14 @@
+pkgbase = manpager
+	pkgdesc = Simple application that lets you search for and view system manual pages
+	pkgver = 1.1.1
+	pkgrel = 1
+	url = https://github.com/tychosoft/manpager
+	arch = x86_64
+	license = GPL3
+	makedepends = qt5-base
+	depends = qt5-base
+	source = https://codeload.github.com/tychosoft/manpager/tar.gz/v1.1.1
+	sha256sums = 571b66b8772938e18f620ae87b8f03ad26b649ec4991d2b7a6ba28e0e11744e8
+
+pkgname = manpager
+

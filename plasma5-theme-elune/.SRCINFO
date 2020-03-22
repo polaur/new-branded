@@ -1,0 +1,12 @@
+pkgbase = plasma5-theme-elune
+	pkgdesc = Another Window based theme for Plasma from deviantart.com
+	pkgver = 1.2
+	pkgrel = 1
+	url = https://www.deviantart.com/half-left/art/Elune-For-Plasma-5-558192192
+	arch = any
+	license = GPL
+	source = https://orig00.deviantart.net/6d8c/f/2015/326/5/f/elune_for_plasma_5_by_half_left-d98bzuo.zip
+	md5sums = 3f1bc0ea435a601dc07451baf58eb646
+
+pkgname = plasma5-theme-elune
+

@@ -1,0 +1,12 @@
+pkgbase = plasma5-theme-google+
+	pkgdesc = Plasma 5 theme base on the look of Google+ with Google colours in various elements
+	pkgver = 1
+	pkgrel = 1
+	url = https://www.deviantart.com/half-left/art/Google-For-Plasma-5-558857810
+	arch = any
+	license = GPL
+	source = https://orig00.deviantart.net/93ff/f/2015/250/7/b/google__for_plasma_5_by_half_left-d98q9g2.zip
+	md5sums = 5f3d9bea332c55bb4078e21441650385
+
+pkgname = plasma5-theme-google+
+

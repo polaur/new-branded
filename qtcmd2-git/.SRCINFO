@@ -1,0 +1,17 @@
+pkgbase = qtcmd2-git
+	pkgdesc = File manager
+	pkgver = r967.3ac7c4c
+	pkgrel = 2
+	url = http://qtcmd.nes.pl
+	arch = x86_64
+	license = GPL
+	makedepends = cmake
+	makedepends = qt5-tools
+	makedepends = git
+	depends = qtermwidget
+	depends = phonon-qt5
+	source = git+https://bitbucket.org/qtcmd/qtcmd2.git
+	md5sums = SKIP
+
+pkgname = qtcmd2-git
+

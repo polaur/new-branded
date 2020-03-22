@@ -1,0 +1,18 @@
+pkgbase = ttf-clemente
+	pkgdesc = Sans serif fonts!
+	pkgver = 1.0
+	pkgrel = 1
+	url = https://www.dafont.com/clemente.font
+	install = ttf-clemente.install
+	arch = any
+	license = OFL
+	depends = unzip
+	depends = fontconfig
+	depends = xorg-fonts-encodings
+	depends = xorg-mkfontscale
+	depends = xorg-mkfontdir
+	source = ttf-clemente.zip::https://dl.dafont.com/dl/?f=clemente_pd
+	sha256sums = fdbabdc98546a21f67b14e3dcdf7050bfd800b30fd4f39944eb90c25ac3515ea
+
+pkgname = ttf-clemente
+

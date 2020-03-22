@@ -1,0 +1,18 @@
+pkgbase = gaia-markdown-git
+	pkgdesc = A KDE markdown editor
+	pkgver = r32.c6e2e22
+	pkgrel = 1
+	url = https://github.com/manolovn/gaia-markdown.git
+	arch = x86_64
+	license = GPL
+	makedepends = extra-cmake-modules
+	makedepends = git
+	depends = hicolor-icon-theme
+	depends = kio
+	depends = discount
+	depends = qt5-webkit
+	source = git+https://github.com/manolovn/gaia-markdown.git
+	sha256sums = SKIP
+
+pkgname = gaia-markdown-git
+

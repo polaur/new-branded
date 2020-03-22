@@ -1,0 +1,17 @@
+pkgbase = cocoon-kf5-git
+	pkgdesc = A GUI for Git
+	pkgver = r1149.8178df8
+	pkgrel = 1
+	url = https://cgit.kde.org/cocoon
+	arch = x86_64
+	license = LGPL
+	makedepends = git
+	makedepends = automoc4
+	makedepends = extra-cmake-modules
+	depends = kdelibs4support
+	depends = hicolor-icon-theme
+	source = git+git://anongit.kde.org/cocoon.git#branch=frameworks
+	md5sums = SKIP
+
+pkgname = cocoon-kf5-git
+

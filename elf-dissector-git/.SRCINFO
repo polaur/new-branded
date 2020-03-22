@@ -1,0 +1,16 @@
+pkgbase = elf-dissector-git
+	pkgdesc = Tools for inspecting, analyzing and optimizing ELF files
+	pkgver = r645.e70d09e
+	pkgrel = 1
+	url = https://cgit.kde.org/elf-dissector.git/r
+	arch = x86_64
+	license = GPL
+	makedepends = extra-cmake-modules
+	makedepends = git
+	depends = kitemmodels
+	depends = libdwarf
+	source = git://anongit.kde.org/elf-dissector.git
+	sha256sums = SKIP
+
+pkgname = elf-dissector-git
+

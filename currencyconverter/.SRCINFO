@@ -1,0 +1,15 @@
+pkgbase = currencyconverter
+	pkgdesc = Simple currency converter
+	pkgver = 1.0.0
+	pkgrel = 1
+	url = https://bitbucket.org/admsasha/${pkgname}
+	arch = x86_64
+	license = GPL3
+	makedepends = qt5-tools
+	depends = qt5-base
+	depends = hicolor-icon-theme
+	source = https://bitbucket.org/admsasha/currencyconverter/downloads/currencyconverter-1.0.0.tar.gz
+	sha256sums = 636006b1e5f69b52037a54d2f83c1fe7cc87164546a1806cfca3c539b5e0c8a5
+
+pkgname = currencyconverter
+

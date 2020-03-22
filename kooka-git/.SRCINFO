@@ -1,0 +1,23 @@
+pkgbase = kooka-git
+	pkgdesc = The scanning application and libkscan library for Plasma 5
+	pkgver = 0.61.243.g723404f
+	pkgrel = 1
+	url = https://userbase.kde.org/Kooka
+	arch = x86_64
+	license = GPL3
+	makedepends = extra-cmake-modules
+	makedepends = git
+	makedepends = kdoctools
+	depends = kio
+	depends = sane
+	depends = libpaper
+	optdepends = ocrad
+	optdepends = gocr
+	provides = kooka
+	conflicts = kooka
+	replaces = kooka
+	source = git+git://anongit.kde.org/kooka.git
+	sha256sums = SKIP
+
+pkgname = kooka-git
+

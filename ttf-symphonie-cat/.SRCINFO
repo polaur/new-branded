@@ -1,0 +1,18 @@
+pkgbase = ttf-symphonie-cat
+	pkgdesc = Calligraphy fonts!
+	pkgver = 1.0
+	pkgrel = 1
+	url = https://www.dafont.com/symphonie-cat.font
+	install = ttf-symphonie-cat.install
+	arch = any
+	license = free
+	depends = unzip
+	depends = fontconfig
+	depends = xorg-fonts-encodings
+	depends = xorg-mkfontscale
+	depends = xorg-mkfontdir
+	source = ttf-symphonie-cat.zip::http://img.dafont.com/dl/?f=symphonie_cat
+	sha256sums = e38b06a6588d48a3c461a232c8f688c56854f91a346f750d1c1d3a149e3a8d35
+
+pkgname = ttf-symphonie-cat
+

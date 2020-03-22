@@ -1,0 +1,17 @@
+pkgbase = android-file-transfer-linux
+	pkgdesc = Android file transfer for linux
+	pkgver = 3.5
+	pkgrel = 1
+	url = https://github.com/whoozle/android-file-transfer-linux
+	arch = x86_64
+	license = LGPL
+	makedepends = cmake
+	depends = qt5-base
+	depends = hicolor-icon-theme
+	depends = fuse2
+	depends = file
+	source = https://github.com/whoozle/android-file-transfer-linux/archive/v3.5.tar.gz
+	sha256sums = ea7897f08da96ecc29160cd3db83a26b591fa2d64db25b9f80d6cace628dece9
+
+pkgname = android-file-transfer-linux
+

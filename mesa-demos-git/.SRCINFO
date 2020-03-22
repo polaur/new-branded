@@ -1,0 +1,22 @@
+pkgbase = mesa-demos-git
+	pkgdesc = Mesa demos and tools
+	pkgver = 8.4.0.9.g99f95b38
+	pkgrel = 1
+	url = http://mesa3d.sourceforge.net
+	arch = x86_64
+	license = custom
+	makedepends = mesa
+	makedepends = freetype2
+	makedepends = git
+	depends = libgl
+	depends = glew
+	depends = freeglut
+	provides = mesa-demos
+	conflicts = mesa-demos
+	source = git://anongit.freedesktop.org/mesa/demos
+	source = LICENSE
+	sha256sums = SKIP
+	sha256sums = 7fdc119cf53c8ca65396ea73f6d10af641ba41ea1dd2bd44a824726e01c8b3f2
+
+pkgname = mesa-demos-git
+

@@ -1,0 +1,24 @@
+pkgbase = brother-mfct910dw
+	pkgdesc = Driver for the Brother DCP-T910DW wifi/usb multifunctional printer
+	pkgver = 1.0.0.0
+	pkgrel = 1
+	url = http://support.brother.com/g/s/id/linux/en/index.html
+	install = brother-mfct910dw.install
+	arch = x86_64
+	license = custom:brother
+	depends = a2ps
+	depends = cups
+	depends = psutils
+	depends = lib32-glibc
+	optdepends = sane: scanning support
+	optdepends = brscan4: making mfct910dw available to sane
+	optdepends = brscan-skey: scankey support if connected via usb
+	source = fix_lp.patch
+	source = brother-eula.txt
+	source = https://download.brother.com/welcome/dlf103627/mfct910dwpdrv-1.0.0-0.i386.rpm
+	md5sums = ebc6a8619380a694b559a7c8aafd92ca
+	md5sums = 80407224bc8f4b5656de6271144f9e19
+	md5sums = b192137133f6b2273871eed634681f66
+
+pkgname = brother-mfct910dw
+

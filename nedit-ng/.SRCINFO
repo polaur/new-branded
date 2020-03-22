@@ -1,0 +1,18 @@
+pkgbase = nedit-ng
+	pkgdesc = Qt port of NEdit
+	pkgver = 2020.1
+	pkgrel = 1
+	url = https://github.com/eteran/nedit-ng/
+	arch = x86_64
+	license = LGPL
+	makedepends = qt5-tools
+	makedepends = qt5-base
+	makedepends = boost
+	makedepends = bison
+	depends = qt5-x11extras
+	depends = qt5-svg
+	source = https://github.com/eteran/nedit-ng/archive/2020.1.tar.gz
+	sha256sums = 5f754472dab30626e4ee18150045f8badc285df80a3c5ef4e748e73a13a237eb
+
+pkgname = nedit-ng
+

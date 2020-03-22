@@ -1,0 +1,22 @@
+pkgbase = python-pygit2-git
+	pkgdesc = Python bindings for libgit2
+	pkgver = 1.0.3.r30.ge002614
+	pkgrel = 3
+	url = https://github.com/libgit2/pygit2
+	arch = x86_64
+	license = GPL2
+	makedepends = python-cffi
+	makedepends = python-setuptools
+	makedepends = git
+	depends = libgit2>=1:0.99.0
+	depends = python-cffi
+	depends = python-cached-property
+	provides = python-libgit2
+	provides = python-pygit2=1.0.3.r30.ge002614
+	conflicts = python-libgit2
+	conflicts = python-pygit2
+	source = git://github.com/libgit2/pygit2
+	sha256sums = SKIP
+
+pkgname = python-pygit2-git
+

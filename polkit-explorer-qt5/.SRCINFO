@@ -1,0 +1,15 @@
+pkgbase = polkit-explorer-qt5-git
+	pkgdesc = Present PolicyKit information in a human-readable form - Qt5 version.
+	pkgver = 11.51ba887
+	pkgrel = 1
+	url = https://github.com/maz-1/Polkit-Explorer
+	arch = any
+	license = ISC
+	depends = python2-pyqt5
+	depends = python2-lxml
+	conflicts = polkit-explorer
+	source = git+https://github.com/maz-1/Polkit-Explorer.git
+	sha256sums = SKIP
+
+pkgname = polkit-explorer-qt5-git
+

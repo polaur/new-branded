@@ -1,0 +1,12 @@
+pkgbase = red-maia-icon-theme
+	pkgdesc = Red Maia folders themes
+	pkgver = 3.30
+	pkgrel = 1
+	url = https://store.kde.org/p/1218961/
+	arch = any
+	license = GPL3
+	source = Red-Maia.tar.xz
+	md5sums = 2c3612c63f3259c1fd58960b4645324f
+
+pkgname = red-maia-icon-theme
+

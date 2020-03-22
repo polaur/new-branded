@@ -1,0 +1,19 @@
+pkgbase = ttf-storia-sans
+	pkgdesc = Modified Titillium font
+	pkgver = 2.0
+	pkgrel = 1
+	url = https://fontlibrary.org/en/font/storia-sans
+	arch = any
+	license = custom:OFL
+	depends = fontconfig
+	source = https://fontlibrary.org/assets/downloads/storia-sans/5282e92c2b69a3847c7aa88e1db9b2ad/storia-sans.zip
+	source = 45-storia-sans.conf
+	source = 90-tt-storia-sans.conf
+	source = OFL-FAQ.txt
+	sha1sums = 60f18194144e2784ea93bc53d7d2907103df3d45
+	sha1sums = f2acff5d70e2a732a49b39897b11d5b5a778761a
+	sha1sums = a4408672f1c650a3de2da3ff9e8b1bc67a73c39e
+	sha1sums = bfb74c4af1128dd0d986026956dae87a7b6fc5e9
+
+pkgname = ttf-storia-sans
+

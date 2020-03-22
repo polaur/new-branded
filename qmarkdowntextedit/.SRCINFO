@@ -1,0 +1,16 @@
+pkgbase = qmarkdowntextedit
+	pkgdesc = A Qt library and simple application for editing Markdown
+	pkgver = 2019.4.0
+	pkgrel = 1
+	url = https://github.com/pbek/qmarkdowntextedit
+	arch = x86_64
+	license = MIT
+	makedepends = qt5-tools
+	depends = qt5-base
+	source = https://github.com/pbek/qmarkdowntextedit/archive/2019.4.0.tar.gz
+	source = qmarkdowntextedit_pl.qm
+	sha256sums = 4c2d9c5c122c4bdacd383c5e18f66c9cfd526939d8b8d9cc822d519b6ff9c5d9
+	sha256sums = 408181eb3b4854c6d0340eec8e9159ed7ebf0aee6d3216ca3a7ead1a64e5d6e8
+
+pkgname = qmarkdowntextedit
+

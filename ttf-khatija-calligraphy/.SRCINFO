@@ -1,0 +1,18 @@
+pkgbase = ttf-khatija-calligraphy
+	pkgdesc = Calligraphy font. Personalu use only!
+	pkgver = 1.0
+	pkgrel = 1
+	url = https://www.myfonts.com/fonts/38-lineart/khatija-calligraphy/
+	install = ttf-khatija-calligraphy.install
+	arch = any
+	license = custom
+	depends = unzip
+	depends = fontconfig
+	depends = xorg-fonts-encodings
+	depends = xorg-mkfontscale
+	depends = xorg-mkfontdir
+	source = ttf-khatija-calligraphy.zip::http://img.dafont.com/dl/?f=khatija_calligraphy
+	sha256sums = 39cad4ad0345fce17f91d0a597a76d53b3cfb72c36d6b473106fd14972335638
+
+pkgname = ttf-khatija-calligraphy
+

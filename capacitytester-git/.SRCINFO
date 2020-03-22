@@ -1,0 +1,14 @@
+pkgbase = capacitytester-git
+	pkgdesc = Fake memory stick or card tester
+	pkgver = r8.7eacfc8
+	pkgrel = 1
+	url = https://github.com/c0xc/CapacityTester
+	arch = x86_64
+	license = GPL3
+	makedepends = qt5-tools
+	depends = qt5-base
+	source = git+https://github.com/c0xc/CapacityTester.git
+	sha256sums = SKIP
+
+pkgname = capacitytester-git
+

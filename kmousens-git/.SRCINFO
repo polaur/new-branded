@@ -1,0 +1,15 @@
+pkgbase = kmousens-git
+	pkgdesc = Change mouse sensitivity in KDE
+	pkgver = 32
+	pkgrel = 1
+	url = https://github.com/furkantokac/Kmousens.git
+	arch = x86_64
+	license = GPL
+	makedepends = git
+	makedepends = cmake
+	depends = qt5-base
+	source = git+https://github.com/furkantokac/Kmousens.git
+	sha256sums = SKIP
+
+pkgname = kmousens-git
+

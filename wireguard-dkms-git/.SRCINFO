@@ -1,0 +1,17 @@
+pkgbase = wireguard-dkms-git
+	pkgdesc = next generation secure network tunnel - module sources
+	pkgver = 0.0.20191226.r0.ge4354e6
+	pkgrel = 1
+	url = http://www.wireguard.com/
+	arch = x86_64
+	license = GPL
+	makedepends = git
+	depends = dkms
+	provides = WIREGUARD-MODULE
+	provides = wireguard-dkms
+	conflicts = wireguard-dkms
+	source = git://git.zx2c4.com/wireguard-linux-compat
+	sha256sums = SKIP
+
+pkgname = wireguard-dkms-git
+

@@ -1,0 +1,17 @@
+pkgbase = ttf-orkney
+	pkgdesc = Geometric typeface designed with clarity and leibility in mind, font
+	pkgver = 1.0
+	pkgrel = 1
+	url = https://fontlibrary.org/en/font/orkney
+	arch = any
+	license = custom:OFL
+	depends = fontconfig
+	source = https://fontlibrary.org/assets/downloads/orkney/99f93483b92aaa9f10d3780aba2997e7/orkney.zip
+	source = 45-orkney.conf
+	source = 90-tt-orkney.conf
+	sha1sums = bd838d65f64daa951b8713a7de7139f8de8a64bc
+	sha1sums = cffdaac094dbb228b43dcd21fb8813b4b71bc883
+	sha1sums = a4408672f1c650a3de2da3ff9e8b1bc67a73c39e
+
+pkgname = ttf-orkney
+

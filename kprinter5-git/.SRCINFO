@@ -1,0 +1,18 @@
+pkgbase = kprinter5-git
+	pkgdesc = Stand-alone PostScript document printer for Plasma 5
+	pkgver = 12.r40.ga65cdbc
+	pkgrel = 1
+	url = https://gitlab.com/michaelweghorn/kprinter4
+	arch = x86_64
+	license = GPL3
+	makedepends = git
+	makedepends = extra-cmake-modules
+	makedepends = pkg-config
+	depends = kio
+	depends = hicolor-icon-theme
+	depends = libspectre
+	source = git+https://gitlab.com/michaelweghorn/kprinter4.git#branch=michaelweghorn/qt5Port
+	sha256sums = SKIP
+
+pkgname = kprinter5-git
+

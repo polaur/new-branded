@@ -1,0 +1,12 @@
+pkgbase = grey-maia-icon-theme
+	pkgdesc = Pastel grey folders themes
+	pkgver = 3.30
+	pkgrel = 1
+	url = https://store.kde.org/p/1218961/
+	arch = any
+	license = GPL3
+	source = Grey-Maia.tar.xz
+	md5sums = 3b6d07a53efb537414277674318bb485
+
+pkgname = grey-maia-icon-theme
+

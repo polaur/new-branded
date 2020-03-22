@@ -1,0 +1,18 @@
+pkgbase = ttf-caviar-dreams
+	pkgdesc = Sans serif fonts!
+	pkgver = 1.0
+	pkgrel = 1
+	url = https://www.dafont.com/caviar-dreams.font
+	install = ttf-caviar-dreams.install
+	arch = any
+	license = free
+	depends = unzip
+	depends = fontconfig
+	depends = xorg-fonts-encodings
+	depends = xorg-mkfontscale
+	depends = xorg-mkfontdir
+	source = ttf-caviar-dreams.zip::http://img.dafont.com/dl/?f=caviar_dreams
+	sha256sums = aea71d869dffed7422ffed5da6d1ba6091b88569ec67c38163fbfa5902d9afca
+
+pkgname = ttf-caviar-dreams
+

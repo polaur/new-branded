@@ -1,0 +1,21 @@
+pkgbase = lmdb-git
+	pkgdesc = Symas Lightning Memory-Mapped Database
+	pkgver = LMDB_0.9.25.r1901.g4f7ea78c9
+	pkgrel = 2
+	url = https://symas.com/mdb
+	arch = x86_64
+	license = custom:OpenLDAP
+	depends = glibc
+	provides = lmdb
+	provides = liblmdb
+	conflicts = lmdb
+	conflicts = liblmdb-git
+	conflicts = mdb-git
+	options = !emptydirs
+	source = git+https://git.openldap.org/openldap/openldap.git
+	source = lmdb.pc
+	sha512sums = SKIP
+	sha512sums = 0349d4b08a1f93fe338d8f8e3e5a83e24211a46f999fe529bc1ac49c8c4975559d95a548c203d9427e3f82d62e934ba3cd1be6f734f9b9405b2a26477be4ed33
+
+pkgname = lmdb-git
+

@@ -1,0 +1,12 @@
+pkgbase = plasma5-theme-jomada-style
+	pkgdesc = Light theme for Plasma 5 with gray edges and some transparency
+	pkgver = 1.3
+	pkgrel = 1
+	url = https://store.kde.org/p/1177289/
+	arch = any
+	license = 
+	source = https://dl.opendesktop.org/api/files/download/id/1521057978/s/8366f7c85f0e0e4428939c9e2025ed75/t/1541020637/u//Jomada-Style-20180314200618.tar.gz
+	md5sums = 6ec97a905ef17af51365e46f8771408f
+
+pkgname = plasma5-theme-jomada-style
+

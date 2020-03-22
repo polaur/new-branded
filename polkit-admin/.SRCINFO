@@ -1,0 +1,16 @@
+pkgbase = polkit-admin-git
+	pkgdesc = UI Tool for set your own Polkit Permission based on Polkit-Explorer
+	pkgver = 14.b05af71
+	pkgrel = 1
+	url = https://github.com/SirJson/Polkit-Admin
+	arch = any
+	license = ISC
+	depends = python2-pyqt5
+	depends = python2-lxml
+	conflicts = polkit-explorer
+	conflicts = polkit-explorer-qt5-git
+	source = git+https://github.com/SirJson/Polkit-Admin.git
+	sha256sums = SKIP
+
+pkgname = polkit-admin-git
+

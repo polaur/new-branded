@@ -1,0 +1,17 @@
+pkgbase = ds2048
+	pkgdesc = 2048 game
+	pkgver = 1.0.1
+	pkgrel = 2
+	url = https://bitbucket.org/admsasha/${pkgname}
+	arch = x86_64
+	license = GPL3
+	makedepends = qt5-tools
+	depends = qt5-base
+	depends = hicolor-icon-theme
+	source = https://bitbucket.org/admsasha/ds2048/downloads/ds2048-1.0.1.tar.gz
+	source = ds2048_pl.ts
+	sha256sums = 8bf597b484a66dad891b69b41f594936627c7c203d2509738e45e3a70b05e7fa
+	sha256sums = daae649df31f8e96695a74818c0ab6f89d1f628f99bbfe2cf149d9f3736406ae
+
+pkgname = ds2048
+

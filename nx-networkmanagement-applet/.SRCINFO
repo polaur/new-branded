@@ -1,0 +1,17 @@
+pkgbase = plasma-nx-networkmanagement-applet
+	pkgdesc = NX Desktop networkmanagement applet for Plasma
+	pkgver = r22.fceb28e
+	pkgrel = 1
+	url = http://www.nx-desktop.org/
+	arch = any
+	license = GPL3
+	makedepends = git
+	makedepends = qt5-tools
+	makedepends = qt5-svg
+	makedepends = extra-cmake-modules
+	depends = plasma-workspace
+	source = git+https://github.com/nx-desktop/nx-networkmanagement-applet.git
+	sha256sums = SKIP
+
+pkgname = plasma-nx-networkmanagement-applet
+

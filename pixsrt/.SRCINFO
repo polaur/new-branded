@@ -1,0 +1,13 @@
+pkgbase = pixsrt
+	pkgdesc = Pixel sorter to glitch images
+	pkgver = 1.6
+	pkgrel = 1
+	url = https://github.com/thorpelawrence/pixsrt
+	arch = x86_64
+	license = GPL
+	depends = qt5-base
+	source = https://github.com/thorpelawrence/pixsrt/archive/1.6.tar.gz
+	sha256sums = c438f53c80a8103ee86b813c613daf2be4c539c722149b8b7ab5e901ddd04321
+
+pkgname = pixsrt
+

@@ -1,0 +1,15 @@
+pkgbase = feff
+	pkgdesc = Audio/Video converter GUI for FFmpeg
+	pkgver = 1.10.1
+	pkgrel = 1
+	url = https://bitbucket.org/admsasha/${pkgname}
+	arch = x86_64
+	license = GPL3
+	makedepends = qt5-tools
+	depends = qt5-base
+	optdepends = ffmpeg
+	source = https://bitbucket.org/admsasha/feff/downloads/feff-1.10.1.tar.gz
+	sha256sums = a19d858ad2a9c5a66ee597cf20aa8bb666730a64a6d5fa72266e980221c59008
+
+pkgname = feff
+

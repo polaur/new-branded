@@ -1,0 +1,14 @@
+pkgbase = xhtml-wysiwyg-qeditor-git
+	pkgdesc = XHTML WYSIWYG editor
+	pkgver = r15.07b20dc
+	pkgrel = 2
+	url = https://www.opendesktop.org/s/Linux-Apps/p/1131236/
+	arch = x86_64
+	license = GPL2
+	makedepends = git
+	depends = qt5-base
+	source = git+https://github.com/pehohlva/xhtml_edit_qedit_base
+	md5sums = SKIP
+
+pkgname = xhtml-wysiwyg-qeditor-git
+

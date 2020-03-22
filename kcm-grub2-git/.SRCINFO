@@ -1,0 +1,17 @@
+pkgbase = kcm-grub2-git
+	pkgdesc = A KDE Control Module for configuring the GRUB2 bootloader
+	pkgver = 0.6.4.68.g1550b7f
+	pkgrel = 1
+	url = https://www.pling.com/p/1127844/
+	arch = x86_64
+	license = GPL3
+	makedepends = git
+	makedepends = qt5-tools
+	depends = imagemagick
+	depends = hwinfo
+	depends = kio
+	source = git+https://anongit.kde.org/kcm-grub2.git
+	sha256sums = SKIP
+
+pkgname = kcm-grub2-git
+

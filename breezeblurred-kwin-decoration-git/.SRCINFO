@@ -1,0 +1,17 @@
+pkgbase = breezeblurred-kwin-decoration-git
+	pkgdesc = BreezeBlurred is a fork of KDE Breeze window decoration written in Qt C++ (git version)
+	pkgver = r18.63e91c1
+	pkgrel = 1
+	url = https://github.com/alex47/BreezeBlurred
+	arch = x86_64
+	license = GPL
+	makedepends = extra-cmake-modules
+	depends = kdecoration
+	depends = kwindowsystem
+	depends = kconfigwidgets
+	conflicts = plasma5-theme-breezebluerred
+	source = git+https://github.com/alex47/BreezeBlurred.git
+	sha256sums = SKIP
+
+pkgname = breezeblurred-kwin-decoration-git
+

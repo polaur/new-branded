@@ -1,0 +1,14 @@
+pkgbase = mnotes-git
+	pkgdesc = Alternative for knotes
+	pkgver = r52.b8acaa9
+	pkgrel = 1
+	url = https://github.com/AlfredoCubitos/mnotes
+	arch = x86_64
+	license = GPL
+	makedepends = git
+	depends = qt5-declarative
+	source = git+https://github.com/AlfredoCubitos/mnotes.git
+	md5sums = SKIP
+
+pkgname = mnotes-git
+

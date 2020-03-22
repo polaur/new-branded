@@ -1,0 +1,22 @@
+pkgbase = breeze-enhanced
+	pkgdesc = A fork of KDE Breeze decoration with additional options
+	pkgver = 5.18.1
+	pkgrel = 1
+	url = https://github.com/tsujan/BreezeEnhanced
+	arch = x86_64
+	license = GPL3
+	makedepends = git
+	makedepends = extra-cmake-modules
+	makedepends = kconfigwidgets
+	makedepends = kwindowsystem
+	depends = fftw
+	depends = kdecoration
+	optdepends = kwindowsystem
+	optdepends = kconfigwidgets
+	optdepends = kvantum
+	conflicts = breeze-enhanced-git
+	source = git+https://github.com/tsujan/BreezeEnhanced.git
+	sha256sums = SKIP
+
+pkgname = breeze-enhanced
+

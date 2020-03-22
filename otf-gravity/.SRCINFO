@@ -1,0 +1,18 @@
+pkgbase = otf-gravity
+	pkgdesc = Sans serif fonts!
+	pkgver = 1.0
+	pkgrel = 1
+	url = https://www.dafont.com/gravity.font
+	install = otf-gravity.install
+	arch = any
+	license = free
+	depends = unzip
+	depends = fontconfig
+	depends = xorg-fonts-encodings
+	depends = xorg-mkfontscale
+	depends = xorg-mkfontdir
+	source = otf-gravity.zip::http://img.dafont.com/dl/?f=gravity
+	sha256sums = b03392bc589052fa467d5263c5e66c04cd5b3a5474a30fc65836881099862bed
+
+pkgname = otf-gravity
+

@@ -1,0 +1,18 @@
+pkgbase = ttf-rounded-elegance
+	pkgdesc = Sans serif fonts!
+	pkgver = 1.0
+	pkgrel = 1
+	url = https://www.dafont.com/rounded-elegance.font
+	install = ttf-rounded-elegance.install
+	arch = any
+	license = free
+	depends = unzip
+	depends = fontconfig
+	depends = xorg-fonts-encodings
+	depends = xorg-mkfontscale
+	depends = xorg-mkfontdir
+	source = ttf-rounded-elegance.zip::http://img.dafont.com/dl/?f=rounded_elegance
+	sha256sums = 9e7d8cd64bbaf92196c7e0b323d8738a64d58e8f209febc9c725ffc45311cba9
+
+pkgname = ttf-rounded-elegance
+

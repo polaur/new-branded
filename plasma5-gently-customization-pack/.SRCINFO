@@ -1,0 +1,18 @@
+pkgbase = plasma5-gently-customization-pack
+	pkgdesc = Very transparent and blurred Theme for Plasma 5
+	pkgver = 1.0
+	pkgrel = 1
+	url = https://www.opendesktop.org/p/1293162/
+	arch = any
+	license = GPL3
+	source = https://git.opendesktop.org/l4k1/gently/-/archive/master/gently-master.tar.gz
+	source = Gently.colors
+	sha256sums = 9e7566effc3d78103aaecb276ad7d0033efa421907931b74a242d9d94c0acc4a
+	sha256sums = 5f1c8187167fdc8007ff98b4ea9130897dffe5b0f422db7515b06afaf3d20885
+
+pkgname = plasma5-theme-gently
+	pkgdesc = Gently theme for Plasma 5
+
+pkgname = plasma5-colors-gently
+	pkgdesc = Gently color theme for Plasma
+

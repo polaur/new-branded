@@ -1,0 +1,18 @@
+pkgbase = plasma5-charlie-customization-pack
+	pkgdesc = Dark and elegant, moderately transparent and Blur Theme for Plasma 5
+	pkgver = 1.0
+	pkgrel = 1
+	url = https://www.opendesktop.org/p/1297730/
+	arch = any
+	license = GPL3
+	source = git+https://github.com/L4ki/Charlie.git#commit=89a809c
+	source = Charlie.colors
+	sha256sums = SKIP
+	sha256sums = 86e42bfd0b654cdfa01daec91dd592f32d2d311ba5d00e36ddc80bd8dc7454e9
+
+pkgname = plasma5-theme-charlie
+	pkgdesc = Charlie theme for Plasma 5
+
+pkgname = plasma5-colors-charlie
+	pkgdesc = Charlie color theme for Plasma
+

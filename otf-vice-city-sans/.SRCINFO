@@ -1,0 +1,18 @@
+pkgbase = otf-vice-city-sans
+	pkgdesc = Sans serif fonts!
+	pkgver = 1.0
+	pkgrel = 1
+	url = https://www.dafont.com/vice-city-sans.font
+	install = otf-vice-city-sans.install
+	arch = any
+	license = free
+	depends = unzip
+	depends = fontconfig
+	depends = xorg-fonts-encodings
+	depends = xorg-mkfontscale
+	depends = xorg-mkfontdir
+	source = otf-vice-city-sans.zip::http://img.dafont.com/dl/?f=vice_city_sans
+	sha256sums = b2846cd7a195baf37bfdbfa9582bd47ee437a647ea705e7625612529127b5e66
+
+pkgname = otf-vice-city-sans
+

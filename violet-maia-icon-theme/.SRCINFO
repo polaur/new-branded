@@ -1,0 +1,12 @@
+pkgbase = violet-maia-icon-theme
+	pkgdesc = Violet Maia folders themes
+	pkgver = 3.30
+	pkgrel = 1
+	url = https://store.kde.org/p/1218961/
+	arch = any
+	license = GPL3
+	source = Violet-Maia.tar.xz
+	md5sums = ae514dcd2fd31bdd0612e1e3e9bee02f
+
+pkgname = violet-maia-icon-theme
+

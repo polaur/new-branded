@@ -1,0 +1,20 @@
+pkgbase = clean-chroot-manager-git
+	pkgdesc = Wrapper scripts for managing clean chroots (64-bit and 32-bit).
+	pkgver = 2.208.0.g3608933
+	pkgrel = 1
+	url = https://github.com/graysky2/clean-chroot-manager
+	install = ccm.install
+	arch = any
+	license = MIT
+	makedepends = git
+	depends = devtools>=20190821-1
+	depends = rsync
+	depends = libarchive>=3.3.3
+	depends = pacman>=5.2
+	conflicts = clean-chroot-manager
+	replaces = clean-chroot-manager
+	source = git://github.com/graysky2/clean-chroot-manager
+	sha256sums = SKIP
+
+pkgname = clean-chroot-manager-git
+

@@ -1,0 +1,14 @@
+pkgbase = dukto-qt5-git
+	pkgdesc = A simple and fast file transfer tool for LAN; Qt5 port
+	pkgver = v6.r9.g402f858
+	pkgrel = 1
+	url = https://github.com/arthurzam/dukto-qt5
+	arch = x86_64
+	license = GPL2
+	makedepends = git
+	depends = qt5-quick1
+	source = git+https://github.com/arthurzam/dukto-qt5.git
+	sha256sums = SKIP
+
+pkgname = dukto-qt5-git
+

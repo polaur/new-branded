@@ -1,0 +1,22 @@
+pkgbase = gitless-git
+	pkgdesc = A scientifically proven easier-to-use git interface
+	pkgver = 0.8.8.r53.g9eccf3c
+	pkgrel = 2
+	url = http://gitless.com/
+	arch = any
+	license = GPL
+	makedepends = git
+	depends = python
+	depends = git
+	depends = python-sh
+	depends = python-clint
+	depends = python-pygit2>=1.1.1
+	depends = python-setuptools
+	provides = gitless
+	source = git://github.com/gitless-vcs/gitless
+	source = 0001-Update-requirements.patch
+	sha256sums = SKIP
+	sha256sums = 50b4599b7edb62415c30da7fe8203b198d96fa5818534e80f6dcc049cbf94c0d
+
+pkgname = gitless-git
+

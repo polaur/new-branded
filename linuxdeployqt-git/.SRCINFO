@@ -1,0 +1,19 @@
+pkgbase = linuxdeployqt-git
+	pkgdesc = Makes Linux applications self-contained by copying in the libraries and plugins that the application uses - GIT version
+	pkgver = r540.5542062
+	pkgrel = 1
+	url = https://github.com/probonopd/linuxdeployqt
+	arch = x86_64
+	license = GPL3
+	license = LGPL3
+	makedepends = git
+	makedepends = cmake
+	depends = qt5-base
+	depends = patchelf
+	provides = linuxdeployqt
+	conflicts = linuxdeployqt
+	source = git+https://github.com/probonopd/linuxdeployqt.git
+	md5sums = SKIP
+
+pkgname = linuxdeployqt-git
+

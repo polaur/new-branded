@@ -1,0 +1,32 @@
+pkgbase = dkms-git
+	pkgdesc = Dynamic Kernel Modules System
+	pkgver = 2.8.1.r20.gc4f3db2
+	pkgrel = 1
+	url = http://linux.dell.com/dkms/
+	install = dkms.install
+	arch = any
+	license = GPL2
+	makedepends = git
+	depends = bash
+	depends = kmod
+	depends = gcc
+	depends = make
+	depends = patch
+	optdepends = linux-headers: build modules against the Arch kernel
+	optdepends = linux-lts-headers: build modules against the LTS kernel
+	optdepends = linux-zen-headers: build modules against the ZEN kernel
+	optdepends = linux-hardened-headers: build modules against the HARDENED kernel
+	provides = dkms
+	conflicts = dkms
+	backup = etc/dkms/framework.conf
+	source = git://github.com/dell/dkms
+	source = hook.install
+	source = hook.remove
+	source = hook.sh
+	md5sums = SKIP
+	md5sums = be9784c5c5bbc92fa2d18f0b5f4cd0c4
+	md5sums = b7b9f471a84aecbe063065db98f45162
+	md5sums = 80632f6a454b35bcade2bed287f13c7b
+
+pkgname = dkms-git
+

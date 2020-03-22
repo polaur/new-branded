@@ -1,0 +1,14 @@
+pkgbase = hidpi-fixer-git
+	pkgdesc = Qt app that automates fractional scaling configuration on X11 desktops
+	pkgver = r52.3972a3c
+	pkgrel = 1
+	url = https://github.com/alex-spataru/HiDPI-Fixer
+	arch = x86_64
+	license = GPL3
+	makedepends = qt5-tools
+	depends = qt5-x11extras
+	source = git+https://github.com/alex-spataru/HiDPI-Fixer.git
+	md5sums = SKIP
+
+pkgname = hidpi-fixer-git
+

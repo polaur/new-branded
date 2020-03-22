@@ -1,0 +1,12 @@
+pkgbase = green-maia-icon-theme
+	pkgdesc = Green Maia folders themes
+	pkgver = 3.30
+	pkgrel = 1
+	url = https://store.kde.org/p/1218961/
+	arch = any
+	license = GPL3
+	source = Green-Maia.tar.xz
+	md5sums = 0fa9ad8d259e68d1f3739c2c98f215b5
+
+pkgname = green-maia-icon-theme
+

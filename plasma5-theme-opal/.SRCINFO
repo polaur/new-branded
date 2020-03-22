@@ -1,0 +1,12 @@
+pkgbase = plasma5-theme-opal
+	pkgdesc = A modern transculent flow for Plasma 5
+	pkgver = 0.6
+	pkgrel = 1
+	url = https://store.kde.org/p/1216627/
+	arch = any
+	license = GPL
+	source = https://dl.opendesktop.org/api/files/downloadfile/id/1529122215/s/e5be6200a3619b2d872458e6c3019b86/t/1529149975/u//Opal-0.6.tar.gz
+	sha256sums = 54805347043ee87b28bc8f01ef84cfa799b4634662caa4d5ced83d19fbdbbfa1
+
+pkgname = plasma5-theme-opal
+

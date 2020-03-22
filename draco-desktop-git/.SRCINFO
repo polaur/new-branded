@@ -1,0 +1,32 @@
+pkgbase = draco-desktop-git
+	pkgdesc = A Lightweight QT5 Desktop - Lumina DE fork based on OpenBox
+	pkgver = 0.9.0_rc2.r39.g301039b
+	pkgrel = 1
+	url = https://www.dracolinux.org/
+	arch = x86_64
+	license = GPL2
+	license = LGPL
+	license = BSD
+	makedepends = qt5-base
+	makedepends = qt5-svg
+	makedepends = qt5-tools
+	makedepends = libxrandr
+	depends = libxss
+	depends = qt5-x11extras
+	optdepends = xorg-xbacklight: required for changing screen brightness
+	optdepends = alsa-utils: required for adjusting audio volume
+	optdepends = acpi: required for monitoring battery life
+	optdepends = numlockx: required for changign state of numlock at login
+	optdepends = pavucontrol: required for detatched audio mixer
+	optdepends = network-manager-applet: Manage network connections from panel
+	optdepends = openbox: window manager for Draco DE; you had to install it because in other way Draco DE is unusable
+	optdepends = qt5ct: for Qt5 configuration utility
+	optdepends = qterminal: terminal emulator
+	optdepends = any-icon-theme: i.e. breeze-icon - icon theme
+	optdepends = xscreensaver: screen saver
+	optdepends = libxrandr
+	source = git+https://github.com/rodlie/draco.git
+	sha512sums = SKIP
+
+pkgname = draco-desktop-git
+

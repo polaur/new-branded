@@ -1,0 +1,18 @@
+pkgbase = ttf-eurofurence
+	pkgdesc = Sans serif fonts!
+	pkgver = 1.0
+	pkgrel = 1
+	url = https://www.dafont.com/eurofurence.font
+	install = ttf-eurofurence.install
+	arch = any
+	license = free
+	depends = unzip
+	depends = fontconfig
+	depends = xorg-fonts-encodings
+	depends = xorg-mkfontscale
+	depends = xorg-mkfontdir
+	source = ttf-eurofurence.zip::http://img.dafont.com/dl/?f=eurofurence
+	sha256sums = 0ece685d083251a815913002fcd6a5877ef0ebb3427fee2b842d16215394f001
+
+pkgname = ttf-eurofurence
+

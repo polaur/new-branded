@@ -1,0 +1,15 @@
+pkgbase = configure-wifi-git
+	pkgdesc = Dialog-based script to select a wifi network uses systemd-networkd and wpa_supplicant
+	pkgver = r22.bd14bd8
+	pkgrel = 1
+	url = https://github.com/the-kyle/configure-wifi
+	arch = any
+	license = GPL
+	depends = bash
+	depends = git
+	optdepends = wpa_supplicant
+	source = git+https://github.com/the-kyle/configure-wifi.git
+	sha256sums = SKIP
+
+pkgname = configure-wifi-git
+

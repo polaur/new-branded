@@ -1,0 +1,18 @@
+pkgbase = lab-git
+	pkgdesc = A hub-like tool for GitLab (git release)
+	pkgver = 0.15.2.r1.gb2da778
+	pkgrel = 1
+	url = https://zaquestion.github.io/lab/
+	arch = x86_64
+	license = custom:Unlicense
+	makedepends = go
+	makedepends = git
+	depends = git
+	optdepends = hub
+	provides = lab
+	conflicts = lab
+	source = git://github.com/zaquestion/lab
+	sha512sums = SKIP
+
+pkgname = lab-git
+

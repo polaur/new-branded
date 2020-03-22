@@ -1,0 +1,17 @@
+pkgbase = plasma5-theme-breezeblurred
+	pkgdesc = Breeze window decoration with blur enabled
+	pkgver = 1.2
+	pkgrel = 1
+	url = https://store.kde.org/p/1221562/
+	arch = x86_64
+	license = GPL
+	makedepends = extra-cmake-modules
+	depends = kdecoration
+	depends = kwindowsystem
+	depends = kconfigwidgets
+	depends = fftw
+	source = https://dl.opendesktop.org/api/files/download/id/1541093558/s/8a94483b47c6282bce27bdb8b78ace03/t/1541154089/u//BreezeBlurred-master_2018_november_1.zip
+	sha256sums = 4b4fbff05f423177801e3dec31f4c27f7300758d0365f2f3012c1e510b90e866
+
+pkgname = plasma5-theme-breezeblurred
+

@@ -1,0 +1,28 @@
+pkgbase = kpatience
+	pkgdesc = Offers a selection of solitaire card games
+	pkgver = 18.04.3
+	pkgrel = 1.1
+	url = https://kde.org/applications/games/kpatience/
+	arch = x86_64
+	groups = kde-applications
+	groups = kdegames
+	license = GPL
+	license = LGPL
+	license = FDL
+	makedepends = extra-cmake-modules
+	makedepends = kdoctools
+	depends = libkdegames
+	depends = hicolor-icon-theme
+	source = https://download.kde.org/stable/applications/18.04.3/src/kpat-18.04.3.tar.xz
+	source = https://download.kde.org/stable/applications/18.04.3/src/kpat-18.04.3.tar.xz.sig
+	source = kdebug-307625.patch::https://cgit.kde.org/kpat.git/patch/?id=eb5fa8dab3559bf008829154c4c17239af607da6
+	source = qbuffer_for_qt5.11.patch::https://cgit.kde.org/kpat.git/patch/?id=7a69e3f4b15a902c4008a428d5fbf0335526f49b
+	validpgpkeys = CA262C6C83DE4D2FB28A332A3A6A4DB839EAA6D7
+	validpgpkeys = F23275E4BF10AFC1DF6914A6DBD2CE893E2D1C87
+	sha256sums = 5a4558e6b345ca411fca31eacfac4e317a10c59864ebff1d98268909c401bd29
+	sha256sums = SKIP
+	sha256sums = f21d243cf91c4a4f85d7a231b36abc4eef34519fbb8c340c782ee0c2f81e38d7
+	sha256sums = 7f65e7769d27638dfca96929bc33ec3628edcf24a06f50a5483ea61b0b4534a6
+
+pkgname = kpatience
+

@@ -1,0 +1,18 @@
+pkgbase = otf-scriptina-pro
+	pkgdesc = Calligraphy font
+	pkgver = 1.0
+	pkgrel = 1
+	url = https://www.dafont.com/scriptina-pro.font
+	install = otf-scriptina-pro.install
+	arch = any
+	license = GPL
+	depends = unzip
+	depends = fontconfig
+	depends = xorg-fonts-encodings
+	depends = xorg-mkfontscale
+	depends = xorg-mkfontdir
+	source = otf-scriptina-pro.zip::http://img.dafont.com/dl/?f=scriptina_pro
+	sha256sums = 0fcd1b08a9b569d5be15f49e618f2ccf90eb13e75ab1c23fd4e46927b872fb9c
+
+pkgname = otf-scriptina-pro
+

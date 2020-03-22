@@ -1,0 +1,14 @@
+pkgbase = swapusage
+	pkgdesc = Shows the amount of swapped memory for every process
+	pkgver = 1.1
+	pkgrel = 1
+	url = https://github.com/hhoffstaette/swapusage
+	arch = x86_64
+	license = custom:Apache-2.0
+	makedepends = git
+	depends = gcc-libs
+	source = git+https://github.com/hhoffstaette/swapusage#tag=1.1
+	md5sums = SKIP
+
+pkgname = swapusage
+

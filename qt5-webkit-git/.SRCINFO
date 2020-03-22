@@ -1,0 +1,37 @@
+pkgbase = qt5-webkit-git
+	pkgdesc = Classes for a WebKit2 based implementation and a new QML API
+	pkgver = r174546.4ce8ebc4094
+	pkgrel = 1
+	url = http://qt-project.org/
+	arch = x86_64
+	groups = qt
+	groups = qt5
+	license = GPL3
+	license = LGPL3
+	license = FDL
+	license = custom
+	makedepends = cmake
+	makedepends = ruby
+	makedepends = gperf
+	makedepends = python2
+	makedepends = qt5-doc
+	makedepends = qt5-tools
+	depends = qt5-location
+	depends = qt5-sensors
+	depends = qt5-webchannel
+	depends = libwebp
+	depends = libxslt
+	depends = libxcomposite
+	depends = gst-plugins-base
+	depends = hyphen
+	optdepends = gst-plugins-good: Webm codec support
+	provides = qt5-webkit
+	conflicts = qt5-webkit-ng
+	conflicts = qt5-webkit
+	conflicts = qt5-webkit-git
+	replaces = qt5-webkit-ng
+	source = git+https://github.com/annulen/webkit.git#branch=qtwebkit-5.212
+	sha256sums = SKIP
+
+pkgname = qt5-webkit-git
+

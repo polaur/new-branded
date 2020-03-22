@@ -1,0 +1,12 @@
+pkgbase = orange-maia-icon-theme
+	pkgdesc = Orange Maia folders themes
+	pkgver = 3.30
+	pkgrel = 1
+	url = https://store.kde.org/p/1218961/
+	arch = any
+	license = GPL3
+	source = Orange-Maia.tar.xz
+	md5sums = 03f86581643d67d0831d6212c610d006
+
+pkgname = orange-maia-icon-theme
+

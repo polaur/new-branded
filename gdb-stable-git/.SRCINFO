@@ -1,0 +1,36 @@
+pkgbase = gdb-stable-git
+	pkgdesc = The GNU Debugger
+	pkgver = 9.1.r99745.e4d278b881c
+	pkgrel = 1
+	url = http://www.gnu.org/software/gdb/
+	arch = x86_64
+	license = GPL3
+	makedepends = texinfo
+	makedepends = python
+	makedepends = guile2.0
+	makedepends = ncurses
+	makedepends = expat
+	makedepends = xz
+	makedepends = mpfr
+	makedepends = source-highlight
+	makedepends = git
+	source = git://sourceware.org/git/binutils-gdb.git#branch=gdb-9-branch
+	sha1sums = SKIP
+
+pkgname = gdb-stable-git
+	depends = ncurses
+	depends = expat
+	depends = xz
+	depends = mpfr
+	depends = source-highlight
+	depends = gdb-common-stable-git=9.1.r99745.e4d278b881c
+	provides = gdb
+	conflicts = gdb
+	backup = etc/gdb/gdbinit
+
+pkgname = gdb-common-stable-git
+	depends = python
+	depends = guile2.0
+	provides = gdb-common
+	conflicts = gdb-common
+

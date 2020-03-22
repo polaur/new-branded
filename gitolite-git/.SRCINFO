@@ -1,0 +1,21 @@
+pkgbase = gitolite-git
+	pkgdesc = An access control layer on top of git
+	pkgver = 3.6.11.r1.g37dfce9
+	pkgrel = 1
+	url = https://github.com/sitaramc/gitolite
+	arch = any
+	license = GPL2
+	depends = git
+	depends = perl
+	depends = openssh
+	provides = gitolite
+	conflicts = gitolite
+	source = git://github.com/sitaramc/gitolite
+	source = gitolite-sysusers.conf
+	source = gitolite-tmpfiles.conf
+	sha256sums = SKIP
+	sha256sums = 5e4f3aaa406c25fcd88fffaee74ea4878cecf1dd8c777456e4416caf35292dbf
+	sha256sums = 5682190c639618cd4744d3ae193425df1044dde4fb36acf03fc4d20423eeb10c
+
+pkgname = gitolite-git
+

@@ -1,0 +1,12 @@
+pkgbase = plasma5-transdarc-theme
+	pkgdesc = A blurry transparent theme for Plasma 5
+	pkgver = 1.0
+	pkgrel = 1
+	url = https://store.kde.org/p/1279705/
+	arch = any
+	license = GPL3
+	source = git+https://gitlab.com/sira313/transdarc.git#commit=f8aca3c5
+	sha256sums = SKIP
+
+pkgname = plasma5-transdarc-theme
+
