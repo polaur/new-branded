@@ -269,3 +269,6 @@
 	Changed: 'pak --vsc package' checks only for given package
 	Changed: warning for unsupported vcs packages (requested by pavbaranov #polaur)
 	Updated: manpages
+
+4.4 (March 20, 2020)
+	Update: big rewrite of most POLAUR code to speed it up a little
