@@ -270,5 +270,8 @@
 	Changed: warning for unsupported vcs packages (requested by pavbaranov #polaur)
 	Updated: manpages
 
-4.4 (March 20, 2020)
+4.4 (March 26, 2020)
 	Update: big rewrite of most POLAUR code to speed it up a little
+
+4.4.1 (March 28, 2020)
+	Fixed: removed left-overs: 'echo' in -Ps (issued by pavbaranov #polaur)
