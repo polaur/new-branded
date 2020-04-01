@@ -281,3 +281,6 @@
 
 4.4.3 (March 29, 2020)
 	Added: POLAUR repo names with package name to update 'pak -Pyu -C'
+
+4.5 (April 01, 2020)
+	Changed: complete rewrite of checking VCS for updates
