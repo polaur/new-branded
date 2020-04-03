@@ -1,6 +1,6 @@
-From d842a10cdb8104908de52e04ebbb73363db4c7f0 Mon Sep 17 00:00:00 2001
+From d094991c85c783ba887cf687c38ef6a8c944c638 Mon Sep 17 00:00:00 2001
 From: Piotr Gorski <lucjan.lucjanov@gmail.com>
-Date: Thu, 19 Mar 2020 16:44:20 +0100
+Date: Fri, 3 Apr 2020 18:23:38 +0200
 Subject: [PATCH] Update requirements
 
 Signed-off-by: Piotr Gorski <lucjan.lucjanov@gmail.com>
@@ -10,19 +10,20 @@ Signed-off-by: Piotr Gorski <lucjan.lucjanov@gmail.com>
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/requirements.txt b/requirements.txt
-index 4146764..5cc8bfd 100644
+index dcb9374..ff01f4f 100644
 --- a/requirements.txt
 +++ b/requirements.txt
-@@ -1,6 +1,6 @@
+@@ -1,7 +1,7 @@
  # make sure to update setup.py
  
+ argcomplete>=1.11.1
 -pygit2==1.1.1  # requires libgit2 0.99 or 1.0
 +pygit2>=1.1.1  # requires libgit2 0.99 or 1.0
  clint==0.5.1
  sh==1.12.14;sys_platform!='win32'
  pbs==0.110;sys_platform=='win32'
 diff --git a/setup.py b/setup.py
-index 12448c8..c3c2c92 100755
+index d25f6ef..c0cedeb 100755
 --- a/setup.py
 +++ b/setup.py
 @@ -68,7 +68,7 @@ setup(
@@ -32,8 +33,8 @@ index 12448c8..c3c2c92 100755
 -      'pygit2==1.1.1', # requires libgit2 0.99 or 1.0
 +      'pygit2>=1.1.1', # requires libgit2 0.99 or 1.0
        'clint>=0.3.6',
-       'sh>=1.11' if sys.platform != 'win32' else 'pbs>=0.11'
-     ],
+       'sh>=1.11' if sys.platform != 'win32' else 'pbs>=0.11',
+       'argcomplete>=1.11.1'
 -- 
-2.26.0.rc2.dirty
+2.26.0.106.g9fadedd637
 
