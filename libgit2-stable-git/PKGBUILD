@@ -5,18 +5,18 @@
 
 pkgname=libgit2-stable-git
 _pkgname=libgit2
-pkgver=0.99.0.r0.g172239021
-pkgrel=2
+pkgver=1.0.0.r0.g7d3c7057f
+pkgrel=1
 epoch=1
 pkgdesc='A linkable library for Git'
 arch=('x86_64')
 url='https://libgit2.github.com/'
-depends=('glibc' 'http-parser' 'libssh2' 'openssl' 'zlib')
-makedepends=('cmake' 'python' 'git')
+depends=('glibc' 'http-parser' 'openssl' 'pcre' 'zlib')
+makedepends=('cmake' 'libssh2' 'python' 'git')
 provides=('libgit2' 'libgit2.so')
 conflicts=('libgit2')
 license=('GPL2')
-source=("git://github.com/libgit2/libgit2#branch=maint/v0.99"
+source=("git://github.com/libgit2/libgit2#branch=maint/v1.0"
         'libgit2-0.99.0-remove_http-parse_incompatible_tests.patch')
 sha256sums=('SKIP'
             '0a597176a551dfe8dda56a46362ff1ef614928206a162d78fdf2d3074c9273ca')
@@ -50,6 +50,7 @@ check() {
 }
 
 package() {
+  depends+=('libssh2.so')
   cd "$_pkgname"
   make -C build DESTDIR="$pkgdir" install
   install -vDm 644 {AUTHORS,README.md} \
