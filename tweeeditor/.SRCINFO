@@ -1,14 +1,14 @@
 pkgbase = tweeeditor
 	pkgdesc = Simple text editor
-	pkgver = 1.0.4
+	pkgver = 1.0.4.1
 	pkgrel = 1
 	url = https://github.com/TweeChalice/TweeEditor
 	arch = x86_64
 	license = MPL
 	makedepends = qt5-tools
 	depends = qt5-base
-	source = https://github.com/TweeChalice/TweeEditor/archive/v1.0.4.tar.gz
-	sha256sums = ab4bf2b3ce7d1a84fd2bbe89977befd00b45db600d95b33bd16e21eb0f1334d0
+	source = tweeeditor-1.0.4.1.tar.gz::https://github.com/TweeChalice/TweeEditor/archive/v1.0.4.1.tar.gz
+	sha256sums = 0c873928c3aed803ea4f96de75b68d411fedebba8b3924d55a4c97f836dfa963
 
 pkgname = tweeeditor
 
