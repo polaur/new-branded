@@ -1,0 +1,44 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+# based on removed PKGBUILD from AUR by:
+# Maintainer: NamedKitten <kitteh@namedkitten.pw>
+pkgname=kittehplayer-git
+pkgver=r398.5197bfe
+pkgrel=1
+pkgdesc="A YouTube-like video player based on Qt, QML and libmpv."
+arch=('x86_64')
+url="https://github.com/NamedKitten/KittehPlayer"
+license=('MPL2')
+depends=('qt5-svg' 'mpv' 'qt5-x11extras' 'qt5-declarative')
+optdepends=(
+	'mpv-vapoursynth: for vapoursynth support.'
+	'youtube-dl: for remote video streaming'
+	'ttf-roboto: default font recommended for a youtube-like UI'
+)
+makedepends=('git' 'cmake')
+provides=("$pkgname")
+conflicts=("$pkgname")
+source=('git+https://github.com/NamedKitten/kittehplayer')
+md5sums=('SKIP')
+
+pkgver() {
+	cd "${pkgname%-*}"
+	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+    mkdir -p build
+    
+    rm $srcdir/${pkgname%-*}/CMakeCache.txt
+    }
+    
+build() {
+	cd build
+	cmake ../${pkgname%-*} \
+        -DCMAKE_INSTALL_PREFIX=/usr
+	make
+}
+
+package() {
+	cd build
+	make DESTDIR="$pkgdir/" install
+}
