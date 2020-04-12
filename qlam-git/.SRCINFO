@@ -1,0 +1,17 @@
+pkgbase = qlam-git
+	pkgdesc = Qt 5 UI for ClamAV
+	pkgver = r14.10738d3
+	pkgrel = 1
+	url = https://github.com/darrenedale/Qlam
+	arch = x86_64
+	license = GPL
+	makedepends = git
+	makedepends = qt5-tools
+	depends = hicolor-icon-theme
+	depends = qt5-base
+	optdepends = clamav
+	source = git+https://github.com/darrenedale/Qlam.git
+	sha256sums = SKIP
+
+pkgname = qlam-git
+
