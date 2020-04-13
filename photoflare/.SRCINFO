@@ -1,0 +1,19 @@
+pkgbase = photoflare
+	pkgdesc = Quick, simple but powerful Cross Platform image editor (stable version).
+	pkgver = 1.6.4
+	pkgrel = 1
+	url = http://photoflare.io/
+	arch = x86_64
+	license = GPL3
+	makedepends = qt5-tools
+	depends = graphicsmagick
+	depends = hicolor-icon-theme
+	depends = qt5-base
+	provides = photoflare
+	conflicts = photoflare
+	replaces = photofiltrelx
+	source = photoflare-1.6.4.tar.gz::https://github.com/PhotoFlare/photoflare/archive/v1.6.4.tar.gz
+	sha256sums = b48fdd56feb68a1bc688fe10892658fdc29a200830774c500aed9b819d988b09
+
+pkgname = photoflare
+

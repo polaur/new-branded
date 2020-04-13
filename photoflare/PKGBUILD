@@ -1,0 +1,29 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+# loosely based on photoflare-git PKGBUILD by:
+# Maintainer: Josip Ponjavic <josipponjavic at gmail dot com>
+
+pkgname=photoflare
+pkgver=1.6.4
+pkgrel=1
+pkgdesc="Quick, simple but powerful Cross Platform image editor (stable version)."
+arch=('x86_64')
+url="http://photoflare.io/"
+license=('GPL3')
+depends=('graphicsmagick' 'hicolor-icon-theme' 'qt5-base')
+makedepends=('qt5-tools')
+conflicts=("${pkgname%-*}")
+provides=("${pkgname%-*}")
+replaces=('photofiltrelx')
+source=($pkgname-$pkgver.tar.gz::"https://github.com/PhotoFlare/photoflare/archive/v${pkgver}.tar.gz")
+sha256sums=('b48fdd56feb68a1bc688fe10892658fdc29a200830774c500aed9b819d988b09')
+
+build() {
+  cd $pkgname-$pkgver
+  qmake PREFIX=/usr Photoflare.pro 
+  make
+  }
+
+package() {
+  cd $pkgname-$pkgver
+  make INSTALL_ROOT="$pkgdir" install
+  }
