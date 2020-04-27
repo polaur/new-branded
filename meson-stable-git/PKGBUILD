@@ -2,8 +2,8 @@
 # Contributor: nontlikeuname
 
 pkgname=meson-stable-git
-pkgver=0.53.2.r8647.g156e06619
-pkgrel=3
+pkgver=0.54.1.r9069.g5a2f61d26
+pkgrel=1
 pkgdesc="SCons-like build system that use python as a front-end language and Ninja as a building backend"
 arch=(any)
 url="http://mesonbuild.com/"
@@ -18,14 +18,14 @@ checkdepends=('gcc-objc' 'vala' 'rust' 'gcc-fortran' 'mono' 'boost' 'qt5-base' '
               'libelf' 'python-pytest-xdist')
 provides=('meson')
 conflicts=('meson')
-source=('git+https://github.com/mesonbuild/meson#branch=0.53'
+source=('git+https://github.com/mesonbuild/meson#branch=0.54'
         'arch-meson'
         'skip-test.diff'
-        '0001-environment-Fix-construction-of-CudaLinker.patch')
+        '0001-Fix-meson_jar_template-so-test-suite-passes.patch')
 md5sums=('SKIP'
          'b85d62ecca0729f0c5168f759a2ff37d'
          '28b5b8cac7121217b38e0eb84541e574'
-         'afaeedc97fef500cd174206f93eea708')
+         'f04ff6bcec901d92dcf69e5267220eb4')
 
 prepare() {
         cd meson
@@ -33,8 +33,8 @@ prepare() {
         # Our containers do not allow sanitizers to run
         patch -Np1 -i ../skip-test.diff
         
-        # Fix CUDA
-        patch -Np1 -i ../0001-environment-Fix-construction-of-CudaLinker.patch
+        # https://github.com/mesonbuild/meson/pull/6868
+        patch -Np1 -i ../0001-Fix-meson_jar_template-so-test-suite-passes.patch
 }
 
 pkgver() {
