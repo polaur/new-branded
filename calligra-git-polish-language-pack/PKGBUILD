@@ -1,7 +1,7 @@
 # Maintainer: pavbaranov <pavbaranov at gmail dot com>
 
 pkgname=calligra-git-polish-language-pack
-pkgver=1
+pkgver=3.2
 pkgrel=1
 pkgdesc="Polish language to calligra-git"
 arch=('any')
@@ -11,7 +11,7 @@ conflicts=(calligra)
  
 source=("$pkgname.tar.gz")
  
-sha256sums=('5b1f6ed25ed2efa880efba14001de289ed15cce97720123490a219beea95a6e4')
+sha256sums=('9ee67fe1ba650c3f6541cdd7d7b21b0af58d2a3592aa32b53b40cc077abef39d')
  
 package(){
  mv "$srcdir/usr" "$pkgdir/"
