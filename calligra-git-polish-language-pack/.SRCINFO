@@ -1,13 +1,13 @@
 pkgbase = calligra-git-polish-language-pack
 	pkgdesc = Polish language to calligra-git
-	pkgver = 1
+	pkgver = 3.2
 	pkgrel = 1
 	url = https://forum.archlinux.org
 	arch = any
 	license = GPL
 	conflicts = calligra
 	source = calligra-git-polish-language-pack.tar.gz
-	sha256sums = 5b1f6ed25ed2efa880efba14001de289ed15cce97720123490a219beea95a6e4
+	sha256sums = 9ee67fe1ba650c3f6541cdd7d7b21b0af58d2a3592aa32b53b40cc077abef39d
 
 pkgname = calligra-git-polish-language-pack
 
