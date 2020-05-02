@@ -23,11 +23,6 @@ pkgver() {
 
 prepare() {
   mkdir -p build
-  
-  #cd "$srcdir/photivo"
-
-  # avoid installing shortcuts to the home
- # sed '/INSTALLS\s*+=\s*shortcut2/ d' -i photivo.pro
 }
 
 build() {
