@@ -1,0 +1,47 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+pkgname=photivo-gimpless-git
+pkgver=r1132.1ed2499
+pkgrel=1
+pkgdesc="Free and open source photo processor without GIMP integration"
+arch=('x86_64')
+url="http://photivo.org/"
+license=('GPL3')
+depends=('exiv2' 'qt5-base' 'fftw' 'graphicsmagick' 'lensfun' 'liblqr' 'libraw')
+makedepends=('git')
+provides=('photivo' 'photivo-hg')
+conflicts=('photivo' 'photivo-hg')
+source=('git+https://bitbucket.org/Photivo/photivo.git')
+md5sums=('SKIP')
+
+pkgver() {
+  cd "${pkgname%%-*}"
+  ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  )
+}
+
+prepare() {
+  mkdir -p build
+  
+  #cd "$srcdir/photivo"
+
+  # avoid installing shortcuts to the home
+ # sed '/INSTALLS\s*+=\s*shortcut2/ d' -i photivo.pro
+}
+
+build() {
+  cd build
+
+  cmake ../${pkgname%%-*} \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_BUILD_TYPE=Release 
+  make
+}
+
+package() {
+  cd build
+
+  make DESTDIR="$pkgdir" install
+  rm -rf "$pkgdir"/home
+}
