@@ -1,0 +1,35 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=koi-git
+pkgver=r38.d66f8dd
+pkgrel=1
+pkgdesc="Theme scheduling for KDE Plasma Desktop"
+arch=('x86_64')
+url="https://github.com/baduhai/Koi"
+license=('LGPL3')
+depends=('qt5-base')
+makedepends=('git' 'qt5-tools')
+source=('git+https://github.com/baduhai/Koi.git')
+md5sums=('SKIP')
+
+pkgver() {
+  cd Koi
+  ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  )
+}
+
+build() {
+  cd Koi/src
+
+  qmake Koi.pro PREFIX=/usr 
+  make
+}
+
+package() {
+  cd Koi/src
+
+  install -Dm655 "$srcdir/Koi/src/Koi" "$pkgdir/usr/bin/koi" 
+#  make INSTALL_ROOT="$pkgdir" install
+}

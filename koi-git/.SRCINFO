@@ -1,0 +1,15 @@
+pkgbase = koi-git
+	pkgdesc = Theme scheduling for KDE Plasma Desktop
+	pkgver = r38.d66f8dd
+	pkgrel = 1
+	url = https://github.com/baduhai/Koi
+	arch = x86_64
+	license = LGPL3
+	makedepends = git
+	makedepends = qt5-tools
+	depends = qt5-base
+	source = git+https://github.com/baduhai/Koi.git
+	md5sums = SKIP
+
+pkgname = koi-git
+
