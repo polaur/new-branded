@@ -1,0 +1,14 @@
+pkgbase = qnetload-git
+	pkgdesc = Replament of xnetload
+	pkgver = r125.44e1d1b
+	pkgrel = 1
+	url = https://github.com/cpina/qnetload
+	arch = x86_64
+	license = GPL3
+	makedepends = git
+	depends = qt5-base
+	source = git+https://github.com/cpina/qnetload.git
+	md5sums = SKIP
+
+pkgname = qnetload-git
+
