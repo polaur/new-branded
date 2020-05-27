@@ -4,7 +4,7 @@
 
 pkgname=dkms-git
 _pkgname=dkms
-pkgver=2.8.1.r20.gc4f3db2
+pkgver=2.8.2.r2.g0a05477
 pkgrel=1
 pkgdesc='Dynamic Kernel Modules System'
 arch=('any')
@@ -23,11 +23,13 @@ provides=('dkms')
 source=('git://github.com/dell/dkms'
         'hook.install'
         'hook.remove'
-        'hook.sh')
+        'hook.sh'
+        '0001-Revert-Make-newly-installed-modules-available-immedi.patch')
 md5sums=('SKIP'
          'be9784c5c5bbc92fa2d18f0b5f4cd0c4'
          'b7b9f471a84aecbe063065db98f45162'
-         '80632f6a454b35bcade2bed287f13c7b')
+         'e62b8b3746f5a932e6079d7f69be299d'
+         'd3b91ef709f567a375f4bbdbd3291d2b')
 
 pkgver() {
   cd dkms
