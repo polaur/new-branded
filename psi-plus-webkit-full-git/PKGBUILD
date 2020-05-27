@@ -9,7 +9,7 @@ _dev_plugins=
 ### Do not edit below this line unless you know what you're doing
 
 pkgname=psi-plus-webkit-full-git
-pkgver=1.4.1123.r1151.g2170e90
+pkgver=1.4.1306.r1151.g2170e90
 pkgrel=1
 pkgdesc="Psi+ is a powerful XMPP client (Qt, C++) designed for the XMPP power users (built with Qt 5.x and Webkit) with plugins"
 url="https://psi-plus.com"
@@ -56,7 +56,7 @@ prepare() {
   git submodule update --remote
 
   # copy to proper path
-  cp -r $srcdir/plugins $srcdir/psi/src/
+  cp -r $srcdir/plugins $srcdir/psi
 
   # set version 
   cd $srcdir/psi-plus/admin 
