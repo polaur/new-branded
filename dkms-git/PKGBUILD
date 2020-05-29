@@ -5,7 +5,7 @@
 pkgname=dkms-git
 _pkgname=dkms
 pkgver=2.8.2.r2.g0a05477
-pkgrel=1
+pkgrel=2
 pkgdesc='Dynamic Kernel Modules System'
 arch=('any')
 url='http://linux.dell.com/dkms/'
@@ -23,12 +23,14 @@ provides=('dkms')
 source=('git://github.com/dell/dkms'
         'hook.install'
         'hook.remove'
+        'hook.upgrade'
         'hook.sh'
         '0001-Revert-Make-newly-installed-modules-available-immedi.patch')
 md5sums=('SKIP'
          'be9784c5c5bbc92fa2d18f0b5f4cd0c4'
-         'b7b9f471a84aecbe063065db98f45162'
-         'e62b8b3746f5a932e6079d7f69be299d'
+         'fa7e55e109140f556d8db2410b2a9d7c'
+         'a9adccf8af1354dda5f2507011dca849'
+         'e048f2b7e7b59131eb9a21ca44ae418d'
          'd3b91ef709f567a375f4bbdbd3291d2b')
 
 pkgver() {
@@ -56,12 +58,19 @@ prepare() {
 }
 
 package() {
-  # alpm hook
+  # alpm hooks
   install -D -m 644 hook.install "$pkgdir/usr/share/libalpm/hooks/70-dkms-install.hook"
-  install -D -m 644 hook.remove "$pkgdir/usr/share/libalpm/hooks/70-dkms-remove.hook"
+  # both upgrade and remove hooks are removing dkms modules.
+  # remove always call depmod while upgrade never, as install will later.
+  # upgrade is run before remove in order to have the cleanest depmod file,
+  # if something goes wrong before the depmod call in install hook.
+  install -D -m 644 hook.upgrade "$pkgdir/usr/share/libalpm/hooks/70-dkms-upgrade.hook"
+  install -D -m 644 hook.remove "$pkgdir/usr/share/libalpm/hooks/71-dkms-remove.hook"
+  # hook helper
   install -D -m 755 hook.sh "$pkgdir/usr/lib/dkms/alpm-hook"
   # upstream installer
   cd dkms
+  # we don't need kconf files, so we install them outside $pkgdir
   make \
     DESTDIR="$pkgdir" \
     SBIN="$pkgdir/usr/bin" \
