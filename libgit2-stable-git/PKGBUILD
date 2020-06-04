@@ -5,7 +5,7 @@
 
 pkgname=libgit2-stable-git
 _pkgname=libgit2
-pkgver=1.0.0.r0.g7d3c7057f
+pkgver=1.0.1.r0.g0ced29612
 pkgrel=1
 epoch=1
 pkgdesc='A linkable library for Git'
@@ -36,9 +36,10 @@ prepare() {
 build() {
   cd "$_pkgname"
   cmake -DCMAKE_INSTALL_PREFIX=/usr \
-        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_BUILD_TYPE='None' \
         -DUSE_HTTP_PARSER=system \
         -DTHREADSAFE=ON \
+        -Wno-dev \
         -B build \
         -S .
   make -C build VERBOSE=1
