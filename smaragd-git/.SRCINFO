@@ -11,7 +11,7 @@ pkgbase = smaragd-git
 	depends = cairo
 	depends = kdecoration
 	depends = kconfig
-	source = git+https://anongit.kde.org/smaragd.git
+	source = git+https://invent.kde.org/plasma/smaragd.git
 	sha256sums = SKIP
 
 pkgname = smaragd-git

@@ -1,8 +1,7 @@
 # Mantainer: pavbaranov <pavbaranov@gmail.com>
 
 pkgname=smaragd-git
-_pkgname=smaragd
-pkgver=v0.1.1.r19.g5f78964 
+pkgver=v0.1.1.r34.g70ae44c 
 pkgrel=1
 pkgdesc="KWin plugin to support Emerald themes in KDE"
 arch=('x86_64')
@@ -10,14 +9,16 @@ url="https://www.opendesktop.org/p/1167274/"
 license=('GPL3')
 depends=('kcoreaddons' 'cairo' 'kdecoration' 'kconfig')
 makedepends=('git' 'extra-cmake-modules') 
-source=(
-	"git+https://anongit.kde.org/smaragd.git") 
+source=("git+https://invent.kde.org/plasma/smaragd.git") 
 sha256sums=('SKIP')
 
 pkgver() {
-  cd "$_pkgname"
-  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
-}
+  cd ${pkgname%-*}
+    ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  )
+  }
 
 prepare() {
     mkdir -p build
@@ -25,10 +26,9 @@ prepare() {
 
 build() {
     cd build
-    cmake ../${_pkgname} \
+    cmake ../${pkgname%-*} \
         -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_BUILD_TYPE=Release 
-#        -DKDE_INSTALL_LIBDIR=lib \
 	make
 	}
 
