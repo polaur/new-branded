@@ -2,17 +2,17 @@
 
 pkgname=kdiff3-git
 _pkgname=kdiff3
-pkgver=20181104.r625.gfc7be62
+pkgver=20200614.r1337.g83b89e7
 pkgrel=1
 pkgdesc="A KDE file comparator/merge tool"
 arch=('x86_64')
 url="https://quickgit.kde.org/?p=scratch%2Fthomasfischer%2Fkdiff3.git"
 license=('GPL')
 depends=('kparts')
-makedepends=('extra-cmake-modules' 'kdoctools' 'git')
+makedepends=('extra-cmake-modules' 'kdoctools' 'git' 'boost')
 conflicts=('kdiff3')
 provides=('kdiff3')
-source=("git://git.kde.org/kdiff3.git")
+source=('git+https://anongit.kde.org/kdiff3.git')
 sha512sums=('SKIP')
 
 pkgver() {
@@ -20,18 +20,12 @@ pkgver() {
   echo "$(git show --format='%cI' -q master | sed 's/T.*//g;s/-//g').r$(git rev-list --count HEAD).g$(git rev-parse --short HEAD)"
 }
 
-prepare() {
-  mkdir -p "$srcdir/build"
-}
-
 build() {
-  cd build
-  cmake ../$_pkgname \
+  cmake -B build -S $_pkgname \
     -DCMAKE_INSTALL_PREFIX=/usr
-  make
+  cmake --build build
 }
 
 package() {
-  cd build
-  make DESTDIR="$pkgdir/" install
+  DESTDIR="$pkgdir" cmake --install build
 }
