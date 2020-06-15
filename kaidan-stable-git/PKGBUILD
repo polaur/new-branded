@@ -2,7 +2,7 @@
 # Contributor: Emmanuel Gil Peyrot <linkmauve@linkmauve.fr>
 
 pkgname=kaidan-stable-git
-pkgver=0.5.0.8.r1031.g7f78ac7
+pkgver=0.5.0.8.r1033.g08eb774e
 pkgrel=1
 pkgdesc="Simple and user-friendly Jabber/XMPP client for every device"
 arch=('x86_64')
@@ -12,7 +12,7 @@ depends=('knotifications' 'kirigami2' 'qt5-location' 'qt5-svg' 'qxmpp' 'zxing-cp
 makedepends=('extra-cmake-modules' 'git')
 conflicts=('kaidan')
 provides=('kaidan')
-source=("git://anongit.kde.org/kaidan.git#branch=stable")
+source=("git+https://anongit.kde.org/kaidan.git#branch=stable")
 sha256sums=('SKIP')
 
 pkgver() {
@@ -21,19 +21,12 @@ pkgver() {
   echo "${_ver}.r$(git rev-list --count HEAD).g$(git rev-parse --short HEAD)"
 }
 
-prepare() {
-  cd "$srcdir/kaidan"
-  mkdir -p build
-}
-
 build() {
-  cd "$srcdir/kaidan/build"
-  cmake .. \
+  cmake -B build -S kaidan \
     -DI18N=ON
-  make
+  cmake --build build
 }
 
 package() {
-  cd "$srcdir/kaidan/build"
-  make DESTDIR="$pkgdir/" install
+  DESTDIR="$pkgdir" cmake --install build
 }
