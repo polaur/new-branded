@@ -16,7 +16,7 @@ pkgbase = kooka-git
 	provides = kooka
 	conflicts = kooka
 	replaces = kooka
-	source = git+git://anongit.kde.org/kooka.git
+	source = git+https://invent.kde.org/graphics/kooka.git
 	sha256sums = SKIP
 
 pkgname = kooka-git

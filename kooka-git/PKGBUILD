@@ -2,7 +2,7 @@
 # Maintainer: Piotr Gorski <lucjan.lucjanov@gmail.com>
  
 pkgname=kooka-git
-pkgver=0.61.243.g723404f
+pkgver=0.61.355.g089f9f8
 pkgrel=1
 pkgdesc='The scanning application and libkscan library for Plasma 5'
 arch=('x86_64')
@@ -14,7 +14,7 @@ optdepends=('ocrad' 'gocr')
 provides=("${pkgname%-*}")
 conflicts=("${pkgname%-*}")
 replaces=("${pkgname%-*}")
-source=('git+git://anongit.kde.org/kooka.git')
+source=('git+https://invent.kde.org/graphics/kooka.git')
 sha256sums=('SKIP')
 
 pkgver() {
