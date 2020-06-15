@@ -2,7 +2,7 @@
 # Maintainer: Piotr Gorski <lucjan.lucjanov@gmail.com>
 
 pkgname=kopete-git
-pkgver=17.08.3.309.gdf8093801
+pkgver=20.03.90.6.g63e9c110c
 pkgrel=1
 pkgdesc='The KDE Instant Manager (git version based on the KF5)'
 url='https://kde.org/applications/internet/kget/'
@@ -15,7 +15,7 @@ libkleo)
 optdepends=()
 conflicts=(kopete kdenetwork-kopete)
 replaces=(kopete kdenetwork-kopete)
-source=(git://anongit.kde.org/kopete.git)
+source=(git+https://invent.kde.org/network/kopete.git)
 sha256sums=('SKIP')
 
 pkgver() {
