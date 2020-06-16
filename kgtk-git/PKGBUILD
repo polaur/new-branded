@@ -3,8 +3,9 @@
  
 pkgname=kgtk-git
 _pkgname=kgtk
-pkgver=20200529.r35.ge586217
-pkgrel=3
+epoch=1
+pkgver=0.11.0.r35.ge586217
+pkgrel=1
 pkgdesc="KGTK Qt5/KF5 port"
 arch=('x86_64')
 url="https://github.com/sandsmark/$_pkgname"
@@ -18,7 +19,8 @@ sha256sums=('SKIP')
  
 pkgver() {
   cd $_pkgname
-  echo "$(git show --format='%cI' -q master | sed 's/T.*//g;s/-//g').r$(git rev-list --count HEAD).g$(git rev-parse --short HEAD)"
+  _ver="$(cat CMakeLists.txt | grep -m3 -e CPACK_PACKAGE_VERSION_MAJOR -e CPACK_PACKAGE_VERSION_MINOR -e CPACK_PACKAGE_VERSION_PATCH | grep -o "[[:digit:]]*" | paste -sd'.')"
+  echo "${_ver}.r$(git rev-list --count HEAD).g$(git rev-parse --short HEAD)"
 }
 
 build() {
