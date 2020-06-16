@@ -284,3 +284,8 @@
 
 4.5 (April 01, 2020)
 	Changed: complete rewrite of checking VCS for updates
+
+4.6 (June 16, 2020)
+	Fixes due to changes in auracle's locales support
+	Improvements in VCS checking
+	Improvements in mirrors checking when the mirrorlist is empty
