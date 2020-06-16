@@ -4,12 +4,12 @@
 pkgname=kgtk-git
 _pkgname=kgtk
 pkgver=20200529.r35.ge586217
-pkgrel=2
+pkgrel=3
 pkgdesc="KGTK Qt5/KF5 port"
 arch=('x86_64')
 url="https://github.com/sandsmark/$_pkgname"
 license=('GPL2')
-depends=('kdelibs4support' 'gtk3' 'gtk2')
+depends=('kio' 'ki18n' 'kwindowsystem' 'kdbusaddons')
 makedepends=('git' 'extra-cmake-modules')
 conflicts=('kgtk')
 provides=('kgtk')
