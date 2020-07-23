@@ -288,4 +288,17 @@
 4.6 (June 16, 2020)
 	Fixes due to changes in auracle's locales support
 	Improvements in VCS checking
-	Improvements in mirrors checking when the mirrorlist is empty
+	Improvements in mirrors checking when the mirrorlist is empty (issued by pavbaranov #polaur)
+
+4.7 (June 28, 2020)
+	NEW: pak archnews (number) (requested by pavbaranov #polaur)
+	Added: printing the last two news before updating stage
+	Added: pak -C -> printing the last two news at the beginning
+
+5.0 (July 23, 2020)
+	Changed: all POLAUR -Px flags to corresponding pacman flags
+	Changed: visuals when printing ArchLinux news
+	Added: separate flags to display PKGBUILDs from AUR and POLAUR
+	Added: more info to -SiP, similar as -Si, -SiA
+	Improved: --list-polaur
+	Fixes due to changes in the new asp 6

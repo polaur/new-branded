@@ -5,7 +5,7 @@
 
 pkgname=pak
 epoch=1
-pkgver=4.7
+pkgver=5.0
 pkgrel=1
 pkgdesc="Simple pacman wrapper, AUR and POLAUR helper"
 arch=('any')
@@ -26,7 +26,7 @@ conflicts=(pak-git)
 
 source=("https://gitlab.com/nycko123/pak/raw/master/src/${pkgname}-${pkgver}.tar.gz")
 
-sha256sums=('68ef1f8046f73f095ce527b0699cf15f320037ccbbb99fd2de6ff581ce358ac4')
+sha256sums=('d165b492c11b77ade9eb62f4f9a31188f0729ed6169a114af57425d962c883d6')
 
 package(){
  install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"
