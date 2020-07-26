@@ -2,14 +2,14 @@ pkgbase = symmy-git
 	pkgdesc = GPG symmetric encryption frontend
 	pkgver = 70
 	pkgrel = 1
-	url = https://cgit.kde.org/symmy.git
+	url = https://invent.kde.org/utilities/symmy.git
 	arch = x86_64
 	license = GPL
 	makedepends = git
 	makedepends = extra-cmake-modules
 	depends = kio
 	depends = qgpgme
-	source = git+https://anongit.kde.org/symmy.git
+	source = git+https://invent.kde.org/utilities/symmy.git
 	sha256sums = SKIP
 
 pkgname = symmy-git

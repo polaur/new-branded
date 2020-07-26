@@ -1,20 +1,23 @@
 # Maintainer: pavbaranov <pavbaranov at gmail dot com>
 
 pkgname=symmy-git
-pkgver=70
+pkgver=r135.c89e56b
 pkgrel=1
 pkgdesc='GPG symmetric encryption frontend'
 arch=('x86_64')
-url='https://cgit.kde.org/symmy.git'
+url='https://invent.kde.org/utilities/symmy.git'
 license=('GPL')
 depends=(kio qgpgme)
 makedepends=('git' 'extra-cmake-modules')
-source=("git+https://anongit.kde.org/symmy.git")
+source=("git+https://invent.kde.org/utilities/symmy.git")
 sha256sums=('SKIP')
 
 pkgver() {
-  cd ${pkgname%-*}
-  printf "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  cd "${pkgname%-*}"
+  ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  )
 }
 
 prepare() {
