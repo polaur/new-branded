@@ -1,20 +1,23 @@
 # Maintainer: pavbaranov <pavbaranov at gmail dot com>
 
 pkgname=supermenu-git
-pkgver=56
+pkgver=v1.0.10.r5.g1f6856d
 pkgrel=1
 pkgdesc='One Menu to rule the apps, find them, launch them all and unlock the power behind them'
 arch=('x86_64')
-url='https://cgit.kde.org/scratch/ngraham/supermenu.git/'
+url='https://invent.kde.org/ngraham/supermenu.git'
 license=('GPL')
 depends=('plasma-framework')
 makedepends=('git' 'extra-cmake-modules')
-source=("git+https://anongit.kde.org/scratch/ngraham/supermenu.git")
+source=("git+https://invent.kde.org/ngraham/supermenu.git")
 sha256sums=('SKIP')
 
 pkgver() {
-  cd ${pkgname%-*}
-  printf "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  cd "${pkgname%-*}"
+  ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  )
 }
 
 build() {

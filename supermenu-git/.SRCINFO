@@ -2,13 +2,13 @@ pkgbase = supermenu-git
 	pkgdesc = One Menu to rule the apps, find them, launch them all and unlock the power behind them
 	pkgver = 56
 	pkgrel = 1
-	url = https://cgit.kde.org/scratch/ngraham/supermenu.git/
+	url = https://invent.kde.org/ngraham/supermenu.git
 	arch = x86_64
 	license = GPL
 	makedepends = git
 	makedepends = extra-cmake-modules
 	depends = plasma-framework
-	source = git+https://anongit.kde.org/scratch/ngraham/supermenu.git
+	source = git+https://invent.kde.org/ngraham/supermenu.git
 	sha256sums = SKIP
 
 pkgname = supermenu-git
