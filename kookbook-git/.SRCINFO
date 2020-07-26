@@ -1,0 +1,17 @@
+pkgbase = kookbook-git
+	pkgdesc = Simple application viewer based on markdown formatted recipes
+	pkgver = r24.6f2782d
+	pkgrel = 1
+	url = https://pusling.com/blog/?p=499
+	arch = x86_64
+	license = GPL3
+	makedepends = git
+	makedepends = extra-cmake-modules
+	depends = discount
+	depends = hicolor-icon-theme
+	depends = qt5-declarative
+	source = git+https://invent.kde.org/utilities/kookbook.git
+	sha256sums = SKIP
+
+pkgname = kookbook-git
+

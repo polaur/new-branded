@@ -1,0 +1,39 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=kookbook-git
+pkgver=v0.2.1.r26.gc618b2b
+pkgrel=1
+pkgdesc="Simple application viewer based on markdown formatted recipes"
+arch=('x86_64')
+url="https://pusling.com/blog/?p=499"
+license=('GPL3')
+depends=(discount hicolor-icon-theme qt5-declarative)
+makedepends=(git extra-cmake-modules)
+source=("git+https://invent.kde.org/utilities/kookbook.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "${pkgname%-*}"
+  ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  )
+}
+
+prepare() {
+	mkdir -p build
+	}
+
+build() {
+  cd build
+
+  cmake -DCMAKE_INSTALL_PREFIX=/usr \
+        ../"${pkgname%-*}"
+
+  make
+  }
+
+package() {
+  cd build
+  make DESTDIR="$pkgdir"/ install
+  }
