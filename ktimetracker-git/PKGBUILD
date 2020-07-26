@@ -1,20 +1,23 @@
 # Maintainer: pavbaranov <pavbaranov at gmail dot com>
 
 pkgname=ktimetracker-git
-pkgver=r3381.fd55225
+pkgver=v5.0.1.r16.gb74f738
 pkgrel=1
 pkgdesc="Todo management and time tracker"
 arch=(x86_64)
-url="https://cgit.kde.org/ktimetracker.git"
+url="https://invent.kde.org/pim/ktimetracker.git"
 license=(LGPL)
 depends=(kcalcore kidletime kio hicolor-icon-theme)
 makedepends=(extra-cmake-modules git)
-source=('git+https://anongit.kde.org/ktimetracker.git')
+source=('git+https://invent.kde.org/pim/ktimetracker.git')
 md5sums=('SKIP')
 
 pkgver() {
-  cd ${pkgname%-*}
-  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  cd "${pkgname%-*}"
+  ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  )
 }
 
 prepare() {
