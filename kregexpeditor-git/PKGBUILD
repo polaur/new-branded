@@ -1,20 +1,23 @@
 # Maintainer: pavbaranov <pavbaranov at gmail dot com>
 
 pkgname=kregexpeditor-git
-pkgver=632.7eb3a8b
+pkgver=r654.9c1811e
 pkgrel=1
 pkgdesc="GUI for creating and editing regular expressions"
 arch=(x86_64)
-url="https://cgit.kde.org/kregexpeditor.git/"
+url="https://invent.kde.org/utilities/kregexpeditor.git"
 license=('GPL')
 depends=('hicolor-icon-theme' 'ktextwidgets')
 makedepends=('git' 'extra-cmake-modules' 'python' 'kdoctools')
-source=('git+git://anongit.kde.org/kregexpeditor.git')
+source=('git+https://invent.kde.org/utilities/kregexpeditor.git')
 md5sums=('SKIP')
 
 pkgver() {
-	cd "${pkgname%-*}"
-	echo $(git rev-list --count master).$(git rev-parse --short master)
+  cd "${pkgname%-*}"
+  ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  )
 }
 
 prepare() {
