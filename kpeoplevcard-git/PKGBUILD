@@ -1,11 +1,11 @@
 # Maintainer: pavbaranov <pavbaranov@gmail.com>
  
 pkgname=kpeoplevcard-git
-pkgver=r18.a170ed3
+pkgver=v0.1.r1.g778d034
 pkgrel=1
 pkgdesc='Makes it possible to expose vcards to KPeople'
 arch=('x86_64')
-url="https://cgit.kde.org/kpeoplevcard.git"
+url="https://invent.kde.org/pim/kpeoplevcard.git"
 license=('GPL3')
 depends=('kpeople' 'kcontacts')
 makedepends=('extra-cmake-modules' 'git')
@@ -13,13 +13,16 @@ makedepends=('extra-cmake-modules' 'git')
 provides=("${pkgname%-*}")
 conflicts=("${pkgname%-*}")
 replaces=("${pkgname%-*}")
-source=('git+git://anongit.kde.org/kpeoplevcard.git')
+source=('git+https://invent.kde.org/pim/kpeoplevcard.git')
 sha256sums=('SKIP')
 
 pkgver() {
-  cd ${pkgname%-*}
-  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-  }
+  cd "${pkgname%-*}"
+  ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  )
+}
 
 prepare() {
   mkdir build

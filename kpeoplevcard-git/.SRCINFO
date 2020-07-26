@@ -1,8 +1,8 @@
 pkgbase = kpeoplevcard-git
 	pkgdesc = Makes it possible to expose vcards to KPeople
-	pkgver = r18.a170ed3
+	pkgver = v0.1.r1.g778d034
 	pkgrel = 1
-	url = https://cgit.kde.org/kpeoplevcard.git
+	url = https://invent.kde.org/pim/kpeoplevcard.git
 	arch = x86_64
 	license = GPL3
 	makedepends = extra-cmake-modules
@@ -12,7 +12,7 @@ pkgbase = kpeoplevcard-git
 	provides = kpeoplevcard
 	conflicts = kpeoplevcard
 	replaces = kpeoplevcard
-	source = git+git://anongit.kde.org/kpeoplevcard.git
+	source = git+https://invent.kde.org/pim/kpeoplevcard.git
 	sha256sums = SKIP
 
 pkgname = kpeoplevcard-git
