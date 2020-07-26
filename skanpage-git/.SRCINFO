@@ -1,8 +1,8 @@
 pkgbase = skanpage-git
 	pkgdesc = Multipage document scanner application
-	pkgver = 8
-	pkgrel = 3
-	url = https://github.com/scratch/sars/skanpage.git
+	pkgver = r9.730a125
+	pkgrel = 1
+	url = https://invent.kde.org/sars/skanpage.git
 	arch = x86_64
 	license = GPL
 	makedepends = git
