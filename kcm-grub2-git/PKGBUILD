@@ -3,7 +3,7 @@
 # Maintainer : Solomon Choina <shlomochoina@gmail.com>
 
 pkgname=kcm-grub2-git
-pkgver=0.6.4.68.g1550b7f
+pkgver=v0.6.4.r75.g8e3c6ec
 pkgrel=1
 pkgdesc="A KDE Control Module for configuring the GRUB2 bootloader"
 arch=('x86_64')
@@ -11,12 +11,15 @@ url="https://www.pling.com/p/1127844/"
 license=('GPL3')
 depends=('imagemagick' 'hwinfo' 'kio')
 makedepends=('git' 'qt5-tools')
-source=("git+https://anongit.kde.org/kcm-grub2.git")
+source=("git+https://invent.kde.org/system/kcm-grub2.git")
 sha256sums=('SKIP')
 
 pkgver() {
   cd "${pkgname%-*}"
-  git describe --long --tags | sed 's/^v//;s/-/./g'
+  ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  )
 }
 
 build() {

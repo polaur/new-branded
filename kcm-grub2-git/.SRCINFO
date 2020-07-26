@@ -10,7 +10,7 @@ pkgbase = kcm-grub2-git
 	depends = imagemagick
 	depends = hwinfo
 	depends = kio
-	source = git+https://anongit.kde.org/kcm-grub2.git
+	source = git+https://invent.kde.org/system/kcm-grub2.git
 	sha256sums = SKIP
 
 pkgname = kcm-grub2-git
