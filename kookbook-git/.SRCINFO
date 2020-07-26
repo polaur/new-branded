@@ -10,7 +10,7 @@ pkgbase = kookbook-git
 	depends = discount
 	depends = hicolor-icon-theme
 	depends = qt5-declarative
-	source = git+https://anongit.kde.org/scratch/sune/kookbook.git
+	source = git+https://invent.kde.org/utilities/kookbook.git
 	sha256sums = SKIP
 
 pkgname = kookbook-git
