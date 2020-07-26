@@ -1,8 +1,8 @@
 pkgbase = ksystraycmd-git
 	pkgdesc = Utility that allows you to run any application in system tray
-	pkgver = 1
+	pkgver = r1.b01df05
 	pkgrel = 1
-	url = https://cgit.kde.org/scratch/hein/ksystraycmd.git
+	url = https://invent.kde.org/hein/ksystraycmd.git
 	arch = x86_64
 	license = GPL
 	makedepends = git
@@ -10,7 +10,7 @@ pkgbase = ksystraycmd-git
 	depends = ki18n
 	depends = kcoreaddons
 	depends = kwindowsystem
-	source = git+https://anongit.kde.org/scratch/hein/ksystraycmd.git
+	source = git+https://invent.kde.org/hein/ksystraycmd.git
 	sha256sums = SKIP
 
 pkgname = ksystraycmd-git
