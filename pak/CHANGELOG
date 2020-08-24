@@ -302,3 +302,8 @@
 	Added: more info to -SiP, similar as -Si, -SiA
 	Improved: --list-polaur
 	Fixes due to changes in the new asp 6
+
+5.1 (August 24, 2020)
+	Added: pak -SyuA
+	Improved: pak --vcs
+	Improved: online checking
