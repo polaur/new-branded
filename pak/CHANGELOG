@@ -307,3 +307,9 @@
 	Added: pak -SyuA
 	Improved: pak --vcs
 	Improved: online checking
+
+5.1.1 (August 25, 2020)
+	Fixed left-overs: pak -Py to pak -SyP
+
+5.1.2 (August 25, 2020)
+	Improved: the ping command to reduce start timeouts when it's being run on other 'fluffy' network configurations
