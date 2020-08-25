@@ -307,3 +307,6 @@
 	Added: pak -SyuA
 	Improved: pak --vcs
 	Improved: online checking
+
+5.1.1 (August 25, 2020)
+	Fixed left-overs: pak -Py to pak -SyP
