@@ -1,7 +1,7 @@
 # Maintainer: pavbaranov <pavbaranov at gmail dot com>
 
 pkgname=plasma-disks-git
-pkgver=r110.cf0ece6
+pkgver=5.19.90.r115.g9d80fb0
 pkgrel=1
 pkgdesc='Monitors S.M.A.R.T. capable devices for imminent failure'
 arch=(x86_64)
@@ -15,11 +15,9 @@ source=("git+https://invent.kde.org/plasma/plasma-disks.git")
 sha256sums=('SKIP')
 
 pkgver() {
-  cd plasma-disks
-    ( set -o pipefail
-    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
-    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-  )
+  cd ${pkgname%-*}
+  _ver="$(cat CMakeLists.txt | grep -m1 'set(PROJECT_VERSION' | cut -d '"' -f2 | tr - .)"
+  echo "${_ver}.r$(git rev-list --count HEAD).g$(git rev-parse --short HEAD)"
 }
 
 build() {
