@@ -313,3 +313,6 @@
 
 5.1.2 (August 25, 2020)
 	Improved: the ping command to reduce start timeouts when it's being run on other 'fluffy' network configurations
+
+5.1.3 (September 30, 2020)
+	Visual output improved
