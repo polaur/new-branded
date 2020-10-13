@@ -11,6 +11,7 @@ depends=('kcmutils' 'kcoreaddons' 'ki18n' 'kdeclarative')
 optdepends=('ufw: for proper working')
 source=('git+https://invent.kde.org/network/plasma-firewall.git')
 sha256sums=('SKIP')
+#conflicts=('plasma-firewall-git')
 
 pkgver() {
   cd ${pkgname%-*}
@@ -22,7 +23,10 @@ pkgver() {
 
 build() {
   cmake -B build -S ${pkgname%-*} \
-    -DBUILD_TESTING=OFF 
+    -DBUILD_TESTING=OFF \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DKDE_INSTALL_LIBDIRA=lib \
+    -DKDE_INSTALL_USE_QT_SYS_PATHS=ON
   cmake --build build
 }
 
