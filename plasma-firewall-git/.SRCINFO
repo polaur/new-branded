@@ -1,0 +1,18 @@
+pkgbase = plasma-firewall-git
+	pkgver = r334.7154814
+	pkgrel = 1
+	url = https://invent.kde.org/network/plasma-firewall
+	arch = x86_64
+	license = FDL1.2
+	license = GPL2
+	license = LGPL
+	makedepends = git
+	makedepends = extra-cmake-modules
+	makedepends = ufw
+	depends = kcmutils
+	optdepends = ufw: for proper working
+	source = git+https://invent.kde.org/network/plasma-firewall.git
+	sha256sums = SKIP
+
+pkgname = plasma-firewall-git
+

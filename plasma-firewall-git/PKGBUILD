@@ -1,13 +1,13 @@
 # Maintanier: pavbaranov <pavbaranov at gmail dot com>
 
 pkgname=plasma-firewall-git
-pkgver=r311.4990b60
+pkgver=r334.7154814
 pkgrel=1
 arch=('x86_64')
 license=('FDL1.2' 'GPL2' 'LGPL')
 url='https://invent.kde.org/network/plasma-firewall'
 makedepends=('git' 'extra-cmake-modules' 'ufw')
-depends=('kcmutils' 'kcoreaddons' 'ki18n' 'kdeclarative')
+depends=('kcmutils')
 optdepends=('ufw: for proper working')
 source=('git+https://invent.kde.org/network/plasma-firewall.git')
 sha256sums=('SKIP')
@@ -25,7 +25,7 @@ build() {
   cmake -B build -S ${pkgname%-*} \
     -DBUILD_TESTING=OFF \
     -DCMAKE_BUILD_TYPE=Release \
-    -DKDE_INSTALL_LIBDIRA=lib \
+    -DKDE_INSTALL_LIBDIR=lib \
     -DKDE_INSTALL_USE_QT_SYS_PATHS=ON
   cmake --build build
 }
