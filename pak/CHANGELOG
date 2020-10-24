@@ -316,3 +316,6 @@
 
 5.1.3 (September 30, 2020)
 	Visual output improved
+
+5.1.4 (October 24, 2020)
+	Improved: -G, -GA, -GB (requested by pavbaranov #polaur + more)
