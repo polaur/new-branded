@@ -1,0 +1,40 @@
+# Maintainer: Damian N. <nycko123 at gmail>
+
+pkgname=youtube-dlc-git
+pkgver=1
+pkgrel=1
+pkgdesc="Fork of youtube-dl - download videos from youtube.com or other video platforms"
+arch=('any')
+url="https://github.com/blackjack4494/yt-dlc"
+license=('custom')
+depends=('python' 'python-setuptools')
+makedepends=('git' 'pandoc' 'zip')
+optdepends=('ffmpeg: for video post-processing'
+            'rtmpdump: for rtmp streams support'
+            'atomicparsley: for embedding thumbnails into m4a files'
+            'python-pycryptodome: for hlsnative downloader')
+conflicts=('youtube-dlc')
+source=("${pkgname%-*}::git+https://github.com/blackjack4494/yt-dlc.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd ${pkgname%-*}
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+  cd ${pkgname%-*}
+  sed -i 's|etc/bash_completion.d|share/bash-completion/completions|' setup.py
+  sed -i 's|etc/fish/completions|share/fish/vendor_completions.d|' setup.py
+}
+
+build() {
+  cd ${pkgname%-*}
+  make PREFIX="${pkgdir}/usr"
+}
+
+package() {
+  cd ${pkgname%-*}
+  make install PREFIX="${pkgdir}/usr"
+  install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname%-*}/LICENSE"
+}
