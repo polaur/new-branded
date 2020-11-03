@@ -3,8 +3,8 @@
 
 _pkgbase="sddm"
 pkgname="$_pkgbase-dev-git"
-pkgver=0.18.0.48.gc675273
-pkgrel=2
+pkgver=0.19.0.1.gbc86e08
+pkgrel=1
 pkgdesc="The Simple Desktop Display Manager"
 arch=("x86_64")
 url="https://github.com/sddm/sddm"
@@ -44,8 +44,8 @@ build() {
 package() {
   DESTDIR="$pkgdir" cmake --install build
 
-  install -Dm644 "$srcdir"/sddm.sysusers "$pkgdir"/usr/lib/sysusers.d/sddm.conf
-  install -Dm644 "$srcdir"/sddm.tmpfiles "$pkgdir"/usr/lib/tmpfiles.d/sddm.conf
+  install -Dm644 sddm.sysusers "$pkgdir"/usr/lib/sysusers.d/sddm.conf
+  install -Dm644 sddm.tmpfiles "$pkgdir"/usr/lib/tmpfiles.d/sddm.conf
 
   install -d "$pkgdir"/usr/lib/sddm/sddm.conf.d
   "$pkgdir"/usr/bin/sddm --example-config > "$pkgdir"/usr/lib/sddm/sddm.conf.d/default.conf
