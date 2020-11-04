@@ -1,6 +1,6 @@
 pkgbase = youtube-dlc-git
 	pkgdesc = Fork of youtube-dl - download videos from youtube.com or other video platforms
-	pkgver = 1
+	pkgver = r18226.7166f47b1
 	pkgrel = 1
 	url = https://github.com/blackjack4494/yt-dlc
 	arch = any
@@ -19,4 +19,3 @@ pkgbase = youtube-dlc-git
 	sha256sums = SKIP
 
 pkgname = youtube-dlc-git
-
