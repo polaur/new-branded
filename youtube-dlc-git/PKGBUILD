@@ -1,7 +1,7 @@
 # Maintainer: Damian N. <nycko123 at gmail>
 
 pkgname=youtube-dlc-git
-pkgver=1
+pkgver=r18226.7166f47b1
 pkgrel=1
 pkgdesc="Fork of youtube-dl - download videos from youtube.com or other video platforms"
 arch=('any')
