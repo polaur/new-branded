@@ -1,6 +1,6 @@
 pkgbase = polaur
 	pkgdesc = nycko123 script for browsing and download POLAUR projects
-	pkgver = 4.3
+	pkgver = 4.4
 	pkgrel = 1
 	url = https://forum.archlinux.org.pl/viewtopic.php?pid=4384#p4384
 	arch = any
@@ -9,7 +9,7 @@ pkgbase = polaur
 	depends = bash
 	depends = curl
 	source = polaur
-	sha256sums = 94bb6eb6132f2e12a28a970c88b86d70ebdabc7925842a270e0993de93a59670
+	sha256sums = 0396431170f18b3030b855dc7dd1b79707ddd21c3ef83090404634dc20960691
 
 pkgname = polaur
 

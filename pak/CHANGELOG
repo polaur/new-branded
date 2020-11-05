@@ -319,3 +319,7 @@
 
 5.1.4 (October 24, 2020)
 	Improved: -G, -GA, -GB (requested by pavbaranov #polaur + more)
+
+5.1.5 (November 04, 2020)
+	New: -ScP compress POLAUR git repositories
+	pak -d: sudo -k downgrade (upstream -> downgrade doesn't run without root priviledges anymore)
