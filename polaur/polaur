@@ -35,15 +35,16 @@ show_title() {
 	curl -s "${polaur_url}" | sed 's/Asset 1//g' > /tmp/polaur
 
 	# title and description
-	#title=$( cat /tmp/polaur | grep -E '<title>' | sed -e 's/<[^>]*>//g' | awk '{$1=$1}1' ) 
+	#title=$( cat /tmp/polaur | grep -E '<title>' | sed -e 's/<[^>]*>//g' | awk '{$1=$1}1' )
 	#desc=$( cat /tmp/polaur | grep -E 'class="org.description"' | sed -e 's/<[^>]*>//g' | awk '{$1=$1}1' )
-	title=$( grep -E '<title>' /tmp/polaur | sed -e 's/<[^>]*>//g' | awk '{$1=$1}1' ) 
-	desc=$( grep -E 'class="org.description"' /tmp/polaur | sed -e 's/<[^>]*>//g' | awk '{$1=$1}1' )
+	title=$( grep -E '<title>' /tmp/polaur | sed -e 's/<[^>]*>//g' | awk '{$1=$1}1' )
+	# desc=$( grep -E 'class="org.description"' /tmp/polaur | sed -e 's/<[^>]*>//g' | awk '{$1=$1}1' )
+	desc=$( grep -E 'name="description"' /tmp/polaur | sed -e 's/.*content="//;s/">//;s/ Follow.*//g' )
 
 	clear
 	echo -e "---------------------------------------------------------------------"
 	echo -e "${title} - ${desc}"
-	echo -e "---------------------------------------------------------------------\n" 
+	echo -e "---------------------------------------------------------------------\n"
 }
 
 show_feed() {
@@ -63,8 +64,8 @@ show_feed() {
 
 list_packages() {
 	# list description and packages names to file
-	curl -s "${polaur_url}/$@" | awk NF | grep -E 'itemprop="about"|class="js-navigation-open"' -A 1 | sed -e 's/<[^>]*>//g' -e 's/README.md//g' -e 's/Files//g' -e 's/.gitignore//g' -e 's/--//g' | awk '{$1=$1}1' | awk NF > /tmp/polaur-packages
-	
+	curl -s "${polaur_url}/$@" | awk NF | grep -E 'name="description|js-navigation-open link-gray-dark"' -A 1 | sed -e 's/.*content="//;s/>"//g' -e "s/- polaur\/$@//g" -e 's/<[^>]*>//g' -e 's/README.md//g' -e 's/Files//g' -e 's/.gitignore//g' -e 's/--//;s/ ">//g' | awk '{$1=$1}1' | awk NF > /tmp/polaur-packages
+
 	# put descriptions to $repoDesc, and packages names to array pkgNames
 	pkgNames=()
 	n=1; while IFS= read -r line || [[ "$line" ]]; do
@@ -75,7 +76,7 @@ list_packages() {
 		fi
 		(( n++ ))
 	done < /tmp/polaur-packages
-	
+
 	# print header
 	echo -e "-------------------------------"
 	echo -e "$( gettext 'Wybrano: ' ) ${GREEN}$@${RESET}"
@@ -83,7 +84,7 @@ list_packages() {
 	# print packages list
 	columns=$(tput cols)
 
-	if [[ "${columns}" -le 120 ]]; then 
+	if [[ "${columns}" -le 120 ]]; then
 		devider=2
 	elif [[ "${columns}" -ge 170 ]]; then
 		devider=4
@@ -173,7 +174,7 @@ show_repositories() {
 		done
 		echo -e "${YELLOW}q${RESET}. $(gettext 'Zakończ')"
 		read -rsn 1 k
-		
+
 		case "$k" in
 			"q")
 				exit ;;
@@ -182,11 +183,11 @@ show_repositories() {
 					# print list of available packages
 					clear
 					list_packages ${repoNames[$(( $k-1 ))]}
-					
+
 					echo -e "\n$(gettext 'Naciśnij dowolny przycisk, by powrócić do głównego menu lub')"
 					echo -e "${YELLOW}d${RESET}. $(gettext 'Pobierz wybrane') \t${YELLOW}a${RESET}. $(gettext 'Pobierz wszystko') \t${YELLOW}b${RESET}. $(gettext "Zbuduj wybrane") \n${YELLOW}q${RESET}. $(gettext 'Zakończ')"
 					read -rsn 1 kk
-					
+
 					echo
 					case "$kk" in
 						"q")
@@ -197,7 +198,7 @@ show_repositories() {
 							echo
 							[[ "${path}" ]] && download_path="${path}"
 							[[ ! -d "${download_path}" ]] && mkdir -p ${download_path}
-							
+
 							#[[ ! -e "/usr/bin/svn" ]] && echo -e "\n$(gettext '"svn" nie jest zainstalowane w systemie - pobieram używając "git clone')\n"
 							for choice in "${num[@]}"; do
 								if [[ $choice -gt 0 && $choice -le ${#pkgNames[@]} ]]; then
@@ -234,7 +235,7 @@ show_repositories() {
 						"a")
 							#[[ ! -e "/usr/bin/svn" ]] && echo -e "\n$(gettext '"svn" nie jest zainstalowane w systemie - pobieram używając "git clone')\n"
 							n=1; while [ $n -le ${#pkgNames[@]} ]; do
-								
+
 								list="$(gettext 'Całość')"
 								download "$n"
 								(( n++ ))
