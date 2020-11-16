@@ -1,0 +1,16 @@
+pkgbase = dooble-git
+	pkgdesc = Web browser based on QtWebEngine
+	pkgver = 2020.10.10.r19.gb362e0bb
+	pkgrel = 1
+	url = https://textbrowser.github.io/dooble/
+	arch = x86_64
+	license = BSD
+	depends = qt5-webengine
+	conflicts = dooble
+	source = git+https://github.com/textbrowser/dooble.git
+	source = dooble_pl_PL.ts
+	sha256sums = SKIP
+	sha256sums = d33fbf69206e790c59b3ad8d473672a9e4bef91b0c60fe803a412a698480e2b0
+
+pkgname = dooble-git
+
