@@ -9,13 +9,13 @@ _dev_plugins=
 ### Do not edit below this line unless you know what you're doing
 
 pkgname=psi-plus-webkit-full-git
-pkgver=1.4.1399.r1151.g2170e90
+pkgver=1.4.1555.r1151.g2170e90
 pkgrel=1
 pkgdesc="Psi+ is a powerful XMPP client (Qt, C++) designed for the XMPP power users (built with Qt 5.x and Webkit) with plugins"
 url="https://psi-plus.com"
 license=('GPL2')
 arch=('x86_64')
-depends=('qt5-base' 'qt5-webengine' 'qt5-webkit' 'qt5-multimedia' 'qt5-x11extras' 'qca-qt5'
+depends=('qt5-base' 'qt5-webengine' 'qt5-webkit' 'qt5-multimedia' 'qt5-x11extras'
 	 'libidn' 'libxss' 'qt5-svg' 'hunspell' 'qtkeychain' 'http-parser')
 makedepends=('git' 'cmake' 'libotr' 'tidy' 'libsignal-protocol-c')
 optdepends=('libotr: for OTR plugin'
@@ -65,9 +65,9 @@ prepare() {
 
 build() {
   if [ -n "$_dev_plugins" ]; then
-  cmake -B build -S psi -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DPSI_PLUS=ON -DCHAT_TYPE=WEBKIT -DENABLE_PLUGINS=ON -DBUILD_DEV_PLUGINS=ON ..
+  cmake -B build -S psi -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUNDLED_USRSCTP=ENABLE -DBUNDLED_QCA=ENABLE -DPSI_PLUS=ON -DCHAT_TYPE=WEBKIT -DENABLE_PLUGINS=ON -DBUILD_DEV_PLUGINS=ON ..
   else
-  cmake -B build -S psi -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DPSI_PLUS=ON -DCHAT_TYPE=WEBKIT -DENABLE_PLUGINS=ON ..
+  cmake -B build -S psi -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUNDLED_USRSCTP=ENABLE -DBUNDLED_QCA=ENABLE -DPSI_PLUS=ON -DCHAT_TYPE=WEBKIT -DENABLE_PLUGINS=ON ..
   fi
   cmake --build build
 }
