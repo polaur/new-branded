@@ -1,0 +1,17 @@
+pkgbase = qqc2-breeze-style-git
+	pkgdesc = Breeze inspired QQC2 Style
+	pkgver = r31.3e40876
+	pkgrel = 1
+	url = https://community.kde.org/plasma/qqc2-Breeze-style
+	arch = x86_64
+	groups = kf5
+	license = LGPL
+	makedepends = extra-cmake-modules
+	makedepends = git
+	depends = kirigami2
+	depends = kiconthemes
+	source = git+https://invent.kde.org/plasma/qqc2-breeze-style.git
+	sha256sums = SKIP
+
+pkgname = qqc2-breeze-style-git
+

@@ -1,0 +1,32 @@
+# Maintainer: Antonio Rojas <arojas@archlinux.org>
+
+pkgname=qqc2-breeze-style-git
+pkgver=r31.3e40876
+pkgrel=1
+pkgdesc='Breeze inspired QQC2 Style'
+arch=(x86_64)
+url='https://community.kde.org/plasma/qqc2-Breeze-style'
+license=(LGPL)
+groups=(kf5)
+depends=(kirigami2 kiconthemes)
+makedepends=(extra-cmake-modules git)
+source=("git+https://invent.kde.org/plasma/qqc2-breeze-style.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd ${pkgname%-*}
+  ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  )
+}
+
+build() {
+  cmake -B build -S ${pkgname%-*} \
+    -DBUILD_TESTING=OFF
+  cmake --build build
+}
+
+package() {
+  DESTDIR="$pkgdir" cmake --install build
+}
