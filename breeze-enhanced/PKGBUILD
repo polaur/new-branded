@@ -3,35 +3,26 @@
 # Maintainer: Jan Neumann <neum dot ja at gmail dot com>
 
 pkgname=breeze-enhanced
-pkgver=5.18.1
+pkgver=5.20 #5.20 is the same as 5.19
 pkgrel=1
 pkgdesc='A fork of KDE Breeze decoration with additional options'
 arch=('x86_64')
 url='https://github.com/tsujan/BreezeEnhanced'
 license=('GPL3')
-depends=(fftw kdecoration)
-makedepends=(git extra-cmake-modules kconfigwidgets kwindowsystem)
+depends=(kwindowsystem kconfigwidgets)
+makedepends=(extra-cmake-modules)
 optdepends=(kwindowsystem kconfigwidgets kvantum)
 conflicts=(breeze-enhanced-git)
-source=("git+${url}.git")
-sha256sums=('SKIP')
+source=("https://github.com/tsujan/BreezeEnhanced/archive/V5.19.tar.gz")
+sha256sums=('228b04f17100bdb6e630d6df4c7796826008a48b67beac3155869b9a9c761db2')
 
-prepare() {
-    mkdir -p build
-    }
-    
 build() {
-    cd build
-    cmake ../BreezeEnhanced \
-            -DCMAKE_INSTALL_PREFIX=/usr \
-            -DCMAKE_BUILD_TYPE=Release \
-            -DKDE_INSTALL_LIBDIR=lib \
-            -DBUILD_TESTING=OFF \
-            -DKDE_INSTALL_USE_QT_SYS_PATHS=ON
-    make
+  cmake -B build -S BreezeEnhanced-5.19 \
+    -DBUILD_TESTING=OFF
+  cmake --build build
 }
 
 package() {
-    cd build
-    make DESTDIR="$pkgdir" install        
+  DESTDIR="$pkgdir" cmake --install build
 }
+
