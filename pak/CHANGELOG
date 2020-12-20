@@ -328,3 +328,8 @@
 	pak -NP: better URLs parsing
 	Fixed: pak -Li/-Lu/-Lr/-Ld
 	Redone: pak -SsP searches in package names and descriptions
+
+5.1.7 (December 20, 2020)
+	Added: print PKGBUILD before installing from POLAUR (requested by LinGruby)
+	Changed: pak --vcs, new way to list VCS packages
+	Fixed: pak news-arch
