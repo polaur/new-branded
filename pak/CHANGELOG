@@ -333,3 +333,6 @@
 	Added: print PKGBUILD before installing from POLAUR (requested by LinGruby)
 	Changed: pak --vcs, new way to list VCS packages
 	Fixed: pak news-arch
+
+5.1.8 (December 21, 2020)
+	pak -m: fixed upstream bug in reflector
