@@ -335,4 +335,7 @@
 	Fixed: pak news-arch
 
 5.1.8 (December 21, 2020)
-	pak -m: fixed upstream bug in reflector
+	pak -m: fixed upstream bug in reflector's mirrorlist (issued by robson)
+
+5.1.9 (January 11, 2021)
+	NEW: pak -Sll (alias to --list-by-repos)
