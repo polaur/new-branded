@@ -1,22 +1,21 @@
 # Maintainer: pavbaranov <pavbaranov at gmail dot com>
 
 pkgname=skanpage-git
-pkgver=r9.730a125
+pkgver=r48.b265d4c
 pkgrel=1
 pkgdesc='Multipage document scanner application'
 arch=('x86_64')
 url='https://invent.kde.org/sars/skanpage.git'
 license=('GPL')
-depends=('libksane' 'qt5-declarative' 'kxmlgui')
+depends=('libksane' 'kxmlgui')
 #optdepends=('')
 makedepends=('git' 'extra-cmake-modules')
-source=("git+https://invent.kde.org/sars/skanpage.git"
-"skanpage.desktop")
-sha256sums=('SKIP'
-            '888a9571a0ce049bdf14181796997cc18941276f898fef2d1393c9fa43bd240e')
+source=("git+https://invent.kde.org/astippich/skanpage.git")
+# Alternatywnie rozwijany skanpage z OCR jest pod: https://invent.kde.org/smitpatil/skanpage
+sha256sums=('SKIP')
 
 pkgver() {
-  cd "${pkgname%-*}"
+  cd ${pkgname%-*}
   ( set -o pipefail
     git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
     printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
@@ -24,18 +23,12 @@ pkgver() {
 }
 
 build() {
-  cd ${pkgname%-*}/src
-
-  mkdir build && cd build
-  cmake -DCMAKE_INSTALL_PREFIX=/usr \
-        -DCMAKE_BUILD_TYPE=Release ..
-  make 
+  cmake -B build -S ${pkgname%-*} \
+    -DBUILD_TESTING=OFF \
+    -DCMAKE_BUILD_TYPE=Release 
+  cmake --build build
 }
 
 package() {
-  cd ${pkgname%-*}/src/build
-
-  make DESTDIR=${pkgdir} install
-  mkdir -p "$pkgdir/usr/share/applications/"
-  cp $srcdir/skanpage.desktop $pkgdir/usr/share/applications/
+  DESTDIR="$pkgdir" cmake --install build
 }

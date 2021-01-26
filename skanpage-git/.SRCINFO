@@ -1,6 +1,6 @@
 pkgbase = skanpage-git
 	pkgdesc = Multipage document scanner application
-	pkgver = r9.730a125
+	pkgver = r48.b265d4c
 	pkgrel = 1
 	url = https://invent.kde.org/sars/skanpage.git
 	arch = x86_64
@@ -8,12 +8,8 @@ pkgbase = skanpage-git
 	makedepends = git
 	makedepends = extra-cmake-modules
 	depends = libksane
-	depends = qt5-declarative
 	depends = kxmlgui
-	source = git+https://invent.kde.org/sars/skanpage.git
-	source = skanpage.desktop
+	source = git+https://invent.kde.org/astippich/skanpage.git
 	sha256sums = SKIP
-	sha256sums = 888a9571a0ce049bdf14181796997cc18941276f898fef2d1393c9fa43bd240e
 
 pkgname = skanpage-git
-
