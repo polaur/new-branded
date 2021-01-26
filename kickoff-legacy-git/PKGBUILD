@@ -1,0 +1,31 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+
+pkgname=kickoff-legacy-git
+pkgver=r2.a18be12
+pkgrel=1
+pkgdesc="Kickoff launcher before redesign in 5.21 (GIT Version)"
+arch=('any')
+url='https://store.kde.org/p/1468103/'
+license=('GPL3')
+makedepends=(git extra-cmake-modules)
+depends=(plasma-framework)
+source=('git+https://invent.kde.org/mikeljohnson/kickoff-legacy.git')
+sha256sums=('SKIP')
+
+pkgver() {
+  cd ${pkgname%-*}
+  ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  )
+}
+
+build() {
+  cmake -B build -S ${pkgname%-*} \
+    -DBUILD_TESTING=OFF
+  cmake --build build
+}
+
+package() {
+  DESTDIR="$pkgdir" cmake --install build
+}

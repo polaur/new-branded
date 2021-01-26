@@ -1,0 +1,14 @@
+pkgbase = kickoff-legacy-git
+	pkgdesc = Kickoff launcher before redesign in 5.21 (GIT Version)
+	pkgver = r2.a18be12
+	pkgrel = 1
+	url = https://store.kde.org/p/1468103/
+	arch = any
+	license = GPL3
+	makedepends = git
+	makedepends = extra-cmake-modules
+	depends = plasma-framework
+	source = git+https://invent.kde.org/mikeljohnson/kickoff-legacy.git
+	sha256sums = SKIP
+
+pkgname = kickoff-legacy-git
