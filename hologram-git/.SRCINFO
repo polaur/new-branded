@@ -1,0 +1,17 @@
+pkgbase = hologram-git
+	pkgdesc = Kirigami video player
+	pkgver = r180.b877776
+	pkgrel = 1
+	url = https://invent.kde.org/ahiemstra/hologram
+	arch = x86_64
+	license = FDL1.2
+	license = GPL2
+	license = LGPL
+	makedepends = git
+	makedepends = extra-cmake-modules
+	depends = kirigami2
+	depends = baloo
+	source = git+https://invent.kde.org/ahiemstra/hologram.git
+	sha256sums = SKIP
+
+pkgname = hologram-git
