@@ -1,4 +1,4 @@
-# Maintanier: pavbaranov <pavbaranov at gmail dot com>
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
 
 pkgname=hologram-git
 pkgver=r180.b877776
@@ -23,7 +23,7 @@ pkgver() {
 build() {
   cmake -B build -S ${pkgname%-*} \
     -DBUILD_TESTING=OFF \
-    -DCMAKE_BUILD_TYPE=Release 
+    -DCMAKE_BUILD_TYPE=Release
   cmake --build build
 }
 
