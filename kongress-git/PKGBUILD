@@ -1,0 +1,31 @@
+# Maintainer: Piotr Gorski <lucjan.lucjanov@gmail.com>
+
+pkgname=kongress-git
+pkgver=1.0.r162.gf5eceec
+pkgrel=1
+pkgdesc="Companion application for conferences"
+arch=('x86_64')
+url='https://invent.kde.org/utilities/kongress'
+license=('GPL')
+depends=('ki18n' 'kcalendarcore' 'kdbusaddons' 'knotifications'
+         'hicolor-icon-theme')
+makedepends=('git')
+provides=('kongress')
+conflicts=('kongress')
+source=('git+https://anongit.kde.org/kongress.git')
+sha1sums=('SKIP')
+
+pkgver() {
+  cd kongress
+  _ver="$(cat CMakeLists.txt | grep -m1 'project(kongress VERSION' | cut -d '"' -f2 | tr - .)"
+  echo "${_ver}.r$(git rev-list --count HEAD).g$(git rev-parse --short HEAD)"
+}
+
+build() {
+  cmake -B build -S kongress
+  cmake --build build
+}
+
+package() {
+  DESTDIR="$pkgdir" cmake --install build
+}
