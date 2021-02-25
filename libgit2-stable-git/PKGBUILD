@@ -5,7 +5,7 @@
 
 pkgname=libgit2-stable-git
 _pkgname=libgit2
-pkgver=1.0.1.r0.g0ced29612
+pkgver=1.1.0.r2.g20c9fc916
 pkgrel=1
 epoch=1
 pkgdesc='A linkable library for Git'
@@ -16,7 +16,7 @@ makedepends=('cmake' 'libssh2' 'python' 'git')
 provides=('libgit2' 'libgit2.so')
 conflicts=('libgit2')
 license=('GPL2')
-source=("git://github.com/libgit2/libgit2#branch=maint/v1.0"
+source=("git://github.com/libgit2/libgit2#branch=maint/v1.1"
         'libgit2-0.99.0-remove_http-parse_incompatible_tests.patch')
 sha256sums=('SKIP'
             '0a597176a551dfe8dda56a46362ff1ef614928206a162d78fdf2d3074c9273ca')
