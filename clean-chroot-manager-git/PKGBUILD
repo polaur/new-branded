@@ -4,7 +4,7 @@
 pkgname='clean-chroot-manager-git'
 _pkgname='clean-chroot-manager'
 pkgver=2.212.0.g7e0ebd1
-pkgrel=1
+pkgrel=2
 pkgdesc='Wrapper scripts for managing clean chroots (64-bit and 32-bit).'
 arch=('any')
 url='https://github.com/graysky2/clean-chroot-manager'
