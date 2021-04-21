@@ -339,3 +339,10 @@
 
 5.1.9 (January 11, 2021)
 	NEW: pak -Sll (alias to --list-by-repos)
+
+5.2 (April 21, 2021)
+	NEW: -SU as a replacement for -Syu
+	pak -Syu now is being passed directly to pacman
+	pak -Ls: more precise searching
+	Added: support for IgnorePkg to POLAUR part
+	Fixed: -NA arch news parsing
