@@ -346,3 +346,7 @@
 	pak -Ls: more precise searching
 	Added: support for IgnorePkg to POLAUR part
 	Fixed: -NA arch news parsing
+
+5.2.1 (May 05, 2021)
+	Fixed: program terminates when makedepends are being kept after successful build (issued by pavbaranov #archlinux.org.pl)
+	NEW: bash/zsh completions for polaur repo-names
