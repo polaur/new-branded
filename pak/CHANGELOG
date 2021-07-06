@@ -350,3 +350,8 @@
 5.2.1 (May 05, 2021)
 	Fixed: program terminates when makedepends are being kept after successful build (issued by pavbaranov #archlinux.org.pl)
 	NEW: bash/zsh completions for polaur repo-names
+
+5.3 (July 06, 2021)
+	NEW: --list-remote; fzf based list of available packages from repositories
+	NEW: --list-local; fzf based list of installed packages (a.k.a. --list)
+	Removed forcing of pacman-git when --vcs
