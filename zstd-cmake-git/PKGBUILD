@@ -1,0 +1,52 @@
+# Maintainer: Piotr Górski <lucjan.lucjanov@gmail.com>
+# Contributor: Johan Förberg <johan@forberg.se>
+
+pkgname=zstd-cmake-git
+_pkgname=zstd
+pkgver=1.5.0.r8953.g6a258043
+pkgrel=1
+pkgdesc='A fast and efficient compression algorithm.'
+arch=('x86_64')
+url='https://github.com/facebook/zstd'
+license=('BSD' 'GPL2')
+depends=('glibc' 'gcc-libs' 'zlib' 'xz' 'lz4')
+makedepends=('git' 'gtest' 'cmake')
+conflicts=('zstd')
+provides=('zstd' 'libzstd.so')
+# Use the dev branch by default; upstream merges only full releases to master.
+source=('git://github.com/facebook/zstd.git#branch=dev')
+md5sums=('SKIP')
+
+pkgver() {
+    cd $_pkgname
+    # git describe
+    # git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g;s/^v//g'
+
+    # other
+    _ver="$(cat lib/zstd.h | grep -m3 -e _MAJOR -e _MINOR -e _RELEASE | grep -o "[[:digit:]]*" | paste -sd'.')"
+    echo "${_ver}.r$(git rev-list --count HEAD).g$(git rev-parse --short HEAD)"
+}
+
+build() {
+   cd $_pkgname
+   cmake -B ../builddir \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_INSTALL_LIBDIR=lib build/cmake
+   cmake --build ../builddir
+   make -C contrib/pzstd
+}
+
+check() {
+   cd $_pkgname
+   make check
+   make -C contrib/pzstd test
+}
+
+package() {
+   cd $_pkgname
+   DESTDIR="${pkgdir}" cmake --install ../builddir
+   install -Dm755 contrib/pzstd/pzstd "${pkgdir}/usr/bin/pzstd"
+   install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+   DESTDIR="${pkgdir}" cmake --install ../builddir
+}
