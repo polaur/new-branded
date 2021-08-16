@@ -1,0 +1,32 @@
+# Maintainer: nycko123 <nycko123 at google>
+
+pkgname=url-collector-qt5
+_pkgname=UrlCollector
+pkgver=1.6
+pkgrel=1
+pkgdesc="Program for create text-based DB of web links."
+arch=('x86_64')
+depends=('qt5-base')
+url="https://github.com/TechnoMag82/UrlCollector.git"
+license=('GPL')
+
+source=("${_pkgname}-${pkgver}.tar.gz::https://github.com/TechnoMag82/UrlCollector/archive/refs/tags/v${pkgver}.tar.gz")
+
+sha512sums=('fc8cbe32c10e31b033937dd32b0c1f5c52b6a12096a956c31ea963609dcfa7a71acb8f4e1a975ea5bd09f32aeba4f321121c15e59db3de73a4591d4ca035a387')
+
+prepare(){
+	cd "${srcdir}/${_pkgname}-${pkgver}"
+	lrelease-qt5 main_ru.ts
+	qmake-qt5 -makefile
+}
+
+build(){
+	cd "${srcdir}/${_pkgname}-${pkgver}"
+	make
+}
+
+package(){
+	install -Dm755 "${srcdir}/${_pkgname}-${pkgver}/UrlCol" "${pkgdir}/usr/bin/urlcol"
+	install -Dm644 "${srcdir}/${_pkgname}-${pkgver}/package/urlcollector/usr/share/applications/urlcollector.desktop" "${pkgdir}/usr/share/applications/urlcollector.desktop"
+	install -Dm644 "${srcdir}/${_pkgname}-${pkgver}/package/urlcollector/usr/share/pixmaps/urlcollector.png" "${pkgdir}/usr/share/pixmaps/urlcollector.png"
+}

@@ -1,0 +1,12 @@
+pkgbase = url-collector-qt5
+	pkgdesc = Program for create text-based DB of web links.
+	pkgver = 1.6
+	pkgrel = 1
+	url = https://github.com/TechnoMag82/UrlCollector.git
+	arch = x86_64
+	license = GPL
+	depends = qt5-base
+	source = UrlCollector-1.6.tar.gz::https://github.com/TechnoMag82/UrlCollector/archive/refs/tags/v1.6.tar.gz
+	sha512sums = fc8cbe32c10e31b033937dd32b0c1f5c52b6a12096a956c31ea963609dcfa7a71acb8f4e1a975ea5bd09f32aeba4f321121c15e59db3de73a4591d4ca035a387
+
+pkgname = url-collector-qt5
