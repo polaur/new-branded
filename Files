@@ -1,0 +1,512 @@
+.
+├── android-file-transfer-linux
+│   └── PKGBUILD
+├── black-maia-icon-theme
+│   ├── Black-Maia.tar.xz
+│   └── PKGBUILD
+├── blue-aurora-icon-theme
+│   ├── Blue-Aurora.tar.xz
+│   └── PKGBUILD
+├── blue-maia-icon-theme
+│   ├── Blue-Maia.tar.xz
+│   └── PKGBUILD
+├── breeze2000-kwin-decoration-git
+│   └── PKGBUILD
+├── breezeblurred-kwin-decoration-git
+│   └── PKGBUILD
+├── breeze-chameleon-icon-theme
+│   └── PKGBUILD
+├── breeze-enhanced
+│   └── PKGBUILD
+├── breeze-rainbow-folders
+│   ├── BreezeRainbowFolders.tar.gz
+│   └── PKGBUILD
+├── brother-mfct910dw
+│   ├── brother-eula.txt
+│   ├── brother-mfct910dw.install
+│   ├── fix_lp.patch
+│   └── PKGBUILD
+├── calligra-git-polish-language-pack
+│   ├── calligra-git-polish-language-pack.tar.gz
+│   └── PKGBUILD
+├── capacitytester-git
+│   └── PKGBUILD
+├── clamav-gui
+│   ├── ClamAV-GUI-0.4.2.tgz
+│   ├── clamav-gui-pl_PL.patch
+│   ├── clamav-gui-pl_PL.qm
+│   ├── clamav-gui-pl_PL.ts
+│   ├── PKGBUILD
+│   └── Qt5.15.patch
+├── clean-chroot-manager-git
+│   ├── ccm.install
+│   └── PKGBUILD
+├── clevit
+│   └── PKGBUILD
+├── cloudconnector
+│   └── PKGBUILD
+├── configure-wifi-git
+│   └── PKGBUILD
+├── currencyconverter
+│   └── PKGBUILD
+├── digikamplugins-demo-git
+│   └── PKGBUILD
+├── disass
+│   └── PKGBUILD
+├── dkms-git
+│   ├── 0001-Revert-Make-newly-installed-modules-available-immedi.patch
+│   ├── dkms.install
+│   ├── hook.install
+│   ├── hook.remove
+│   ├── hook.sh
+│   ├── hook.upgrade
+│   └── PKGBUILD
+├── draco-desktop
+│   └── PKGBUILD
+├── draco-desktop-git
+│   └── PKGBUILD
+├── ds2048
+│   ├── ds2048_pl.ts
+│   └── PKGBUILD
+├── dukto-qt5-git
+│   └── PKGBUILD
+├── elf-dissector-git
+│   └── PKGBUILD
+├── extra
+│   └── PKGBUILD
+├── falkon-git-polish-language-pack
+│   ├── falkon-git-polish-language-pack.tar.gz
+│   └── PKGBUILD
+├── feff
+│   └── PKGBUILD
+├── Files
+├── gaia-markdown-git
+│   └── PKGBUILD
+├── gdb-stable-git
+│   └── PKGBUILD
+├── gimagereader-qt5-git
+│   └── PKGBUILD
+├── gitolite-git
+│   ├── gitolite-sysusers.conf
+│   ├── gitolite-tmpfiles.conf
+│   └── PKGBUILD
+├── glabels-qt-git
+│   └── PKGBUILD
+├── goldfinch
+│   └── PKGBUILD
+├── green-aurora-icon-theme
+│   ├── Green-Aurora.tar.xz
+│   └── PKGBUILD
+├── green-maia-icon-theme
+│   ├── Green-Maia.tar.xz
+│   └── PKGBUILD
+├── grey-aurora-icon-theme
+│   ├── Grey-Aurora.tar.xz
+│   └── PKGBUILD
+├── grey-maia-iron-theme-git
+│   ├── Grey-Maia.tar.xz
+│   └── PKGBUILD
+├── hidpi-fixer-git
+│   └── PKGBUILD
+├── hologram-git
+│   └── PKGBUILD
+├── intel-ucode-git
+│   └── PKGBUILD
+├── iucode-tool-git
+│   └── PKGBUILD
+├── kaidan-stable-git
+│   └── PKGBUILD
+├── kdbg
+│   └── PKGBUILD
+├── kded_rotation-git
+│   └── PKGBUILD
+├── kde-easy-scan-git
+│   └── PKGBUILD
+├── kgtk-kf5-git
+│   └── PKGBUILD
+├── kickoff-legacy-git
+│   └── PKGBUILD
+├── kiofuse-kf5-git
+│   └── PKGBUILD
+├── kittehplayer-git
+│   └── PKGBUILD
+├── kmousens-git
+│   └── PKGBUILD
+├── kmtail
+│   └── PKGBUILD
+├── koi-git
+│   └── PKGBUILD
+├── kongress-git
+│   └── PKGBUILD
+├── kooka-git
+│   └── PKGBUILD
+├── kookbook
+│   └── PKGBUILD
+├── kookbook-git
+│   └── PKGBUILD
+├── kopete-git
+│   └── PKGBUILD
+├── kpatience
+│   └── PKGBUILD
+├── kpeoplevcard-git
+│   └── PKGBUILD
+├── kprinter5-git
+│   └── PKGBUILD
+├── kregexpeditor-git
+│   └── PKGBUILD
+├── krename-stable-git
+│   └── PKGBUILD
+├── ksystraycmd-git
+│   └── PKGBUILD
+├── ktimetracker-git
+│   └── PKGBUILD
+├── lab-git
+│   └── PKGBUILD
+├── libgit2-stable-git
+│   ├── libgit2-0.99.0-remove_http-parse_incompatible_tests.patch
+│   └── PKGBUILD
+├── libmygpo-qt5
+│   ├── 0001-Set-Qt-suffix-for-target-file-names-in-Mygpo-qtConfi.patch
+│   ├── 0002-set-qt-version-suffix-on-library-name.patch
+│   └── PKGBUILD
+├── linuxdeployqt-git
+│   └── PKGBUILD
+├── lmdb-git
+│   ├── lmdb.pc
+│   └── PKGBUILD
+├── lumina-pdf
+│   └── PKGBUILD
+├── manpager
+│   └── PKGBUILD
+├── marble-maps
+│   └── PKGBUILD
+├── mercurial-stable-hg
+│   ├── mercurial.profile
+│   └── PKGBUILD
+├── mesa-demos-git
+│   ├── LICENSE
+│   └── PKGBUILD
+├── meson-stable-git
+│   ├── arch-meson
+│   ├── PKGBUILD
+│   └── skip-test.diff
+├── mkinitcpio-zstd
+│   ├── 0001-Add-zstd-module-decompression.patch
+│   ├── 0002-Silence-messages-in-zstd-format.patch
+│   ├── 0003-Add-rm-flag-to-minimize-the-size-of-initramfs.patch
+│   ├── 0004-Merge-mkinitcpio-libalpm-scripts-into-one.patch
+│   ├── mkinitcpio.install
+│   └── PKGBUILD
+├── mnotes-git
+│   └── PKGBUILD
+├── nedit-ng
+│   └── PKGBUILD
+├── nomad-firewall-git
+│   └── PKGBUILD
+├── nx-audio-applet
+│   └── PKGBUILD
+├── nx-clock-applet
+│   └── PKGBUILD
+├── nx-networkmanagement-applet
+│   └── PKGBUILD
+├── nx-notifications-applet
+│   └── PKGBUILD
+├── nx-simplemenu-applet
+│   └── PKGBUILD
+├── nx-systemtray-applet
+│   └── PKGBUILD
+├── o20
+│   ├── o20_pl.ts
+│   └── PKGBUILD
+├── o20-git
+│   ├── o20_pl.ts
+│   └── PKGBUILD
+├── olympic-fonts
+│   ├── LICENSE
+│   └── PKGBUILD
+├── openvpn-stable-git
+│   └── PKGBUILD
+├── orange-aurora-icon-theme
+│   ├── Orange-Aurora.tar.xz
+│   └── PKGBUILD
+├── orange-maia-icon-theme
+│   ├── Orange-Maia.tar.xz
+│   └── PKGBUILD
+├── otf-galyon
+│   ├── otf-galyon.install
+│   └── PKGBUILD
+├── otf-gravity
+│   ├── otf-gravity.install
+│   └── PKGBUILD
+├── otf-great-victorian
+│   ├── otf-great-victorian.install
+│   └── PKGBUILD
+├── otf-scriptina-pro
+│   ├── otf-scriptina-pro.install
+│   └── PKGBUILD
+├── otf-vice-city-sans
+│   ├── otf-vice-city-sans.install
+│   └── PKGBUILD
+├── pak
+│   ├── CHANGELOG
+│   └── PKGBUILD
+├── pak-git
+│   └── PKGBUILD
+├── photivo-gimpless-git
+│   └── PKGBUILD
+├── photoflare
+│   └── PKGBUILD
+├── pixsrt
+│   └── PKGBUILD
+├── plasma5-appimage-extensions
+│   └── PKGBUILD
+├── plasma5-applets-inlineclock
+│   └── PKGBUILD
+├── plasma5-applets-ultimategmailfeed
+│   └── PKGBUILD
+├── plasma5-applets-ultimategmailfeed-git
+│   └── PKGBUILD
+├── plasma5-charlie-customization-pack
+│   ├── Charlie.colors
+│   └── PKGBUILD
+├── plasma5-gently-customization-pack
+│   ├── Gently.colors
+│   ├── gently-master.tar.gz
+│   └── PKGBUILD
+├── plasma5-monochrome-customization-git
+│   └── PKGBUILD
+├── plasma5-theme-autumn-breeze
+│   └── PKGBUILD
+├── plasma5-theme-breezeblurred
+│   └── PKGBUILD
+├── plasma5-theme-charlie-git
+│   ├── PKGBUILD
+│   └── plasma5-theme-charlie-git-r2.89a809c-1-any.pkg.tar
+├── plasma5-theme-diamond
+│   └── PKGBUILD
+├── plasma5-theme-diamond-black-edition
+│   └── PKGBUILD
+├── plasma5-theme-dowlas
+│   └── PKGBUILD
+├── plasma5-theme-elegant
+│   └── PKGBUILD
+├── plasma5-theme-elune
+│   └── PKGBUILD
+├── plasma5-theme-evanescence
+│   └── PKGBUILD
+├── plasma5-theme-google+
+│   └── PKGBUILD
+├── plasma5-theme-helium
+│   └── PKGBUILD
+├── plasma5-theme-jomada-style
+│   └── PKGBUILD
+├── plasma5-theme-ktrans
+│   ├── KTrans-0.98.tar.gz
+│   └── PKGBUILD
+├── plasma5-theme-mild
+│   └── PKGBUILD
+├── plasma5-theme-opal
+│   └── PKGBUILD
+├── plasma5-theme-psion
+│   └── PKGBUILD
+├── plasma5-theme-serious
+│   └── PKGBUILD
+├── plasma5-theme-skism-git
+│   └── PKGBUILD
+├── plasma5-theme-smoother
+│   └── PKGBUILD
+├── plasma5-theme-softglass
+│   └── PKGBUILD
+├── plasma5-transdarc-theme
+│   └── PKGBUILD
+├── plasma-disks-git
+│   └── PKGBUILD
+├── plasma-firewall-git
+│   └── PKGBUILD
+├── plasma-systemmonitor-git
+│   └── PKGBUILD
+├── plasma-theme-switcher
+│   └── PKGBUILD
+├── plasma-theme-switcher-git
+│   └── PKGBUILD
+├── plasmatube-git
+│   └── PKGBUILD
+├── polaur
+│   ├── PKGBUILD
+│   └── polaur
+├── polkit-admin
+│   └── PKGBUILD
+├── polkit-explorer-qt5
+│   └── PKGBUILD
+├── psi-clean-full-git
+│   └── PKGBUILD
+├── psi-clean-git
+│   └── PKGBUILD
+├── psi-full-git
+│   └── PKGBUILD
+├── psi-plus-clean-full-git
+│   └── PKGBUILD
+├── psi-plus-clean-git
+│   └── PKGBUILD
+├── psi-plus-full-git
+│   └── PKGBUILD
+├── psi-plus-webkit-full-git
+│   └── PKGBUILD
+├── psi-plus-webkit-git
+│   └── PKGBUILD
+├── psi-webkit-full-git
+│   └── PKGBUILD
+├── psi-webkit-git
+│   └── PKGBUILD
+├── python-pygit2-git
+│   └── PKGBUILD
+├── qjson-qt5
+│   └── PKGBUILD
+├── qlam-git
+│   └── PKGBUILD
+├── qmarkdowntextedit
+│   ├── PKGBUILD
+│   └── qmarkdowntextedit_pl.qm
+├── qnetload-git
+│   └── PKGBUILD
+├── qnetstatview
+│   └── PKGBUILD
+├── qqc2-breeze-style-git
+│   └── PKGBUILD
+├── qt5-webkit-git
+│   └── PKGBUILD
+├── qtchat
+│   └── PKGBUILD
+├── qtcmd2-git
+│   └── PKGBUILD
+├── qt-fsarchiver
+│   └── PKGBUILD
+├── qt-fsarchiver-terminal
+│   └── PKGBUILD
+├── qtrsed-git
+│   └── PKGBUILD
+├── quick-usb-formatter-git
+│   ├── kf5.patch
+│   └── PKGBUILD
+├── README.md
+├── rebuild-detector-git
+│   └── PKGBUILD
+├── red-aurora-icon-theme
+│   ├── PKGBUILD
+│   └── Red-Aurora.tar.xz
+├── red-maia-icon-theme
+│   ├── PKGBUILD
+│   └── Red-Maia.tar.xz
+├── rewir-fonts
+│   ├── LICENSE
+│   └── PKGBUILD
+├── ruqola
+│   └── PKGBUILD
+├── simply-circles-icons-git
+│   └── PKGBUILD
+├── skanpage-git
+│   └── PKGBUILD
+├── smaragd-git
+│   └── PKGBUILD
+├── spebro-git
+│   └── PKGBUILD
+├── strawberry-qt5
+│   └── PKGBUILD
+├── supermenu-git
+│   └── PKGBUILD
+├── swapusage
+│   └── PKGBUILD
+├── sylfilter
+│   └── PKGBUILD
+├── symmy-git
+│   └── PKGBUILD
+├── syslinux-git
+│   ├── 0002-gfxboot-menu-label.patch
+│   ├── 0004-gnu-efi-from-arch.patch
+│   ├── 0005-gnu-efi-version-compatibility.patch
+│   ├── 0016-strip-gnu-property.patch
+│   ├── 0017-single-load-segment.patch
+│   ├── 0018-prevent-pow-optimization.patch
+│   ├── 0025-reproducible-build.patch
+│   ├── PKGBUILD
+│   ├── syslinux.cfg
+│   ├── syslinux.install
+│   └── syslinux-install_update
+├── thedocument
+│   └── PKGBUILD
+├── ttf-caviar-dreams
+│   ├── PKGBUILD
+│   └── ttf-caviar-dreams.install
+├── ttf-clemente
+│   ├── PKGBUILD
+│   └── ttf-clemente.install
+├── ttf-comfortaa
+│   ├── PKGBUILD
+│   └── ttf-comfortaa.install
+├── ttf-coolvetica
+│   ├── PKGBUILD
+│   └── ttf-coolvetica.install
+├── ttf-eurofurence
+│   ├── PKGBUILD
+│   └── ttf-eurofurence.install
+├── ttf-khatija-calligraphy
+│   ├── PKGBUILD
+│   └── ttf-khatija-calligraphy.install
+├── ttf-miama
+│   ├── PKGBUILD
+│   └── ttf-miama.install
+├── ttf-nocturne
+│   ├── LICENSE
+│   └── PKGBUILD
+├── ttf-orkney
+│   ├── 45-orkney.conf
+│   ├── 90-tt-orkney.conf
+│   └── PKGBUILD
+├── ttf-rounded-elegance
+│   ├── PKGBUILD
+│   └── ttf-rounded-elegance.install
+├── ttf-simple-print
+│   ├── PKGBUILD
+│   └── ttf-simple-print.install
+├── ttf-storia-sans
+│   ├── 45-storia-sans.conf
+│   ├── 90-tt-storia-sans.conf
+│   ├── OFL-FAQ.txt
+│   └── PKGBUILD
+├── ttf-symphonie-cat
+│   ├── PKGBUILD
+│   └── ttf-symphonie-cat.install
+├── ttf-webos
+│   └── PKGBUILD
+├── uksmd-git
+│   └── PKGBUILD
+├── uksmstat-git
+│   └── PKGBUILD
+├── uksmtools-git
+│   └── PKGBUILD
+├── url-collector-qt5
+│   └── PKGBUILD
+├── videomass
+│   └── PKGBUILD
+├── violet-aurora-icon-theme
+│   ├── PKGBUILD
+│   └── Violet-Aurora.tar.xz
+├── violet-maia-icon-theme
+│   ├── PKGBUILD
+│   └── Violet-Maia.tar.xz
+├── viper-browser-git
+│   └── PKGBUILD
+├── wireguard-dkms-git
+│   └── PKGBUILD
+├── wireguard-tools-git
+│   └── PKGBUILD
+├── wvdial-gui
+│   └── PKGBUILD
+├── xhtml-wysiwyg-qeditor
+│   └── PKGBUILD
+├── youtube-dlc-git
+│   └── PKGBUILD
+└── zstd-cmake-git
+    └── PKGBUILD
+
+208 directories, 301 files
