@@ -1,20 +1,28 @@
 # Maintainer: nycko123 <nycko123 at google>
+# Upstream: Iliya aka TechnoMag <vendor7 at yandex>
 
 pkgname=url-collector-qt5
 _pkgname=UrlCollector
 pkgver=1.6
-pkgrel=1
+pkgrel=2
 pkgdesc="Program for create text-based DB of web links."
 arch=('x86_64')
 depends=('qt5-base')
 url="https://github.com/TechnoMag82/UrlCollector.git"
 license=('GPL')
 
-source=("${_pkgname}-${pkgver}.tar.gz::https://github.com/TechnoMag82/UrlCollector/archive/refs/tags/v${pkgver}.tar.gz")
+source=("${_pkgname}-${pkgver}.tar.gz::https://github.com/TechnoMag82/UrlCollector/archive/refs/tags/v${pkgver}.tar.gz"
+	"pre1.7_check-if-link-exists-in-db.patch")
 
-sha512sums=('fc8cbe32c10e31b033937dd32b0c1f5c52b6a12096a956c31ea963609dcfa7a71acb8f4e1a975ea5bd09f32aeba4f321121c15e59db3de73a4591d4ca035a387')
+sha512sums=('fc8cbe32c10e31b033937dd32b0c1f5c52b6a12096a956c31ea963609dcfa7a71acb8f4e1a975ea5bd09f32aeba4f321121c15e59db3de73a4591d4ca035a387'
+            'c3b24b7b57ca77f8797e3005331a193b782c894ac52d842299dbb624568bd194a784198bf886ab33ff96289495d10e9d2a5d006833ab7748a5056af556723e6f')
 
 prepare(){
+	cd "${srcdir}"
+	# enhancements by diatryba
+	msg2 "Patching with diatryba's patch"
+	patch -Np1 < "../pre1.7_check-if-link-exists-in-db.patch"
+
 	cd "${srcdir}/${_pkgname}-${pkgver}"
 	lrelease-qt5 main_ru.ts
 	qmake-qt5 -makefile
