@@ -7,15 +7,15 @@ pkgbase=gdb-stable-git
 # of gdb (for arm/avr/...)
 pkgname=(gdb-stable-git gdb-common-stable-git)
 _pkgname=binutils-gdb
-pkgver=10.1.r103282.f3fb4a77f29
-pkgrel=2
+pkgver=11.1.r107017.3d3a078e98c
+pkgrel=1
 pkgdesc='The GNU Debugger'
 arch=(x86_64)
 url='http://www.gnu.org/software/gdb/'
 license=(GPL3)
 makedepends=(glibc gcc-libs texinfo python guile ncurses expat xz mpfr source-highlight
              readline git)
-source=(git://sourceware.org/git/binutils-gdb.git#branch=gdb-10-branch)
+source=(git://sourceware.org/git/binutils-gdb.git#branch=gdb-11-branch)
 sha1sums=('SKIP')
 
 pkgver() {
