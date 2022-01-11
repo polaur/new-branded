@@ -16,7 +16,7 @@ optdepends=('hub')
 makedepends=('go' 'git')
 conflicts=('lab')
 provides=('lab')
-source=("git://github.com/zaquestion/lab")
+source=("git+https://github.com/zaquestion/lab")
 sha512sums=('SKIP')
 
 pkgver() {

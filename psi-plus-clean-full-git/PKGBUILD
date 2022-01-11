@@ -26,10 +26,10 @@ provides=("psi-plus=$pkgver" "psi-plus-git=$pkgver" "psi-plus-qt5-git=$pkgver"
 conflicts=('psi-plus' 'psi-plus-qt5-git' 'psi-plus-webkit-qt5-git' 'psi-plus-webkit-git' 
            'psi-plus-git' 'psi-plus-plugins' 'psi-plus-plugins-git' 'psi-plus-full-git'
            'psi-plus-full-webkit-git')
-source=('git://github.com/psi-im/psi.git'
-        'git://github.com/psi-im/iris.git'
-        'git://github.com/psi-im/libpsi.git'
-        'git://github.com/psi-im/plugins')
+source=('git+https://github.com/psi-im/psi.git'
+        'git+https://github.com/psi-im/iris.git'
+        'git+https://github.com/psi-im/libpsi.git'
+        'git+https://github.com/psi-im/plugins')
 sha256sums=('SKIP'
             'SKIP'
             'SKIP'

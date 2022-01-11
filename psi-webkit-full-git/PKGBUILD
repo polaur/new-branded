@@ -23,10 +23,10 @@ optdepends=('libotr: for OTR plugin'
             'libsignal-protocol-c: for omemoplugin')
 provides=('psi' 'psi-qt5-git' 'psi-git')
 conflicts=('psi' 'psi-qt5-git' 'psi-git')
-source=('git://github.com/psi-im/psi.git'
-        'git://github.com/psi-im/iris.git'
-        'git://github.com/psi-im/libpsi.git'
-        'git://github.com/psi-im/plugins')
+source=('git+https://github.com/psi-im/psi.git'
+        'git+https://github.com/psi-im/iris.git'
+        'git+https://github.com/psi-im/libpsi.git'
+        'git+https://github.com/psi-im/plugins')
 sha256sums=('SKIP'
             'SKIP'
             'SKIP'

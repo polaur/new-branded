@@ -13,7 +13,7 @@ depends=('devtools>=20190821-1' 'rsync' 'libarchive>=3.3.3' 'pacman>=5.2')
 makedepends=('git')
 conflicts=('clean-chroot-manager')
 replaces=('clean-chroot-manager')
-source=("git://github.com/graysky2/clean-chroot-manager")
+source=("git+https://github.com/graysky2/clean-chroot-manager")
 sha256sums=('SKIP')
 install=ccm.install
 

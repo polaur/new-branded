@@ -20,7 +20,7 @@ backup=('etc/dkms/framework.conf')
 install=$_pkgname.install
 conflicts=('dkms')
 provides=('dkms')
-source=('git://github.com/dell/dkms'
+source=('git+https://github.com/dell/dkms'
         'hook.install'
         'hook.remove'
         'hook.upgrade'

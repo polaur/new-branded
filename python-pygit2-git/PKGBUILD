@@ -14,7 +14,7 @@ depends=("libgit2>=1:0.99.0" 'python-cffi' 'python-cached-property')
 makedepends=('python-cffi' 'python-setuptools' 'git')
 provides=('python-libgit2' "python-pygit2=$pkgver")
 conflicts=('python-libgit2' 'python-pygit2')
-source=("git://github.com/libgit2/pygit2")
+source=("git+https://github.com/libgit2/pygit2")
 sha256sums=('SKIP')
 
 pkgver() {

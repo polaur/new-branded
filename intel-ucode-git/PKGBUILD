@@ -13,7 +13,7 @@ makedepends=('iucode-tool')
 conflicts=('intel-ucode')
 provides=('intel-ucode')
 license=('custom')
-source=("git://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files")
+source=("git+https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files")
 sha256sums=('SKIP')
 
 pkgver() {

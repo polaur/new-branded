@@ -14,7 +14,7 @@ license=('GPL2')
 depends=('git' 'perl' 'openssh')
 conflicts=('gitolite')
 provides=('gitolite')
-source=("git://github.com/sitaramc/gitolite"
+source=("git+https://github.com/sitaramc/gitolite"
         'gitolite-sysusers.conf'
         'gitolite-tmpfiles.conf')
 sha256sums=('SKIP'

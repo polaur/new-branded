@@ -10,7 +10,7 @@ url="https://github.com/webosose/webos-fonts"
 license=('custom:OFL')
 arch=('any')
 depends=('fontconfig')
-source=("git://github.com/webosose/webos-fonts")
+source=("git+https://github.com/webosose/webos-fonts")
 sha256sums=('SKIP')
 
 pkgver() {

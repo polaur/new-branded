@@ -13,7 +13,7 @@ depends=('parallel' 'pacutils' 'pacman-contrib')
 makedepends=('git')
 conflicts=('rebuild-detector')
 provides=('rebuild-detector')
-source=("git://github.com/maximbaz/${_pkgname}")
+source=("git+https://github.com/maximbaz/${_pkgname}")
 sha256sums=('SKIP')
 
 pkgver() {
