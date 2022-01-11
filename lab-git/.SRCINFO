@@ -11,7 +11,7 @@ pkgbase = lab-git
 	optdepends = hub
 	provides = lab
 	conflicts = lab
-	source = git://github.com/zaquestion/lab
+	source = git+https://github.com/zaquestion/lab
 	sha512sums = SKIP
 
 pkgname = lab-git

@@ -15,7 +15,7 @@ pkgbase = clean-chroot-manager-git
 	depends = pacman>=5.2
 	conflicts = clean-chroot-manager
 	replaces = clean-chroot-manager
-	source = git://github.com/graysky2/clean-chroot-manager
+	source = git+https://github.com/graysky2/clean-chroot-manager
 	sha256sums = SKIP
 
 pkgname = clean-chroot-manager-git

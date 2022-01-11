@@ -6,7 +6,7 @@ pkgbase = ttf-webos-fonts-git
 	arch = any
 	license = custom:OFL
 	depends = fontconfig
-	source = git://github.com/webosose/webos-fonts
+	source = git+https://github.com/webosose/webos-fonts
 	sha256sums = SKIP
 
 pkgname = ttf-webos-fonts-miso-git

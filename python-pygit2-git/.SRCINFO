@@ -15,7 +15,7 @@ pkgbase = python-pygit2-git
 	provides = python-pygit2=1.0.3.r30.ge002614
 	conflicts = python-libgit2
 	conflicts = python-pygit2
-	source = git://github.com/libgit2/pygit2
+	source = git+https://github.com/libgit2/pygit2
 	sha256sums = SKIP
 
 pkgname = python-pygit2-git

@@ -13,7 +13,7 @@ pkgbase = rebuild-detector-git
 	depends = pacman-contrib
 	provides = rebuild-detector
 	conflicts = rebuild-detector
-	source = git://github.com/maximbaz/rebuild-detector
+	source = git+https://github.com/maximbaz/rebuild-detector
 	sha256sums = SKIP
 
 pkgname = rebuild-detector-git
