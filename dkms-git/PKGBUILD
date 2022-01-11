@@ -4,8 +4,8 @@
 
 pkgname=dkms-git
 _pkgname=dkms
-pkgver=2.8.2.r2.g0a05477
-pkgrel=2
+pkgver=3.0.3.r0.ga35e26b
+pkgrel=1
 pkgdesc='Dynamic Kernel Modules System'
 arch=('any')
 url='http://linux.dell.com/dkms/'
@@ -24,14 +24,12 @@ source=('git+https://github.com/dell/dkms'
         'hook.install'
         'hook.remove'
         'hook.upgrade'
-        'hook.sh'
-        '0001-Revert-Make-newly-installed-modules-available-immedi.patch')
+        'hook.sh')
 md5sums=('SKIP'
-         'be9784c5c5bbc92fa2d18f0b5f4cd0c4'
-         'fa7e55e109140f556d8db2410b2a9d7c'
-         'a9adccf8af1354dda5f2507011dca849'
-         'e048f2b7e7b59131eb9a21ca44ae418d'
-         'd3b91ef709f567a375f4bbdbd3291d2b')
+         'd9464f5c9817403f77b46057d5c17f51'
+         'ccc93521183dc8e92ff5debb4a129bdb'
+         '36c210fa76794ef9d7b23b7bb9c053f4'
+         'cd5cb976861f71031e3abc06545ab6eb')
 
 pkgver() {
   cd dkms
@@ -52,7 +50,7 @@ prepare() {
 
   # /usr move
   msg2 '/usr move patching'
-  for i in dkms{,_framework.conf,.bash-completion,.8,_common.postinst}; do
+  for i in dkms{.in,.8.in,_framework.conf,.bash-completion,_common.postinst} sign_helper.sh; do
     sed -ri 's,/lib/modules,/usr/lib/modules,g' "$i"
   done
 }
@@ -67,16 +65,19 @@ package() {
   install -D -m 644 hook.upgrade "$pkgdir/usr/share/libalpm/hooks/70-dkms-upgrade.hook"
   install -D -m 644 hook.remove "$pkgdir/usr/share/libalpm/hooks/71-dkms-remove.hook"
   # hook helper
-  install -D -m 755 hook.sh "$pkgdir/usr/lib/dkms/alpm-hook"
+  install -D -m 755 hook.sh "$pkgdir/usr/share/libalpm/scripts/dkms"
   # upstream installer
   cd dkms
-  # we don't need kconf files, so we install them outside $pkgdir
+  # we don't need kconf files and libdir is only for debian stuff, so
+  # we install them outside of $pkgdir
   make \
     DESTDIR="$pkgdir" \
     SBIN="$pkgdir/usr/bin" \
     BASHDIR="$pkgdir/usr/share/bash-completion/completions" \
-    KCONF="$srcdir"/kconf \
+    KCONF="$srcdir"/trash \
+    LIBDIR="$srcdir"/trash \
     install
 }
+
 
 # vim:set ts=2 sw=2 et:
