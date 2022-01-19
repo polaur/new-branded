@@ -2,7 +2,7 @@
 # Contributor: nontlikeuname
 
 pkgname=meson-stable-git
-pkgver=0.60.2.1.g3074bb14a
+pkgver=0.61.1.0.g41c650a04
 pkgrel=1
 pkgdesc="SCons-like build system that use python as a front-end language and Ninja as a building backend"
 arch=(any)
@@ -18,7 +18,7 @@ checkdepends=('gcc-objc' 'vala' 'rust' 'gcc-fortran' 'mono' 'boost' 'qt5-base' '
               'python-pytest-xdist' 'python2-setuptools') # 'cuda')
 provides=('meson')
 conflicts=('meson')
-source=('git+https://github.com/mesonbuild/meson#branch=0.60'
+source=('git+https://github.com/mesonbuild/meson#branch=0.61'
         'arch-meson'
         'skip-test.diff')
 md5sums=('SKIP'
