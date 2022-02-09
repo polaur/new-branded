@@ -355,3 +355,7 @@
 	NEW: --list-remote; fzf based list of available packages from repositories
 	NEW: --list-local; fzf based list of installed packages (a.k.a. --list)
 	Removed forcing of pacman-git when --vcs
+
+5.4 (February 09, 2022)
+	Fixed: IgnorePkg support for AUR/POLAUR
+	Modified: freenode links to libera
