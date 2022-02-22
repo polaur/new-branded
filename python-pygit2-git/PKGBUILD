@@ -4,17 +4,18 @@
 # Contributor: Daniel Micay <danielmicay@gmail.com>
 
 pkgname=python-pygit2-git
-pkgver=1.0.3.r30.ge002614
-pkgrel=3
+pkgver=1.8.0.r7.gc65d472
+pkgrel=1
 pkgdesc='Python bindings for libgit2'
 arch=('x86_64')
 url="https://github.com/libgit2/pygit2"
 license=('GPL2')
 depends=("libgit2>=1:0.99.0" 'python-cffi' 'python-cached-property')
 makedepends=('python-cffi' 'python-setuptools' 'git')
+checkdepends=('python-pytest-runner')
 provides=('python-libgit2' "python-pygit2=$pkgver")
 conflicts=('python-libgit2' 'python-pygit2')
-source=("git+https://github.com/libgit2/pygit2")
+source=("git://github.com/libgit2/pygit2")
 sha256sums=('SKIP')
 
 pkgver() {
@@ -23,10 +24,26 @@ pkgver() {
   git describe --long --tags | sed 's/v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
+prepare() {
+
+  cd "pygit2"
+  # Disable tests that do stuff online
+  sed -i -e '/has_network/s/True/False/' test/utils.py
+}
+
 build() {
   
   cd "pygit2"
-  LANG=en_US.UTF8 python setup.py build
+  python setup.py build
+}
+
+check() {
+
+  cd "pygit2"
+
+  # Skipped tests fail because upstream test suite hasn't 100% adapted to libgit2 1.4.x
+  python setup.py pytest \
+         --addopts "--deselect test/test_diff.py::test_diff_patch --deselect test/test_diff.py::test_diff_patchid"
 }
 
 package() {
