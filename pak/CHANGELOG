@@ -359,3 +359,6 @@
 5.4 (February 09, 2022)
 	Fixed: IgnorePkg support for AUR/POLAUR
 	Modified: freenode links to libera
+
+5.4.1 (April 08, 2022)
+	Fixed: fetching polaur repo names, due to changes in github
