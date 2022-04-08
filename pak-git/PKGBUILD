@@ -5,7 +5,7 @@
 
 pkgname=pak-git
 epoch=1
-pkgver=4.3.r1.g2792cd4
+pkgver=5.4.1.r1.g921d26a
 pkgrel=1
 pkgdesc="Simple pacman wrapper, AUR and POLAUR helper"
 arch=('any')
