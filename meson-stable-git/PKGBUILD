@@ -2,7 +2,7 @@
 # Contributor: nontlikeuname
 
 pkgname=meson-stable-git
-pkgver=0.62.0.1.g5c2d3b204
+pkgver=0.62.1.0.gbb91cea0d
 pkgrel=1
 pkgdesc="SCons-like build system that use python as a front-end language and Ninja as a building backend"
 arch=(any)
@@ -20,12 +20,10 @@ provides=('meson')
 conflicts=('meson')
 source=('git+https://github.com/mesonbuild/meson#branch=0.62'
         'arch-meson'
-        '0001-Skip-broken-tests.patch'
-        '0002-gtk-doc-fixes.patch')
+        '0001-Skip-broken-tests.patch')
 md5sums=('SKIP'
          'b85d62ecca0729f0c5168f759a2ff37d'
-         'fd02c6fa1e898581ddf98f81157c2ab3'
-         'dba51c5e78f800d712e233e25d68feb5')
+         'fd02c6fa1e898581ddf98f81157c2ab3')
 
 pkgver() {
 	cd meson
@@ -37,9 +35,6 @@ prepare() {
         cd meson
         
         patch -Np1 -i ../0001-Skip-broken-tests.patch
-
-        # Fix building glib2
-        patch -Np1 -i ../0002-gtk-doc-fixes.patch
 }
 
 build() {
