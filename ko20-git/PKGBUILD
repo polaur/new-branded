@@ -1,0 +1,43 @@
+# Maintainer: pavbaranov <pavbaranov at gmail dot com>
+# Contributor: Damian N. <nycko123 at gmail>
+
+pkgname=ko20-git
+pkgver=0.5.r31.gb5bed3f
+pkgrel=1
+pkgdesc="Office suite written in QtQuick; 020 successor (GIT version)"
+arch=('x86_64')
+url="https://gitlab.com/abstractsoftware/ko20-core"
+license=('GPL2')
+depends=(qt5-svg ktextwidgets hicolor-icon-theme syntax-highlighting karchive qt5-quickcontrols2 kconfig kcoreaddons sonnet kiconthemes karchive kwidgetsaddons)
+makedepends=(qt5-tools extra-cmake-modules kwidgetsaddons sonnet git)
+
+source=("git+https://gitlab.com/abstractsoftware/ko20-core")
+		# "ko20_pl.ts")
+sha256sums=('SKIP')
+
+pkgver() {
+    cd ko20-core
+      git describe --long | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+    }
+
+prepare() {
+#	cp ../ko20_pl.ts "${srcdir}/ko20-core/src/of20/i18n/trans/"
+#	echo 'lupdate $FLIST -ts ko20_pl.ts -target-language pl' >> "${srcdir}/ko20-core/src/of20/i18n/trans/genlang.sh"
+#	sed -i 's/languages\/ko20_ja.ts/languages\/ko20_ja.ts languages\/ko20_pl.ts/g' "${srcdir}/ko20-core/CMakeLists.txt"
+#	sed -i 's/<\/qresource>/<file>dev\/ko20_pl.qm<\/file>\n<\/qresource>/g' "${srcdir}/ko20-core/src/of20/i18n/translations.qrc"
+    mkdir -p build
+    }
+
+build() {
+    cd build
+        cmake ../ko20-core \
+            -DCMAKE_INSTALL_PREFIX=/usr \
+            -DKDE_INSTALL_LIBDIR=lib \
+            -DCMAKE_BUILD_TYPE=Release
+    make
+    }
+
+package() {
+    cd build
+        make DESTDIR="$pkgdir/" install
+    }
