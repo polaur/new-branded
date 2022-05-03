@@ -363,5 +363,6 @@
 5.4.1 (April 08, 2022)
 	Fixed: fetching polaur repo names, due to changes in github
 
-5.4.2 (May 03, 2022)
+5.4.2.1 (May 03, 2022)
 	Fixed: makepkg_flags
+	Fixed: mv .sig files to pacman pkg cache along with the built package
