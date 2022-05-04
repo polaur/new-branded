@@ -64,7 +64,7 @@ show_feed() {
 
 list_packages() {
 	# list description and packages names to file
-	curl -s "${polaur_url}/$@" | awk NF | grep -E 'name="description|js-navigation-open link-gray-dark"' -A 1 | sed -e 's/.*content="//;s/>"//g' -e "s/- polaur\/$@//g" -e 's/<[^>]*>//g' -e 's/README.md//g' -e 's/Files//g' -e 's/.gitignore//g' -e 's/--//;s/ ">//g' | awk '{$1=$1}1' | awk NF > /tmp/polaur-packages
+	curl -s "${polaur_url}/$@" | awk NF | grep -E 'name="description|js-navigation-open Link--primary"' -A 1 | sed -e 's/.*content="//;s/>"//g' -e "s/- polaur\/$@//g" -e 's/<[^>]*>//g' -e 's/README.md//g' -e 's/Files//g' -e 's/.gitignore//g' -e 's/--//;s/ ">//g' | awk '{$1=$1}1' | awk NF > /tmp/polaur-packages
 
 	# put descriptions to $repoDesc, and packages names to array pkgNames
 	pkgNames=()
@@ -148,11 +148,13 @@ build() {
 
 show_repositories() {
 	# downloading POLAUR main github site
-	curl -s "${polaur_url}" | sed 's/Asset 1//g' > /tmp/polaur
+	# curl -s "${polaur_url}" | sed 's/Asset 1//g' > /tmp/polaur
+	curl -sL "${polaur_url}" > /tmp/polaur
 
 	# put available repos to file
 	#cat /tmp/polaur | grep -E 'itemprop="name codeRepository"' | awk -F'"' '{print $8}' | cut -b 9- > /tmp/polaur-repos
-	awk '/codeRepository/{f=NR} f && NR==f+1' /tmp/polaur | awk '{$1=$1}1' > /tmp/polaur-repos
+	# awk '/codeRepository/{f=NR} f && NR==f+1' /tmp/polaur | awk '{$1=$1}1' > /tmp/polaur-repos
+	grep '<a itemprop="name codeRepository"' /tmp/polaur | sed -e 's/.*href="\/polaur\///g' | awk -F'"' '{print $1}' | grep -vE "wip|delta|debug" | sort > /tmp/polaur-repos
 
 	# put repos names to array repoNames
 	repoNames=()
