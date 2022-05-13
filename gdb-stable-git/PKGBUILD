@@ -7,7 +7,7 @@ pkgbase=gdb-stable-git
 # of gdb (for arm/avr/...)
 pkgname=(gdb-stable-git gdb-common-stable-git)
 _pkgname=binutils-gdb
-pkgver=11.1.r107017.3d3a078e98c
+pkgver=12.1.90.r109353.6d279a2c3d4
 pkgrel=1
 pkgdesc='The GNU Debugger'
 arch=(x86_64)
@@ -15,20 +15,12 @@ url='http://www.gnu.org/software/gdb/'
 license=(GPL3)
 makedepends=(glibc gcc-libs texinfo python guile ncurses expat xz mpfr source-highlight
              readline git)
-source=(git://sourceware.org/git/binutils-gdb.git#branch=gdb-11-branch)
+source=(git://sourceware.org/git/binutils-gdb.git#branch=gdb-12-branch)
 sha1sums=('SKIP')
 
 pkgver() {
   cd ${srcdir}/${_pkgname}
-  # There are locations in source with versions, but they don't seem to be updated as often as the ChangeLog.  i.e. In GDB 7.10.1, the *only* mention of that version is in ChangeLog.
-  echo $(cat gdb/ChangeLog | grep GDB | grep -i released | head -n 1 | sed "s| released\.$||" | sed "s|.*GDB ||").r$(git rev-list --count HEAD).$(git rev-parse --short HEAD)
-}
-
-prepare() {
-  cd ${srcdir}/${_pkgname}
-
-  # hack! - libiberty configure tests for header files using "$CPP $CPPFLAGS"
-  sed -i "/ac_cpp=/s/\$CPPFLAGS/\$CPPFLAGS -O2/" libiberty/configure
+  echo $(cat gdb/version.in | grep -o "[[:digit:]]*" | paste -sd'.').r$(git rev-list --count HEAD).$(git rev-parse --short HEAD)
 }
 
 build() {
