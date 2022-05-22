@@ -370,3 +370,6 @@
 5.5 (May 22, 2022)
 	Modified: keyrings packages are updated first before others
 	Revert: -Syu and -SU are combined again
+
+5.5.1 (May 22, 2022)
+	Fixed: -S* flags
