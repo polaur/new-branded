@@ -366,3 +366,7 @@
 5.4.2.1 (May 03, 2022)
 	Fixed: makepkg_flags
 	Fixed: mv .sig files to pacman pkg cache along with the built package
+
+5.5 (May 22, 2022)
+	Modified: keyrings packages are updated first before others
+	Revert: -Syu and -SU are combined again
