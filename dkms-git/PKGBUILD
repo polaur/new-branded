@@ -4,7 +4,7 @@
 
 pkgname=dkms-git
 _pkgname=dkms
-pkgver=3.0.3.r0.ga35e26b
+pkgver=3.0.3.r7.ga72c648
 pkgrel=1
 pkgdesc='Dynamic Kernel Modules System'
 arch=('any')
@@ -50,7 +50,7 @@ prepare() {
 
   # /usr move
   msg2 '/usr move patching'
-  for i in dkms{.in,.8.in,_framework.conf,.bash-completion,_common.postinst} sign_helper.sh; do
+  for i in dkms{.in,.8.in,_framework.conf,.bash-completion,_common.postinst}; do
     sed -ri 's,/lib/modules,/usr/lib/modules,g' "$i"
   done
 }
