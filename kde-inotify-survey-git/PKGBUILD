@@ -1,0 +1,29 @@
+# Maintainer: pavbaranov
+
+pkgname=kde-inotify-survey-git
+pkgver=r19.7f56dea
+pkgrel=1
+pkgdesc="Tooling for monitoring inotify limits and informing the user when they have been or about to be reached."
+arch=('x86_64')
+url='https://invent.kde.org/system/kde-inotify-survey'
+license=('GPL')
+depends=('ki18n' 'kauth' 'knotifications' 'kdbusaddons')
+makedepends=('git')
+provides=('kde-inotify-survey')
+conflicts=('kde-inotify-survey')
+source=('git+https://invent.kde.org/system/kde-inotify-survey')
+sha1sums=('SKIP')
+
+pkgver() {
+    cd ${pkgname%-*}
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  cmake -B build -S kde-inotify-survey
+  cmake --build build
+}
+
+package() {
+  DESTDIR="$pkgdir" cmake --install build
+}
