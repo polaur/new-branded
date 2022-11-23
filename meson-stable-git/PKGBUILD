@@ -2,8 +2,8 @@
 # Contributor: nontlikeuname
 
 pkgname=meson-stable-git
-pkgver=0.63.3.0.g6b7fc8dc4
-pkgrel=2
+pkgver=0.64.1.0.ge000aa113
+pkgrel=1
 pkgdesc="SCons-like build system that use python as a front-end language and Ninja as a building backend"
 arch=(any)
 url="http://mesonbuild.com/"
@@ -18,21 +18,14 @@ checkdepends=('gcc-objc' 'vala' 'rust' 'gcc-fortran' 'mono' 'boost' 'qt5-base' '
               'python-pytest-xdist' 'ldc' 'rust-bindgen' 'cuda' 'hotdoc')
 provides=('meson')
 conflicts=('meson')
-source=('git+https://github.com/mesonbuild/meson#branch=0.63'
-        'arch-meson'
-        '0001-Skip-broken-tests.patch')
+source=('git+https://github.com/mesonbuild/meson#branch=0.64'
+        'arch-meson')
 md5sums=('SKIP'
-         'b85d62ecca0729f0c5168f759a2ff37d'
-         'fd02c6fa1e898581ddf98f81157c2ab3')
+         'b85d62ecca0729f0c5168f759a2ff37d')
 
 pkgver() {
     cd meson
     git describe --tags --long | sed 's/^v//;s/-/./g'
-}
-         
-prepare() {
-    cd meson
-    patch -Np1 -i ../0001-Skip-broken-tests.patch
 }
 
 build() {
