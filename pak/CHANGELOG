@@ -387,3 +387,6 @@
 	Removed: asp support
 	Changed: visuals in --vcs, -G, -GF
 	Updated: manpages, polish translation
+
+5.6.1 (August 28, 2023)
+	pak.conf: user setting in $XDG_CONFIG_HOME overwrites defaults
