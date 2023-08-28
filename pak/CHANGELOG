@@ -390,3 +390,6 @@
 
 5.6.1 (August 28, 2023)
 	pak.conf: user setting in $XDG_CONFIG_HOME overwrites defaults
+
+5.6.2 (August 28, 2023)
+	pak.conf: no_args_help
