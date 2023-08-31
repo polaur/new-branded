@@ -393,3 +393,6 @@
 
 5.6.2 (August 28, 2023)
 	pak.conf: no_args_help
+
+5.6.3 (August 31, 2023)
+	Fixed: print correct path for downloaded PKGBUILD when pkgname!=pkgbase (issued by ludovick forum.archlinux.org.pl)
