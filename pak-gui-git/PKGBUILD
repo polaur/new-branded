@@ -1,7 +1,7 @@
 # Maintainer: Piotr Gorski <lucjan.lucjanov@gmail.com>
 
 pkgname=pak-gui-git
-pkgver=1.0.0.r269.g03ff54c
+pkgver=1.0.0.r274.ga55f44d
 pkgrel=1
 pkgdesc="Pacman wrapper with GUI"
 arch=('x86_64')
@@ -22,7 +22,7 @@ optdepends=('devtools: download sources from Arch Linux repositories'
             'gcovr: tests')
 provides=('pak-gui')
 conflicts=('pak-gui')
-source=('git+https://github.com/CachyOS/pak-gui')
+source=('git+https://github.com/juliagoda/pak-gui')
 sha1sums=('SKIP')
 
 pkgver() {
