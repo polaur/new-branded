@@ -1,15 +1,15 @@
 # Maintainer: Piotr Gorski <lucjan.lucjanov@gmail.com>
 
 pkgname=pak-gui-git
-pkgver=1.0.0.r274.ga55f44d
+pkgver=1.0.0.r288.gf386b56
 pkgrel=1
 pkgdesc="Pacman wrapper with GUI"
 arch=('x86_64')
 url='https://github.com/CachyOS/pak-gui'
 license=('GPL')
-depends=('pacman-contrib' 'pak-git' 'kdesu' 'kwidgetsaddons'
-         'ksshaskpass' 'qt5-base' 'qt5-charts' 'kcoreaddons'
-         'kcrash' 'kdbusaddons' 'ki18n' 'kxmlgui' 'knotifications'
+depends=('pacman-contrib' 'pak-git' 'kdesu5' 'kwidgetsaddons5'
+         'ksshaskpass' 'qt5-base' 'qt5-charts' 'kcoreaddons5'
+         'kcrash5' 'kdbusaddons5' 'ki18n5' 'kxmlgui5' 'knotifications5'
          'kde-cli-tools')
 makedepends=('extra-cmake-modules' 'kdoctools' 'git')
 optdepends=('devtools: download sources from Arch Linux repositories'
