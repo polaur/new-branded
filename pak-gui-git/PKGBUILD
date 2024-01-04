@@ -1,7 +1,7 @@
 # Maintainer: Piotr Gorski <lucjan.lucjanov@gmail.com>
 
 pkgname=pak-gui-git
-pkgver=1.0.0.r288.gf386b56
+pkgver=1.0.0.r299.gb324bd7
 pkgrel=1
 pkgdesc="Pacman wrapper with GUI"
 arch=('x86_64')
@@ -11,7 +11,7 @@ depends=('pacman-contrib' 'pak-git' 'kdesu5' 'kwidgetsaddons5'
          'ksshaskpass' 'qt5-base' 'qt5-charts' 'kcoreaddons5'
          'kcrash5' 'kdbusaddons5' 'ki18n5' 'kxmlgui5' 'knotifications5'
          'kde-cli-tools')
-makedepends=('extra-cmake-modules' 'kdoctools' 'git')
+makedepends=('extra-cmake-modules' 'kdoctools5' 'git')
 optdepends=('devtools: download sources from Arch Linux repositories'
             'git: download sources from POLAUR'
             'auracle-git: AUR support'
