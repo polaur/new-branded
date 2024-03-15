@@ -1,0 +1,35 @@
+# Maintainer: Damian N. <nycko123 at gmail>
+
+pkgname='libsystemd-so'
+pkgver="255.4"
+pkgrel=1
+pkgdesc="libsystemd.so files"
+arch=('x86_64')
+license=('LGPL-2.1-or-later')
+url='https://www.github.com/systemd/systemd'
+provides=("libsystemd")
+source=("libsystemd-so_255.4.tar.gz")
+sha512sums=('dd343b49f619525bcd55940695f43719c8a69238ede5f66d60b1352cd9110d861768411873ebe57b811dd9bb14132b09b707e4cc1a82547caed694725a7d3ea9')
+
+package() {
+  cd "${srcdir}/lib"
+
+  local filename
+  for filename in "${PWD}"/*; do
+    # if [[ "${filename}" =~ libsystemd\.so ]]; then
+    if [[ "${filename}" =~ libsystemd\.so\.0\.38\.0 ]]; then
+      install -Dm755 "${filename##*/}" "${pkgdir}/usr/lib/${filename##*/}"
+    fi
+  done
+  cp -R "pkgconfig" "${pkgdir}/usr/lib/"
+
+
+  cd "${srcdir}/include"
+  mkdir -p "${pkgdir}/usr/include"
+  cp -R "systemd" "${pkgdir}/usr/include/systemd/"
+
+  ln -sf "/usr/lib/libsystemd.so.0.38.0" "${pkgdir}/usr/lib/libsystemd.so"
+  ln -sf "/usr/lib/libsystemd.so.0.38.0" "${pkgdir}/usr/lib/libsystemd.so.0"
+}
+
+# vim: et ts=2 sw=2
