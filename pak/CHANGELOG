@@ -397,5 +397,8 @@
 5.6.3 (August 31, 2023)
 	Fixed: print correct path for downloaded PKGBUILD when pkgname!=pkgbase (issued by ludvick forum.archlinux.org.pl)
 
-5.6.4 (February 18,2024)
+5.6.4 (February 18, 2024)
 	Fixed: broken spaces and colors when printing available updates due to changes in pacman-contrib (checkupdates)
+
+5.6.5 (March 15, 2024)
+	Fixed: polish translation (issued by ludvick forum.archlinux.org.pl)
