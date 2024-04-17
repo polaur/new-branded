@@ -402,3 +402,6 @@
 
 5.6.5 (March 15, 2024)
 	Fixed: polish translation (issued by ludvick forum.archlinux.org.pl)
+
+5.6.6 (April 17, 2024)
+	Fixed -GA download info path (issued by ludvick forum.archlinux.org.pl)
