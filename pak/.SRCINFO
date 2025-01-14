@@ -1,6 +1,6 @@
 pkgbase = pak
 	pkgdesc = Simple pacman wrapper, AUR and POLAUR helper
-	pkgver = 5.6.7
+	pkgver = 5.6.8
 	pkgrel = 1
 	epoch = 1
 	url = https://gitlab.com/nycko123/pak
@@ -23,7 +23,7 @@ pkgbase = pak
 	optdepends = libnotify: to display desktop notifications
 	conflicts = pak-git
 	backup = etc/xdg/pak.conf
-	source = https://gitlab.com/nycko123/pak/raw/master/src/pak-5.6.7.tar.gz
-	sha256sums = 06cf52c6c91684b90487d904ad4d98976e77271077fa6148158fe72e48ebd557
+	source = https://gitlab.com/nycko123/pak/raw/master/src/pak-5.6.8.tar.gz
+	sha256sums = e59c56f6aa27378c3a081d9af2690a776eb498a84ba57e601d79f4d13d17aa5d
 
 pkgname = pak
