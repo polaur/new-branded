@@ -5,7 +5,7 @@
 
 pkgname=pak
 epoch=1
-pkgver=5.6.8
+pkgver=5.7
 pkgrel=1
 pkgdesc="Simple pacman wrapper, AUR and POLAUR helper"
 arch=('any')
@@ -26,7 +26,7 @@ conflicts=(pak-git)
 
 source=("https://gitlab.com/nycko123/pak/raw/master/src/${pkgname}-${pkgver}.tar.gz")
 
-sha256sums=('e59c56f6aa27378c3a081d9af2690a776eb498a84ba57e601d79f4d13d17aa5d')
+sha256sums=('f1a671af998033255820b07b8e9b9ef0f941c3ba1598defa1524d89dd7d198e7')
 
 package(){
  install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"
@@ -49,4 +49,9 @@ package(){
  # auracle-git systemd --user service + timer
  install -Dm644 "$srcdir/systemd-services/pak-auracle.service" "$pkgdir/usr/lib/systemd/user/pak-auracle.service"
  install -Dm644 "$srcdir/systemd-services/pak-auracle.timer" "$pkgdir/usr/lib/systemd/user/pak-auracle.timer"
+ # pacman hooks
+ install -Dm644 "$srcdir/libalpm-hooks/pak-checkupdates.hook" "$pkgdir/usr/share/libalpm/hooks/pak-checkupdates.hook"
+ install -Dm644 "$srcdir/libalpm-hooks/pak-auracle.hook" "$pkgdir/usr/share/libalpm/hooks/pak-auracle.hook"
+ # set fs.protected_regular = 0
+ install -Dm644 "$srcdir/libalpm-hooks/99-pak-sysctl.conf" "$pkgdir/usr/lib/sysctl.d/99-pak-sysctl.conf"
 }

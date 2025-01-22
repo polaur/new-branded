@@ -408,3 +408,8 @@
 
 5.6.7 (June 29, 2024)
 	Fixed: libxml2 >=2.13.0: broken stdin parsing
+
+5.7 (January 22, 2025)
+	Added info when built package is being moved to the final destination
+	Updated systemd services and timers
+	Set 'fs.protected_regular = 0'
